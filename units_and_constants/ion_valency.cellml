@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<model name="ion_valences" xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#">
+    <component name="ion_valences">
+        <variable initial_value="1" name="zNa" public_interface="out" units="dimensionless"/>
+        <variable initial_value="-1" name="zCl" public_interface="out" units="dimensionless"/>
+        <variable initial_value="1" name="zK" public_interface="out" units="dimensionless"/>
+        <variable initial_value="2" name="zCa" public_interface="out" units="dimensionless"/>
+    </component>
+</model>
