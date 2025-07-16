@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<model name="BG_Kir" xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cellml="http://www.cellml.org/cellml/1.1#" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <import xlink:href="./units_and_constants/units_BG.cellml">
+        <units name="dim" units_ref="dim"/>
+        <units name="s" units_ref="s"/>
+        <units name="fmol" units_ref="fmol"/>
+        <units name="per_fmol" units_ref="per_fmol"/>
+        <units name="fmol_per_s" units_ref="fmol_per_sec"/>
+        <units name="J_per_mmol" units_ref="J_per_mmol"/>
+        <units name="J_per_K_per_mmol" units_ref="J_per_K_per_mmol"/>
+        <units name="C_per_mmol" units_ref="C_per_mmol"/>
+        <units name="pA" units_ref="pA"/>
+        <units name="pL" units_ref="pL"/>
+        <units name="mM" units_ref="mM"/>
+        <units name="fF" units_ref="fF"/>
+        <units name="L_per_mmol" units_ref="L_per_mmol"/>
+        <units name="kPa" units_ref="kPa"/>
+    </import>
+    <import xlink:href="./units_and_constants/constants_BG.cellml">
+        <component component_ref="constants" name="constants"/>
+    </import>
+    <import xlink:href="./units_and_constants/ion_valency.cellml">
+        <component component_ref="ion_valences" name="ion_valences"/>
+    </import>
+    <component name="Kir_parameters">
+        <variable initial_value="1" name="K_Kir" public_interface="out" units="per_fmol"/>
+        <variable initial_value="1" name="K_K_i" public_interface="out" units="per_fmol"/>
+        <variable initial_value="1" name="K_K_o" public_interface="out" units="per_fmol"/>
+        <variable initial_value="1" name="kappa_1" public_interface="out" units="fmol_per_s"/>
+    </component>
+    <component name="environment">
+        <variable name="t" public_interface="out" units="s"/>
+        <!-- state variable molar quantities-->
+        <variable initial_value="1" name="q_Kir" public_interface="out" units="fmol"/>
+        <!-- ion molar quantities-->
+        <variable initial_value="280" name="q_K_i" public_interface="out" units="fmol"/>
+        <variable initial_value="20" name="q_K_o" public_interface="out" units="fmol"/>
+        <!-- membrane voltage-->
+        <variable initial_value="-0.06" name="u_e_m" public_interface="out" units="volt"/>
+        <!-- fluxes-->
+        <variable name="v_q_K_i" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_q_K_o" public_interface="in" units="fmol_per_s"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_K_i</ci>
+                </apply>
+                <ci>v_q_K_i</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_K_o</ci>
+                </apply>
+                <ci>v_q_K_o</ci>
+            </apply>
+        </math>
+    </component>
+    <component name="Kir">
+        <variable name="t" public_interface="in" units="s"/>
+        <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
+        <variable name="T" public_interface="in" units="kelvin"/>
+        <variable name="F" public_interface="in" units="C_per_mmol"/>
+        <variable name="zK" public_interface="in" units="dim"/>
+        <variable name="RT" units="J_per_mmol"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>RT</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                </apply>
+            </apply>
+        </math>
+        <!-- Quantities-->
+        <variable name="q_Kir" public_interface="in" units="fmol"/>
+        <variable name="q_K_i" public_interface="in" units="fmol"/>
+        <variable name="q_K_o" public_interface="in" units="fmol"/>
+        <!-- Parameters-->
+        <variable name="K_Kir" public_interface="in" units="per_fmol"/>
+        <variable name="K_K_i" public_interface="in" units="per_fmol"/>
+        <variable name="K_K_o" public_interface="in" units="per_fmol"/>
+        <variable name="kappa_1" public_interface="in" units="fmol_per_s"/>
+        <!-- Potentials-->
+        <variable name="u_Kir" units="J_per_mmol"/>
+        <variable name="u_K_i" units="J_per_mmol"/>
+        <variable name="u_K_o" units="J_per_mmol"/>
+        <variable name="u_e_m" public_interface="in" units="volt"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>u_K_i</ci>
+                <apply>
+                    <times/>
+                    <ci>RT</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_K_i</ci>
+                            <ci>q_K_i</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_K_o</ci>
+                <apply>
+                    <times/>
+                    <ci>RT</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_K_o</ci>
+                            <ci>q_K_o</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_Kir</ci>
+                <apply>
+                    <times/>
+                    <ci>RT</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_Kir</ci>
+                            <ci>q_Kir</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+        <variable name="u_Re_1_f" units="J_per_mmol"/>
+        <variable name="u_Re_1_r" units="J_per_mmol"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>u_Re_1_f</ci>
+                <apply>
+                    <plus/>
+                    <ci>u_K_i</ci>
+                    <ci>u_Kir</ci>
+                    <apply>
+                        <times/>
+                        <ci>zK</ci>
+                        <ci>F</ci>
+                        <ci>u_e_m</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_Re_1_r</ci>
+                <apply>
+                    <plus/>
+                    <ci>u_K_o</ci>
+                    <ci>u_Kir</ci>
+                </apply>
+            </apply>
+        </math>
+        <!-- flows-->
+        <variable name="v_1" units="fmol_per_s"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>v_1</ci>
+                <apply>
+                    <times/>
+                    <ci>kappa_1</ci>
+                    <apply>
+                        <minus/>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <divide/>
+                                <ci>u_Re_1_f</ci>
+                                <ci>RT</ci>
+                            </apply>
+                        </apply>
+                        <apply>
+                            <exp/>
+                            <apply>
+                                <divide/>
+                                <ci>u_Re_1_r</ci>
+                                <ci>RT</ci>
+                            </apply>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+        <!-- net fluxes-->
+        <variable name="v_q_K_i" public_interface="out" units="fmol_per_s"/>
+        <variable name="v_q_K_o" public_interface="out" units="fmol_per_s"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>v_q_K_i</ci>
+                <apply>
+                    <minus/>
+                    <ci>v_1</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_q_K_o</ci>
+                <ci>v_1</ci>
+            </apply>
+        </math>
+    </component>
+    <connection>
+        <map_components component_1="constants" component_2="Kir"/>
+        <map_variables variable_1="R" variable_2="R"/>
+        <map_variables variable_1="T" variable_2="T"/>
+        <map_variables variable_1="F" variable_2="F"/>
+    </connection>
+    <connection>
+        <map_components component_1="ion_valences" component_2="Kir"/>
+        <map_variables variable_1="zK" variable_2="zK"/>
+    </connection>
+    <connection>
+        <map_components component_1="Kir_parameters" component_2="Kir"/>
+        <map_variables variable_1="K_Kir" variable_2="K_Kir"/>
+        <map_variables variable_1="K_K_i" variable_2="K_K_i"/>
+        <map_variables variable_1="K_K_o" variable_2="K_K_o"/>
+        <map_variables variable_1="kappa_1" variable_2="kappa_1"/>
+    </connection>
+    <connection>
+        <map_components component_1="environment" component_2="Kir"/>
+        <map_variables variable_1="t" variable_2="t"/>
+        <map_variables variable_1="q_Kir" variable_2="q_Kir"/>
+        <map_variables variable_1="q_K_i" variable_2="q_K_i"/>
+        <map_variables variable_1="q_K_o" variable_2="q_K_o"/>
+        <map_variables variable_1="u_e_m" variable_2="u_e_m"/>
+        <map_variables variable_1="v_q_K_i" variable_2="v_q_K_i"/>
+        <map_variables variable_1="v_q_K_o" variable_2="v_q_K_o"/>
+    </connection>
+</model>
