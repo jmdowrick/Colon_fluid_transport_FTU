@@ -1,0 +1,1195 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<model name="my_model" xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cellml="http://www.cellml.org/cellml/1.1#">
+    <!-- Steady state Briggs-Haldane) BG 6-state model of NKE ATPase
+ Note that volume is expressed in picoLitres (nL = 10^-9L), energy in femto-Joules (pJ = 10^-12J), 
+ molar qtys in femto-moles (pmol = 10^-12mol), concentration in milli-moles per litre (mM = pmol_per_nL), 
+ charge in nano-Coulombs (nC), voltage in milli-Volts (mV=pJ_per_nC), chemical potential in pJ_per_pmol (= J_per_mol)
+ Cell membrane capacitance of 10pF is 1e-5 nC^2/pJ -->
+    <units name="dim">
+        <unit units="dimensionless"/>
+    </units>
+    <units name="per_s">
+        <unit exponent="-1" units="second"/>
+    </units>
+    <units name="nL">
+        <unit prefix="nano" units="litre"/>
+    </units>
+    <units name="pmol">
+        <unit prefix="pico" units="mole"/>
+    </units>
+    <units name="mM">
+        <unit prefix="milli" units="mole"/>
+        <unit exponent="-1" units="litre"/>
+    </units>
+    <units name="mM_per_s">
+        <unit units="mM"/>
+        <unit exponent="-1" units="second"/>
+    </units>
+    <units name="mV">
+        <unit prefix="milli" units="volt"/>
+    </units>
+    <units name="per_pmol">
+        <unit exponent="-1" units="pmol"/>
+    </units>
+    <units name="pmol_per_s">
+        <unit units="pmol"/>
+        <unit exponent="-1" units="second"/>
+    </units>
+    <units name="pJ_per_s">
+        <unit units="pJ"/>
+        <unit exponent="-1" units="second"/>
+    </units>
+    <units name="pJ">
+        <unit prefix="pico" units="joule"/>
+    </units>
+    <units name="nC">
+        <unit prefix="nano" units="coulomb"/>
+    </units>
+    <units name="J_per_mol">
+        <unit units="joule"/>
+        <unit exponent="-1" units="mole"/>
+    </units>
+    <units name="J_per_K_per_mol">
+        <unit units="joule"/>
+        <unit exponent="-1" units="kelvin"/>
+        <unit exponent="-1" units="mole"/>
+    </units>
+    <units name="pJ_per_pmol">
+        <unit units="pJ"/>
+        <unit exponent="-1" units="pmol"/>
+    </units>
+    <units name="pJ_per_pmol_per_K">
+        <unit units="pJ"/>
+        <unit exponent="-1" units="pmol"/>
+        <unit exponent="-1" units="kelvin"/>
+    </units>
+    <units name="nC_per_pmol">
+        <unit units="nC"/>
+        <unit exponent="-1" units="pmol"/>
+    </units>
+    <units name="nC2_per_pJ">
+        <unit exponent="2" units="nC"/>
+        <unit exponent="-1" units="pJ"/>
+    </units>
+    <units name="pJ_per_nC">
+        <unit units="pJ"/>
+        <unit exponent="-1" units="nC"/>
+    </units>
+    <units name="pJ_per_nC_per_s">
+        <unit units="pJ"/>
+        <unit exponent="-1" units="nC"/>
+        <unit exponent="-1" units="second"/>
+    </units>
+    <component name="main">
+        <variable name="t" units="second"/>
+        <variable initial_value="8.314" name="R" units="pJ_per_pmol_per_K"/>
+        <variable initial_value="308" name="T" units="kelvin"/>
+        <variable initial_value="96.4853321" name="F" units="nC_per_pmol"/>
+        <variable name="RT" units="pJ_per_pmol"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>RT</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                </apply>
+            </apply>
+        </math>
+        <variable initial_value="50" name="u_e" units="pJ_per_nC"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>u_e</ci>
+                </apply>
+                <apply>
+                    <minus/>
+                    <cn cellml:units="pJ_per_nC_per_s">100</cn>
+                </apply>
+            </apply>
+        </math>
+        <variable name="e_0" units="dim"/>
+        <variable name="e_1" units="dim"/>
+        <variable name="e_2" units="dim"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>e_0</ci>
+                <apply>
+                    <exp/>
+                    <apply>
+                        <divide/>
+                        <apply>
+                            <times/>
+                            <ci>F</ci>
+                            <ci>u_e</ci>
+                        </apply>
+                        <ci>RT</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>e_1</ci>
+                <apply>
+                    <exp/>
+                    <apply>
+                        <divide/>
+                        <apply>
+                            <times/>
+                            <ci>z_1</ci>
+                            <ci>F</ci>
+                            <ci>u_e</ci>
+                        </apply>
+                        <ci>RT</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>e_2</ci>
+                <apply>
+                    <exp/>
+                    <apply>
+                        <divide/>
+                        <apply>
+                            <times/>
+                            <ci>z_2</ci>
+                            <ci>F</ci>
+                            <ci>u_e</ci>
+                        </apply>
+                        <ci>RT</ci>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+        <variable name="q_Na_o" units="pmol"/>
+        <variable name="q_Na_i" units="pmol"/>
+        <variable name="q_K_o" units="pmol"/>
+        <variable name="q_K_i" units="pmol"/>
+        <variable name="q_ATP" units="pmol"/>
+        <variable name="q_ADP" units="pmol"/>
+        <variable name="q_Pi" units="pmol"/>
+        <variable initial_value="140" name="c_Nao" units="mM"/>
+        <variable initial_value="12" name="c_Nai" units="mM"/>
+        <variable initial_value="5" name="c_Ko" units="mM"/>
+        <variable initial_value="140" name="c_Ki" units="mM"/>
+        <variable initial_value="0.001" name="c_ADP" units="mM"/>
+        <variable initial_value="10" name="c_ATP" units="mM"/>
+        <variable initial_value="0.001" name="c_Pi" units="mM"/>
+        <variable initial_value="1" name="W_o" units="nL"/>
+        <variable initial_value="1" name="W_i" units="nL"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>q_Na_o</ci>
+                <apply>
+                    <times/>
+                    <ci>c_Nao</ci>
+                    <ci>W_o</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>q_Na_i</ci>
+                <apply>
+                    <times/>
+                    <ci>c_Nai</ci>
+                    <ci>W_i</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>q_K_o</ci>
+                <apply>
+                    <times/>
+                    <ci>c_Ko</ci>
+                    <ci>W_o</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>q_K_i</ci>
+                <apply>
+                    <times/>
+                    <ci>c_Ki</ci>
+                    <ci>W_i</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>q_Pi</ci>
+                <apply>
+                    <times/>
+                    <ci>c_Pi</ci>
+                    <ci>W_i</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>q_ADP</ci>
+                <apply>
+                    <times/>
+                    <ci>c_ADP</ci>
+                    <ci>W_i</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>q_ATP</ci>
+                <apply>
+                    <times/>
+                    <ci>c_ATP</ci>
+                    <ci>W_i</ci>
+                </apply>
+            </apply>
+        </math>
+        <variable initial_value="1.73847019e-01" name="z_1" units="dim"/>
+        <variable name="z_2" units="dim"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>z_2</ci>
+                <apply>
+                    <minus/>
+                    <cn cellml:units="dim">1</cn>
+                    <ci>z_1</ci>
+                </apply>
+            </apply>
+        </math>
+        <variable name="Q_Na_o" units="dim"/>
+        <variable name="Q_Na_i" units="dim"/>
+        <variable name="Q_K_o" units="dim"/>
+        <variable name="Q_K_i" units="dim"/>
+        <variable name="Q_ATP" units="dim"/>
+        <variable name="Q_ADP" units="dim"/>
+        <variable name="Q_Pi" units="dim"/>
+        <variable initial_value="1" name="K_Ko" units="per_pmol"/>
+        <variable initial_value="1" name="K_Ki" units="per_pmol"/>
+        <variable initial_value="1" name="K_ADP" units="per_pmol"/>
+        <variable initial_value="1" name="K_ATP" units="per_pmol"/>
+        <variable initial_value="1" name="K_Nao" units="per_pmol"/>
+        <variable initial_value="1" name="K_Nai" units="per_pmol"/>
+        <variable initial_value="1" name="K_Pi" units="per_pmol"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>Q_Na_o</ci>
+                <apply>
+                    <times/>
+                    <ci>K_Nao</ci>
+                    <ci>q_Na_o</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Q_Na_i</ci>
+                <apply>
+                    <times/>
+                    <ci>K_Nai</ci>
+                    <ci>q_Na_i</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Q_K_o</ci>
+                <apply>
+                    <times/>
+                    <ci>K_Ko</ci>
+                    <ci>q_K_o</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Q_K_i</ci>
+                <apply>
+                    <times/>
+                    <ci>K_Ki</ci>
+                    <ci>q_K_i</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Q_ATP</ci>
+                <apply>
+                    <times/>
+                    <ci>K_ATP</ci>
+                    <ci>q_ATP</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Q_ADP</ci>
+                <apply>
+                    <times/>
+                    <ci>K_ADP</ci>
+                    <ci>q_ADP</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Q_Pi</ci>
+                <apply>
+                    <times/>
+                    <ci>K_Pi</ci>
+                    <ci>q_Pi</ci>
+                </apply>
+            </apply>
+        </math>
+        <variable name="A_NKE" units="dim"/>
+        <variable name="B_NKE" units="dim"/>
+        <variable name="C_NKE" units="dim"/>
+        <variable name="D_NKE" units="dim"/>
+        <variable initial_value="3" name="q_tot" units="pmol"/>
+        <variable name="v_NKE" units="pmol_per_s"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>A_NKE</ci>
+                <apply>
+                    <minus/>
+                    <apply>
+                        <times/>
+                        <apply>
+                            <power/>
+                            <apply>
+                                <divide/>
+                                <ci>Q_Na_i</ci>
+                                <ci>Q_Na_o</ci>
+                            </apply>
+                            <cn cellml:units="dim">3</cn>
+                        </apply>
+                        <apply>
+                            <divide/>
+                            <ci>Q_ATP</ci>
+                            <apply>
+                                <times/>
+                                <ci>Q_ADP</ci>
+                                <ci>Q_Pi</ci>
+                            </apply>
+                        </apply>
+                    </apply>
+                    <apply>
+                        <times/>
+                        <apply>
+                            <power/>
+                            <apply>
+                                <divide/>
+                                <ci>Q_K_i</ci>
+                                <ci>Q_K_o</ci>
+                            </apply>
+                            <cn cellml:units="dimensionless">2</cn>
+                        </apply>
+                        <ci>e_0</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>B_NKE</ci>
+                <apply>
+                    <times/>
+                    <apply>
+                        <power/>
+                        <apply>
+                            <divide/>
+                            <ci>Q_Na_i</ci>
+                            <ci>Q_Na_o</ci>
+                        </apply>
+                        <cn cellml:units="dim">3</cn>
+                    </apply>
+                    <apply>
+                        <divide/>
+                        <ci>Q_ATP</ci>
+                        <apply>
+                            <times/>
+                            <ci>Q_ADP</ci>
+                            <ci>Q_Pi</ci>
+                            <ci>e_1</ci>
+                        </apply>
+                    </apply>
+                    <apply>
+                        <plus/>
+                        <ci>gamma_4</ci>
+                        <apply>
+                            <times/>
+                            <apply>
+                                <plus/>
+                                <ci>gamma_5</ci>
+                                <apply>
+                                    <divide/>
+                                    <cn cellml:units="dim">1</cn>
+                                    <ci>Q_Pi</ci>
+                                </apply>
+                            </apply>
+                            <apply>
+                                <power/>
+                                <ci>Q_K_o</ci>
+                                <cn cellml:units="dimensionless">2</cn>
+                            </apply>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>C_NKE</ci>
+                <apply>
+                    <times/>
+                    <apply>
+                        <plus/>
+                        <apply>
+                            <divide/>
+                            <ci>gamma_1</ci>
+                            <apply>
+                                <times/>
+                                <apply>
+                                    <power/>
+                                    <ci>Q_Na_o</ci>
+                                    <cn cellml:units="dim">3</cn>
+                                </apply>
+                                <ci>Q_Pi</ci>
+                            </apply>
+                        </apply>
+                        <apply>
+                            <times/>
+                            <apply>
+                                <plus/>
+                                <apply>
+                                    <times/>
+                                    <ci>gamma_2</ci>
+                                    <ci>Q_ADP</ci>
+                                </apply>
+                                <ci>gamma_3</ci>
+                            </apply>
+                            <apply>
+                                <power/>
+                                <apply>
+                                    <divide/>
+                                    <ci>Q_Na_i</ci>
+                                    <ci>Q_Na_o</ci>
+                                </apply>
+                                <cn cellml:units="dim">3</cn>
+                            </apply>
+                            <apply>
+                                <divide/>
+                                <ci>Q_ATP</ci>
+                                <apply>
+                                    <times/>
+                                    <ci>Q_ADP</ci>
+                                    <ci>Q_Pi</ci>
+                                </apply>
+                            </apply>
+                        </apply>
+                        <apply>
+                            <divide/>
+                            <ci>B_NKE</ci>
+                            <apply>
+                                <power/>
+                                <ci>Q_Na_o</ci>
+                                <cn cellml:units="dim">3</cn>
+                            </apply>
+                        </apply>
+                    </apply>
+                    <apply>
+                        <plus/>
+                        <apply>
+                            <divide/>
+                            <apply>
+                                <plus/>
+                                <ci>lambda_1</ci>
+                                <ci>lambda_2</ci>
+                            </apply>
+                            <ci>Q_ADP</ci>
+                        </apply>
+                        <ci>lambda_3</ci>
+                        <apply>
+                            <times/>
+                            <apply>
+                                <plus/>
+                                <ci>lambda_4</ci>
+                                <ci>lambda_5</ci>
+                                <ci>Q_Pi</ci>
+                            </apply>
+                            <apply>
+                                <divide/>
+                                <apply>
+                                    <power/>
+                                    <ci>Q_Na_o</ci>
+                                    <cn cellml:units="dim">3</cn>
+                                </apply>
+                                <apply>
+                                    <power/>
+                                    <ci>Q_K_o</ci>
+                                    <cn cellml:units="dimensionless">2</cn>
+                                </apply>
+                            </apply>
+                            <ci>e_1</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>D_NKE</ci>
+                <apply>
+                    <plus/>
+                    <apply>
+                        <times/>
+                        <ci>gamma_2</ci>
+                        <ci>lambda_1</ci>
+                    </apply>
+                    <apply>
+                        <times/>
+                        <ci>gamma_5</ci>
+                        <ci>lambda_4</ci>
+                    </apply>
+                    <apply>
+                        <divide/>
+                        <apply>
+                            <plus/>
+                            <ci>lambda_4</ci>
+                            <ci>lambda_5</ci>
+                        </apply>
+                        <ci>Q_Pi</ci>
+                    </apply>
+                    <apply>
+                        <divide/>
+                        <apply>
+                            <times/>
+                            <ci>gamma_3</ci>
+                            <apply>
+                                <plus/>
+                                <ci>lambda_1</ci>
+                                <ci>lambda_2</ci>
+                            </apply>
+                        </apply>
+                        <ci>Q_ADP</ci>
+                    </apply>
+                    <apply>
+                        <times/>
+                        <apply>
+                            <plus/>
+                            <apply>
+                                <times/>
+                                <apply>
+                                    <plus/>
+                                    <ci>lambda_1</ci>
+                                    <ci>lambda_2</ci>
+                                </apply>
+                                <apply>
+                                    <divide/>
+                                    <ci>Q_Pi</ci>
+                                    <ci>Q_ATP</ci>
+                                </apply>
+                            </apply>
+                            <apply>
+                                <times/>
+                                <ci>lambda_3</ci>
+                                <apply>
+                                    <divide/>
+                                    <apply>
+                                        <times/>
+                                        <ci>Q_ADP</ci>
+                                        <ci>Q_Pi</ci>
+                                    </apply>
+                                    <ci>Q_ATP</ci>
+                                </apply>
+                            </apply>
+                        </apply>
+                        <apply>
+                            <divide/>
+                            <ci>B_NKE</ci>
+                            <apply>
+                                <power/>
+                                <ci>Q_Na_i</ci>
+                                <cn cellml:units="dim">3</cn>
+                            </apply>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_NKE</ci>
+                <apply>
+                    <divide/>
+                    <apply>
+                        <times/>
+                        <ci>kappa_6</ci>
+                        <ci>K_6</ci>
+                        <ci>q_tot</ci>
+                        <ci>A_NKE</ci>
+                    </apply>
+                    <apply>
+                        <minus/>
+                        <ci>C_NKE</ci>
+                        <apply>
+                            <times/>
+                            <ci>A_NKE</ci>
+                            <ci>D_NKE</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+        <variable name="lambda_1" units="dim"/>
+        <variable name="lambda_2" units="dim"/>
+        <variable name="lambda_3" units="dim"/>
+        <variable name="lambda_4" units="dim"/>
+        <variable name="lambda_5" units="dim"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>lambda_1</ci>
+                <apply>
+                    <divide/>
+                    <ci>kappa_6</ci>
+                    <ci>kappa_1</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>lambda_2</ci>
+                <apply>
+                    <divide/>
+                    <ci>kappa_6</ci>
+                    <ci>kappa_2</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>lambda_3</ci>
+                <apply>
+                    <divide/>
+                    <ci>kappa_6</ci>
+                    <ci>kappa_3</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>lambda_4</ci>
+                <apply>
+                    <divide/>
+                    <ci>kappa_6</ci>
+                    <ci>kappa_4</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>lambda_5</ci>
+                <apply>
+                    <divide/>
+                    <ci>kappa_6</ci>
+                    <ci>kappa_5</ci>
+                </apply>
+            </apply>
+        </math>
+        <variable name="Q_1" units="dim"/>
+        <variable name="Q_2" units="dim"/>
+        <variable name="Q_3" units="dim"/>
+        <variable name="Q_4" units="dim"/>
+        <variable name="Q_5" units="dim"/>
+        <variable name="Q_6" units="dim"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>Q_1</ci>
+                <apply>
+                    <times/>
+                    <apply>
+                        <plus/>
+                        <apply>
+                            <divide/>
+                            <apply>
+                                <plus/>
+                                <ci>lambda_1</ci>
+                                <ci>lambda_2</ci>
+                            </apply>
+                            <ci>Q_ADP</ci>
+                        </apply>
+                        <ci>lambda_3</ci>
+                        <apply>
+                            <times/>
+                            <apply>
+                                <plus/>
+                                <ci>lambda_4</ci>
+                                <ci>lambda_5</ci>
+                                <ci>Q_Pi</ci>
+                            </apply>
+                            <apply>
+                                <divide/>
+                                <apply>
+                                    <power/>
+                                    <ci>Q_Na_o</ci>
+                                    <cn cellml:units="dim">3</cn>
+                                </apply>
+                                <apply>
+                                    <power/>
+                                    <ci>Q_K_o</ci>
+                                    <cn cellml:units="dimensionless">2</cn>
+                                </apply>
+                            </apply>
+                            <ci>e_1</ci>
+                        </apply>
+                    </apply>
+                    <apply>
+                        <divide/>
+                        <ci>v_NKE</ci>
+                        <apply>
+                            <times/>
+                            <ci>kappa_6</ci>
+                            <ci>Q_Pi</ci>
+                            <apply>
+                                <power/>
+                                <ci>Q_Na_o</ci>
+                                <cn cellml:units="dim">3</cn>
+                            </apply>
+                            <ci>A_NKE</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Q_2</ci>
+                <apply>
+                    <minus/>
+                    <apply>
+                        <times/>
+                        <ci>Q_1</ci>
+                        <apply>
+                            <power/>
+                            <ci>Q_Na_i</ci>
+                            <cn cellml:units="dim">3</cn>
+                        </apply>
+                        <ci>Q_ATP</ci>
+                    </apply>
+                    <apply>
+                        <divide/>
+                        <apply>
+                            <times/>
+                            <ci>lambda_1</ci>
+                            <ci>v_NKE</ci>
+                        </apply>
+                        <ci>kappa_6</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Q_3</ci>
+                <apply>
+                    <divide/>
+                    <apply>
+                        <minus/>
+                        <ci>Q_2</ci>
+                        <apply>
+                            <divide/>
+                            <apply>
+                                <times/>
+                                <ci>lambda_2</ci>
+                                <ci>v_NKE</ci>
+                            </apply>
+                            <ci>kappa_6</ci>
+                        </apply>
+                    </apply>
+                    <ci>Q_ADP</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Q_4</ci>
+                <apply>
+                    <divide/>
+                    <apply>
+                        <minus/>
+                        <ci>Q_3</ci>
+                        <apply>
+                            <divide/>
+                            <apply>
+                                <times/>
+                                <ci>lambda_3</ci>
+                                <ci>v_NKE</ci>
+                            </apply>
+                            <ci>kappa_6</ci>
+                        </apply>
+                    </apply>
+                    <apply>
+                        <times/>
+                        <apply>
+                            <power/>
+                            <ci>Q_Na_o</ci>
+                            <cn cellml:units="dim">3</cn>
+                        </apply>
+                        <ci>e_1</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Q_5</ci>
+                <apply>
+                    <minus/>
+                    <apply>
+                        <times/>
+                        <ci>Q_4</ci>
+                        <apply>
+                            <power/>
+                            <ci>Q_K_o</ci>
+                            <cn cellml:units="dimensionless">2</cn>
+                        </apply>
+                    </apply>
+                    <apply>
+                        <divide/>
+                        <apply>
+                            <times/>
+                            <ci>lambda_4</ci>
+                            <ci>v_NKE</ci>
+                        </apply>
+                        <ci>kappa_6</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Q_6</ci>
+                <apply>
+                    <divide/>
+                    <apply>
+                        <minus/>
+                        <ci>Q_5</ci>
+                        <apply>
+                            <divide/>
+                            <apply>
+                                <times/>
+                                <ci>lambda_5</ci>
+                                <ci>v_NKE</ci>
+                            </apply>
+                            <ci>kappa_6</ci>
+                        </apply>
+                    </apply>
+                    <ci>Q_Pi</ci>
+                </apply>
+            </apply>
+        </math>
+        <variable name="q_1" units="pmol"/>
+        <variable name="q_2" units="pmol"/>
+        <variable name="q_3" units="pmol"/>
+        <variable name="q_4" units="pmol"/>
+        <variable name="q_5" units="pmol"/>
+        <variable name="q_6" units="pmol"/>
+        <variable initial_value="1" name="K_1" units="per_pmol"/>
+        <variable initial_value="1" name="K_2" units="per_pmol"/>
+        <variable initial_value="1" name="K_3" units="per_pmol"/>
+        <variable initial_value="1" name="K_4" units="per_pmol"/>
+        <variable initial_value="1" name="K_5" units="per_pmol"/>
+        <variable initial_value="1" name="K_6" units="per_pmol"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>q_1</ci>
+                <apply>
+                    <divide/>
+                    <ci>Q_1</ci>
+                    <ci>K_1</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>q_2</ci>
+                <apply>
+                    <divide/>
+                    <ci>Q_2</ci>
+                    <ci>K_2</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>q_3</ci>
+                <apply>
+                    <divide/>
+                    <ci>Q_3</ci>
+                    <ci>K_3</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>q_4</ci>
+                <apply>
+                    <divide/>
+                    <ci>Q_4</ci>
+                    <ci>K_4</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>q_5</ci>
+                <apply>
+                    <divide/>
+                    <ci>Q_5</ci>
+                    <ci>K_5</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>q_6</ci>
+                <apply>
+                    <divide/>
+                    <ci>Q_6</ci>
+                    <ci>K_6</ci>
+                </apply>
+            </apply>
+        </math>
+        <variable name="v_1" units="pmol_per_s"/>
+        <variable name="v_2" units="pmol_per_s"/>
+        <variable name="v_3" units="pmol_per_s"/>
+        <variable name="v_4" units="pmol_per_s"/>
+        <variable name="v_5" units="pmol_per_s"/>
+        <variable name="v_6" units="pmol_per_s"/>
+        <variable initial_value="100" name="kappa_1" units="pmol_per_s"/>
+        <variable initial_value="100" name="kappa_2" units="pmol_per_s"/>
+        <variable initial_value="10" name="kappa_3" units="pmol_per_s"/>
+        <variable initial_value="100" name="kappa_4" units="pmol_per_s"/>
+        <variable initial_value="100" name="kappa_5" units="pmol_per_s"/>
+        <variable initial_value="1" name="kappa_6" units="pmol_per_s"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>v_1</ci>
+                <apply>
+                    <times/>
+                    <ci>kappa_1</ci>
+                    <apply>
+                        <minus/>
+                        <apply>
+                            <times/>
+                            <ci>Q_1</ci>
+                            <apply>
+                                <power/>
+                                <ci>Q_Na_i</ci>
+                                <cn cellml:units="dim">3</cn>
+                            </apply>
+                            <ci>Q_ATP</ci>
+                        </apply>
+                        <ci>Q_2</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_2</ci>
+                <apply>
+                    <times/>
+                    <ci>kappa_2</ci>
+                    <apply>
+                        <minus/>
+                        <ci>Q_2</ci>
+                        <apply>
+                            <times/>
+                            <ci>Q_3</ci>
+                            <ci>Q_ADP</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_3</ci>
+                <apply>
+                    <times/>
+                    <ci>kappa_3</ci>
+                    <apply>
+                        <minus/>
+                        <ci>Q_3</ci>
+                        <apply>
+                            <times/>
+                            <ci>Q_4</ci>
+                            <apply>
+                                <power/>
+                                <ci>Q_Na_o</ci>
+                                <cn cellml:units="dim">3</cn>
+                            </apply>
+                            <ci>e_1</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_4</ci>
+                <apply>
+                    <times/>
+                    <ci>kappa_4</ci>
+                    <apply>
+                        <minus/>
+                        <apply>
+                            <times/>
+                            <ci>Q_4</ci>
+                            <apply>
+                                <power/>
+                                <ci>Q_K_o</ci>
+                                <cn cellml:units="dimensionless">2</cn>
+                            </apply>
+                        </apply>
+                        <ci>Q_5</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_5</ci>
+                <apply>
+                    <times/>
+                    <ci>kappa_5</ci>
+                    <apply>
+                        <minus/>
+                        <ci>Q_5</ci>
+                        <apply>
+                            <times/>
+                            <ci>Q_6</ci>
+                            <ci>Q_Pi</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_6</ci>
+                <apply>
+                    <times/>
+                    <ci>kappa_6</ci>
+                    <apply>
+                        <minus/>
+                        <ci>Q_6</ci>
+                        <apply>
+                            <times/>
+                            <ci>Q_1</ci>
+                            <apply>
+                                <power/>
+                                <ci>Q_K_i</ci>
+                                <cn cellml:units="dimensionless">2</cn>
+                            </apply>
+                            <ci>e_2</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+        <variable name="gamma_1" units="dim"/>
+        <variable name="gamma_2" units="dim"/>
+        <variable name="gamma_3" units="dim"/>
+        <variable name="gamma_4" units="dim"/>
+        <variable name="gamma_5" units="dim"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>gamma_1</ci>
+                <apply>
+                    <divide/>
+                    <ci>K_6</ci>
+                    <ci>K_1</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>gamma_2</ci>
+                <apply>
+                    <divide/>
+                    <ci>K_6</ci>
+                    <ci>K_2</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>gamma_3</ci>
+                <apply>
+                    <divide/>
+                    <ci>K_6</ci>
+                    <ci>K_3</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>gamma_4</ci>
+                <apply>
+                    <divide/>
+                    <ci>K_6</ci>
+                    <ci>K_4</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>gamma_5</ci>
+                <apply>
+                    <divide/>
+                    <ci>K_6</ci>
+                    <ci>K_5</ci>
+                </apply>
+            </apply>
+        </math>
+        <!-- Power calculation-->
+        <!--        var u_1:    pJ_per_pmol;
+        var u_2:    pJ_per_pmol;
+        var u_3:    pJ_per_pmol;
+        var u_4:    pJ_per_pmol;
+        var u_K_o:  pJ_per_pmol;
+        var u_K_i:  pJ_per_pmol;
+        var u_Na_o: pJ_per_pmol;
+        var u_Na_i: pJ_per_pmol;
+        var u_ATP:  pJ_per_pmol;
+        var u_ADP:  pJ_per_pmol;
+        var u_Pi:   pJ_per_pmol;
+        var u_f1:   pJ_per_pmol;
+        var u_r1:   pJ_per_pmol;
+        var u_f2:   pJ_per_pmol;
+        var u_r2:   pJ_per_pmol;
+        var u_f3:   pJ_per_pmol;
+        var u_r3:   pJ_per_pmol;
+        var u_f4:   pJ_per_pmol;
+        var u_r4:   pJ_per_pmol;-->
+        <!--        u_1    = RT*ln(Q_1);
+        u_2    = RT*ln(Q_2);
+        u_3    = RT*ln(Q_3);
+        u_4    = RT*ln(Q_4);
+        u_K_o  = RT*ln(Q_K_o);
+        u_K_i  = RT*ln(Q_K_i);
+        u_Na_o = RT*ln(Q_Na_o);
+        u_Na_i = RT*ln(Q_Na_i);
+        u_ATP  = RT*ln(Q_ATP);
+        u_ADP  = RT*ln(Q_ADP);
+        u_Pi   = RT*ln(Q_Pi);
+        u_f1   = u_1+2{dim}*u_K_o;
+        u_r1   = u_2+u_Pi;
+        u_f2   = u_2+u_ATP;
+        u_r2   = u_3+2{dim}*u_K_i;
+        u_f3   = u_3+3{dim}*u_Na_i;
+        u_r3   = u_4+u_ADP+z_1*F*u_e;
+        u_f4   = u_4;
+        u_r4   = u_1+3{dim}*u_Na_o+z_2*F*u_e;-->
+        <!--        var Power_external: pJ_per_s;
+        var Power_dissipation: pJ_per_s;-->
+        <!--        Power_external    = (2{dim}*u_K_o-u_Pi)*v_1+(u_ATP-2{dim}*u_K_i)*v_2+(3{dim}*u_Na_i-u_ADP-z_1*F*u_e)*v_3-(3{dim}*u_Na_o+z_2*F*u_e)*v_4;
+        Power_dissipation = (u_f1-u_r1)*v_1+(u_f2-u_r2)*v_2+(u_f3-u_r3)*v_3+(u_f4-u_r4)*v_4;-->
+    </component>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+        <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="#model">
+            <bqs:reference xmlns:bqs="http://www.cellml.org/bqs/1.0#" rdf:parseType="Resource" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                <dc:subject xmlns:dc="http://purl.org/dc/elements/1.1/" rdf:parseType="Resource" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                    <bqs:subject_type xmlns:bqs="http://www.cellml.org/bqs/1.0#">keyword</bqs:subject_type>
+                    <rdf:value xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                        <rdf:Bag xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                            <rdf:li xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">protein-modules</rdf:li>
+                        </rdf:Bag>
+                    </rdf:value>
+                </dc:subject>
+            </bqs:reference>
+        </rdf:Description>
+    </rdf:RDF>
+</model>
