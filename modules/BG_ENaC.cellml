@@ -46,12 +46,12 @@
         <!-- membrane voltage-->
         <variable initial_value="-0.06" name="u_e_m" public_interface="out" units="volt"/>
         <!-- state variable molar quantities-->
-        <variable initial_value="2.06429457418642e-05" name="q_1" public_interface="out" units="fmol"/>
-        <variable initial_value="2.88075357001443e-05" name="q_2" public_interface="out" units="fmol"/>
-        <variable initial_value="0.229974262383846" name="q_3" public_interface="out" units="fmol"/>
-        <variable initial_value="0.769978287135118" name="q_4" public_interface="out" units="fmol"/>
-        <variable initial_value="2.05312268611356e-08" name="q_open" public_interface="out" units="fmol"/>
-        <variable initial_value="0.229994884796743" name="q_open_int" public_interface="out" units="fmol"/>
+        <variable initial_value="0.1747" name="q_1" public_interface="out" units="fmol"/>
+        <variable initial_value="0.24" name="q_2" public_interface="out" units="fmol"/>
+        <variable initial_value="0.193" name="q_3" public_interface="out" units="fmol"/>
+        <variable initial_value="0.3876" name="q_4" public_interface="out" units="fmol"/>
+        <variable initial_value="3.4e-11" name="q_open" public_interface="out" units="fmol"/>
+        <variable initial_value="0.3685" name="q_open_int" public_interface="out" units="fmol"/>
         <!-- ion molar quantities-->
         <variable initial_value="45.7992593667858" name="q_Na_i" public_interface="out" units="fmol"/>
         <variable initial_value="267.892601918985" name="q_Na_o" public_interface="out" units="fmol"/>
@@ -71,12 +71,9 @@
                 <ci>I_m</ci>
                 <apply>
                     <times/>
-                    <apply>
-                        <minus/>
-                        <ci>zNa</ci>
-                    </apply>
+                    <ci>zNa</ci>
                     <ci>F</ci>
-                    <ci>v_q_Na_i</ci>
+                    <ci>v_q_Na_o</ci>
                 </apply>
             </apply>
             <apply>
@@ -436,12 +433,9 @@
                 <eq/>
                 <ci>u_Re_6_r</ci>
                 <apply>
-                    <minus/>
-                    <apply>
-                        <plus/>
-                        <ci>u_open</ci>
-                        <ci>u_Na_i</ci>
-                    </apply>
+                    <plus/>
+                    <ci>u_open</ci>
+                    <ci>u_Na_i</ci>
                     <apply>
                         <times/>
                         <ci>zNa</ci>

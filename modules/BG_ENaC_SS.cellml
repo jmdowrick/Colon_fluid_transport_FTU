@@ -1,0 +1,363 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<model name="my_model" xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cellml="http://www.cellml.org/cellml/1.1#" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <import xlink:href="./units_and_constants/units_BG.cellml">
+        <units name="dim" units_ref="dim"/>
+        <units name="s" units_ref="s"/>
+        <units name="fmol" units_ref="fmol"/>
+        <units name="per_fmol" units_ref="per_fmol"/>
+        <units name="fmol_per_s" units_ref="fmol_per_sec"/>
+        <units name="J_per_mmol" units_ref="J_per_mmol"/>
+        <units name="J_per_K_per_mmol" units_ref="J_per_K_per_mmol"/>
+        <units name="C_per_mmol" units_ref="C_per_mmol"/>
+        <units name="pA" units_ref="pA"/>
+        <units name="pL" units_ref="pL"/>
+        <units name="mM" units_ref="mM"/>
+        <units name="fF" units_ref="fF"/>
+    </import>
+    <import xlink:href="./units_and_constants/constants_BG.cellml">
+        <component component_ref="constants" name="constants"/>
+    </import>
+    <import xlink:href="./units_and_constants/ion_valency.cellml">
+        <component component_ref="ion_valences" name="ion_valences"/>
+    </import>
+    <component name="environment">
+        <variable name="t" units="s"/>
+        <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
+        <variable name="T" public_interface="in" units="kelvin"/>
+        <variable name="RT" units="J_per_mmol"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>RT</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                </apply>
+            </apply>
+        </math>
+        <variable name="zNa" public_interface="in" units="dim"/>
+        <variable name="F" public_interface="in" units="C_per_mmol"/>
+        <!-- membrane voltage-->
+        <variable initial_value="-0.06" name="u_e_m" public_interface="out" units="volt"/>
+        <!-- state variable molar quantities-->
+        <variable name="q_1" units="fmol"/>
+        <variable name="q_2" units="fmol"/>
+        <variable name="q_3" units="fmol"/>
+        <variable name="q_4" units="fmol"/>
+        <variable name="q_open" units="fmol"/>
+        <variable name="q_open_int" units="fmol"/>
+        <variable initial_value="1" name="q_tot" units="fmol"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>q_1</ci>
+                <apply>
+                    <divide/>
+                    <ci>q_tot</ci>
+                    <ci>A</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>q_2</ci>
+                <apply>
+                    <divide/>
+                    <apply>
+                        <times/>
+                        <apply>
+                            <divide/>
+                            <ci>K_1</ci>
+                            <ci>K_2</ci>
+                        </apply>
+                        <ci>q_tot</ci>
+                    </apply>
+                    <ci>A</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>q_3</ci>
+                <apply>
+                    <times/>
+                    <apply>
+                        <divide/>
+                        <apply>
+                            <times/>
+                            <apply>
+                                <divide/>
+                                <ci>K_1</ci>
+                                <ci>K_3</ci>
+                            </apply>
+                            <ci>q_tot</ci>
+                        </apply>
+                        <ci>A</ci>
+                    </apply>
+                    <ci>Q_Na_o</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>q_4</ci>
+                <apply>
+                    <times/>
+                    <apply>
+                        <divide/>
+                        <apply>
+                            <times/>
+                            <apply>
+                                <divide/>
+                                <ci>K_1</ci>
+                                <ci>K_4</ci>
+                            </apply>
+                            <ci>q_tot</ci>
+                        </apply>
+                        <ci>A</ci>
+                    </apply>
+                    <ci>Q_Na_o</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>q_open</ci>
+                <apply>
+                    <divide/>
+                    <apply>
+                        <times/>
+                        <ci>q_tot</ci>
+                        <apply>
+                            <plus/>
+                            <cn cellml:units="dim">1</cn>
+                            <apply>
+                                <times/>
+                                <apply>
+                                    <divide/>
+                                    <ci>K_1</ci>
+                                    <ci>K_3</ci>
+                                </apply>
+                                <ci>Q_Na_o</ci>
+                            </apply>
+                        </apply>
+                    </apply>
+                    <apply>
+                        <times/>
+                        <ci>A</ci>
+                        <apply>
+                            <plus/>
+                            <cn cellml:units="dim">1</cn>
+                            <ci>B</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>q_open_int</ci>
+                <apply>
+                    <times/>
+                    <ci>q_open</ci>
+                    <ci>B</ci>
+                </apply>
+            </apply>
+        </math>
+        <!-- ion molar quantities-->
+        <variable initial_value="45.7992593667858" name="q_Na_i" units="fmol"/>
+        <variable initial_value="267.892601918985" name="q_Na_o" units="fmol"/>
+        <!-- thermodynamic constants-->
+        <variable initial_value="1.39551477" name="K_1" public_interface="out" units="per_fmol"/>
+        <variable initial_value="1" name="K_2" public_interface="out" units="per_fmol"/>
+        <variable initial_value="1" name="K_3" public_interface="out" units="per_fmol"/>
+        <variable initial_value="0.5" name="K_4" public_interface="out" units="per_fmol"/>
+        <variable initial_value="6488256446.35281" name="K_open" public_interface="out" units="per_fmol"/>
+        <variable initial_value="0.458179267631806" name="K_open_int" public_interface="out" units="per_fmol"/>
+        <variable initial_value="0.00598986238838961" name="K_Na_i" public_interface="out" units="per_fmol"/>
+        <variable initial_value="0.00296659768365493" name="K_Na_o" public_interface="out" units="per_fmol"/>
+        <variable initial_value="1" name="kappa_1" public_interface="out" units="fmol_per_s"/>
+        <variable initial_value="1" name="kappa_2" public_interface="out" units="fmol_per_s"/>
+        <variable initial_value="1" name="kappa_3" public_interface="out" units="fmol_per_s"/>
+        <variable initial_value="1" name="kappa_4" public_interface="out" units="fmol_per_s"/>
+        <variable initial_value="1" name="kappa_5" public_interface="out" units="fmol_per_s"/>
+        <variable initial_value="0.0597018797438331" name="kappa_6" public_interface="out" units="fmol_per_s"/>
+        <variable name="A" units="dim"/>
+        <variable name="B" units="dim"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>A</ci>
+                <apply>
+                    <plus/>
+                    <cn cellml:units="dim">1</cn>
+                    <apply>
+                        <times/>
+                        <apply>
+                            <divide/>
+                            <ci>K_1</ci>
+                            <ci>K_3</ci>
+                        </apply>
+                        <ci>Q_Na_o</ci>
+                    </apply>
+                    <apply>
+                        <divide/>
+                        <ci>K_1</ci>
+                        <ci>K_2</ci>
+                    </apply>
+                    <apply>
+                        <times/>
+                        <apply>
+                            <divide/>
+                            <ci>K_1</ci>
+                            <ci>K_4</ci>
+                        </apply>
+                        <ci>Q_Na_o</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>B</ci>
+                <apply>
+                    <times/>
+                    <apply>
+                        <divide/>
+                        <ci>K_open</ci>
+                        <ci>K_open_int</ci>
+                    </apply>
+                    <apply>
+                        <divide/>
+                        <apply>
+                            <plus/>
+                            <apply>
+                                <times/>
+                                <apply>
+                                    <divide/>
+                                    <ci>kappa_5</ci>
+                                    <ci>kappa_6</ci>
+                                </apply>
+                                <ci>Q_Na_o</ci>
+                            </apply>
+                            <apply>
+                                <times/>
+                                <ci>Q_Na_i</ci>
+                                <apply>
+                                    <exp/>
+                                    <apply>
+                                        <divide/>
+                                        <apply>
+                                            <times/>
+                                            <ci>zNa</ci>
+                                            <ci>F</ci>
+                                            <ci>u_e_m</ci>
+                                        </apply>
+                                        <ci>RT</ci>
+                                    </apply>
+                                </apply>
+                            </apply>
+                        </apply>
+                        <apply>
+                            <plus/>
+                            <cn cellml:units="dim">1</cn>
+                            <apply>
+                                <divide/>
+                                <ci>kappa_5</ci>
+                                <ci>kappa_6</ci>
+                            </apply>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+        <variable name="Q_Na_i" units="dim"/>
+        <variable name="Q_Na_o" units="dim"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>Q_Na_i</ci>
+                <apply>
+                    <times/>
+                    <ci>K_Na_i</ci>
+                    <ci>q_Na_i</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>Q_Na_o</ci>
+                <apply>
+                    <times/>
+                    <ci>K_Na_o</ci>
+                    <ci>q_Na_o</ci>
+                </apply>
+            </apply>
+        </math>
+        <!-- Steady state calculations-->
+        <variable name="v" units="fmol_per_s"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>v</ci>
+                <apply>
+                    <times/>
+                    <ci>kappa_6</ci>
+                    <apply>
+                        <minus/>
+                        <apply>
+                            <times/>
+                            <ci>K_open_int</ci>
+                            <ci>q_open_int</ci>
+                        </apply>
+                        <apply>
+                            <times/>
+                            <ci>K_open</ci>
+                            <ci>q_open</ci>
+                            <ci>Q_Na_i</ci>
+                            <apply>
+                                <exp/>
+                                <apply>
+                                    <divide/>
+                                    <apply>
+                                        <times/>
+                                        <ci>zNa</ci>
+                                        <ci>F</ci>
+                                        <ci>u_e_m</ci>
+                                    </apply>
+                                    <ci>RT</ci>
+                                </apply>
+                            </apply>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_Na_i</ci>
+                </apply>
+                <cn cellml:units="fmol_per_s">0</cn>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_Na_o</ci>
+                </apply>
+                <cn cellml:units="fmol_per_s">0</cn>
+            </apply>
+        </math>
+    </component>
+    <connection>
+        <map_components component_1="constants" component_2="environment"/>
+        <map_variables variable_1="R" variable_2="R"/>
+        <map_variables variable_1="T" variable_2="T"/>
+        <map_variables variable_1="F" variable_2="F"/>
+    </connection>
+    <connection>
+        <map_components component_1="ion_valences" component_2="environment"/>
+        <map_variables variable_1="zNa" variable_2="zNa"/>
+    </connection>
+</model>
