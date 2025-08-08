@@ -1,0 +1,301 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<model name="epithelial_dynamics" xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cellml="http://www.cellml.org/cellml/1.1#" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <import xlink:href="./units_and_constants/units_BG.cellml">
+        <units name="s" units_ref="s"/>
+        <units name="fmol" units_ref="fmol"/>
+        <units name="per_fmol" units_ref="per_fmol"/>
+        <units name="fmol_per_s" units_ref="fmol_per_sec"/>
+    </import>
+    <component name="environment">
+        <variable name="t" public_interface="out" units="s"/>
+        <!-- extracellular apical -->
+        <variable initial_value="110200" name="q_H2O_api" public_interface="out" units="fmol"/>
+        <variable initial_value="200" name="q_Na_api" public_interface="out" units="fmol"/>
+        <variable initial_value="20" name="q_K_api" public_interface="out" units="fmol"/>
+        <!-- extracellular basolateral-->
+        <variable initial_value="110400" name="q_H2O_bas" public_interface="out" units="fmol"/>
+        <variable initial_value="280" name="q_Na_bas" public_interface="out" units="fmol"/>
+        <variable initial_value="10" name="q_K_bas" public_interface="out" units="fmol"/>
+        <!-- intracellular-->
+        <variable initial_value="30" name="q_Na_i" public_interface="out" units="fmol"/>
+        <variable initial_value="280" name="q_K_i" public_interface="out" units="fmol"/>
+        <variable initial_value="110400" name="q_H2O_i" public_interface="out" units="fmol"/>
+        <!-- fluxes-->
+        <variable name="v_AQ_api" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_AQ_bas" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_ENaC_o" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_ENaC_i" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_NKE_Na" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_NKE_K" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_Kir" public_interface="in" units="fmol_per_s"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_H2O_api</ci>
+                </apply>
+                <apply>
+                    <minus/>
+                    <ci>v_AQ_api</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_H2O_bas</ci>
+                </apply>
+                <ci>v_AQ_bas</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_H2O_i</ci>
+                </apply>
+                <apply>
+                    <minus/>
+                    <ci>v_AQ_api</ci>
+                    <ci>v_AQ_bas</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_Na_api</ci>
+                </apply>
+                <ci>v_ENaC_o</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_Na_bas</ci>
+                </apply>
+                <ci>v_NKE_Na</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_Na_i</ci>
+                </apply>
+                <apply>
+                    <minus/>
+                    <ci>v_ENaC_i</ci>
+                    <ci>v_NKE_Na</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_K_bas</ci>
+                </apply>
+                <apply>
+                    <minus/>
+                    <ci>v_Kir</ci>
+                    <ci>v_NKE_K</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_K_i</ci>
+                </apply>
+                <apply>
+                    <minus/>
+                    <ci>v_NKE_K</ci>
+                    <ci>v_Kir</ci>
+                </apply>
+            </apply>
+        </math>
+    </component>
+    <component name="epithelial_dynamics">
+        <variable name="t" public_interface="in" units="s"/>
+        <!-- extracellular apical -->
+        <variable name="q_H2O_api" public_interface="in" units="fmol"/>
+        <variable name="q_Na_api" public_interface="in" units="fmol"/>
+        <variable name="q_K_api" public_interface="in" units="fmol"/>
+        <!-- extracellular basolateral-->
+        <variable name="q_H2O_bas" public_interface="in" units="fmol"/>
+        <variable name="q_Na_bas" public_interface="in" units="fmol"/>
+        <variable name="q_K_bas" public_interface="in" units="fmol"/>
+        <!-- intracellular-->
+        <variable name="q_Na_i" public_interface="in" units="fmol"/>
+        <variable name="q_K_i" public_interface="in" units="fmol"/>
+        <variable name="q_H2O_i" public_interface="in" units="fmol"/>
+    </component>
+    <import xlink:href="BG_ENaC.cellml">
+        <component component_ref="ENaC" name="ENaC"/>
+        <component component_ref="ENaC_parameters" name="ENaC_params"/>
+    </import>
+    <import xlink:href="BG_AQ.cellml">
+        <component component_ref="AQ" name="AQ_api"/>
+        <component component_ref="AQ" name="AQ_baso"/>
+        <component component_ref="AQ_parameters" name="AQ_params"/>
+    </import>
+    <import xlink:href="./827/BG_NaK.cellml">
+        <component component_ref="NaK" name="NKE"/>
+        <component component_ref="NaK_parameters" name="NKE_params"/>
+    </import>
+    <connection>
+        <map_components component_1="AQ_params" component_2="AQ_api"/>
+        <map_variables variable_1="K_AQ" variable_2="K_AQ"/>
+        <map_variables variable_1="K_H2O_i" variable_2="K_H2O_i"/>
+        <map_variables variable_1="K_H2O_o" variable_2="K_H2O_o"/>
+        <map_variables variable_1="kappa_1" variable_2="kappa_1"/>
+    </connection>
+    <connection>
+        <map_components component_1="AQ_params" component_2="AQ_baso"/>
+        <map_variables variable_1="K_AQ" variable_2="K_AQ"/>
+        <map_variables variable_1="K_H2O_i" variable_2="K_H2O_i"/>
+        <map_variables variable_1="K_H2O_o" variable_2="K_H2O_o"/>
+        <map_variables variable_1="kappa_1" variable_2="kappa_1"/>
+    </connection>
+    <!-- ENaC-->
+    <connection>
+        <map_components component_1="ENaC_params" component_2="ENaC"/>
+        <map_variables variable_1="K_1_ENaC" variable_2="K_1"/>
+        <map_variables variable_1="K_2_ENaC" variable_2="K_2"/>
+        <map_variables variable_1="K_3_ENaC" variable_2="K_3"/>
+        <map_variables variable_1="K_4_ENaC" variable_2="K_4"/>
+        <map_variables variable_1="K_open_ENaC" variable_2="K_open"/>
+        <map_variables variable_1="K_open_int_ENaC" variable_2="K_open_int"/>
+        <map_variables variable_1="K_Na_i_ENaC" variable_2="K_Na_i"/>
+        <map_variables variable_1="K_Na_o_ENaC" variable_2="K_Na_o"/>
+        <map_variables variable_1="kappa_1_ENaC" variable_2="kappa_1"/>
+        <map_variables variable_1="kappa_2_ENaC" variable_2="kappa_2"/>
+        <map_variables variable_1="kappa_3_ENaC" variable_2="kappa_3"/>
+        <map_variables variable_1="kappa_4_ENaC" variable_2="kappa_4"/>
+        <map_variables variable_1="kappa_5_ENaC" variable_2="kappa_5"/>
+        <map_variables variable_1="kappa_6_ENaC" variable_2="kappa_6"/>
+    </connection>
+    <connection>
+        <map_components component_1="environment" component_2="ENaC"/>
+        <map_variables variable_1="t" variable_2="t"/>
+        <map_variables variable_1="q_Na_api" variable_2="q_Na_o"/>
+        <map_variables variable_1="q_Na_i" variable_2="q_Na_i"/>
+        <map_variables variable_1="v_ENaC_o" variable_2="v_q_Na_i"/>
+        <map_variables variable_1="v_ENaC_i" variable_2="v_q_Na_o"/>
+    </connection>
+    <connection>
+        <map_components component_1="constants" component_2="ENaC"/>
+        <map_variables variable_1="R" variable_2="R"/>
+        <map_variables variable_1="T" variable_2="T"/>
+        <map_variables variable_1="F" variable_2="F"/>
+    </connection>
+    <connection>
+        <map_components component_1="ion_valences" component_2="ENaC"/>
+        <map_variables variable_1="zNa" variable_2="zNa"/>
+    </connection>
+    <!-- NKE -->
+    <connection>
+        <map_components component_1="NKE_params" component_2="NKE"/>
+        <map_variables variable_1="K_10_NaK" variable_2="K_10_NaK"/>
+        <map_variables variable_1="K_11_NaK" variable_2="K_11_NaK"/>
+        <map_variables variable_1="K_12_NaK" variable_2="K_12_NaK"/>
+        <map_variables variable_1="K_13_NaK" variable_2="K_13_NaK"/>
+        <map_variables variable_1="K_14_NaK" variable_2="K_14_NaK"/>
+        <map_variables variable_1="K_15_NaK" variable_2="K_15_NaK"/>
+        <map_variables variable_1="K_1_NaK" variable_2="K_1_NaK"/>
+        <map_variables variable_1="K_2_NaK" variable_2="K_2_NaK"/>
+        <map_variables variable_1="K_3_NaK" variable_2="K_3_NaK"/>
+        <map_variables variable_1="K_4_NaK" variable_2="K_4_NaK"/>
+        <map_variables variable_1="K_5_NaK" variable_2="K_5_NaK"/>
+        <map_variables variable_1="K_6_NaK" variable_2="K_6_NaK"/>
+        <map_variables variable_1="K_7_NaK" variable_2="K_7_NaK"/>
+        <map_variables variable_1="K_8_NaK" variable_2="K_8_NaK"/>
+        <map_variables variable_1="K_9_NaK" variable_2="K_9_NaK"/>
+        <map_variables variable_1="K_H" variable_2="K_H"/>
+        <map_variables variable_1="K_K_o" variable_2="K_K_o"/>
+        <map_variables variable_1="K_K_i" variable_2="K_K_i"/>
+        <map_variables variable_1="K_MgADP" variable_2="K_MgADP"/>
+        <map_variables variable_1="K_MgATP" variable_2="K_MgATP"/>
+        <map_variables variable_1="K_Na_o" variable_2="K_Na_o"/>
+        <map_variables variable_1="K_Na_i" variable_2="K_Na_i"/>
+        <map_variables variable_1="K_Pi" variable_2="K_Pi"/>
+        <map_variables variable_1="kappa_10_NaK" variable_2="kappa_10_NaK"/>
+        <map_variables variable_1="kappa_11_NaK" variable_2="kappa_11_NaK"/>
+        <map_variables variable_1="kappa_12_NaK" variable_2="kappa_12_NaK"/>
+        <map_variables variable_1="kappa_13_NaK" variable_2="kappa_13_NaK"/>
+        <map_variables variable_1="kappa_14_NaK" variable_2="kappa_14_NaK"/>
+        <map_variables variable_1="kappa_15_NaK" variable_2="kappa_15_NaK"/>
+        <map_variables variable_1="kappa_1_NaK" variable_2="kappa_1_NaK"/>
+        <map_variables variable_1="kappa_2_NaK" variable_2="kappa_2_NaK"/>
+        <map_variables variable_1="kappa_3_NaK" variable_2="kappa_3_NaK"/>
+        <map_variables variable_1="kappa_4_NaK" variable_2="kappa_4_NaK"/>
+        <map_variables variable_1="kappa_5_NaK" variable_2="kappa_5_NaK"/>
+        <map_variables variable_1="kappa_6_NaK" variable_2="kappa_6_NaK"/>
+        <map_variables variable_1="kappa_7_NaK" variable_2="kappa_7_NaK"/>
+        <map_variables variable_1="kappa_8_NaK" variable_2="kappa_8_NaK"/>
+        <map_variables variable_1="kappa_9_NaK" variable_2="kappa_9_NaK"/>
+        <map_variables variable_1="zF_5" variable_2="zF_5"/>
+        <map_variables variable_1="zF_8" variable_2="zF_8"/>
+    </connection>
+    <connection>
+        <map_components component_1="NaK" component_2="environment"/>
+        <map_variables variable_1="t" variable_2="t"/>
+        <map_variables variable_1="R" variable_2="R"/>
+        <map_variables variable_1="T" variable_2="T"/>
+        <map_variables variable_1="F" variable_2="F"/>
+        <map_variables variable_1="q_K_o" variable_2="q_K_o"/>
+        <map_variables variable_1="q_K_i" variable_2="q_K_i"/>
+        <map_variables variable_1="q_Na_o" variable_2="q_Na_o"/>
+        <map_variables variable_1="q_Na_i" variable_2="q_Na_i"/>
+        <map_variables variable_1="q_H_i" variable_2="q_H_i"/>
+        <map_variables variable_1="q_MgADP" variable_2="q_MgADP"/>
+        <map_variables variable_1="q_MgATP" variable_2="q_MgATP"/>
+        <map_variables variable_1="q_Pi" variable_2="q_Pi"/>
+        <map_variables variable_1="q_P7" variable_2="q_P7"/>
+        <map_variables variable_1="q_P14" variable_2="q_P14"/>
+        <map_variables variable_1="q_P15" variable_2="q_P15"/>
+        <map_variables variable_1="q_P1" variable_2="q_P1"/>
+        <map_variables variable_1="q_P2" variable_2="q_P2"/>
+        <map_variables variable_1="q_P3" variable_2="q_P3"/>
+        <map_variables variable_1="q_P4" variable_2="q_P4"/>
+        <map_variables variable_1="q_P5" variable_2="q_P5"/>
+        <map_variables variable_1="q_P6" variable_2="q_P6"/>
+        <map_variables variable_1="q_P10" variable_2="q_P10"/>
+        <map_variables variable_1="q_P11" variable_2="q_P11"/>
+        <map_variables variable_1="q_P12" variable_2="q_P12"/>
+        <map_variables variable_1="q_P13" variable_2="q_P13"/>
+        <map_variables variable_1="q_P8" variable_2="q_P8"/>
+        <map_variables variable_1="q_P9" variable_2="q_P9"/>
+        <map_variables variable_1="v_K_o_NaK" variable_2="v_K_o_NaK"/>
+        <map_variables variable_1="v_K_i_NaK" variable_2="v_K_i_NaK"/>
+        <map_variables variable_1="v_Na_o_NaK" variable_2="v_Na_o_NaK"/>
+        <map_variables variable_1="v_Na_i_NaK" variable_2="v_Na_i_NaK"/>
+        <map_variables variable_1="v_H_NaK" variable_2="v_H_NaK"/>
+        <map_variables variable_1="v_MgADP_NaK" variable_2="v_MgADP_NaK"/>
+        <map_variables variable_1="v_MgATP_NaK" variable_2="v_MgATP_NaK"/>
+        <map_variables variable_1="v_Pi_NaK" variable_2="v_Pi_NaK"/>
+    </connection>
+</model>
