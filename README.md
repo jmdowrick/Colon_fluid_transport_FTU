@@ -39,7 +39,34 @@ user_inputs_path_override: [colon_FTU_dir]/CA_colon_FTU/colon_FTU_user_inputs.ya
 
 # Directory structure
 
+.
+├── CA_colon_FTU
+│   ├── colon_FTU_user_inputs.yaml
+│   └── resources
+├── CA_colon_FTU_simple
+│   ├── colon_FTU_user_inputs.yaml
+│   ├── generated_models
+│   └── resources
+├── README.md
+├── model_visualisations
+│   ├── BG_AQ.png
+│   ├── BG_ENaC.png
+│   ├── BG_Kir.png
+│   └── CA_colon_FTU_simple.png
+├── modules
+│   ├── BG_AQ.cellml
+│   ├── BG_ENaC.cellml
+│   ├── BG_ENaC_SS.cellml
+│   ├── BG_Kir.cellml
+│   ├── NKE_pump_BG_6_states_v2.cellml
+│   ├── NKE_pump_SS_BG_6_states_v1.cellml
+│   ├── colon_FTU_modules.cellml
+│   ├── colon_FTU_simple_module_config.json
+│   ├── epithelial_dynamics.cellml
+│   └── units_and_constants
+└── structure.md
 
+9 directories, 17 files
 # Citation
 *Insert journal citations when this model is published.*
 
