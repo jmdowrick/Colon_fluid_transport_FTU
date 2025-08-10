@@ -39,6 +39,7 @@ user_inputs_path_override: [colon_FTU_dir]/CA_colon_FTU/colon_FTU_user_inputs.ya
 
 # Directory structure
 
+```
 .
 ├── CA_colon_FTU
 │   ├── colon_FTU_user_inputs.yaml
@@ -67,6 +68,7 @@ user_inputs_path_override: [colon_FTU_dir]/CA_colon_FTU/colon_FTU_user_inputs.ya
 └── structure.md
 
 9 directories, 17 files
+```
 # Citation
 *Insert journal citations when this model is published.*
 
