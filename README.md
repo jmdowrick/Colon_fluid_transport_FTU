@@ -23,11 +23,19 @@ This project contains the CellML bond graph modules and circulatory autogen inpu
 #### Solvent drag (advection)
 
 # How to use
-## OpenCOR installation
-
 
 ## Circulatory autogen installation
-This project uses the model generation capabilities of [Circulatory autogen](https://github.com/FinbarArgus/circulatory_autogen/tree/master) to couple modules into the distal colon FTU. Follow the [getting started](https://github.com/FinbarArgus/circulatory_autogen/blob/master/tutorial/docs/getting-started.md) documentation to install circulatory autogen.
+This project uses the model generation capabilities of [Circulatory autogen](https://github.com/FinbarArgus/circulatory_autogen/tree/master) to couple modules into the distal colon FTU. Follow the [getting started](https://github.com/FinbarArgus/circulatory_autogen/blob/master/tutorial/docs/getting-started.md) documentation to install circulatory autogen. As part of this process, you will install OpenCOR, which will be used to run the generated FTU.
+
+## Update paths
+Before running circulatory autogen, open the file: 
+
+circulatory_autogen > user_run_files > user_inputs.yaml 
+
+and update:
+
+user_inputs_path_override: [colon_FTU_dir]/CA_colon_FTU/colon_FTU_user_inputs.yaml
+
 
 # Directory structure
 
