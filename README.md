@@ -48,6 +48,7 @@ user_inputs_path_override: [colon_FTU_dir]/CA_colon_FTU/colon_FTU_user_inputs.ya
 │   ├── colon_FTU_user_inputs.yaml
 │   ├── generated_models
 │   └── resources
+├── LICENSE
 ├── README.md
 ├── model_visualisations
 │   ├── BG_AQ.png
@@ -67,7 +68,7 @@ user_inputs_path_override: [colon_FTU_dir]/CA_colon_FTU/colon_FTU_user_inputs.ya
 │   └── units_and_constants
 └── structure.md
 
-9 directories, 17 files
+9 directories, 18 files
 ```
 # Citation
 *Insert journal citations when this model is published.*
