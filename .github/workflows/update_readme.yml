@@ -27,7 +27,7 @@ jobs:
           echo "# Directory structure" > structure.md
           echo "" >> structure.md
           echo '```' >> structure.md
-          tree -L 2 -I ".git|.github|node_modules" >> structure.md
+          tree -L 2 -I ".git|.github|node_modules|structure.md" | tail -n +2 >> structure.md
           echo '```' >> structure.md
 
       - name: Replace section in README
