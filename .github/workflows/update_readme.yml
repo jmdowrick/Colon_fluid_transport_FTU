@@ -1,0 +1,41 @@
+name: Update README Directory Structure
+
+on:
+  push:
+    branches:
+      - main  # change if your default branch is different
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install tree command
+        run: sudo apt-get install -y tree
+
+      - name: Generate directory tree
+        run: |
+          echo "# Directory structure" > structure.md
+          echo "" >> structure.md
+          tree -L 2 -I ".git|.github|node_modules" >> structure.md
+
+      - name: Replace section in README
+        run: |
+          # Delete old "Directory structure" section and replace with new one
+          awk '
+            /^# Directory structure/ { print; system("cat structure.md | tail -n +2"); in_section=1; next }
+            /^#/ && in_section==1 && $0!="# Directory structure" { in_section=0 }
+            in_section==0 { print }
+          ' README.md > README.new
+          mv README.new README.md
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "Auto-update directory structure in README [skip ci]" || echo "No changes to commit"
+          git push
