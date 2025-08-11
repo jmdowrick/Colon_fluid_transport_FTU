@@ -636,6 +636,9 @@
   <units name="fF">
     <unit prefix="femto" units="farad"/>
   </units>
+  <units name="uF">
+    <unit prefix="micro" units="farad"/>
+  </units>
   <units name="nF">
     <unit prefix="nano" units="farad"/>
   </units>
@@ -704,6 +707,9 @@
   <units name="C">
     <unit units="ampere"/>
     <unit units="second"/>
+  </units>
+  <units name="pC">
+    <unit prefix="pico" units="coulomb"/>
   </units>
   <units name="C_per_mmol">
     <unit units="C"/>
@@ -824,14 +830,23 @@
     <unit units="fmol"/>
     <unit exponent="-1" units="second"/>
   </units>
+  <units name="C_per_mmol_3">
+    <unit units="C"/>
+    <unit exponent="-1" prefix="milli" units="mole"/>
+  </units>
+  <units name="fmol_per_s_5">
+    <unit units="fmol"/>
+    <unit exponent="-1" units="second"/>
+  </units>
   <component name="parameters">
-    <variable name="u_e_m_ENaC" units="volt" initial_value="-0.05" interface="public"/>
-    <variable name="q_1_init_ENaC" units="fmol" initial_value="0.1747" interface="public"/>
-    <variable name="q_2_init_ENaC" units="fmol" initial_value="0.24" interface="public"/>
-    <variable name="q_3_init_ENaC" units="fmol" initial_value="0.193" interface="public"/>
-    <variable name="q_4_init_ENaC" units="fmol" initial_value="0.3876" interface="public"/>
-    <variable name="q_open_init_ENaC" units="fmol" initial_value="3.40E-11" interface="public"/>
-    <variable name="q_open_int_init_ENaC" units="fmol" initial_value="0.3685" interface="public"/>
+    <variable name="q_Na_lumen_init_lumen" units="fmol" initial_value="10500" interface="public"/>
+    <variable name="q_Na_cell_init_cell" units="fmol" initial_value="750" interface="public"/>
+    <variable name="q_1_init_ENaC" units="fmol" initial_value="0.001747" interface="public"/>
+    <variable name="q_2_init_ENaC" units="fmol" initial_value="0.0024" interface="public"/>
+    <variable name="q_3_init_ENaC" units="fmol" initial_value="0.00193" interface="public"/>
+    <variable name="q_4_init_ENaC" units="fmol" initial_value="0.003876" interface="public"/>
+    <variable name="q_open_init_ENaC" units="fmol" initial_value="3.40E-13" interface="public"/>
+    <variable name="q_open_int_init_ENaC" units="fmol" initial_value="0.003685" interface="public"/>
     <variable name="K_1_ENaC" units="per_fmol_1" initial_value="1.39551477" interface="public"/>
     <variable name="K_2_ENaC" units="per_fmol_1" initial_value="1" interface="public"/>
     <variable name="K_3_ENaC" units="per_fmol_1" initial_value="1" interface="public"/>
@@ -846,6 +861,8 @@
     <variable name="kappa_4_ENaC" units="fmol_per_s_1" initial_value="1" interface="public"/>
     <variable name="kappa_5_ENaC" units="fmol_per_s_1" initial_value="1" interface="public"/>
     <variable name="kappa_6_ENaC" units="fmol_per_s_1" initial_value="0.059" interface="public"/>
+    <variable name="q_e_m_init_membrane" units="pC" initial_value="-1.7673" interface="public"/>
+    <variable name="C_m_membrane" units="picoF" initial_value="353.46" interface="public"/>
   </component>
   <component name="parameters_global">
     <variable name="R" units="J_per_K_per_mmol" initial_value="0.008314" interface="public"/>
@@ -858,7 +875,8 @@
   </component>
   <component name="lumen_module">
     <variable name="t" units="second" interface="public"/>
-    <variable name="q_Na_lumen" units="fmol" initial_value="200" interface="public"/>
+    <variable name="q_Na_lumen_init" units="fmol" interface="public"/>
+    <variable name="q_Na_lumen" units="fmol" initial_value="q_Na_lumen_init" interface="public"/>
     <variable name="v_ENaC_o" units="fmol_per_s_2" interface="public"/>
     <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply>
@@ -876,7 +894,8 @@
   </component>
   <component name="cell_module">
     <variable name="t" units="second" interface="public"/>
-    <variable name="q_Na_cell" units="fmol" initial_value="30" interface="public"/>
+    <variable name="q_Na_cell_init" units="fmol" interface="public"/>
+    <variable name="q_Na_cell" units="fmol" initial_value="q_Na_cell_init" interface="public"/>
     <variable name="v_ENaC_i" units="fmol_per_s_3" interface="public"/>
     <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply>
@@ -1465,14 +1484,53 @@
       </apply>
     </math>
   </component>
+  <component name="membrane_module">
+    <variable name="t" units="second" interface="public"/>
+    <variable name="u_e_m" units="volt" interface="public"/>
+    <variable name="C_m" units="picoF" interface="public"/>
+    <variable name="q_e_m_init" units="pC" interface="public"/>
+    <variable name="q_e_m" units="pC" initial_value="q_e_m_init"/>
+    <variable name="zNa" units="dimensionless" interface="public"/>
+    <variable name="F" units="C_per_mmol_3" interface="public"/>
+    <variable name="v_ENaC_i" units="fmol_per_s_5" interface="public"/>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>q_e_m</ci>
+        </apply>
+        <apply>
+          <times/>
+          <ci>zNa</ci>
+          <ci>F</ci>
+          <ci>v_ENaC_i</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_e_m</ci>
+        <apply>
+          <divide/>
+          <ci>q_e_m</ci>
+          <ci>C_m</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
   <component name="terminal_venous_connection"/>
   <component name="generic_junction_connection"/>
   <component name="sum_blood_volume"/>
   <component name="lumen">
+    <variable name="q_Na_lumen_init" units="fmol" interface="public"/>
     <variable name="q_Na_lumen" units="fmol" interface="public"/>
     <variable name="v_ENaC_o" units="fmol_per_s" interface="public"/>
   </component>
   <component name="cell">
+    <variable name="q_Na_cell_init" units="fmol" interface="public"/>
     <variable name="q_Na_cell" units="fmol" interface="public"/>
     <variable name="v_ENaC_i" units="fmol_per_s" interface="public"/>
   </component>
@@ -1505,14 +1563,27 @@
     <variable name="kappa_5" units="fmol_per_s" interface="public"/>
     <variable name="kappa_6" units="fmol_per_s" interface="public"/>
   </component>
+  <component name="membrane">
+    <variable name="q_e_m_init" units="pC" interface="public"/>
+    <variable name="C_m" units="picoFarad" interface="public"/>
+    <variable name="zNa" units="dimensionless" interface="public"/>
+    <variable name="F" units="C_per_mmol" interface="public"/>
+    <variable name="u_e_m" units="volt" interface="public"/>
+    <variable name="v_ENaC_i" units="fmol_per_s" interface="public"/>
+  </component>
   <component name="global">
     <variable name="R" units="J_per_K_per_mmol" interface="public"/>
     <variable name="F" units="C_per_mmol" interface="public"/>
     <variable name="T" units="kelvin" interface="public"/>
     <variable name="zNa" units="dimensionless" interface="public"/>
   </component>
+  <connection component_1="parameters" component_2="lumen_module">
+    <map_variables variable_1="q_Na_lumen_init_lumen" variable_2="q_Na_lumen_init"/>
+  </connection>
+  <connection component_1="parameters" component_2="cell_module">
+    <map_variables variable_1="q_Na_cell_init_cell" variable_2="q_Na_cell_init"/>
+  </connection>
   <connection component_1="parameters" component_2="ENaC_module">
-    <map_variables variable_1="u_e_m_ENaC" variable_2="u_e_m"/>
     <map_variables variable_1="q_1_init_ENaC" variable_2="q_1_init"/>
     <map_variables variable_1="q_2_init_ENaC" variable_2="q_2_init"/>
     <map_variables variable_1="q_3_init_ENaC" variable_2="q_3_init"/>
@@ -1534,6 +1605,10 @@
     <map_variables variable_1="kappa_5_ENaC" variable_2="kappa_5"/>
     <map_variables variable_1="kappa_6_ENaC" variable_2="kappa_6"/>
   </connection>
+  <connection component_1="parameters" component_2="membrane_module">
+    <map_variables variable_1="q_e_m_init_membrane" variable_2="q_e_m_init"/>
+    <map_variables variable_1="C_m_membrane" variable_2="C_m"/>
+  </connection>
   <connection component_1="parameters_global" component_2="global">
     <map_variables variable_1="R" variable_2="R"/>
     <map_variables variable_1="F" variable_2="F"/>
@@ -1546,6 +1621,10 @@
     <map_variables variable_1="T" variable_2="T"/>
     <map_variables variable_1="zNa" variable_2="zNa"/>
   </connection>
+  <connection component_1="parameters_global" component_2="membrane_module">
+    <map_variables variable_1="F" variable_2="F"/>
+    <map_variables variable_1="zNa" variable_2="zNa"/>
+  </connection>
   <connection component_1="environment" component_2="lumen_module">
     <map_variables variable_1="time" variable_2="t"/>
   </connection>
@@ -1555,7 +1634,11 @@
   <connection component_1="environment" component_2="ENaC_module">
     <map_variables variable_1="time" variable_2="t"/>
   </connection>
+  <connection component_1="environment" component_2="membrane_module">
+    <map_variables variable_1="time" variable_2="t"/>
+  </connection>
   <connection component_1="lumen_module" component_2="lumen">
+    <map_variables variable_1="q_Na_lumen_init" variable_2="q_Na_lumen_init"/>
     <map_variables variable_1="q_Na_lumen" variable_2="q_Na_lumen"/>
     <map_variables variable_1="v_ENaC_o" variable_2="v_ENaC_o"/>
   </connection>
@@ -1564,6 +1647,7 @@
     <map_variables variable_1="v_ENaC_o" variable_2="v_q_Na_o"/>
   </connection>
   <connection component_1="cell_module" component_2="cell">
+    <map_variables variable_1="q_Na_cell_init" variable_2="q_Na_cell_init"/>
     <map_variables variable_1="q_Na_cell" variable_2="q_Na_cell"/>
     <map_variables variable_1="v_ENaC_i" variable_2="v_ENaC_i"/>
   </connection>
@@ -1599,5 +1683,17 @@
     <map_variables variable_1="u_e_m" variable_2="u_e_m"/>
     <map_variables variable_1="v_q_Na_i" variable_2="v_q_Na_i"/>
     <map_variables variable_1="v_q_Na_o" variable_2="v_q_Na_o"/>
+  </connection>
+  <connection component_1="ENaC_module" component_2="membrane_module">
+    <map_variables variable_1="u_e_m" variable_2="u_e_m"/>
+    <map_variables variable_1="v_q_Na_i" variable_2="v_ENaC_i"/>
+  </connection>
+  <connection component_1="membrane_module" component_2="membrane">
+    <map_variables variable_1="u_e_m" variable_2="u_e_m"/>
+    <map_variables variable_1="C_m" variable_2="C_m"/>
+    <map_variables variable_1="q_e_m_init" variable_2="q_e_m_init"/>
+    <map_variables variable_1="zNa" variable_2="zNa"/>
+    <map_variables variable_1="F" variable_2="F"/>
+    <map_variables variable_1="v_ENaC_i" variable_2="v_ENaC_i"/>
   </connection>
 </model>

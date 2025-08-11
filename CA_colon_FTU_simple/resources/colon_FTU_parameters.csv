@@ -3,12 +3,12 @@ zNa,dimensionless,1,known
 F,C_per_mmol,96.485,user_defined
 R,J_per_K_per_mmol,0.008314,known
 T,kelvin,310,user_defined
-q_1_init_ENaC,fmol,0.1747,user_defined
-q_2_init_ENaC,fmol,0.24,user_defined
-q_3_init_ENaC,fmol,0.193,user_defined
-q_4_init_ENaC,fmol,0.3876,user_defined
-q_open_init_ENaC,fmol,3.40E-11,user_defined
-q_open_int_init_ENaC,fmol,0.3685,user_defined
+q_1_init_ENaC,fmol,0.001747,user_defined
+q_2_init_ENaC,fmol,0.0024,user_defined
+q_3_init_ENaC,fmol,0.00193,user_defined
+q_4_init_ENaC,fmol,0.003876,user_defined
+q_open_init_ENaC,fmol,3.40E-13,user_defined
+q_open_int_init_ENaC,fmol,0.003685,user_defined
 K_1_ENaC,per_fmol,1.39551477,user_defined
 K_2_ENaC,per_fmol,1,user_defined
 K_3_ENaC,per_fmol,1,user_defined
@@ -23,4 +23,7 @@ kappa_3_ENaC,fmol_per_s,1,user_defined
 kappa_4_ENaC,fmol_per_s,1,user_defined
 kappa_5_ENaC,fmol_per_s,1,user_defined
 kappa_6_ENaC,fmol_per_s,0.059,user_defined
-u_e_m_ENaC,volt,-0.05,user
+q_e_m_init_membrane,pC,-1.7673,known
+C_m_membrane,picoFarad,353.46,user_defined
+q_Na_lumen_init_lumen,fmol,10500,user_defined
+q_Na_cell_init_cell,fmol,750,user_defined

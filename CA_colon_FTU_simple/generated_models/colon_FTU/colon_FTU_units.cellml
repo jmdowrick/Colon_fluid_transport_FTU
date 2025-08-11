@@ -697,6 +697,9 @@
     <units name="fF">
         <unit prefix="femto" units="farad"/>
     </units>
+    <units name="uF">
+        <unit prefix="micro" units="farad"/>
+    </units>
     <units name="nF">
         <unit prefix="nano" units="farad"/>
     </units>
@@ -765,6 +768,9 @@
     <units name="C">
         <unit units="ampere"/>
         <unit units="second"/>
+    </units>
+    <units name="pC">
+        <unit prefix="pico" units="coulomb"/>
     </units>
     <units name="C_per_mmol">
         <unit units="C"/>

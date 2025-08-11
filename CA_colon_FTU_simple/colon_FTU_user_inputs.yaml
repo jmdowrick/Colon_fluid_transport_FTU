@@ -8,6 +8,8 @@ resources_dir: /Users/jdow403/Documents/_publications/_Dowrick/Colon_fluid_trans
 generated_models_dir: /Users/jdow403/Documents/_publications/_Dowrick/Colon_fluid_transport_FTU/CA_colon_FTU_simple/generated_models
 param_id_output_dir: /Users/jdow403/Documents/_publications/_Dowrick/Colon_fluid_transport_FTU/CA_colon_FTU_simple/param_id_output
 
+# TODO - make these paths relative
+
 #________ cpp generation inputs _______
 # solver options are: RK4, forward_euler, CVODE
 solver: CVODE

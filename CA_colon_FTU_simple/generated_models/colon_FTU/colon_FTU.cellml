@@ -172,6 +172,7 @@
     <units name="nJ_per_nC" units_ref="nJ_per_nC"/>
     <units name="fC" units_ref="fC"/>
     <units name="fF" units_ref="fF"/>
+    <units name="uF" units_ref="uF"/>
     <units name="nF" units_ref="nF"/>
     <units name="volt_per_sec" units_ref="volt_per_sec"/>
     <units name="J_per_K_per_mmol" units_ref="J_per_K_per_mmol"/>
@@ -191,6 +192,7 @@
     <units name="m_cubed_per_second" units_ref="m_cubed_per_second"/>
     <units name="micromolar_m_cubed" units_ref="micromolar_m_cubed"/>
     <units name="C" units_ref="C"/>
+    <units name="pC" units_ref="pC"/>
     <units name="C_per_mmol" units_ref="C_per_mmol"/>
     <units name="picoA" units_ref="picoA"/>
     <units name="picoA_per_picoFarad" units_ref="picoA_per_picoFarad"/>
@@ -226,6 +228,9 @@
 <import xlink:href="colon_FTU_modules.cellml">
     <component component_ref="ENaC" name="ENaC_module"/>
 </import>
+<import xlink:href="colon_FTU_modules.cellml">
+    <component component_ref="simple_membrane" name="membrane_module"/>
+</import>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;vessel mappings&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>
    <map_components component_1="lumen_module" component_2="ENaC_module"/>
@@ -243,6 +248,22 @@
    <map_components component_1="ENaC_module" component_2="cell_module"/>
    <map_variables variable_1="v_q_Na_i" variable_2="v_ENaC_i"/>
 </connection>
+<connection>
+   <map_components component_1="ENaC_module" component_2="membrane_module"/>
+   <map_variables variable_1="v_q_Na_i" variable_2="v_ENaC_i"/>
+</connection>
+<connection>
+   <map_components component_1="ENaC_module" component_2="membrane_module"/>
+   <map_variables variable_1="u_e_m" variable_2="u_e_m"/>
+</connection>
+<connection>
+   <map_components component_1="membrane_module" component_2="ENaC_module"/>
+   <map_variables variable_1="u_e_m" variable_2="u_e_m"/>
+</connection>
+<connection>
+   <map_components component_1="membrane_module" component_2="ENaC_module"/>
+   <map_variables variable_1="v_ENaC_i" variable_2="v_q_Na_i"/>
+</connection>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;terminal venous connection&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <component name="terminal_venous_connection">
 </component>
@@ -254,10 +275,12 @@
 </component>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;access_variables&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <component name="lumen">
+   <variable name="q_Na_lumen_init" public_interface="in" units="fmol"/>
    <variable name="q_Na_lumen" public_interface="in" units="fmol"/>
    <variable name="v_ENaC_o" public_interface="in" units="fmol_per_s"/>
 </component>
 <component name="cell">
+   <variable name="q_Na_cell_init" public_interface="in" units="fmol"/>
    <variable name="q_Na_cell" public_interface="in" units="fmol"/>
    <variable name="v_ENaC_i" public_interface="in" units="fmol_per_s"/>
 </component>
@@ -290,6 +313,14 @@
    <variable name="kappa_5" public_interface="in" units="fmol_per_s"/>
    <variable name="kappa_6" public_interface="in" units="fmol_per_s"/>
 </component>
+<component name="membrane">
+   <variable name="q_e_m_init" public_interface="in" units="pC"/>
+   <variable name="C_m" public_interface="in" units="picoFarad"/>
+   <variable name="zNa" public_interface="in" units="dimensionless"/>
+   <variable name="F" public_interface="in" units="C_per_mmol"/>
+   <variable name="u_e_m" public_interface="in" units="volt"/>
+   <variable name="v_ENaC_i" public_interface="in" units="fmol_per_s"/>
+</component>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;global_parameters_access&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <component name="global">
    <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
@@ -300,11 +331,13 @@
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;own vessel mappings&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>
    <map_components component_1="lumen" component_2="lumen_module"/>
+   <map_variables variable_1="q_Na_lumen_init" variable_2="q_Na_lumen_init"/>
    <map_variables variable_1="q_Na_lumen" variable_2="q_Na_lumen"/>
    <map_variables variable_1="v_ENaC_o" variable_2="v_ENaC_o"/>
 </connection>
 <connection>
    <map_components component_1="cell" component_2="cell_module"/>
+   <map_variables variable_1="q_Na_cell_init" variable_2="q_Na_cell_init"/>
    <map_variables variable_1="q_Na_cell" variable_2="q_Na_cell"/>
    <map_variables variable_1="v_ENaC_i" variable_2="v_ENaC_i"/>
 </connection>
@@ -338,6 +371,15 @@
    <map_variables variable_1="kappa_5" variable_2="kappa_5"/>
    <map_variables variable_1="kappa_6" variable_2="kappa_6"/>
 </connection>
+<connection>
+   <map_components component_1="membrane" component_2="membrane_module"/>
+   <map_variables variable_1="q_e_m_init" variable_2="q_e_m_init"/>
+   <map_variables variable_1="C_m" variable_2="C_m"/>
+   <map_variables variable_1="zNa" variable_2="zNa"/>
+   <map_variables variable_1="F" variable_2="F"/>
+   <map_variables variable_1="u_e_m" variable_2="u_e_m"/>
+   <map_variables variable_1="v_ENaC_i" variable_2="v_ENaC_i"/>
+</connection>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;own global parameters mapping&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>
    <map_components component_1="global" component_2="parameters_global"/>
@@ -348,8 +390,15 @@
 </connection>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;parameters mapping to modules&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>
+   <map_components component_1="parameters" component_2="lumen_module"/>
+   <map_variables variable_1="q_Na_lumen_init_lumen" variable_2="q_Na_lumen_init"/>
+</connection>
+<connection>
+   <map_components component_1="parameters" component_2="cell_module"/>
+   <map_variables variable_1="q_Na_cell_init_cell" variable_2="q_Na_cell_init"/>
+</connection>
+<connection>
    <map_components component_1="parameters" component_2="ENaC_module"/>
-   <map_variables variable_1="u_e_m_ENaC" variable_2="u_e_m"/>
    <map_variables variable_1="q_1_init_ENaC" variable_2="q_1_init"/>
    <map_variables variable_1="q_2_init_ENaC" variable_2="q_2_init"/>
    <map_variables variable_1="q_3_init_ENaC" variable_2="q_3_init"/>
@@ -378,6 +427,16 @@
    <map_variables variable_1="T" variable_2="T"/>
    <map_variables variable_1="zNa" variable_2="zNa"/>
 </connection>
+<connection>
+   <map_components component_1="parameters" component_2="membrane_module"/>
+   <map_variables variable_1="q_e_m_init_membrane" variable_2="q_e_m_init"/>
+   <map_variables variable_1="C_m_membrane" variable_2="C_m"/>
+</connection>
+<connection>
+   <map_components component_1="parameters_global" component_2="membrane_module"/>
+   <map_variables variable_1="zNa" variable_2="zNa"/>
+   <map_variables variable_1="F" variable_2="F"/>
+</connection>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;time mapping&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>
    <map_components component_1="environment" component_2="lumen_module"/>
@@ -389,6 +448,10 @@
 </connection>
 <connection>
    <map_components component_1="environment" component_2="ENaC_module"/>
+   <map_variables variable_1="time" variable_2="t"/>
+</connection>
+<connection>
+   <map_components component_1="environment" component_2="membrane_module"/>
    <map_variables variable_1="time" variable_2="t"/>
 </connection>
 </model>

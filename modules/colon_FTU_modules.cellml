@@ -4,7 +4,8 @@
         <!-- Constitutive Parameters-->
         <variable name="t" public_interface="in" units="second"/>
         <!-- State Parameters-->
-        <variable initial_value="200" name="q_Na_lumen" public_interface="out" units="fmol"/>
+        <variable name="q_Na_lumen_init" public_interface="in" units="fmol"/>
+        <variable initial_value="q_Na_lumen_init" name="q_Na_lumen" public_interface="out" units="fmol"/>
         <variable name="v_ENaC_o" public_interface="in" units="fmol_per_s"/>
         <!-- Conservation Laws-->
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -25,7 +26,8 @@
         <!-- Constitutive Parameters-->
         <variable name="t" public_interface="in" units="second"/>
         <!-- State Parameters-->
-        <variable initial_value="30" name="q_Na_cell" public_interface="out" units="fmol"/>
+        <variable name="q_Na_cell_init" public_interface="in" units="fmol"/>
+        <variable initial_value="q_Na_cell_init" name="q_Na_cell" public_interface="out" units="fmol"/>
         <variable name="v_ENaC_i" public_interface="in" units="fmol_per_s"/>
         <!-- Conservation Laws-->
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -42,20 +44,43 @@
             </apply>
         </math>
     </component>
-    <!--def comp simple_membrane as
-    var t: second {pub: in};
-    var u_e_m_init: volt {pub: in};
-    var u_e_m: volt {pub: out};
-    var C_m: nF {pub: in};
- var q_e_m_init: nC {pub: out};
-    var q_e_m: nC {init: -0.00015};
-    var zNa: dimensionless {pub: in};
-    var F: C_per_mmol {pub: in};
-    var v_ENaC_i: fmol_per_s {pub: in};-->
-    <!-- q_e_m_init = u_e_m_init*C_m;
-     ode(q_e_m, t) = zNa*F*v_ENaC_i;
-     u_e_m = q_e_m/C_m;
- enddef;-->
+    <component name="simple_membrane">
+        <variable name="t" public_interface="in" units="second"/>
+        <variable name="u_e_m" public_interface="out" units="volt"/>
+        <variable name="C_m" public_interface="in" units="picoFarad"/>
+        <variable name="q_e_m_init" public_interface="in" units="pC"/>
+        <variable initial_value="q_e_m_init" name="q_e_m" units="pC"/>
+        <variable name="zNa" public_interface="in" units="dimensionless"/>
+        <variable name="F" public_interface="in" units="C_per_mmol"/>
+        <variable name="v_ENaC_i" public_interface="in" units="fmol_per_s"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_e_m</ci>
+                </apply>
+                <apply>
+                    <times/>
+                    <ci>zNa</ci>
+                    <ci>F</ci>
+                    <ci>v_ENaC_i</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_e_m</ci>
+                <apply>
+                    <divide/>
+                    <ci>q_e_m</ci>
+                    <ci>C_m</ci>
+                </apply>
+            </apply>
+        </math>
+    </component>
     <component name="ENaC">
         <variable name="t" public_interface="in" units="second"/>
         <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>

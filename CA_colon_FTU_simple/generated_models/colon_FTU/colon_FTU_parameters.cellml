@@ -162,6 +162,7 @@
     <units name="nJ_per_nC" units_ref="nJ_per_nC"/>
     <units name="fC" units_ref="fC"/>
     <units name="fF" units_ref="fF"/>
+    <units name="uF" units_ref="uF"/>
     <units name="nF" units_ref="nF"/>
     <units name="volt_per_sec" units_ref="volt_per_sec"/>
     <units name="J_per_K_per_mmol" units_ref="J_per_K_per_mmol"/>
@@ -181,6 +182,7 @@
     <units name="m_cubed_per_second" units_ref="m_cubed_per_second"/>
     <units name="micromolar_m_cubed" units_ref="micromolar_m_cubed"/>
     <units name="C" units_ref="C"/>
+    <units name="pC" units_ref="pC"/>
     <units name="C_per_mmol" units_ref="C_per_mmol"/>
     <units name="picoA" units_ref="picoA"/>
     <units name="picoA_per_picoFarad" units_ref="picoA_per_picoFarad"/>
@@ -213,13 +215,14 @@
 <variable initial_value="1" name="zNa" public_interface="out" units="dimensionless"/>
 </component>
 <component name="parameters">
-<variable initial_value="-0.05" name="u_e_m_ENaC" public_interface="out" units="volt"/>
-<variable initial_value="0.1747" name="q_1_init_ENaC" public_interface="out" units="fmol"/>
-<variable initial_value="0.24" name="q_2_init_ENaC" public_interface="out" units="fmol"/>
-<variable initial_value="0.193" name="q_3_init_ENaC" public_interface="out" units="fmol"/>
-<variable initial_value="0.3876" name="q_4_init_ENaC" public_interface="out" units="fmol"/>
-<variable initial_value="3.40E-11" name="q_open_init_ENaC" public_interface="out" units="fmol"/>
-<variable initial_value="0.3685" name="q_open_int_init_ENaC" public_interface="out" units="fmol"/>
+<variable initial_value="10500" name="q_Na_lumen_init_lumen" public_interface="out" units="fmol"/>
+<variable initial_value="750" name="q_Na_cell_init_cell" public_interface="out" units="fmol"/>
+<variable initial_value="0.001747" name="q_1_init_ENaC" public_interface="out" units="fmol"/>
+<variable initial_value="0.0024" name="q_2_init_ENaC" public_interface="out" units="fmol"/>
+<variable initial_value="0.00193" name="q_3_init_ENaC" public_interface="out" units="fmol"/>
+<variable initial_value="0.003876" name="q_4_init_ENaC" public_interface="out" units="fmol"/>
+<variable initial_value="3.40E-13" name="q_open_init_ENaC" public_interface="out" units="fmol"/>
+<variable initial_value="0.003685" name="q_open_int_init_ENaC" public_interface="out" units="fmol"/>
 <variable initial_value="1.39551477" name="K_1_ENaC" public_interface="out" units="per_fmol"/>
 <variable initial_value="1" name="K_2_ENaC" public_interface="out" units="per_fmol"/>
 <variable initial_value="1" name="K_3_ENaC" public_interface="out" units="per_fmol"/>
@@ -234,5 +237,7 @@
 <variable initial_value="1" name="kappa_4_ENaC" public_interface="out" units="fmol_per_s"/>
 <variable initial_value="1" name="kappa_5_ENaC" public_interface="out" units="fmol_per_s"/>
 <variable initial_value="0.059" name="kappa_6_ENaC" public_interface="out" units="fmol_per_s"/>
+<variable initial_value="-1.7673" name="q_e_m_init_membrane" public_interface="out" units="pC"/>
+<variable initial_value="353.46" name="C_m_membrane" public_interface="out" units="picoFarad"/>
 </component>
 </model>
