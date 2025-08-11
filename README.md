@@ -61,8 +61,8 @@ user_inputs_path_override: [colon_FTU_dir]/CA_colon_FTU/colon_FTU_user_inputs.ya
     ├── BG_Kir.cellml
     ├── NKE_pump_BG_6_states_v2.cellml
     ├── NKE_pump_SS_BG_6_states_v1.cellml
+    ├── colon_FTU_module_config.json
     ├── colon_FTU_modules.cellml
-    ├── colon_FTU_simple_module_config.json
     ├── epithelial_dynamics.cellml
     └── units_and_constants
 
