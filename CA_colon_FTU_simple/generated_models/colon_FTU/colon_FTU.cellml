@@ -215,8 +215,10 @@
     <units name="L_per_s" units_ref="L_per_s"/>
     <units name="L_per_s_per_kPa" units_ref="L_per_s_per_kPa"/>
     <units name="kPa_per_L" units_ref="kPa_per_L"/>
+    <units name="kPa_per_s" units_ref="kPa_per_s"/>
     <units name="L_per_kPa" units_ref="L_per_kPa"/>
     <units name="kPa_s_per_L" units_ref="kPa_s_per_L"/>
+    <units name="L_per_mmol" units_ref="L_per_mmol"/>
 </import>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;imports&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <import xlink:href="colon_FTU_modules.cellml">

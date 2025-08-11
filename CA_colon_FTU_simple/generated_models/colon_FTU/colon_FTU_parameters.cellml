@@ -205,8 +205,10 @@
     <units name="L_per_s" units_ref="L_per_s"/>
     <units name="L_per_s_per_kPa" units_ref="L_per_s_per_kPa"/>
     <units name="kPa_per_L" units_ref="kPa_per_L"/>
+    <units name="kPa_per_s" units_ref="kPa_per_s"/>
     <units name="L_per_kPa" units_ref="L_per_kPa"/>
     <units name="kPa_s_per_L" units_ref="kPa_s_per_L"/>
+    <units name="L_per_mmol" units_ref="L_per_mmol"/>
 </import>
 <component name="parameters_global">
 <variable initial_value="0.008314" name="R" public_interface="out" units="J_per_K_per_mmol"/>

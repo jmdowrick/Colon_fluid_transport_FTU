@@ -205,8 +205,10 @@
     <units name="L_per_s" units_ref="L_per_s"/>
     <units name="L_per_s_per_kPa" units_ref="L_per_s_per_kPa"/>
     <units name="kPa_per_L" units_ref="kPa_per_L"/>
+    <units name="kPa_per_s" units_ref="kPa_per_s"/>
     <units name="L_per_kPa" units_ref="L_per_kPa"/>
     <units name="kPa_s_per_L" units_ref="kPa_s_per_L"/>
+    <units name="L_per_mmol" units_ref="L_per_mmol"/>
 </import>
     <component name="zero_flow">
         <variable name="v_zero" public_interface="out" units="m3_per_s"/>
@@ -219,13 +221,10 @@
         </math>
     </component>
     <component name="simple_lumen">
-        <!-- Constitutive Parameters-->
         <variable name="t" public_interface="in" units="second"/>
-        <!-- State Parameters-->
         <variable name="q_Na_lumen_init" public_interface="in" units="fmol"/>
         <variable initial_value="q_Na_lumen_init" name="q_Na_lumen" public_interface="out" units="fmol"/>
         <variable name="v_ENaC_o" public_interface="in" units="fmol_per_s"/>
-        <!-- Conservation Laws-->
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
@@ -241,13 +240,10 @@
         </math>
     </component>
     <component name="simple_cell">
-        <!-- Constitutive Parameters-->
         <variable name="t" public_interface="in" units="second"/>
-        <!-- State Parameters-->
         <variable name="q_Na_cell_init" public_interface="in" units="fmol"/>
         <variable initial_value="q_Na_cell_init" name="q_Na_cell" public_interface="out" units="fmol"/>
         <variable name="v_ENaC_i" public_interface="in" units="fmol_per_s"/>
-        <!-- Conservation Laws-->
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>

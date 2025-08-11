@@ -791,6 +791,10 @@
     <unit prefix="kilo" units="pascal"/>
     <unit exponent="-3" prefix="deci" units="metre"/>
   </units>
+  <units name="kPa_per_s">
+    <unit units="kPa"/>
+    <unit exponent="-1" units="second"/>
+  </units>
   <units name="L_per_kPa">
     <unit exponent="3" prefix="deci" units="metre"/>
     <unit exponent="-1" prefix="kilo" units="pascal"/>
@@ -799,6 +803,10 @@
     <unit prefix="kilo" units="pascal"/>
     <unit units="second"/>
     <unit exponent="-3" prefix="deci" units="metre"/>
+  </units>
+  <units name="L_per_mmol">
+    <unit units="litre"/>
+    <unit exponent="-1" prefix="milli" units="mole"/>
   </units>
   <units name="per_fmol_1">
     <unit exponent="-1" units="fmol"/>

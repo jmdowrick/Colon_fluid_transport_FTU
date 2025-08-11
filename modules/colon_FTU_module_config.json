@@ -1,4 +1,64 @@
 [
+   {
+    "vessel_type":"simple_lumen",
+    "BC_type":"nn",
+    "module_format":"cellml",
+    "module_file":"colon_FTU_modules.cellml",
+    "module_type":"simple_lumen",
+    "entrance_ports":
+    [
+    ],
+    "exit_ports":
+    [
+    ],
+    "general_ports":
+    [
+      {
+        "port_type":"q_Na_o",
+        "variables":["q_Na_lumen"]
+      },
+      {
+        "port_type":"v_ENaC_o",
+        "variables":["v_ENaC_o"]
+      }
+    ],
+    "variables_and_units":
+    [
+      ["q_Na_lumen_init", "fmol", "access", "constant"],
+      ["q_Na_lumen", "fmol", "access", "variable"],
+      ["v_ENaC_o", "fmol_per_s", "access", "variable"]
+    ]
+  },
+  {
+    "vessel_type":"simple_cell",
+    "BC_type":"nn",
+    "module_format":"cellml",
+    "module_file":"colon_FTU_modules.cellml",
+    "module_type":"simple_cell",
+    "entrance_ports":
+    [
+    ],
+    "exit_ports":
+    [
+    ],
+    "general_ports":
+    [
+      {
+        "port_type":"q_Na_i",
+        "variables":["q_Na_cell"]
+      },
+      {
+        "port_type":"v_ENaC_i",
+        "variables":["v_ENaC_i"]
+      }
+    ],
+    "variables_and_units":
+    [
+      ["q_Na_cell_init", "fmol", "access", "constant"],
+      ["q_Na_cell", "fmol", "access", "variable"],
+      ["v_ENaC_i", "fmol_per_s", "access", "variable"]
+    ]
+  },
   {
     "vessel_type":"colonocyte",
     "BC_type":"nn",
@@ -128,6 +188,73 @@
       ["F", "C_per_mmol", "access", "global_constant"],
       ["u_e_m", "volt", "access", "variable"],
       ["v_ENaC_i", "fmol_per_s", "access", "variable"]
+    ]
+  },
+  {
+    "vessel_type":"simple_ENaC",
+    "BC_type":"nn",
+    "module_format":"cellml",
+    "module_file":"colon_FTU_modules.cellml",
+    "module_type":"ENaC",
+    "entrance_ports":
+    [
+    ],
+    "exit_ports":
+    [
+    ],
+    "general_ports":
+    [
+      {
+        "port_type":"q_Na_o",
+        "variables":["q_Na_o"]
+      },
+      {
+        "port_type":"q_Na_i",
+        "variables":["q_Na_i"]
+      },
+      {
+        "port_type":"v_ENaC_i",
+        "variables":["v_q_Na_i"],
+        "multi_port":"True"
+      },
+      {
+        "port_type":"v_ENaC_o",
+        "variables":["v_q_Na_o"]
+      },
+      {
+        "port_type":"membrane_voltage",
+        "variables":["u_e_m"]
+      }
+    ],
+    "variables_and_units":
+    [
+      ["R", "J_per_K_per_mmol", "access", "global_constant"],
+      ["F", "C_per_mmol", "access", "global_constant"],
+      ["T", "kelvin", "access", "global_constant"],
+      ["zNa", "dimensionless", "access", "global_constant"],
+      ["u_e_m", "volt", "access", "variable"],
+      ["q_1_init", "fmol", "access", "constant"],
+      ["q_2_init", "fmol", "access", "constant"],
+      ["q_3_init", "fmol", "access", "constant"],
+      ["q_4_init", "fmol", "access", "constant"],
+      ["q_open_init", "fmol", "access", "constant"],
+      ["q_open_int_init", "fmol", "access", "constant"],
+      ["v_q_Na_i", "fmol_per_s", "access", "variable"],
+      ["v_q_Na_o", "fmol_per_s", "access", "variable"],
+      ["K_1", "per_fmol", "access", "constant"],
+      ["K_2", "per_fmol", "access", "constant"],
+      ["K_3", "per_fmol", "access", "constant"],
+      ["K_4", "per_fmol", "access", "constant"],
+      ["K_open", "per_fmol", "access", "constant"],
+      ["K_open_int", "per_fmol", "access", "constant"],
+      ["K_Na_i", "per_fmol", "access", "constant"],
+      ["K_Na_o", "per_fmol", "access", "constant"],
+      ["kappa_1", "fmol_per_s", "access", "constant"],
+      ["kappa_2", "fmol_per_s", "access", "constant"],
+      ["kappa_3", "fmol_per_s", "access", "constant"],
+      ["kappa_4", "fmol_per_s", "access", "constant"],
+      ["kappa_5", "fmol_per_s", "access", "constant"],
+      ["kappa_6", "fmol_per_s", "access", "constant"]
     ]
   },
   {
