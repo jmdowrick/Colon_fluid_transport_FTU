@@ -1,10 +1,6 @@
 name,BC_type,vessel_type,inp_vessels,out_vessels
-AQ_api,nn,aquorin,lumen,epithelium
-AQ_bas,nn,aquorin,epithelium,lam_prop
-NKE,nn,NKE,lam_prop,epithelium
-Kir,nn,Kir,lam_prop,epithelium
-ENaC,nn,ENaC,lumen,epithelium
-epithelium,nn,compartment,AQ_api NKE ENaC Kir,AQ_bas
-lumen,nn,compartment,,AQ_api ENaC paracellular
-lam_prop,nn,compartment,AQ_bas paracellular,NKE Kir
-paracellular,nn,paracellular,lumen,lam_prop
+mucus,nn,mucus,,ENaC AQ_apical
+cell,nn,colonocyte,ENaC AQ_apical,
+ENaC,nn,ENaC,mucus membrane,cell membrane
+membrane,nn,simple_membrane,ENaC,ENaC
+AQ_apical,nn,AQ_apical,mucus,cell
