@@ -53,6 +53,7 @@ user_inputs_path_override: [colon_FTU_dir]/CA_colon_FTU/colon_FTU_user_inputs.ya
 ├── model_visualisations
 │   ├── BG_AQ.png
 │   ├── BG_ENaC.png
+│   ├── BG_Hunter_NKE.png
 │   ├── BG_Kir.png
 │   ├── CA_colon_FTU.png
 │   └── CA_colon_FTU_simple.png
@@ -68,7 +69,7 @@ user_inputs_path_override: [colon_FTU_dir]/CA_colon_FTU/colon_FTU_user_inputs.ya
     ├── epithelial_dynamics.cellml
     └── units_and_constants
 
-10 directories, 18 files
+10 directories, 19 files
 ```
 # Citation
 *Insert journal citations when this model is published.*
