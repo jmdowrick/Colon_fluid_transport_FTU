@@ -4,7 +4,7 @@ This project contains the CellML bond graph modules and circulatory autogen inpu
 # Overview
 
 ## Full model
-*Insert an image of full bond graph model*
+<img width="1986" height="1785" alt="CA_colon_FTU" src="model_visualisations/CA_colon_FTU.png" />
 
 ## Modules
 ### Compartments
@@ -14,6 +14,8 @@ This project contains the CellML bond graph modules and circulatory autogen inpu
 
 ### Proteins
 #### Epithelial Sodium Channel (ENaC)
+<img width="1049" height="805" alt="BG_ENaC" src="model_visualisations/BG_ENaC.png" />
+
 #### Na/K-ATPase
 #### Aquaporin
 #### K-leak channel
