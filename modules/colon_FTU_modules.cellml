@@ -1,6 +1,88 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <model name="colon_ftu_modules" xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cellml="http://www.cellml.org/cellml/1.1#">
     <!-- #########################################################
+    <component name="membrane">
+        <variable name="t" public_interface="in" units="second"/>
+        <!-- material parameters-->
+        <variable name="C_m" public_interface="in" units="picoFarad"/>
+        <!-- constants-->
+        <variable name="zNa" public_interface="in" units="dimensionless"/>
+        <variable name="zK" public_interface="in" units="dimensionless"/>
+        <variable name="z_1_NKE" public_interface="in" units="dimensionless"/>
+        <variable name="z_2_NKE" units="dimensionless"/>
+        <variable name="F" public_interface="in" units="C_per_mmol"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>z_2_NKE</ci>
+                <apply>
+                    <minus/>
+                    <cn cellml:units="dimensionless">1</cn>
+                    <ci>z_1_NKE</ci>
+                </apply>
+            </apply>
+        </math>
+        <!-- initial values-->
+        <variable name="q_e_m_init" public_interface="in" units="pC"/>
+        <!-- flows-->
+        <variable name="v_ENaC_i" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_NKE_K_o" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_NKE_Na_i" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_Kir_i" public_interface="in" units="fmol_per_s"/>
+        <!-- state variables-->
+        <variable name="u_e_m" public_interface="out" units="volt"/>
+        <variable initial_value="q_e_m_init" name="q_e_m" units="pC"/>
+        <!-- constitutive equations-->
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_e_m</ci>
+                </apply>
+                <apply>
+                    <plus/>
+                    <apply>
+                        <times/>
+                        <ci>z_2_NKE</ci>
+                        <ci>F</ci>
+                        <ci>v_NKE_K_o</ci>
+                    </apply>
+                    <apply>
+                        <times/>
+                        <ci>z_1_NKE</ci>
+                        <ci>F</ci>
+                        <ci>v_NKE_Na_i</ci>
+                    </apply>
+                    <apply>
+                        <times/>
+                        <ci>zNa</ci>
+                        <ci>F</ci>
+                        <ci>v_ENaC_i</ci>
+                    </apply>
+                    <apply>
+                        <times/>
+                        <ci>zK</ci>
+                        <ci>F</ci>
+                        <ci>v_Kir_i</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_e_m</ci>
+                <apply>
+                    <divide/>
+                    <ci>q_e_m</ci>
+                    <ci>C_m</ci>
+                </apply>
+            </apply>
+        </math>
+    </component>
+    <!-- #########################################################
  ################## Compartments #########################
  #########################################################-->
     <component name="simple_lumen">
