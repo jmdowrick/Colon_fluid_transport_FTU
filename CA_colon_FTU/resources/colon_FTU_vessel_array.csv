@@ -1,6 +1,10 @@
 name,BC_type,vessel_type,inp_vessels,out_vessels
 mucus,nn,mucus,,ENaC AQ_apical
-cell,nn,colonocyte,ENaC AQ_apical,
+cell,nn,colonocyte,ENaC AQ_apical ,NKE Kir AQ_baso
 ENaC,nn,ENaC,mucus membrane,cell membrane
-membrane,nn,simple_membrane,ENaC,ENaC
+membrane,nn,membrane,ENaC Kir NKE,ENaC Kir NKE
 AQ_apical,nn,AQ_apical,mucus,cell
+AQ_baso,nn,AQ_baso,cell,int_fluid
+NKE,nn,NKE,cell membrane,int_fluid membrane
+Kir,nn,Kir,cell membrane,int_fluid membrane
+int_fluid,nn,int_fluid,NKE Kir AQ_baso,""

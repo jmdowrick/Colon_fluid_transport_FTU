@@ -1,6 +1,45 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <model name="colon_ftu_modules" xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cellml="http://www.cellml.org/cellml/1.1#">
     <!-- #########################################################
+ ##################### Membranes #########################
+ #########################################################-->
+    <component name="simple_membrane">
+        <variable name="t" public_interface="in" units="second"/>
+        <variable name="u_e_m" public_interface="out" units="volt"/>
+        <variable name="C_m" public_interface="in" units="picoFarad"/>
+        <variable name="q_e_m_init" public_interface="in" units="pC"/>
+        <variable initial_value="q_e_m_init" name="q_e_m" units="pC"/>
+        <variable name="zNa" public_interface="in" units="dimensionless"/>
+        <variable name="F" public_interface="in" units="C_per_mmol"/>
+        <variable name="v_ENaC_i" public_interface="in" units="fmol_per_s"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_e_m</ci>
+                </apply>
+                <apply>
+                    <times/>
+                    <ci>zNa</ci>
+                    <ci>F</ci>
+                    <ci>v_ENaC_i</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_e_m</ci>
+                <apply>
+                    <divide/>
+                    <ci>q_e_m</ci>
+                    <ci>C_m</ci>
+                </apply>
+            </apply>
+        </math>
+    </component>
     <component name="membrane">
         <variable name="t" public_interface="in" units="second"/>
         <!-- material parameters-->
@@ -123,94 +162,6 @@
             </apply>
         </math>
     </component>
-    <component name="simple_membrane">
-        <variable name="t" public_interface="in" units="second"/>
-        <variable name="u_e_m" public_interface="out" units="volt"/>
-        <variable name="C_m" public_interface="in" units="picoFarad"/>
-        <variable name="q_e_m_init" public_interface="in" units="pC"/>
-        <variable initial_value="q_e_m_init" name="q_e_m" units="pC"/>
-        <variable name="zNa" public_interface="in" units="dimensionless"/>
-        <variable name="F" public_interface="in" units="C_per_mmol"/>
-        <variable name="v_ENaC_i" public_interface="in" units="fmol_per_s"/>
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-                <eq/>
-                <apply>
-                    <diff/>
-                    <bvar>
-                        <ci>t</ci>
-                    </bvar>
-                    <ci>q_e_m</ci>
-                </apply>
-                <apply>
-                    <times/>
-                    <ci>zNa</ci>
-                    <ci>F</ci>
-                    <ci>v_ENaC_i</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>u_e_m</ci>
-                <apply>
-                    <divide/>
-                    <ci>q_e_m</ci>
-                    <ci>C_m</ci>
-                </apply>
-            </apply>
-        </math>
-    </component>
-    <component name="colonocyte">
-        <variable name="t" public_interface="in" units="second"/>
-        <!-- initial values-->
-        <variable name="q_H2O_epi_init" public_interface="in" units="fmol"/>
-        <variable name="q_Na_epi_init" public_interface="in" units="fmol"/>
-        <variable name="u_P_epi_init" public_interface="in" units="kPa"/>
-        <!-- quantities-->
-        <variable initial_value="q_Na_epi_init" name="q_Na_epi" public_interface="out" units="fmol"/>
-        <variable initial_value="q_H2O_epi_init" name="q_H2O_epi" public_interface="out" units="fmol"/>
-        <!-- flows-->
-        <variable name="v_ENaC_i" public_interface="in" units="fmol_per_s"/>
-        <variable name="v_AQ_i" public_interface="in" units="fmol_per_s"/>
-        <!-- efforts-->
-        <variable initial_value="u_P_epi_init" name="u_P_epi" public_interface="out" units="kPa"/>
-        <!-- conservation equations-->
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-                <eq/>
-                <apply>
-                    <diff/>
-                    <bvar>
-                        <ci>t</ci>
-                    </bvar>
-                    <ci>u_P_epi</ci>
-                </apply>
-                <cn cellml:units="kPa_per_s">0</cn>
-            </apply>
-            <apply>
-                <eq/>
-                <apply>
-                    <diff/>
-                    <bvar>
-                        <ci>t</ci>
-                    </bvar>
-                    <ci>q_Na_epi</ci>
-                </apply>
-                <ci>v_ENaC_i</ci>
-            </apply>
-            <apply>
-                <eq/>
-                <apply>
-                    <diff/>
-                    <bvar>
-                        <ci>t</ci>
-                    </bvar>
-                    <ci>q_H2O_epi</ci>
-                </apply>
-                <ci>v_AQ_i</ci>
-            </apply>
-        </math>
-    </component>
     <component name="mucus">
         <variable name="t" public_interface="in" units="second"/>
         <!-- initial values-->
@@ -257,6 +208,178 @@
                         <ci>t</ci>
                     </bvar>
                     <ci>q_H2O_muc</ci>
+                </apply>
+                <ci>v_AQ_o</ci>
+            </apply>
+        </math>
+    </component>
+    <component name="colonocyte">
+        <variable name="t" public_interface="in" units="second"/>
+        <!-- initial values-->
+        <variable name="q_H2O_epi_init" public_interface="in" units="fmol"/>
+        <variable name="q_Na_epi_init" public_interface="in" units="fmol"/>
+        <variable name="q_K_epi_init" public_interface="in" units="fmol"/>
+        <variable name="u_P_epi_init" public_interface="in" units="kPa"/>
+        <variable name="q_ATP_epi_init" public_interface="in" units="fmol"/>
+        <variable name="q_ADP_epi_init" public_interface="in" units="fmol"/>
+        <variable name="q_Pi_epi_init" public_interface="in" units="fmol"/>
+        <!-- quantities-->
+        <variable initial_value="q_Na_epi_init" name="q_Na_epi" public_interface="out" units="fmol"/>
+        <variable initial_value="q_K_epi_init" name="q_K_epi" public_interface="out" units="fmol"/>
+        <variable initial_value="q_H2O_epi_init" name="q_H2O_epi" public_interface="out" units="fmol"/>
+        <variable initial_value="q_ATP_epi_init" name="q_ATP_epi" public_interface="out" units="fmol"/>
+        <variable initial_value="q_ADP_epi_init" name="q_ADP_epi" public_interface="out" units="fmol"/>
+        <variable initial_value="q_Pi_epi_init" name="q_Pi_epi" public_interface="out" units="fmol"/>
+        <!-- flows-->
+        <variable name="v_ENaC_i" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_Kir_i" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_AQ_api_i" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_NKE_Na_i" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_NKE_K_i" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_AQ_bas_i" public_interface="in" units="fmol_per_s"/>
+        <!-- efforts-->
+        <variable initial_value="u_P_epi_init" name="u_P_epi" public_interface="out" units="kPa"/>
+        <!-- conservation equations-->
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>u_P_epi</ci>
+                </apply>
+                <cn cellml:units="kPa_per_s">0</cn>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_Na_epi</ci>
+                </apply>
+                <apply>
+                    <plus/>
+                    <ci>v_ENaC_i</ci>
+                    <apply>
+                        <times/>
+                        <cn cellml:units="dimensionless">3</cn>
+                        <ci>v_NKE_Na_i</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_K_epi</ci>
+                </apply>
+                <apply>
+                    <plus/>
+                    <ci>v_Kir_i</ci>
+                    <apply>
+                        <times/>
+                        <cn cellml:units="dimensionless">2</cn>
+                        <ci>v_NKE_K_i</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_H2O_epi</ci>
+                </apply>
+                <apply>
+                    <plus/>
+                    <ci>v_AQ_api_i</ci>
+                    <ci>v_AQ_bas_i</ci>
+                </apply>
+            </apply>
+        </math>
+    </component>
+    <component name="interstitial_fluid">
+        <variable name="t" public_interface="in" units="second"/>
+        <!-- initial values-->
+        <variable name="q_H2O_int_init" public_interface="in" units="fmol"/>
+        <variable name="q_Na_int_init" public_interface="in" units="fmol"/>
+        <variable name="q_K_int_init" public_interface="in" units="fmol"/>
+        <variable name="u_P_int_init" public_interface="in" units="kPa"/>
+        <!-- quantities-->
+        <variable initial_value="q_K_int_init" name="q_K_int" public_interface="out" units="fmol"/>
+        <variable initial_value="q_Na_int_init" name="q_Na_int" public_interface="out" units="fmol"/>
+        <variable initial_value="q_H2O_int_init" name="q_H2O_int" public_interface="out" units="fmol"/>
+        <!-- flows-->
+        <variable name="v_NKE_K_o" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_NKE_Na_o" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_Kir_o" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_AQ_o" public_interface="in" units="fmol_per_s"/>
+        <!-- efforts-->
+        <variable initial_value="u_P_int_init" name="u_P_int" public_interface="out" units="kPa"/>
+        <!-- conservation equations-->
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>u_P_int</ci>
+                </apply>
+                <cn cellml:units="kPa_per_s">0</cn>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_Na_int</ci>
+                </apply>
+                <apply>
+                    <times/>
+                    <cn cellml:units="dimensionless">3</cn>
+                    <ci>v_NKE_Na_o</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_K_int</ci>
+                </apply>
+                <apply>
+                    <plus/>
+                    <apply>
+                        <times/>
+                        <cn cellml:units="dimensionless">2</cn>
+                        <ci>v_NKE_K_o</ci>
+                    </apply>
+                    <ci>v_Kir_o</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_H2O_int</ci>
                 </apply>
                 <ci>v_AQ_o</ci>
             </apply>
@@ -844,6 +967,7 @@
             </apply>
         </math>
     </component>
+    <!-- ###########################################-->
     <component name="AQ">
         <variable name="t" public_interface="in" units="second"/>
         <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>

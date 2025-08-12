@@ -220,6 +220,43 @@
             </apply>
         </math>
     </component>
+    <component name="simple_membrane">
+        <variable name="t" public_interface="in" units="second"/>
+        <variable name="u_e_m" public_interface="out" units="volt"/>
+        <variable name="C_m" public_interface="in" units="picoFarad"/>
+        <variable name="q_e_m_init" public_interface="in" units="pC"/>
+        <variable initial_value="q_e_m_init" name="q_e_m" units="pC"/>
+        <variable name="zNa" public_interface="in" units="dimensionless"/>
+        <variable name="F" public_interface="in" units="C_per_mmol"/>
+        <variable name="v_ENaC_i" public_interface="in" units="fmol_per_s"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_e_m</ci>
+                </apply>
+                <apply>
+                    <times/>
+                    <ci>zNa</ci>
+                    <ci>F</ci>
+                    <ci>v_ENaC_i</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_e_m</ci>
+                <apply>
+                    <divide/>
+                    <ci>q_e_m</ci>
+                    <ci>C_m</ci>
+                </apply>
+            </apply>
+        </math>
+    </component>
     <component name="simple_lumen">
         <variable name="t" public_interface="in" units="second"/>
         <variable name="q_Na_lumen_init" public_interface="in" units="fmol"/>
@@ -255,43 +292,6 @@
                     <ci>q_Na_cell</ci>
                 </apply>
                 <ci>v_ENaC_i</ci>
-            </apply>
-        </math>
-    </component>
-    <component name="simple_membrane">
-        <variable name="t" public_interface="in" units="second"/>
-        <variable name="u_e_m" public_interface="out" units="volt"/>
-        <variable name="C_m" public_interface="in" units="picoFarad"/>
-        <variable name="q_e_m_init" public_interface="in" units="pC"/>
-        <variable initial_value="q_e_m_init" name="q_e_m" units="pC"/>
-        <variable name="zNa" public_interface="in" units="dimensionless"/>
-        <variable name="F" public_interface="in" units="C_per_mmol"/>
-        <variable name="v_ENaC_i" public_interface="in" units="fmol_per_s"/>
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-                <eq/>
-                <apply>
-                    <diff/>
-                    <bvar>
-                        <ci>t</ci>
-                    </bvar>
-                    <ci>q_e_m</ci>
-                </apply>
-                <apply>
-                    <times/>
-                    <ci>zNa</ci>
-                    <ci>F</ci>
-                    <ci>v_ENaC_i</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>u_e_m</ci>
-                <apply>
-                    <divide/>
-                    <ci>q_e_m</ci>
-                    <ci>C_m</ci>
-                </apply>
             </apply>
         </math>
     </component>
@@ -874,4 +874,5 @@
             </apply>
         </math>
     </component>
+    <!-- ###########################################-->
 </model>
