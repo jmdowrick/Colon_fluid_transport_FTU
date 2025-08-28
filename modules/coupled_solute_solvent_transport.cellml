@@ -1,0 +1,494 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<model name="compartment_and_membrane_module" xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cellml="http://www.cellml.org/cellml/1.1#">
+    <units name="per_s">
+        <unit exponent="-1" units="second"/>
+    </units>
+    <units name="fmol">
+        <unit prefix="femto" units="mole"/>
+    </units>
+    <units name="fmol_per_s">
+        <unit prefix="femto" units="mole"/>
+        <unit exponent="-1" units="second"/>
+    </units>
+    <units name="J_per_K_per_mmol">
+        <unit units="joule"/>
+        <unit exponent="-1" units="kelvin"/>
+        <unit exponent="-1" prefix="milli" units="mole"/>
+    </units>
+    <units name="C_per_mmol">
+        <unit units="coulomb"/>
+        <unit exponent="-1" prefix="milli" units="mole"/>
+    </units>
+    <units name="per_fmol">
+        <unit exponent="-1" prefix="femto" units="mole"/>
+    </units>
+    <units name="kPa">
+        <unit prefix="kilo" units="pascal"/>
+    </units>
+    <units name="J_per_mmol">
+        <unit units="joule"/>
+        <unit exponent="-1" prefix="femto" units="mole"/>
+    </units>
+    <units name="pL">
+        <unit prefix="pico" units="litre"/>
+    </units>
+    <units name="pL_per_s">
+        <unit units="pL"/>
+        <unit exponent="-1" units="second"/>
+    </units>
+    <units name="pL2_per_J_per_s">
+        <unit exponent="2" units="pL"/>
+        <unit exponent="-1" units="joule"/>
+        <unit exponent="-1" units="second"/>
+    </units>
+    <units name="mM">
+        <unit prefix="milli" units="mole"/>
+        <unit exponent="-1" units="litre"/>
+    </units>
+    <units name="per_mM">
+        <unit exponent="-1" units="mM"/>
+    </units>
+    <component name="environment">
+        <variable name="t" public_interface="out" units="second"/>
+    </component>
+    <component name="compartment_module">
+        <variable name="t" public_interface="in" units="second"/>
+        <!-- state variables-->
+        <variable initial_value="0" name="u_P" units="kPa"/>
+        <variable name="u_e" units="volt"/>
+        <variable name="u_n" units="J_per_mmol"/>
+        <variable name="u_pi" units="kPa"/>
+        <variable name="u_P_pi" public_interface="out" units="kPa"/>
+        <variable name="u_mu_V" public_interface="out" units="J_per_mmol"/>
+        <variable initial_value="1" name="q_e" units="coulomb"/>
+        <variable initial_value="100" name="q_n" units="fmol"/>
+        <variable initial_value="2" name="q_V" units="pL"/>
+        <variable name="c_n" units="mM"/>
+        <variable name="v_n" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_V" public_interface="in" units="pL_per_s"/>
+        <!-- constants-->
+        <variable initial_value="1" name="z" units="dimensionless"/>
+        <variable initial_value="0.008314" name="R" units="J_per_K_per_mmol"/>
+        <variable initial_value="305" name="T" units="kelvin"/>
+        <variable initial_value="96.485" name="F" units="C_per_mmol"/>
+        <!-- constitutive parameters-->
+        <variable initial_value="0.001" name="C_m" units="farad"/>
+        <variable initial_value="1" name="K_n" units="per_mM"/>
+        <!-- constitutive relations-->
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>c_n</ci>
+                <apply>
+                    <divide/>
+                    <ci>q_n</ci>
+                    <ci>q_V</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_pi</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <ci>c_n</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_e</ci>
+                <apply>
+                    <divide/>
+                    <ci>q_e</ci>
+                    <ci>C_m</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_n</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_n</ci>
+                            <ci>c_n</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <!-- conservation laws-->
+            <apply>
+                <eq/>
+                <ci>u_P_pi</ci>
+                <apply>
+                    <minus/>
+                    <ci>u_P</ci>
+                    <ci>u_pi</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_mu_V</ci>
+                <apply>
+                    <plus/>
+                    <ci>u_n</ci>
+                    <apply>
+                        <times/>
+                        <ci>z</ci>
+                        <ci>F</ci>
+                        <ci>u_e</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_e</ci>
+                </apply>
+                <apply>
+                    <times/>
+                    <apply>
+                        <minus/>
+                        <ci>z</ci>
+                    </apply>
+                    <ci>F</ci>
+                    <ci>v_n</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_n</ci>
+                </apply>
+                <apply>
+                    <minus/>
+                    <ci>v_n</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_V</ci>
+                </apply>
+                <apply>
+                    <minus/>
+                    <ci>v_V</ci>
+                </apply>
+            </apply>
+        </math>
+    </component>
+    <component name="membrane_module">
+        <variable name="t" public_interface="in" units="second"/>
+        <!-- state variables       -->
+        <variable name="u_P_pi_o" public_interface="in" units="kPa"/>
+        <variable name="u_P_pi_i" public_interface="in" units="kPa"/>
+        <variable name="u_P_pi_diff" units="kPa"/>
+        <variable name="u_mu_V_o" public_interface="in" units="J_per_mmol"/>
+        <variable name="u_mu_V_i" public_interface="in" units="J_per_mmol"/>
+        <variable name="u_mu_V_diff" units="J_per_mmol"/>
+        <variable name="c_n_o" public_interface="in" units="mM"/>
+        <variable name="c_n_i" public_interface="in" units="mM"/>
+        <variable name="c_n_bar" units="mM"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>c_n_bar</ci>
+                <piecewise>
+                    <piece>
+                        <ci>c_n_o</ci>
+                        <apply>
+                            <lt/>
+                            <apply>
+                                <abs/>
+                                <apply>
+                                    <minus/>
+                                    <ci>c_n_o</ci>
+                                    <ci>c_n_i</ci>
+                                </apply>
+                            </apply>
+                            <cn cellml:units="dimensionless" type="e-notation">1<sep/>-5</cn>
+                        </apply>
+                    </piece>
+                    <otherwise>
+                        <apply>
+                            <divide/>
+                            <apply>
+                                <minus/>
+                                <ci>c_n_o</ci>
+                                <ci>c_n_i</ci>
+                            </apply>
+                            <apply>
+                                <minus/>
+                                <apply>
+                                    <ln/>
+                                    <ci>c_n_o</ci>
+                                </apply>
+                                <apply>
+                                    <ln/>
+                                    <ci>c_n_i</ci>
+                                </apply>
+                            </apply>
+                        </apply>
+                    </otherwise>
+                </piecewise>
+            </apply>
+        </math>
+        <variable name="v_n" public_interface="out" units="fmol_per_s"/>
+        <variable name="v_V" public_interface="out" units="pL_per_s"/>
+        <!-- constants-->
+        <variable initial_value="1" name="z" units="dimensionless"/>
+        <variable initial_value="0.008314" name="R" units="J_per_K_per_mmol"/>
+        <variable initial_value="305" name="T" units="kelvin"/>
+        <variable initial_value="96.485" name="F" units="C_per_mmol"/>
+        <!-- constitutive parameters-->
+        <variable initial_value="1" name="omega" units="per_s"/>
+        <variable initial_value="1" name="L_P" units="pL2_per_J_per_s"/>
+        <variable initial_value="1" name="sigma" units="dimensionless"/>
+        <!-- constitutive relations        -->
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>v_n</ci>
+                <apply>
+                    <plus/>
+                    <apply>
+                        <times/>
+                        <ci>omega</ci>
+                        <ci>c_n_bar</ci>
+                        <ci>u_mu_V_diff</ci>
+                    </apply>
+                    <apply>
+                        <times/>
+                        <apply>
+                            <minus/>
+                            <cn cellml:units="dim">1</cn>
+                            <ci>sigma</ci>
+                        </apply>
+                        <ci>c_n_bar</ci>
+                        <ci>v_V</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_V</ci>
+                <apply>
+                    <times/>
+                    <ci>L_P</ci>
+                    <apply>
+                        <plus/>
+                        <apply>
+                            <times/>
+                            <apply>
+                                <minus/>
+                                <cn cellml:units="dim">1</cn>
+                                <ci>sigma</ci>
+                            </apply>
+                            <ci>c_n_bar</ci>
+                            <ci>u_mu_V_diff</ci>
+                        </apply>
+                        <ci>u_P_pi_diff</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <!-- conservation laws-->
+            <apply>
+                <eq/>
+                <ci>u_P_pi_diff</ci>
+                <apply>
+                    <minus/>
+                    <ci>u_P_pi_o</ci>
+                    <ci>u_P_pi_i</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_mu_V_diff</ci>
+                <apply>
+                    <minus/>
+                    <ci>u_mu_V_o</ci>
+                    <ci>u_mu_V_i</ci>
+                </apply>
+            </apply>
+        </math>
+    </component>
+    <component name="compartment_module_2">
+        <variable name="t" public_interface="in" units="second"/>
+        <!-- state variables-->
+        <variable initial_value="0" name="u_P" units="kPa"/>
+        <variable name="u_e" units="volt"/>
+        <variable name="u_n" units="J_per_mmol"/>
+        <variable name="u_pi" units="kPa"/>
+        <variable name="u_P_pi" public_interface="out" units="kPa"/>
+        <variable name="u_mu_V" public_interface="out" units="J_per_mmol"/>
+        <variable initial_value="1" name="q_e" units="coulomb"/>
+        <variable initial_value="100" name="q_n" units="fmol"/>
+        <variable initial_value="2" name="q_V" units="pL"/>
+        <variable name="c_n" public_interface="out" units="mM"/>
+        <variable name="v_n" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_V" public_interface="in" units="pL_per_s"/>
+        <!-- constants-->
+        <variable initial_value="1" name="z" units="dimensionless"/>
+        <variable initial_value="0.008314" name="R" units="J_per_K_per_mmol"/>
+        <variable initial_value="305" name="T" units="kelvin"/>
+        <variable initial_value="96.485" name="F" units="C_per_mmol"/>
+        <!-- constitutive parameters-->
+        <variable initial_value="0.001" name="C_m" units="farad"/>
+        <variable initial_value="1" name="K_n" units="per_mM"/>
+        <!-- constitutive relations-->
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>c_n</ci>
+                <apply>
+                    <divide/>
+                    <ci>q_n</ci>
+                    <ci>q_V</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_pi</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <ci>c_n</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_e</ci>
+                <apply>
+                    <divide/>
+                    <ci>q_e</ci>
+                    <ci>C_m</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_n</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_n</ci>
+                            <ci>c_n</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <!-- conservation laws-->
+            <apply>
+                <eq/>
+                <ci>u_P_pi</ci>
+                <apply>
+                    <minus/>
+                    <ci>u_P</ci>
+                    <ci>u_pi</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_mu_V</ci>
+                <apply>
+                    <plus/>
+                    <ci>u_n</ci>
+                    <apply>
+                        <times/>
+                        <ci>z</ci>
+                        <ci>F</ci>
+                        <ci>u_e</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_e</ci>
+                </apply>
+                <apply>
+                    <times/>
+                    <ci>z</ci>
+                    <ci>F</ci>
+                    <ci>v_n</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_n</ci>
+                </apply>
+                <ci>v_n</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_V</ci>
+                </apply>
+                <ci>v_V</ci>
+            </apply>
+        </math>
+    </component>
+    <connection>
+        <map_components component_1="environment" component_2="compartment_module"/>
+        <map_variables variable_1="t" variable_2="t"/>
+    </connection>
+    <connection>
+        <map_components component_1="environment" component_2="membrane_module"/>
+        <map_variables variable_1="t" variable_2="t"/>
+    </connection>
+    <connection>
+        <map_components component_1="environment" component_2="compartment_module_2"/>
+        <map_variables variable_1="t" variable_2="t"/>
+    </connection>
+    <connection>
+        <map_components component_1="compartment_module" component_2="membrane_module"/>
+        <map_variables variable_1="c_n" variable_2="c_n_o"/>
+        <map_variables variable_1="u_P_pi" variable_2="u_P_pi_o"/>
+        <map_variables variable_1="u_mu_V" variable_2="u_mu_V_o"/>
+        <map_variables variable_1="v_n" variable_2="v_n"/>
+        <map_variables variable_1="v_V" variable_2="v_V"/>
+    </connection>
+    <connection>
+        <map_components component_1="compartment_module_2" component_2="membrane_module"/>
+        <map_variables variable_1="c_n" variable_2="c_n_i"/>
+        <map_variables variable_1="u_P_pi" variable_2="u_P_pi_i"/>
+        <map_variables variable_1="u_mu_V" variable_2="u_mu_V_i"/>
+        <map_variables variable_1="v_n" variable_2="v_n"/>
+        <map_variables variable_1="v_V" variable_2="v_V"/>
+    </connection>
+</model>

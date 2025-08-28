@@ -185,6 +185,9 @@
     <units name="pC" units_ref="pC"/>
     <units name="C_per_mmol" units_ref="C_per_mmol"/>
     <units name="picoA" units_ref="picoA"/>
+    <units name="picoS" units_ref="picoS"/>
+    <units name="picoS_per_fmol" units_ref="picoS_per_fmol"/>
+    <units name="L_fmol_per_J_per_s" units_ref="L_fmol_per_J_per_s"/>
     <units name="picoA_per_picoFarad" units_ref="picoA_per_picoFarad"/>
     <units name="microL" units_ref="microL"/>
     <units name="picoFarad" units_ref="picoFarad"/>
@@ -208,93 +211,91 @@
     <units name="kPa_per_s" units_ref="kPa_per_s"/>
     <units name="L_per_kPa" units_ref="L_per_kPa"/>
     <units name="kPa_s_per_L" units_ref="kPa_s_per_L"/>
+    <units name="pL_L_per_J_per_s" units_ref="pL_L_per_J_per_s"/>
+    <units name="pL" units_ref="pL"/>
+    <units name="pL_per_s" units_ref="pL_per_s"/>
+    <units name="pL_per_kPa_per_s" units_ref="pL_per_kPa_per_s"/>
     <units name="L_per_mmol" units_ref="L_per_mmol"/>
 </import>
 <component name="parameters_global">
-<variable initial_value="0.008314" name="R" public_interface="out" units="J_per_K_per_mmol"/>
-<variable initial_value="96.485" name="F" public_interface="out" units="C_per_mmol"/>
-<variable initial_value="310" name="T" public_interface="out" units="kelvin"/>
 <variable initial_value="1" name="zNa" public_interface="out" units="dimensionless"/>
 <variable initial_value="1" name="zK" public_interface="out" units="dimensionless"/>
-<variable initial_value="0.018" name="V_w" public_interface="out" units="L_per_mmol"/>
+<variable initial_value="-1" name="zCl" public_interface="out" units="dimensionless"/>
+<variable initial_value="0.008314" name="R" public_interface="out" units="J_per_K_per_mmol"/>
+<variable initial_value="310" name="T" public_interface="out" units="kelvin"/>
+<variable initial_value="96.485" name="F" public_interface="out" units="C_per_mmol"/>
+<variable initial_value="7800" name="C_m_bas" public_interface="out" units="picoFarad"/>
+<variable initial_value="3900" name="C_m_api" public_interface="out" units="picoFarad"/>
+<variable initial_value="1" name="K_Na" public_interface="out" units="per_mM"/>
+<variable initial_value="1" name="K_K" public_interface="out" units="per_mM"/>
+<variable initial_value="1" name="K_Cl" public_interface="out" units="per_mM"/>
+<variable initial_value="1" name="K_ADP" public_interface="out" units="per_mM"/>
+<variable initial_value="1" name="K_ATP" public_interface="out" units="per_mM"/>
+<variable initial_value="1" name="K_Pi" public_interface="out" units="per_mM"/>
 </component>
 <component name="parameters">
-<variable initial_value="10500" name="q_Na_muc_init_mucus" public_interface="out" units="fmol"/>
-<variable initial_value="2765000" name="q_H2O_muc_init_mucus" public_interface="out" units="fmol"/>
-<variable initial_value="0" name="u_P_muc_init_mucus" public_interface="out" units="kPa"/>
-<variable initial_value="750" name="q_ATP_epi_init_cell" public_interface="out" units="fmol"/>
-<variable initial_value="75" name="q_ADP_epi_init_cell" public_interface="out" units="fmol"/>
-<variable initial_value="75" name="q_Pi_epi_init_cell" public_interface="out" units="fmol"/>
-<variable initial_value="750" name="q_Na_epi_init_cell" public_interface="out" units="fmol"/>
-<variable initial_value="10500" name="q_K_epi_init_cell" public_interface="out" units="fmol"/>
-<variable initial_value="2766000" name="q_H2O_epi_init_cell" public_interface="out" units="fmol"/>
-<variable initial_value="0" name="u_P_epi_init_cell" public_interface="out" units="kPa"/>
-<variable initial_value="0.001747" name="q_1_init_ENaC" public_interface="out" units="fmol"/>
-<variable initial_value="0.0024" name="q_2_init_ENaC" public_interface="out" units="fmol"/>
-<variable initial_value="0.00193" name="q_3_init_ENaC" public_interface="out" units="fmol"/>
-<variable initial_value="0.003876" name="q_4_init_ENaC" public_interface="out" units="fmol"/>
-<variable initial_value="3.40E-13" name="q_open_init_ENaC" public_interface="out" units="fmol"/>
-<variable initial_value="0.003685" name="q_open_int_init_ENaC" public_interface="out" units="fmol"/>
+<variable initial_value="50" name="q_V_init_mucus" public_interface="out" units="pL"/>
+<variable initial_value="1500" name="q_Na_init_mucus" public_interface="out" units="fmol"/>
+<variable initial_value="1500" name="q_Cl_init_mucus" public_interface="out" units="fmol"/>
+<variable initial_value="3750" name="q_K_init_mucus" public_interface="out" units="fmol"/>
+<variable initial_value="0" name="u_e_lumen_init_mucus" public_interface="out" units="volt"/>
+<variable initial_value="0" name="u_P_mucus" public_interface="out" units="kPa"/>
+<variable initial_value="300" name="q_V_init_cell" public_interface="out" units="pL"/>
+<variable initial_value="3000" name="q_Na_init_cell" public_interface="out" units="fmol"/>
+<variable initial_value="6000" name="q_Cl_init_cell" public_interface="out" units="fmol"/>
+<variable initial_value="43200" name="q_K_init_cell" public_interface="out" units="fmol"/>
+<variable initial_value="0.05" name="u_e_cell_init_cell" public_interface="out" units="volt"/>
+<variable initial_value="10" name="c_ATP_init_cell" public_interface="out" units="mM"/>
+<variable initial_value="1" name="c_ADP_init_cell" public_interface="out" units="mM"/>
+<variable initial_value="10" name="c_Pi_init_cell" public_interface="out" units="mM"/>
+<variable initial_value="0" name="u_P_cell" public_interface="out" units="kPa"/>
+<variable initial_value="100" name="q_V_init_int_fluid" public_interface="out" units="pL"/>
+<variable initial_value="14000" name="q_Na_init_int_fluid" public_interface="out" units="fmol"/>
+<variable initial_value="10000" name="q_Cl_init_int_fluid" public_interface="out" units="fmol"/>
+<variable initial_value="400" name="q_K_init_int_fluid" public_interface="out" units="fmol"/>
+<variable initial_value="0" name="u_P_int_fluid" public_interface="out" units="kPa"/>
+<variable initial_value="117" name="omega_Na_para_transport" public_interface="out" units="L_fmol_per_J_per_s"/>
+<variable initial_value="234" name="omega_Cl_para_transport" public_interface="out" units="L_fmol_per_J_per_s"/>
+<variable initial_value="75" name="omega_K_para_transport" public_interface="out" units="L_fmol_per_J_per_s"/>
+<variable initial_value="0.9" name="sigma_Na_para_transport" public_interface="out" units="dimensionless"/>
+<variable initial_value="0.4" name="sigma_Cl_para_transport" public_interface="out" units="dimensionless"/>
+<variable initial_value="0.95" name="sigma_K_para_transport" public_interface="out" units="dimensionless"/>
+<variable initial_value="100" name="L_P_para_transport" public_interface="out" units="pL_L_per_J_per_s"/>
+<variable initial_value="0.015" name="q_1_init_ENaC" public_interface="out" units="fmol"/>
+<variable initial_value="0.015" name="q_2_init_ENaC" public_interface="out" units="fmol"/>
+<variable initial_value="0.015" name="q_3_init_ENaC" public_interface="out" units="fmol"/>
+<variable initial_value="0.015" name="q_4_init_ENaC" public_interface="out" units="fmol"/>
 <variable initial_value="1.39551477" name="K_1_ENaC" public_interface="out" units="per_fmol"/>
 <variable initial_value="1" name="K_2_ENaC" public_interface="out" units="per_fmol"/>
 <variable initial_value="1" name="K_3_ENaC" public_interface="out" units="per_fmol"/>
 <variable initial_value="0.5" name="K_4_ENaC" public_interface="out" units="per_fmol"/>
-<variable initial_value="6488256446" name="K_open_ENaC" public_interface="out" units="per_fmol"/>
-<variable initial_value="0.458179268" name="K_open_int_ENaC" public_interface="out" units="per_fmol"/>
-<variable initial_value="0.005989862" name="K_Na_i_ENaC" public_interface="out" units="per_fmol"/>
-<variable initial_value="0.002966598" name="K_Na_o_ENaC" public_interface="out" units="per_fmol"/>
 <variable initial_value="1" name="kappa_1_ENaC" public_interface="out" units="fmol_per_s"/>
 <variable initial_value="1" name="kappa_2_ENaC" public_interface="out" units="fmol_per_s"/>
 <variable initial_value="1" name="kappa_3_ENaC" public_interface="out" units="fmol_per_s"/>
 <variable initial_value="1" name="kappa_4_ENaC" public_interface="out" units="fmol_per_s"/>
-<variable initial_value="1" name="kappa_5_ENaC" public_interface="out" units="fmol_per_s"/>
-<variable initial_value="0.059" name="kappa_6_ENaC" public_interface="out" units="fmol_per_s"/>
-<variable initial_value="-1.7673" name="q_e_m_init_membrane" public_interface="out" units="pC"/>
-<variable initial_value="353.46" name="C_m_membrane" public_interface="out" units="picoFarad"/>
-<variable initial_value="0.16" name="q_AQ_AQ_apical" public_interface="out" units="fmol"/>
-<variable initial_value="1" name="K_AQ_AQ_apical" public_interface="out" units="per_fmol"/>
-<variable initial_value="1" name="K_H2O_i_AQ_apical" public_interface="out" units="per_fmol"/>
-<variable initial_value="1" name="K_H2O_o_AQ_apical" public_interface="out" units="per_fmol"/>
-<variable initial_value="1" name="kappa_1_AQ_apical" public_interface="out" units="fmol_per_s"/>
-<variable initial_value="0.16" name="q_AQ_AQ_baso" public_interface="out" units="fmol"/>
-<variable initial_value="1" name="K_AQ_AQ_baso" public_interface="out" units="per_fmol"/>
-<variable initial_value="1" name="K_H2O_i_AQ_baso" public_interface="out" units="per_fmol"/>
-<variable initial_value="1" name="K_H2O_o_AQ_baso" public_interface="out" units="per_fmol"/>
-<variable initial_value="1" name="kappa_1_AQ_baso" public_interface="out" units="fmol_per_s"/>
+<variable initial_value="48184000" name="gamma_Na_ENaC" public_interface="out" units="picoS_per_fmol"/>
+<variable initial_value="48184000" name="gamma_o_ENaC" public_interface="out" units="picoS_per_fmol"/>
+<variable initial_value="1" name="kappa_AQ_AQ_api" public_interface="out" units="pL_per_kPa_per_s"/>
+<variable initial_value="4" name="kappa_AQ_AQ_bas" public_interface="out" units="pL_per_kPa_per_s"/>
 <variable initial_value="0.17" name="z_1_NKE" public_interface="out" units="dimensionless"/>
-<variable initial_value="3" name="q_1_init_NKE" public_interface="out" units="fmol"/>
-<variable initial_value="0" name="q_2_init_NKE" public_interface="out" units="fmol"/>
-<variable initial_value="0" name="q_3_init_NKE" public_interface="out" units="fmol"/>
-<variable initial_value="0" name="q_4_init_NKE" public_interface="out" units="fmol"/>
-<variable initial_value="0" name="q_5_init_NKE" public_interface="out" units="fmol"/>
-<variable initial_value="0" name="q_6_init_NKE" public_interface="out" units="fmol"/>
+<variable initial_value="20" name="q_1_init_NKE" public_interface="out" units="fmol"/>
+<variable initial_value="20" name="q_2_init_NKE" public_interface="out" units="fmol"/>
+<variable initial_value="20" name="q_3_init_NKE" public_interface="out" units="fmol"/>
+<variable initial_value="20" name="q_4_init_NKE" public_interface="out" units="fmol"/>
+<variable initial_value="20" name="q_5_init_NKE" public_interface="out" units="fmol"/>
+<variable initial_value="20" name="q_6_init_NKE" public_interface="out" units="fmol"/>
 <variable initial_value="1" name="K_1_NKE" public_interface="out" units="per_fmol"/>
 <variable initial_value="1" name="K_2_NKE" public_interface="out" units="per_fmol"/>
 <variable initial_value="1" name="K_3_NKE" public_interface="out" units="per_fmol"/>
 <variable initial_value="1" name="K_4_NKE" public_interface="out" units="per_fmol"/>
 <variable initial_value="1" name="K_5_NKE" public_interface="out" units="per_fmol"/>
 <variable initial_value="1" name="K_6_NKE" public_interface="out" units="per_fmol"/>
-<variable initial_value="1" name="K_Nai_NKE" public_interface="out" units="per_fmol"/>
-<variable initial_value="1" name="K_Nao_NKE" public_interface="out" units="per_fmol"/>
-<variable initial_value="1" name="K_Ki_NKE" public_interface="out" units="per_fmol"/>
-<variable initial_value="1" name="K_Ko_NKE" public_interface="out" units="per_fmol"/>
-<variable initial_value="1" name="K_ADP_NKE" public_interface="out" units="per_fmol"/>
-<variable initial_value="1" name="K_ATP_NKE" public_interface="out" units="per_fmol"/>
-<variable initial_value="1" name="K_Pi_NKE" public_interface="out" units="per_fmol"/>
 <variable initial_value="1" name="kappa_1_NKE" public_interface="out" units="fmol_per_s"/>
 <variable initial_value="1" name="kappa_2_NKE" public_interface="out" units="fmol_per_s"/>
 <variable initial_value="1" name="kappa_3_NKE" public_interface="out" units="fmol_per_s"/>
 <variable initial_value="1" name="kappa_4_NKE" public_interface="out" units="fmol_per_s"/>
 <variable initial_value="1" name="kappa_5_NKE" public_interface="out" units="fmol_per_s"/>
 <variable initial_value="1" name="kappa_6_NKE" public_interface="out" units="fmol_per_s"/>
-<variable initial_value="1" name="q_Kir_Kir" public_interface="out" units="fmol"/>
-<variable initial_value="1" name="K_K_i_Kir" public_interface="out" units="per_fmol"/>
-<variable initial_value="1" name="K_K_o_Kir" public_interface="out" units="per_fmol"/>
-<variable initial_value="1" name="K_Kir_Kir" public_interface="out" units="per_fmol"/>
-<variable initial_value="1" name="kappa_1_Kir" public_interface="out" units="fmol_per_s"/>
-<variable initial_value="10500" name="q_Na_int_init_int_fluid" public_interface="out" units="fmol"/>
-<variable initial_value="750" name="q_K_int_init_int_fluid" public_interface="out" units="fmol"/>
-<variable initial_value="2765000" name="q_H2O_int_init_int_fluid" public_interface="out" units="fmol"/>
-<variable initial_value="0" name="u_P_int_init_int_fluid" public_interface="out" units="kPa"/>
+<variable initial_value="4000" name="kappa_Kir_Kir" public_interface="out" units="picoS"/>
 </component>
 </model>

@@ -718,6 +718,19 @@
   <units name="picoA">
     <unit prefix="pico" units="ampere"/>
   </units>
+  <units name="picoS">
+    <unit prefix="pico" units="siemens"/>
+  </units>
+  <units name="picoS_per_fmol">
+    <unit units="picoS"/>
+    <unit exponent="-1" units="fmol"/>
+  </units>
+  <units name="L_fmol_per_J_per_s">
+    <unit units="litre"/>
+    <unit units="fmol"/>
+    <unit exponent="-1" units="joule"/>
+    <unit exponent="-1" units="second"/>
+  </units>
   <units name="picoA_per_picoFarad">
     <unit units="picoA"/>
     <unit exponent="-1" units="picoFarad"/>
@@ -804,9 +817,39 @@
     <unit units="second"/>
     <unit exponent="-3" prefix="deci" units="metre"/>
   </units>
+  <units name="pL_L_per_J_per_s">
+    <unit units="pL"/>
+    <unit units="litre"/>
+    <unit exponent="-1" units="joule"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <units name="pL">
+    <unit prefix="pico" units="litre"/>
+  </units>
+  <units name="pL_per_s">
+    <unit units="pL"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <units name="pL_per_kPa_per_s">
+    <unit units="pL"/>
+    <unit exponent="-1" units="kPa"/>
+    <unit exponent="-1" units="second"/>
+  </units>
   <units name="L_per_mmol">
     <unit units="litre"/>
     <unit exponent="-1" prefix="milli" units="mole"/>
+  </units>
+  <units name="L_fmol_per_J_per_s_1">
+    <unit units="litre"/>
+    <unit units="fmol"/>
+    <unit exponent="-1" units="joule"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <units name="pL_L_per_J_per_s_1">
+    <unit units="pL"/>
+    <unit units="litre"/>
+    <unit exponent="-1" units="joule"/>
+    <unit exponent="-1" units="second"/>
   </units>
   <units name="per_fmol_1">
     <unit exponent="-1" units="fmol"/>
@@ -815,7 +858,18 @@
     <unit units="fmol"/>
     <unit exponent="-1" units="second"/>
   </units>
+  <units name="picoS_per_fmol_1">
+    <unit units="picoS"/>
+    <unit exponent="-1" units="fmol"/>
+  </units>
   <units name="C_per_mmol_1">
+    <unit units="C"/>
+    <unit exponent="-1" prefix="milli" units="mole"/>
+  </units>
+  <units name="per_mM_1">
+    <unit exponent="-1" units="mM"/>
+  </units>
+  <units name="C_per_mmol_2">
     <unit units="C"/>
     <unit exponent="-1" prefix="milli" units="mole"/>
   </units>
@@ -823,192 +877,399 @@
     <unit units="fmol"/>
     <unit exponent="-1" units="second"/>
   </units>
-  <units name="kPa_per_s_1">
-    <unit units="kPa"/>
+  <units name="pL_per_s_1">
+    <unit units="pL"/>
     <unit exponent="-1" units="second"/>
   </units>
-  <units name="fmol_per_s_3">
-    <unit units="fmol"/>
-    <unit exponent="-1" units="second"/>
-  </units>
-  <units name="kPa_per_s_2">
-    <unit units="kPa"/>
-    <unit exponent="-1" units="second"/>
-  </units>
-  <units name="C_per_mmol_2">
-    <unit units="C"/>
-    <unit exponent="-1" prefix="milli" units="mole"/>
-  </units>
-  <units name="per_fmol_2">
-    <unit exponent="-1" units="fmol"/>
-  </units>
-  <units name="fmol_per_s_4">
-    <unit units="fmol"/>
-    <unit exponent="-1" units="second"/>
+  <units name="per_mM_2">
+    <unit exponent="-1" units="mol_per_m3"/>
   </units>
   <units name="C_per_mmol_3">
     <unit units="C"/>
     <unit exponent="-1" prefix="milli" units="mole"/>
   </units>
-  <units name="fmol_per_s_5">
+  <units name="fmol_per_s_3">
     <unit units="fmol"/>
     <unit exponent="-1" units="second"/>
   </units>
-  <units name="per_fmol_3">
-    <unit exponent="-1" units="fmol"/>
-  </units>
-  <units name="fmol_per_s_6">
-    <unit units="fmol"/>
-    <unit exponent="-1" units="second"/>
-  </units>
-  <units name="per_fmol_4">
-    <unit exponent="-1" units="fmol"/>
-  </units>
-  <units name="fmol_per_s_7">
-    <unit units="fmol"/>
+  <units name="pL_per_s_2">
+    <unit units="pL"/>
     <unit exponent="-1" units="second"/>
   </units>
   <units name="C_per_mmol_4">
     <unit units="C"/>
     <unit exponent="-1" prefix="milli" units="mole"/>
   </units>
-  <units name="per_fmol_5">
-    <unit exponent="-1" units="fmol"/>
+  <units name="per_mM_3">
+    <unit exponent="-1" units="mol_per_m3"/>
   </units>
-  <units name="fmol_per_s_8">
+  <units name="fmol_per_s_4">
     <unit units="fmol"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <units name="pL_per_s_3">
+    <unit units="pL"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <units name="fmol_per_s_5">
+    <unit units="fmol"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <units name="pL_per_s_4">
+    <unit units="pL"/>
     <unit exponent="-1" units="second"/>
   </units>
   <units name="C_per_mmol_5">
     <unit units="C"/>
     <unit exponent="-1" prefix="milli" units="mole"/>
   </units>
-  <units name="per_fmol_6">
+  <units name="L_fmol_per_J_per_s_2">
+    <unit units="litre"/>
+    <unit units="fmol"/>
+    <unit exponent="-1" units="joule"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <units name="pL_L_per_J_per_s_2">
+    <unit units="pL"/>
+    <unit units="litre"/>
+    <unit exponent="-1" units="joule"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <units name="C_per_mmol_6">
+    <unit units="C"/>
+    <unit exponent="-1" prefix="milli" units="mole"/>
+  </units>
+  <units name="per_fmol_2">
     <unit exponent="-1" units="fmol"/>
   </units>
-  <units name="fmol_per_s_9">
+  <units name="per_mM_4">
+    <unit exponent="-1" units="mol_per_m3"/>
+  </units>
+  <units name="fmol_per_s_6">
     <unit units="fmol"/>
     <unit exponent="-1" units="second"/>
   </units>
-  <units name="fmol_per_s_10">
+  <units name="picoS_per_fmol_2">
+    <unit units="picoS"/>
+    <unit exponent="-1" units="fmol"/>
+  </units>
+  <units name="pL_per_kPa_per_s_1">
+    <unit units="pL"/>
+    <unit exponent="-1" units="kPa"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <units name="pL_per_s_5">
+    <unit units="pL"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <units name="pL_per_kPa_per_s_2">
+    <unit units="pL"/>
+    <unit exponent="-1" units="kPa"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <units name="pL_per_s_6">
+    <unit units="pL"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <units name="C_per_mmol_7">
+    <unit units="C"/>
+    <unit exponent="-1" prefix="milli" units="mole"/>
+  </units>
+  <units name="per_fmol_3">
+    <unit exponent="-1" units="fmol"/>
+  </units>
+  <units name="per_mM_5">
+    <unit exponent="-1" units="mol_per_m3"/>
+  </units>
+  <units name="fmol_per_s_7">
     <unit units="fmol"/>
     <unit exponent="-1" units="second"/>
   </units>
-  <units name="kPa_per_s_3">
-    <unit units="kPa"/>
+  <units name="C_per_mmol_8">
+    <unit units="C"/>
+    <unit exponent="-1" prefix="milli" units="mole"/>
+  </units>
+  <units name="fmol_per_s_8">
+    <unit units="fmol"/>
     <unit exponent="-1" units="second"/>
   </units>
   <component name="parameters">
-    <variable name="q_Na_muc_init_mucus" units="fmol" initial_value="10500" interface="public"/>
-    <variable name="q_H2O_muc_init_mucus" units="fmol" initial_value="2765000" interface="public"/>
-    <variable name="u_P_muc_init_mucus" units="kPa" initial_value="0" interface="public"/>
-    <variable name="q_ATP_epi_init_cell" units="fmol" initial_value="750" interface="public"/>
-    <variable name="q_ADP_epi_init_cell" units="fmol" initial_value="75" interface="public"/>
-    <variable name="q_Pi_epi_init_cell" units="fmol" initial_value="75" interface="public"/>
-    <variable name="q_Na_epi_init_cell" units="fmol" initial_value="750" interface="public"/>
-    <variable name="q_K_epi_init_cell" units="fmol" initial_value="10500" interface="public"/>
-    <variable name="q_H2O_epi_init_cell" units="fmol" initial_value="2766000" interface="public"/>
-    <variable name="u_P_epi_init_cell" units="kPa" initial_value="0" interface="public"/>
-    <variable name="q_1_init_ENaC" units="fmol" initial_value="0.001747" interface="public"/>
-    <variable name="q_2_init_ENaC" units="fmol" initial_value="0.0024" interface="public"/>
-    <variable name="q_3_init_ENaC" units="fmol" initial_value="0.00193" interface="public"/>
-    <variable name="q_4_init_ENaC" units="fmol" initial_value="0.003876" interface="public"/>
-    <variable name="q_open_init_ENaC" units="fmol" initial_value="3.40E-13" interface="public"/>
-    <variable name="q_open_int_init_ENaC" units="fmol" initial_value="0.003685" interface="public"/>
+    <variable name="q_V_init_mucus" units="pL" initial_value="50" interface="public"/>
+    <variable name="q_Na_init_mucus" units="fmol" initial_value="1500" interface="public"/>
+    <variable name="q_Cl_init_mucus" units="fmol" initial_value="1500" interface="public"/>
+    <variable name="q_K_init_mucus" units="fmol" initial_value="3750" interface="public"/>
+    <variable name="u_e_lumen_init_mucus" units="volt" initial_value="0" interface="public"/>
+    <variable name="u_P_mucus" units="kPa" initial_value="0" interface="public"/>
+    <variable name="q_V_init_cell" units="pL" initial_value="300" interface="public"/>
+    <variable name="q_Na_init_cell" units="fmol" initial_value="3000" interface="public"/>
+    <variable name="q_Cl_init_cell" units="fmol" initial_value="6000" interface="public"/>
+    <variable name="q_K_init_cell" units="fmol" initial_value="43200" interface="public"/>
+    <variable name="u_e_cell_init_cell" units="volt" initial_value="0.05" interface="public"/>
+    <variable name="c_ATP_init_cell" units="mol_per_m3" initial_value="10" interface="public"/>
+    <variable name="c_ADP_init_cell" units="mol_per_m3" initial_value="1" interface="public"/>
+    <variable name="c_Pi_init_cell" units="mol_per_m3" initial_value="10" interface="public"/>
+    <variable name="u_P_cell" units="kPa" initial_value="0" interface="public"/>
+    <variable name="q_V_init_int_fluid" units="pL" initial_value="100" interface="public"/>
+    <variable name="q_Na_init_int_fluid" units="fmol" initial_value="14000" interface="public"/>
+    <variable name="q_Cl_init_int_fluid" units="fmol" initial_value="10000" interface="public"/>
+    <variable name="q_K_init_int_fluid" units="fmol" initial_value="400" interface="public"/>
+    <variable name="u_P_int_fluid" units="kPa" initial_value="0" interface="public"/>
+    <variable name="omega_Na_para_transport" units="L_fmol_per_J_per_s_1" initial_value="117" interface="public"/>
+    <variable name="omega_Cl_para_transport" units="L_fmol_per_J_per_s_1" initial_value="234" interface="public"/>
+    <variable name="omega_K_para_transport" units="L_fmol_per_J_per_s_1" initial_value="75" interface="public"/>
+    <variable name="sigma_Na_para_transport" units="dimensionless" initial_value="0.9" interface="public"/>
+    <variable name="sigma_Cl_para_transport" units="dimensionless" initial_value="0.4" interface="public"/>
+    <variable name="sigma_K_para_transport" units="dimensionless" initial_value="0.95" interface="public"/>
+    <variable name="L_P_para_transport" units="pL_L_per_J_per_s_1" initial_value="100" interface="public"/>
+    <variable name="q_1_init_ENaC" units="fmol" initial_value="0.015" interface="public"/>
+    <variable name="q_2_init_ENaC" units="fmol" initial_value="0.015" interface="public"/>
+    <variable name="q_3_init_ENaC" units="fmol" initial_value="0.015" interface="public"/>
+    <variable name="q_4_init_ENaC" units="fmol" initial_value="0.015" interface="public"/>
     <variable name="K_1_ENaC" units="per_fmol_1" initial_value="1.39551477" interface="public"/>
     <variable name="K_2_ENaC" units="per_fmol_1" initial_value="1" interface="public"/>
     <variable name="K_3_ENaC" units="per_fmol_1" initial_value="1" interface="public"/>
     <variable name="K_4_ENaC" units="per_fmol_1" initial_value="0.5" interface="public"/>
-    <variable name="K_open_ENaC" units="per_fmol_1" initial_value="6488256446" interface="public"/>
-    <variable name="K_open_int_ENaC" units="per_fmol_1" initial_value="0.458179268" interface="public"/>
-    <variable name="K_Na_i_ENaC" units="per_fmol_1" initial_value="0.005989862" interface="public"/>
-    <variable name="K_Na_o_ENaC" units="per_fmol_1" initial_value="0.002966598" interface="public"/>
     <variable name="kappa_1_ENaC" units="fmol_per_s_1" initial_value="1" interface="public"/>
     <variable name="kappa_2_ENaC" units="fmol_per_s_1" initial_value="1" interface="public"/>
     <variable name="kappa_3_ENaC" units="fmol_per_s_1" initial_value="1" interface="public"/>
     <variable name="kappa_4_ENaC" units="fmol_per_s_1" initial_value="1" interface="public"/>
-    <variable name="kappa_5_ENaC" units="fmol_per_s_1" initial_value="1" interface="public"/>
-    <variable name="kappa_6_ENaC" units="fmol_per_s_1" initial_value="0.059" interface="public"/>
-    <variable name="q_e_m_init_membrane" units="pC" initial_value="-1.7673" interface="public"/>
-    <variable name="C_m_membrane" units="picoF" initial_value="353.46" interface="public"/>
-    <variable name="q_AQ_AQ_apical" units="fmol" initial_value="0.16" interface="public"/>
-    <variable name="K_AQ_AQ_apical" units="per_fmol_1" initial_value="1" interface="public"/>
-    <variable name="K_H2O_i_AQ_apical" units="per_fmol_1" initial_value="1" interface="public"/>
-    <variable name="K_H2O_o_AQ_apical" units="per_fmol_1" initial_value="1" interface="public"/>
-    <variable name="kappa_1_AQ_apical" units="fmol_per_s_1" initial_value="1" interface="public"/>
-    <variable name="q_AQ_AQ_baso" units="fmol" initial_value="0.16" interface="public"/>
-    <variable name="K_AQ_AQ_baso" units="per_fmol_1" initial_value="1" interface="public"/>
-    <variable name="K_H2O_i_AQ_baso" units="per_fmol_1" initial_value="1" interface="public"/>
-    <variable name="K_H2O_o_AQ_baso" units="per_fmol_1" initial_value="1" interface="public"/>
-    <variable name="kappa_1_AQ_baso" units="fmol_per_s_1" initial_value="1" interface="public"/>
+    <variable name="gamma_Na_ENaC" units="picoS_per_fmol_1" initial_value="48184000" interface="public"/>
+    <variable name="gamma_o_ENaC" units="picoS_per_fmol_1" initial_value="48184000" interface="public"/>
+    <variable name="kappa_AQ_AQ_api" units="pL_L_per_J_per_s_1" initial_value="1" interface="public"/>
+    <variable name="kappa_AQ_AQ_bas" units="pL_L_per_J_per_s_1" initial_value="4" interface="public"/>
     <variable name="z_1_NKE" units="dimensionless" initial_value="0.17" interface="public"/>
-    <variable name="q_1_init_NKE" units="fmol" initial_value="3" interface="public"/>
-    <variable name="q_2_init_NKE" units="fmol" initial_value="0" interface="public"/>
-    <variable name="q_3_init_NKE" units="fmol" initial_value="0" interface="public"/>
-    <variable name="q_4_init_NKE" units="fmol" initial_value="0" interface="public"/>
-    <variable name="q_5_init_NKE" units="fmol" initial_value="0" interface="public"/>
-    <variable name="q_6_init_NKE" units="fmol" initial_value="0" interface="public"/>
+    <variable name="q_1_init_NKE" units="fmol" initial_value="20" interface="public"/>
+    <variable name="q_2_init_NKE" units="fmol" initial_value="20" interface="public"/>
+    <variable name="q_3_init_NKE" units="fmol" initial_value="20" interface="public"/>
+    <variable name="q_4_init_NKE" units="fmol" initial_value="20" interface="public"/>
+    <variable name="q_5_init_NKE" units="fmol" initial_value="20" interface="public"/>
+    <variable name="q_6_init_NKE" units="fmol" initial_value="20" interface="public"/>
     <variable name="K_1_NKE" units="per_fmol_1" initial_value="1" interface="public"/>
     <variable name="K_2_NKE" units="per_fmol_1" initial_value="1" interface="public"/>
     <variable name="K_3_NKE" units="per_fmol_1" initial_value="1" interface="public"/>
     <variable name="K_4_NKE" units="per_fmol_1" initial_value="1" interface="public"/>
     <variable name="K_5_NKE" units="per_fmol_1" initial_value="1" interface="public"/>
     <variable name="K_6_NKE" units="per_fmol_1" initial_value="1" interface="public"/>
-    <variable name="K_Nai_NKE" units="per_fmol_1" initial_value="1" interface="public"/>
-    <variable name="K_Nao_NKE" units="per_fmol_1" initial_value="1" interface="public"/>
-    <variable name="K_Ki_NKE" units="per_fmol_1" initial_value="1" interface="public"/>
-    <variable name="K_Ko_NKE" units="per_fmol_1" initial_value="1" interface="public"/>
-    <variable name="K_ADP_NKE" units="per_fmol_1" initial_value="1" interface="public"/>
-    <variable name="K_ATP_NKE" units="per_fmol_1" initial_value="1" interface="public"/>
-    <variable name="K_Pi_NKE" units="per_fmol_1" initial_value="1" interface="public"/>
     <variable name="kappa_1_NKE" units="fmol_per_s_1" initial_value="1" interface="public"/>
     <variable name="kappa_2_NKE" units="fmol_per_s_1" initial_value="1" interface="public"/>
     <variable name="kappa_3_NKE" units="fmol_per_s_1" initial_value="1" interface="public"/>
     <variable name="kappa_4_NKE" units="fmol_per_s_1" initial_value="1" interface="public"/>
     <variable name="kappa_5_NKE" units="fmol_per_s_1" initial_value="1" interface="public"/>
     <variable name="kappa_6_NKE" units="fmol_per_s_1" initial_value="1" interface="public"/>
-    <variable name="q_Kir_Kir" units="fmol" initial_value="1" interface="public"/>
-    <variable name="K_K_i_Kir" units="per_fmol_1" initial_value="1" interface="public"/>
-    <variable name="K_K_o_Kir" units="per_fmol_1" initial_value="1" interface="public"/>
-    <variable name="K_Kir_Kir" units="per_fmol_1" initial_value="1" interface="public"/>
-    <variable name="kappa_1_Kir" units="fmol_per_s_1" initial_value="1" interface="public"/>
-    <variable name="q_Na_int_init_int_fluid" units="fmol" initial_value="10500" interface="public"/>
-    <variable name="q_K_int_init_int_fluid" units="fmol" initial_value="750" interface="public"/>
-    <variable name="q_H2O_int_init_int_fluid" units="fmol" initial_value="2765000" interface="public"/>
-    <variable name="u_P_int_init_int_fluid" units="kPa" initial_value="0" interface="public"/>
+    <variable name="kappa_Kir_Kir" units="picoS" initial_value="4000" interface="public"/>
   </component>
   <component name="parameters_global">
-    <variable name="R" units="J_per_K_per_mmol" initial_value="0.008314" interface="public"/>
-    <variable name="F" units="C_per_mmol_1" initial_value="96.485" interface="public"/>
-    <variable name="T" units="kelvin" initial_value="310" interface="public"/>
     <variable name="zNa" units="dimensionless" initial_value="1" interface="public"/>
     <variable name="zK" units="dimensionless" initial_value="1" interface="public"/>
-    <variable name="V_w" units="L_per_mmol" initial_value="0.018" interface="public"/>
+    <variable name="zCl" units="dimensionless" initial_value="-1" interface="public"/>
+    <variable name="R" units="J_per_K_per_mmol" initial_value="0.008314" interface="public"/>
+    <variable name="T" units="kelvin" initial_value="310" interface="public"/>
+    <variable name="F" units="C_per_mmol_1" initial_value="96.485" interface="public"/>
+    <variable name="C_m_bas" units="picoF" initial_value="7800" interface="public"/>
+    <variable name="C_m_api" units="picoF" initial_value="3900" interface="public"/>
+    <variable name="K_Na" units="per_mM_1" initial_value="1" interface="public"/>
+    <variable name="K_K" units="per_mM_1" initial_value="1" interface="public"/>
+    <variable name="K_Cl" units="per_mM_1" initial_value="1" interface="public"/>
+    <variable name="K_ADP" units="per_mM_1" initial_value="1" interface="public"/>
+    <variable name="K_ATP" units="per_mM_1" initial_value="1" interface="public"/>
+    <variable name="K_Pi" units="per_mM_1" initial_value="1" interface="public"/>
   </component>
   <component name="environment">
     <variable name="time" units="second" interface="public"/>
   </component>
   <component name="mucus_module">
     <variable name="t" units="second" interface="public"/>
-    <variable name="q_H2O_muc_init" units="fmol" interface="public"/>
-    <variable name="q_Na_muc_init" units="fmol" interface="public"/>
-    <variable name="u_P_muc_init" units="kPa" interface="public"/>
-    <variable name="q_H2O_muc" units="fmol" initial_value="q_H2O_muc_init" interface="public"/>
-    <variable name="q_Na_muc" units="fmol" initial_value="q_Na_muc_init" interface="public"/>
-    <variable name="u_P_muc" units="kPa" initial_value="u_P_muc_init" interface="public"/>
+    <variable name="zNa" units="dimensionless" interface="public"/>
+    <variable name="zK" units="dimensionless" interface="public"/>
+    <variable name="zCl" units="dimensionless" interface="public"/>
+    <variable name="R" units="J_per_K_per_mmol" interface="public"/>
+    <variable name="T" units="kelvin" interface="public"/>
+    <variable name="F" units="C_per_mmol_2" interface="public"/>
+    <variable name="q_V_init" units="pL" interface="public"/>
+    <variable name="q_Na_init" units="fmol" interface="public"/>
+    <variable name="q_Cl_init" units="fmol" interface="public"/>
+    <variable name="q_K_init" units="fmol" interface="public"/>
+    <variable name="u_e_lumen_init" units="volt" interface="public"/>
+    <variable name="u_e_lumen" units="volt" initial_value="u_e_lumen_init" interface="public"/>
+    <variable name="u_mu_e_Na" units="J_per_mmol" interface="public"/>
+    <variable name="u_mu_e_K" units="J_per_mmol" interface="public"/>
+    <variable name="u_mu_e_Cl" units="J_per_mmol" interface="public"/>
+    <variable name="u_pi_Na" units="kPa"/>
+    <variable name="u_pi_K" units="kPa"/>
+    <variable name="u_pi_Cl" units="kPa"/>
+    <variable name="u_P" units="kPa" interface="public"/>
+    <variable name="u_P_pi" units="kPa" interface="public"/>
+    <variable name="q_V" units="pL" initial_value="q_V_init" interface="public"/>
+    <variable name="q_Na" units="fmol" initial_value="q_Na_init" interface="public"/>
+    <variable name="q_K" units="fmol" initial_value="q_K_init" interface="public"/>
+    <variable name="q_Cl" units="fmol" initial_value="q_Cl_init" interface="public"/>
+    <variable name="c_Na" units="mol_per_m3" interface="public"/>
+    <variable name="c_K" units="mol_per_m3" interface="public"/>
+    <variable name="c_Cl" units="mol_per_m3" interface="public"/>
+    <variable name="v_Na_para" units="fmol_per_s_2" interface="public"/>
+    <variable name="v_K_para" units="fmol_per_s_2" interface="public"/>
+    <variable name="v_Cl_para" units="fmol_per_s_2" interface="public"/>
+    <variable name="v_V_para" units="pL_per_s_1" interface="public"/>
     <variable name="v_ENaC_o" units="fmol_per_s_2" interface="public"/>
-    <variable name="v_AQ_o" units="fmol_per_s_2" interface="public"/>
-    <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
+    <variable name="v_AQ_o" units="pL_per_s_1" interface="public"/>
+    <variable name="C_m_bas" units="picoF" interface="public"/>
+    <variable name="C_m_api" units="picoF" interface="public"/>
+    <variable name="K_Na" units="per_mM_2" interface="public"/>
+    <variable name="K_K" units="per_mM_2" interface="public"/>
+    <variable name="K_Cl" units="per_mM_2" interface="public"/>
+    <variable name="I_para" units="nSmV" interface="public"/>
+    <variable name="I_bas" units="nSmV" interface="public"/>
+    <variable name="I_api" units="nSmV" interface="public"/>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply>
         <eq/>
+        <ci>c_Na</ci>
         <apply>
-          <diff/>
-          <bvar>
-            <ci>t</ci>
-          </bvar>
-          <ci>u_P_muc</ci>
+          <divide/>
+          <ci>q_Na</ci>
+          <ci>q_V</ci>
         </apply>
-        <cn cellml:units="kPa_per_s_1">0</cn>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>c_K</ci>
+        <apply>
+          <divide/>
+          <ci>q_K</ci>
+          <ci>q_V</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>c_Cl</ci>
+        <apply>
+          <divide/>
+          <ci>q_Cl</ci>
+          <ci>q_V</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_pi_Na</ci>
+        <apply>
+          <times/>
+          <ci>R</ci>
+          <ci>T</ci>
+          <ci>c_Na</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_pi_K</ci>
+        <apply>
+          <times/>
+          <ci>R</ci>
+          <ci>T</ci>
+          <ci>c_K</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_pi_Cl</ci>
+        <apply>
+          <times/>
+          <ci>R</ci>
+          <ci>T</ci>
+          <ci>c_Cl</ci>
+        </apply>
+      </apply>
+      <!-- conservation laws-->
+      <apply>
+        <eq/>
+        <ci>u_P_pi</ci>
+        <apply>
+          <minus/>
+          <ci>u_P</ci>
+          <apply>
+            <plus/>
+            <ci>u_pi_Na</ci>
+            <ci>u_pi_K</ci>
+            <ci>u_pi_Cl</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_mu_e_Na</ci>
+        <apply>
+          <plus/>
+          <apply>
+            <times/>
+            <ci>R</ci>
+            <ci>T</ci>
+            <apply>
+              <ln/>
+              <apply>
+                <times/>
+                <ci>K_Na</ci>
+                <ci>c_Na</ci>
+              </apply>
+            </apply>
+          </apply>
+          <apply>
+            <times/>
+            <ci>zNa</ci>
+            <ci>F</ci>
+            <ci>u_e_lumen</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_mu_e_K</ci>
+        <apply>
+          <plus/>
+          <apply>
+            <times/>
+            <ci>R</ci>
+            <ci>T</ci>
+            <apply>
+              <ln/>
+              <apply>
+                <times/>
+                <ci>K_K</ci>
+                <ci>c_K</ci>
+              </apply>
+            </apply>
+          </apply>
+          <apply>
+            <times/>
+            <ci>zK</ci>
+            <ci>F</ci>
+            <ci>u_e_lumen</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_mu_e_Cl</ci>
+        <apply>
+          <plus/>
+          <apply>
+            <times/>
+            <ci>R</ci>
+            <ci>T</ci>
+            <apply>
+              <ln/>
+              <apply>
+                <times/>
+                <ci>K_Cl</ci>
+                <ci>c_Cl</ci>
+              </apply>
+            </apply>
+          </apply>
+          <apply>
+            <times/>
+            <ci>zCl</ci>
+            <ci>F</ci>
+            <ci>u_e_lumen</ci>
+          </apply>
+        </apply>
       </apply>
       <apply>
         <eq/>
@@ -1017,9 +1278,16 @@
           <bvar>
             <ci>t</ci>
           </bvar>
-          <ci>q_Na_muc</ci>
+          <ci>q_Na</ci>
         </apply>
-        <ci>v_ENaC_o</ci>
+        <apply>
+          <plus/>
+          <apply>
+            <minus/>
+            <ci>v_Na_para</ci>
+          </apply>
+          <ci>v_ENaC_o</ci>
+        </apply>
       </apply>
       <apply>
         <eq/>
@@ -1028,45 +1296,193 @@
           <bvar>
             <ci>t</ci>
           </bvar>
-          <ci>q_H2O_muc</ci>
+          <ci>q_K</ci>
         </apply>
-        <ci>v_AQ_o</ci>
+        <apply>
+          <minus/>
+          <ci>v_K_para</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>q_Cl</ci>
+        </apply>
+        <apply>
+          <minus/>
+          <ci>v_Cl_para</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>q_V</ci>
+        </apply>
+        <apply>
+          <plus/>
+          <apply>
+            <minus/>
+            <ci>v_V_para</ci>
+          </apply>
+          <ci>v_AQ_o</ci>
+        </apply>
+      </apply>
+    </math>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>u_e_lumen</ci>
+        </apply>
+        <apply>
+          <plus/>
+          <apply>
+            <divide/>
+            <apply>
+              <minus/>
+              <apply>
+                <plus/>
+                <ci>I_para</ci>
+                <ci>I_bas</ci>
+              </apply>
+            </apply>
+            <ci>C_m_bas</ci>
+          </apply>
+          <apply>
+            <divide/>
+            <apply>
+              <minus/>
+              <ci>I_api</ci>
+              <ci>I_para</ci>
+            </apply>
+            <ci>C_m_api</ci>
+          </apply>
+        </apply>
       </apply>
     </math>
   </component>
   <component name="cell_module">
     <variable name="t" units="second" interface="public"/>
-    <variable name="q_H2O_epi_init" units="fmol" interface="public"/>
-    <variable name="q_Na_epi_init" units="fmol" interface="public"/>
-    <variable name="q_K_epi_init" units="fmol" interface="public"/>
-    <variable name="u_P_epi_init" units="kPa" interface="public"/>
-    <variable name="q_ATP_epi_init" units="fmol" interface="public"/>
-    <variable name="q_ADP_epi_init" units="fmol" interface="public"/>
-    <variable name="q_Pi_epi_init" units="fmol" interface="public"/>
-    <variable name="q_Na_epi" units="fmol" initial_value="q_Na_epi_init" interface="public"/>
-    <variable name="q_K_epi" units="fmol" initial_value="q_K_epi_init" interface="public"/>
-    <variable name="q_H2O_epi" units="fmol" initial_value="q_H2O_epi_init" interface="public"/>
-    <variable name="q_ATP_epi" units="fmol" initial_value="q_ATP_epi_init" interface="public"/>
-    <variable name="q_ADP_epi" units="fmol" initial_value="q_ADP_epi_init" interface="public"/>
-    <variable name="q_Pi_epi" units="fmol" initial_value="q_Pi_epi_init" interface="public"/>
+    <variable name="R" units="J_per_K_per_mmol" interface="public"/>
+    <variable name="T" units="kelvin" interface="public"/>
+    <variable name="F" units="C_per_mmol_3" interface="public"/>
+    <variable name="q_V_init" units="pL" interface="public"/>
+    <variable name="q_Na_init" units="fmol" interface="public"/>
+    <variable name="q_Cl_init" units="fmol" interface="public"/>
+    <variable name="q_K_init" units="fmol" interface="public"/>
+    <variable name="u_e_cell_init" units="volt" interface="public"/>
+    <variable name="u_e_cell" units="volt" initial_value="u_e_cell_init" interface="public"/>
+    <variable name="u_pi_Na" units="kPa"/>
+    <variable name="u_pi_K" units="kPa"/>
+    <variable name="u_pi_Cl" units="kPa"/>
+    <variable name="u_P" units="kPa" interface="public"/>
+    <variable name="u_P_pi" units="kPa" interface="public"/>
+    <variable name="q_V" units="pL" initial_value="q_V_init" interface="public"/>
+    <variable name="q_Na" units="fmol" initial_value="q_Na_init" interface="public"/>
+    <variable name="q_K" units="fmol" initial_value="q_K_init" interface="public"/>
+    <variable name="q_Cl" units="fmol" initial_value="q_Cl_init" interface="public"/>
+    <variable name="c_ATP_init" units="mol_per_m3" interface="public"/>
+    <variable name="c_ADP_init" units="mol_per_m3" interface="public"/>
+    <variable name="c_Pi_init" units="mol_per_m3" interface="public"/>
+    <variable name="c_Na" units="mol_per_m3" interface="public"/>
+    <variable name="c_K" units="mol_per_m3" interface="public"/>
+    <variable name="c_Cl" units="mol_per_m3" interface="public"/>
+    <variable name="c_ADP" units="mol_per_m3" initial_value="c_ADP_init" interface="public"/>
+    <variable name="c_ATP" units="mol_per_m3" initial_value="c_ADP_init" interface="public"/>
+    <variable name="c_Pi" units="mol_per_m3" initial_value="c_ADP_init" interface="public"/>
     <variable name="v_ENaC_i" units="fmol_per_s_3" interface="public"/>
+    <variable name="v_AQ_api_i" units="pL_per_s_2" interface="public"/>
     <variable name="v_Kir_i" units="fmol_per_s_3" interface="public"/>
-    <variable name="v_AQ_api_i" units="fmol_per_s_3" interface="public"/>
-    <variable name="v_NKE_Na_i" units="fmol_per_s_3" interface="public"/>
     <variable name="v_NKE_K_i" units="fmol_per_s_3" interface="public"/>
-    <variable name="v_AQ_bas_i" units="fmol_per_s_3" interface="public"/>
-    <variable name="u_P_epi" units="kPa" initial_value="u_P_epi_init" interface="public"/>
+    <variable name="v_NKE_Na_i" units="fmol_per_s_3" interface="public"/>
+    <variable name="v_AQ_bas_i" units="pL_per_s_2" interface="public"/>
+    <variable name="I_para" units="nSmV" interface="public"/>
+    <variable name="I_bas" units="nSmV" interface="public"/>
+    <variable name="C_m_bas" units="picoF" interface="public"/>
     <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
       <apply>
         <eq/>
+        <ci>c_Na</ci>
         <apply>
-          <diff/>
-          <bvar>
-            <ci>t</ci>
-          </bvar>
-          <ci>u_P_epi</ci>
+          <divide/>
+          <ci>q_Na</ci>
+          <ci>q_V</ci>
         </apply>
-        <cn cellml:units="kPa_per_s_2">0</cn>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>c_K</ci>
+        <apply>
+          <divide/>
+          <ci>q_K</ci>
+          <ci>q_V</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>c_Cl</ci>
+        <apply>
+          <divide/>
+          <ci>q_Cl</ci>
+          <ci>q_V</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_pi_Na</ci>
+        <apply>
+          <times/>
+          <ci>R</ci>
+          <ci>T</ci>
+          <ci>c_Na</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_pi_K</ci>
+        <apply>
+          <times/>
+          <ci>R</ci>
+          <ci>T</ci>
+          <ci>c_K</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_pi_Cl</ci>
+        <apply>
+          <times/>
+          <ci>R</ci>
+          <ci>T</ci>
+          <ci>c_Cl</ci>
+        </apply>
+      </apply>
+      <!-- conservation laws-->
+      <apply>
+        <eq/>
+        <ci>u_P_pi</ci>
+        <apply>
+          <minus/>
+          <ci>u_P</ci>
+          <apply>
+            <plus/>
+            <ci>u_pi_Na</ci>
+            <ci>u_pi_K</ci>
+            <ci>u_pi_Cl</ci>
+          </apply>
+        </apply>
       </apply>
       <apply>
         <eq/>
@@ -1075,16 +1491,12 @@
           <bvar>
             <ci>t</ci>
           </bvar>
-          <ci>q_Na_epi</ci>
+          <ci>q_Na</ci>
         </apply>
         <apply>
           <plus/>
           <ci>v_ENaC_i</ci>
-          <apply>
-            <times/>
-            <cn cellml:units="dimensionless">3</cn>
-            <ci>v_NKE_Na_i</ci>
-          </apply>
+          <ci>v_NKE_Na_i</ci>
         </apply>
       </apply>
       <apply>
@@ -1094,16 +1506,12 @@
           <bvar>
             <ci>t</ci>
           </bvar>
-          <ci>q_K_epi</ci>
+          <ci>q_K</ci>
         </apply>
         <apply>
           <plus/>
+          <ci>v_NKE_K_i</ci>
           <ci>v_Kir_i</ci>
-          <apply>
-            <times/>
-            <cn cellml:units="dimensionless">2</cn>
-            <ci>v_NKE_K_i</ci>
-          </apply>
         </apply>
       </apply>
       <apply>
@@ -1113,12 +1521,702 @@
           <bvar>
             <ci>t</ci>
           </bvar>
-          <ci>q_H2O_epi</ci>
+          <ci>q_Cl</ci>
+        </apply>
+        <cn cellml:units="fmol_per_s_3">0</cn>
+      </apply>
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>q_V</ci>
         </apply>
         <apply>
           <plus/>
           <ci>v_AQ_api_i</ci>
           <ci>v_AQ_bas_i</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>u_e_cell</ci>
+        </apply>
+        <apply>
+          <divide/>
+          <apply>
+            <minus/>
+            <apply>
+              <plus/>
+              <ci>I_para</ci>
+              <ci>I_bas</ci>
+            </apply>
+          </apply>
+          <ci>C_m_bas</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
+  <component name="int_fluid_module">
+    <variable name="t" units="second" interface="public"/>
+    <variable name="zNa" units="dimensionless" interface="public"/>
+    <variable name="zK" units="dimensionless" interface="public"/>
+    <variable name="zCl" units="dimensionless" interface="public"/>
+    <variable name="R" units="J_per_K_per_mmol" interface="public"/>
+    <variable name="T" units="kelvin" interface="public"/>
+    <variable name="F" units="C_per_mmol_4" interface="public"/>
+    <variable name="q_V_init" units="pL" interface="public"/>
+    <variable name="q_Na_init" units="fmol" interface="public"/>
+    <variable name="q_Cl_init" units="fmol" interface="public"/>
+    <variable name="q_K_init" units="fmol" interface="public"/>
+    <variable name="u_e_int" units="volt" initial_value="0" interface="public"/>
+    <variable name="u_mu_Na" units="J_per_mmol"/>
+    <variable name="u_mu_K" units="J_per_mmol"/>
+    <variable name="u_mu_Cl" units="J_per_mmol"/>
+    <variable name="u_mu_e_Na" units="J_per_mmol" interface="public"/>
+    <variable name="u_mu_e_K" units="J_per_mmol" interface="public"/>
+    <variable name="u_mu_e_Cl" units="J_per_mmol" interface="public"/>
+    <variable name="u_pi_Na" units="kPa"/>
+    <variable name="u_pi_K" units="kPa"/>
+    <variable name="u_pi_Cl" units="kPa"/>
+    <variable name="u_P" units="kPa" interface="public"/>
+    <variable name="u_P_pi" units="kPa" interface="public"/>
+    <variable name="q_V" units="pL" initial_value="q_V_init" interface="public"/>
+    <variable name="q_Na" units="fmol" initial_value="q_Na_init" interface="public"/>
+    <variable name="q_K" units="fmol" initial_value="q_K_init" interface="public"/>
+    <variable name="q_Cl" units="fmol" initial_value="q_Cl_init" interface="public"/>
+    <variable name="c_Na" units="mol_per_m3" interface="public"/>
+    <variable name="c_K" units="mol_per_m3" interface="public"/>
+    <variable name="c_Cl" units="mol_per_m3" interface="public"/>
+    <variable name="K_Na" units="per_mM_3" interface="public"/>
+    <variable name="K_K" units="per_mM_3" interface="public"/>
+    <variable name="K_Cl" units="per_mM_3" interface="public"/>
+    <variable name="v_Na_para" units="fmol_per_s_4" interface="public"/>
+    <variable name="v_K_para" units="fmol_per_s_4" interface="public"/>
+    <variable name="v_Cl_para" units="fmol_per_s_4" interface="public"/>
+    <variable name="v_V_para" units="pL_per_s_3" interface="public"/>
+    <variable name="v_NKE_Na_o" units="fmol_per_s_4" interface="public"/>
+    <variable name="v_NKE_K_o" units="fmol_per_s_4" interface="public"/>
+    <variable name="v_Kir_o" units="fmol_per_s_4" interface="public"/>
+    <variable name="v_AQ_o" units="pL_per_s_3" interface="public"/>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq/>
+        <ci>c_Na</ci>
+        <apply>
+          <divide/>
+          <ci>q_Na</ci>
+          <ci>q_V</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>c_K</ci>
+        <apply>
+          <divide/>
+          <ci>q_K</ci>
+          <ci>q_V</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>c_Cl</ci>
+        <apply>
+          <divide/>
+          <ci>q_Cl</ci>
+          <ci>q_V</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_pi_Na</ci>
+        <apply>
+          <times/>
+          <ci>R</ci>
+          <ci>T</ci>
+          <ci>c_Na</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_pi_K</ci>
+        <apply>
+          <times/>
+          <ci>R</ci>
+          <ci>T</ci>
+          <ci>c_K</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_pi_Cl</ci>
+        <apply>
+          <times/>
+          <ci>R</ci>
+          <ci>T</ci>
+          <ci>c_Cl</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_mu_Na</ci>
+        <apply>
+          <times/>
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln/>
+            <apply>
+              <times/>
+              <ci>K_Na</ci>
+              <ci>c_Na</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_mu_K</ci>
+        <apply>
+          <times/>
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln/>
+            <apply>
+              <times/>
+              <ci>K_K</ci>
+              <ci>c_K</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_mu_Cl</ci>
+        <apply>
+          <times/>
+          <ci>R</ci>
+          <ci>T</ci>
+          <apply>
+            <ln/>
+            <apply>
+              <times/>
+              <ci>K_Cl</ci>
+              <ci>c_Cl</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+    </math>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq/>
+        <ci>u_P_pi</ci>
+        <apply>
+          <minus/>
+          <ci>u_P</ci>
+          <apply>
+            <plus/>
+            <ci>u_pi_Na</ci>
+            <ci>u_pi_K</ci>
+            <ci>u_pi_Cl</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_mu_e_Na</ci>
+        <apply>
+          <plus/>
+          <ci>u_mu_Na</ci>
+          <apply>
+            <times/>
+            <ci>zNa</ci>
+            <ci>F</ci>
+            <ci>u_e_int</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_mu_e_K</ci>
+        <apply>
+          <plus/>
+          <ci>u_mu_K</ci>
+          <apply>
+            <times/>
+            <ci>zK</ci>
+            <ci>F</ci>
+            <ci>u_e_int</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_mu_e_Cl</ci>
+        <apply>
+          <plus/>
+          <ci>u_mu_Cl</ci>
+          <apply>
+            <times/>
+            <ci>zCl</ci>
+            <ci>F</ci>
+            <ci>u_e_int</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>q_Na</ci>
+        </apply>
+        <apply>
+          <plus/>
+          <ci>v_Na_para</ci>
+          <ci>v_NKE_Na_o</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>q_K</ci>
+        </apply>
+        <apply>
+          <plus/>
+          <ci>v_K_para</ci>
+          <ci>v_NKE_K_o</ci>
+          <ci>v_Kir_o</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>q_Cl</ci>
+        </apply>
+        <ci>v_Cl_para</ci>
+      </apply>
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>q_V</ci>
+        </apply>
+        <apply>
+          <plus/>
+          <ci>v_V_para</ci>
+          <ci>v_AQ_o</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
+  <component name="para_transport_module">
+    <variable name="t" units="second" interface="public"/>
+    <variable name="u_P_pi_o" units="kPa" interface="public"/>
+    <variable name="u_P_pi_i" units="kPa" interface="public"/>
+    <variable name="u_P_pi_diff" units="kPa"/>
+    <variable name="u_mu_e_Na_o" units="J_per_mmol" interface="public"/>
+    <variable name="u_mu_e_Cl_o" units="J_per_mmol" interface="public"/>
+    <variable name="u_mu_e_K_o" units="J_per_mmol" interface="public"/>
+    <variable name="u_mu_e_Na_i" units="J_per_mmol" interface="public"/>
+    <variable name="u_mu_e_Cl_i" units="J_per_mmol" interface="public"/>
+    <variable name="u_mu_e_K_i" units="J_per_mmol" interface="public"/>
+    <variable name="u_mu_e_Na_diff" units="J_per_mmol"/>
+    <variable name="u_mu_e_Cl_diff" units="J_per_mmol"/>
+    <variable name="u_mu_e_K_diff" units="J_per_mmol"/>
+    <variable name="c_Na_o" units="mol_per_m3" interface="public"/>
+    <variable name="c_Cl_o" units="mol_per_m3" interface="public"/>
+    <variable name="c_K_o" units="mol_per_m3" interface="public"/>
+    <variable name="c_Na_i" units="mol_per_m3" interface="public"/>
+    <variable name="c_Cl_i" units="mol_per_m3" interface="public"/>
+    <variable name="c_K_i" units="mol_per_m3" interface="public"/>
+    <variable name="c_Na_bar" units="mol_per_m3"/>
+    <variable name="c_Cl_bar" units="mol_per_m3"/>
+    <variable name="c_K_bar" units="mol_per_m3"/>
+    <variable name="v_Na" units="fmol_per_s_5" interface="public"/>
+    <variable name="v_Cl" units="fmol_per_s_5" interface="public"/>
+    <variable name="v_K" units="fmol_per_s_5" interface="public"/>
+    <variable name="I_para" units="nSmV" interface="public"/>
+    <variable name="v_V" units="pL_per_s_4" interface="public"/>
+    <variable name="R" units="J_per_K_per_mmol" interface="public"/>
+    <variable name="T" units="kelvin" interface="public"/>
+    <variable name="F" units="C_per_mmol_5" interface="public"/>
+    <variable name="zNa" units="dimensionless" interface="public"/>
+    <variable name="zCl" units="dimensionless" interface="public"/>
+    <variable name="zK" units="dimensionless" interface="public"/>
+    <variable name="omega_Na" units="L_fmol_per_J_per_s_2" interface="public"/>
+    <variable name="omega_Cl" units="L_fmol_per_J_per_s_2" interface="public"/>
+    <variable name="omega_K" units="L_fmol_per_J_per_s_2" interface="public"/>
+    <variable name="L_P" units="pL_L_per_J_per_s_2" interface="public"/>
+    <variable name="sigma_Na" units="dimensionless" interface="public"/>
+    <variable name="sigma_Cl" units="dimensionless" interface="public"/>
+    <variable name="sigma_K" units="dimensionless" interface="public"/>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
+      <apply>
+        <eq/>
+        <ci>c_Na_bar</ci>
+        <piecewise>
+          <piece>
+            <ci>c_Na_o</ci>
+            <apply>
+              <lt/>
+              <apply>
+                <abs/>
+                <apply>
+                  <minus/>
+                  <ci>c_Na_o</ci>
+                  <ci>c_Na_i</ci>
+                </apply>
+              </apply>
+              <cn type="e-notation" cellml:units="mol_per_m3">1<sep/>-5</cn>
+            </apply>
+          </piece>
+          <otherwise>
+            <apply>
+              <divide/>
+              <apply>
+                <minus/>
+                <ci>c_Na_o</ci>
+                <ci>c_Na_i</ci>
+              </apply>
+              <apply>
+                <ln/>
+                <apply>
+                  <divide/>
+                  <ci>c_Na_o</ci>
+                  <ci>c_Na_i</ci>
+                </apply>
+              </apply>
+            </apply>
+          </otherwise>
+        </piecewise>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>c_K_bar</ci>
+        <piecewise>
+          <piece>
+            <ci>c_K_o</ci>
+            <apply>
+              <lt/>
+              <apply>
+                <abs/>
+                <apply>
+                  <minus/>
+                  <ci>c_K_o</ci>
+                  <ci>c_K_i</ci>
+                </apply>
+              </apply>
+              <cn type="e-notation" cellml:units="mol_per_m3">1<sep/>-5</cn>
+            </apply>
+          </piece>
+          <otherwise>
+            <apply>
+              <divide/>
+              <apply>
+                <minus/>
+                <ci>c_K_o</ci>
+                <ci>c_K_i</ci>
+              </apply>
+              <apply>
+                <ln/>
+                <apply>
+                  <divide/>
+                  <ci>c_K_o</ci>
+                  <ci>c_K_i</ci>
+                </apply>
+              </apply>
+            </apply>
+          </otherwise>
+        </piecewise>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>c_Cl_bar</ci>
+        <piecewise>
+          <piece>
+            <ci>c_Cl_o</ci>
+            <apply>
+              <lt/>
+              <apply>
+                <abs/>
+                <apply>
+                  <minus/>
+                  <ci>c_Cl_o</ci>
+                  <ci>c_Cl_i</ci>
+                </apply>
+              </apply>
+              <cn type="e-notation" cellml:units="mol_per_m3">1<sep/>-5</cn>
+            </apply>
+          </piece>
+          <otherwise>
+            <apply>
+              <divide/>
+              <apply>
+                <minus/>
+                <ci>c_Cl_o</ci>
+                <ci>c_Cl_i</ci>
+              </apply>
+              <apply>
+                <ln/>
+                <apply>
+                  <divide/>
+                  <ci>c_Cl_o</ci>
+                  <ci>c_Cl_i</ci>
+                </apply>
+              </apply>
+            </apply>
+          </otherwise>
+        </piecewise>
+      </apply>
+    </math>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
+      <apply>
+        <eq/>
+        <ci>u_P_pi_diff</ci>
+        <apply>
+          <minus/>
+          <ci>u_P_pi_o</ci>
+          <ci>u_P_pi_i</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_mu_e_Na_diff</ci>
+        <apply>
+          <minus/>
+          <ci>u_mu_e_Na_o</ci>
+          <ci>u_mu_e_Na_i</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_mu_e_Cl_diff</ci>
+        <apply>
+          <minus/>
+          <ci>u_mu_e_Cl_o</ci>
+          <ci>u_mu_e_Cl_i</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_mu_e_K_diff</ci>
+        <apply>
+          <minus/>
+          <ci>u_mu_e_K_o</ci>
+          <ci>u_mu_e_K_i</ci>
+        </apply>
+      </apply>
+      <!-- constitutive relations        -->
+      <apply>
+        <eq/>
+        <ci>v_Na</ci>
+        <apply>
+          <plus/>
+          <apply>
+            <times/>
+            <ci>omega_Na</ci>
+            <ci>c_Na_bar</ci>
+            <ci>u_mu_e_Na_diff</ci>
+          </apply>
+          <apply>
+            <times/>
+            <apply>
+              <minus/>
+              <cn cellml:units="dimensionless">1</cn>
+              <ci>sigma_Na</ci>
+            </apply>
+            <ci>c_Na_bar</ci>
+            <ci>v_V</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_Cl</ci>
+        <apply>
+          <plus/>
+          <apply>
+            <times/>
+            <ci>omega_Cl</ci>
+            <ci>c_Cl_bar</ci>
+            <ci>u_mu_e_Cl_diff</ci>
+          </apply>
+          <apply>
+            <times/>
+            <apply>
+              <minus/>
+              <cn cellml:units="dimensionless">1</cn>
+              <ci>sigma_Cl</ci>
+            </apply>
+            <ci>c_Cl_bar</ci>
+            <ci>v_V</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_K</ci>
+        <apply>
+          <plus/>
+          <apply>
+            <times/>
+            <ci>omega_K</ci>
+            <ci>c_K_bar</ci>
+            <ci>u_mu_e_K_diff</ci>
+          </apply>
+          <apply>
+            <times/>
+            <apply>
+              <minus/>
+              <cn cellml:units="dimensionless">1</cn>
+              <ci>sigma_K</ci>
+            </apply>
+            <ci>c_K_bar</ci>
+            <ci>v_V</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_V</ci>
+        <apply>
+          <times/>
+          <ci>L_P</ci>
+          <apply>
+            <plus/>
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <cn cellml:units="dimensionless">1</cn>
+                <ci>sigma_Na</ci>
+              </apply>
+              <ci>c_Na_bar</ci>
+              <ci>u_mu_e_Na_diff</ci>
+            </apply>
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <cn cellml:units="dimensionless">1</cn>
+                <ci>sigma_K</ci>
+              </apply>
+              <ci>c_K_bar</ci>
+              <ci>u_mu_e_K_diff</ci>
+            </apply>
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <cn cellml:units="dimensionless">1</cn>
+                <ci>sigma_Cl</ci>
+              </apply>
+              <ci>c_Cl_bar</ci>
+              <ci>u_mu_e_Cl_diff</ci>
+            </apply>
+            <ci>u_P_pi_diff</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>I_para</ci>
+        <apply>
+          <plus/>
+          <apply>
+            <times/>
+            <ci>zNa</ci>
+            <ci>F</ci>
+            <ci>v_Na</ci>
+          </apply>
+          <apply>
+            <times/>
+            <ci>zCl</ci>
+            <ci>F</ci>
+            <ci>v_Cl</ci>
+          </apply>
+          <apply>
+            <times/>
+            <ci>zK</ci>
+            <ci>F</ci>
+            <ci>v_K</ci>
+          </apply>
+        </apply>
+      </apply>
+    </math>
+  </component>
+  <component name="bas_membrane_module">
+    <variable name="t" units="second" interface="public"/>
+    <variable name="I_NKE" units="nSmV" interface="public"/>
+    <variable name="I_Kir" units="nSmV" interface="public"/>
+    <variable name="I_bas" units="nSmV" interface="public"/>
+    <variable name="u_e_bas" units="volt" interface="public"/>
+    <variable name="u_e_cell" units="volt" interface="public"/>
+    <variable name="u_e_int" units="volt" interface="public"/>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq/>
+        <ci>I_bas</ci>
+        <apply>
+          <plus/>
+          <ci>I_NKE</ci>
+          <ci>I_Kir</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_e_bas</ci>
+        <apply>
+          <minus/>
+          <ci>u_e_int</ci>
+          <ci>u_e_cell</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
+  <component name="api_membrane_module">
+    <variable name="t" units="second" interface="public"/>
+    <variable name="I_ENaC" units="nSmV" interface="public"/>
+    <variable name="I_apical" units="nSmV" interface="public"/>
+    <variable name="u_e_lumen" units="volt" interface="public"/>
+    <variable name="u_e_cell" units="volt" interface="public"/>
+    <variable name="u_e_api" units="volt" interface="public"/>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq/>
+        <ci>I_apical</ci>
+        <ci>I_ENaC</ci>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_e_api</ci>
+        <apply>
+          <minus/>
+          <ci>u_e_lumen</ci>
+          <ci>u_e_cell</ci>
         </apply>
       </apply>
     </math>
@@ -1127,66 +2225,38 @@
     <variable name="t" units="second" interface="public"/>
     <variable name="R" units="J_per_K_per_mmol" interface="public"/>
     <variable name="T" units="kelvin" interface="public"/>
-    <variable name="F" units="C_per_mmol_2" interface="public"/>
+    <variable name="F" units="C_per_mmol_6" interface="public"/>
     <variable name="RT" units="J_per_mmol"/>
     <variable name="zNa" units="dimensionless" interface="public"/>
     <variable name="q_1_init" units="fmol" interface="public"/>
     <variable name="q_2_init" units="fmol" interface="public"/>
     <variable name="q_3_init" units="fmol" interface="public"/>
     <variable name="q_4_init" units="fmol" interface="public"/>
-    <variable name="q_open_init" units="fmol" interface="public"/>
-    <variable name="q_open_int_init" units="fmol" interface="public"/>
     <variable name="q_1" units="fmol" initial_value="q_1_init"/>
     <variable name="q_2" units="fmol" initial_value="q_2_init"/>
     <variable name="q_3" units="fmol" initial_value="q_3_init"/>
     <variable name="q_4" units="fmol" initial_value="q_4_init"/>
-    <variable name="q_open" units="fmol" initial_value="q_open_init"/>
-    <variable name="q_open_int" units="fmol" initial_value="q_open_int_init"/>
-    <variable name="q_Na_i" units="fmol" interface="public"/>
-    <variable name="q_Na_o" units="fmol" interface="public"/>
+    <variable name="c_Na_i" units="mol_per_m3" interface="public"/>
+    <variable name="c_Na_o" units="mol_per_m3" interface="public"/>
     <variable name="K_1" units="per_fmol_2" interface="public"/>
     <variable name="K_2" units="per_fmol_2" interface="public"/>
     <variable name="K_3" units="per_fmol_2" interface="public"/>
     <variable name="K_4" units="per_fmol_2" interface="public"/>
-    <variable name="K_open" units="per_fmol_2" interface="public"/>
-    <variable name="K_open_int" units="per_fmol_2" interface="public"/>
-    <variable name="K_Na_i" units="per_fmol_2" interface="public"/>
-    <variable name="K_Na_o" units="per_fmol_2" interface="public"/>
-    <variable name="kappa_1" units="fmol_per_s_4" interface="public"/>
-    <variable name="kappa_2" units="fmol_per_s_4" interface="public"/>
-    <variable name="kappa_3" units="fmol_per_s_4" interface="public"/>
-    <variable name="kappa_4" units="fmol_per_s_4" interface="public"/>
-    <variable name="kappa_5" units="fmol_per_s_4" interface="public"/>
-    <variable name="kappa_6" units="fmol_per_s_4" interface="public"/>
-    <variable name="u_1" units="J_per_mmol"/>
-    <variable name="u_2" units="J_per_mmol"/>
-    <variable name="u_3" units="J_per_mmol"/>
-    <variable name="u_4" units="J_per_mmol"/>
-    <variable name="u_open" units="J_per_mmol"/>
-    <variable name="u_open_int" units="J_per_mmol"/>
-    <variable name="u_Na_i" units="J_per_mmol"/>
-    <variable name="u_Na_o" units="J_per_mmol"/>
+    <variable name="K_Na" units="per_mM_4" interface="public"/>
+    <variable name="kappa_1" units="fmol_per_s_6" interface="public"/>
+    <variable name="kappa_2" units="fmol_per_s_6" interface="public"/>
+    <variable name="kappa_3" units="fmol_per_s_6" interface="public"/>
+    <variable name="kappa_4" units="fmol_per_s_6" interface="public"/>
+    <variable name="gamma_Na" units="picoS_per_fmol_2" interface="public"/>
+    <variable name="gamma_o" units="picoS_per_fmol_2" interface="public"/>
     <variable name="u_e_m" units="volt" interface="public"/>
-    <variable name="u_Re_1_f" units="J_per_mmol"/>
-    <variable name="u_Re_1_r" units="J_per_mmol"/>
-    <variable name="u_Re_2_f" units="J_per_mmol"/>
-    <variable name="u_Re_2_r" units="J_per_mmol"/>
-    <variable name="u_Re_3_f" units="J_per_mmol"/>
-    <variable name="u_Re_3_r" units="J_per_mmol"/>
-    <variable name="u_Re_4_f" units="J_per_mmol"/>
-    <variable name="u_Re_4_r" units="J_per_mmol"/>
-    <variable name="u_Re_5_f" units="J_per_mmol"/>
-    <variable name="u_Re_5_r" units="J_per_mmol"/>
-    <variable name="u_Re_6_f" units="J_per_mmol"/>
-    <variable name="u_Re_6_r" units="J_per_mmol"/>
-    <variable name="v_1" units="fmol_per_s_4"/>
-    <variable name="v_2" units="fmol_per_s_4"/>
-    <variable name="v_3" units="fmol_per_s_4"/>
-    <variable name="v_4" units="fmol_per_s_4"/>
-    <variable name="v_5" units="fmol_per_s_4"/>
-    <variable name="v_6" units="fmol_per_s_4"/>
-    <variable name="v_q_Na_i" units="fmol_per_s_4" interface="public"/>
-    <variable name="v_q_Na_o" units="fmol_per_s_4" interface="public"/>
+    <variable name="v_1" units="fmol_per_s_6"/>
+    <variable name="v_2" units="fmol_per_s_6"/>
+    <variable name="v_3" units="fmol_per_s_6"/>
+    <variable name="v_4" units="fmol_per_s_6"/>
+    <variable name="v_q_Na_i" units="fmol_per_s_6" interface="public"/>
+    <variable name="v_q_Na_o" units="fmol_per_s_6" interface="public"/>
+    <variable name="I_ENaC" units="nSmV" interface="public"/>
     <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply>
         <eq/>
@@ -1201,220 +2271,6 @@
     <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply>
         <eq/>
-        <ci>u_1</ci>
-        <apply>
-          <times/>
-          <ci>RT</ci>
-          <apply>
-            <ln/>
-            <apply>
-              <times/>
-              <ci>K_1</ci>
-              <ci>q_1</ci>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_2</ci>
-        <apply>
-          <times/>
-          <ci>RT</ci>
-          <apply>
-            <ln/>
-            <apply>
-              <times/>
-              <ci>K_2</ci>
-              <ci>q_2</ci>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_3</ci>
-        <apply>
-          <times/>
-          <ci>RT</ci>
-          <apply>
-            <ln/>
-            <apply>
-              <times/>
-              <ci>K_3</ci>
-              <ci>q_3</ci>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_4</ci>
-        <apply>
-          <times/>
-          <ci>RT</ci>
-          <apply>
-            <ln/>
-            <apply>
-              <times/>
-              <ci>K_4</ci>
-              <ci>q_4</ci>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_open</ci>
-        <apply>
-          <times/>
-          <ci>RT</ci>
-          <apply>
-            <ln/>
-            <apply>
-              <times/>
-              <ci>K_open</ci>
-              <ci>q_open</ci>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_open_int</ci>
-        <apply>
-          <times/>
-          <ci>RT</ci>
-          <apply>
-            <ln/>
-            <apply>
-              <times/>
-              <ci>K_open_int</ci>
-              <ci>q_open_int</ci>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_Na_i</ci>
-        <apply>
-          <times/>
-          <ci>RT</ci>
-          <apply>
-            <ln/>
-            <apply>
-              <times/>
-              <ci>K_Na_i</ci>
-              <ci>q_Na_i</ci>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_Na_o</ci>
-        <apply>
-          <times/>
-          <ci>RT</ci>
-          <apply>
-            <ln/>
-            <apply>
-              <times/>
-              <ci>K_Na_o</ci>
-              <ci>q_Na_o</ci>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-    </math>
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <apply>
-        <eq/>
-        <ci>u_Re_1_f</ci>
-        <ci>u_2</ci>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_Re_1_r</ci>
-        <ci>u_1</ci>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_Re_2_f</ci>
-        <apply>
-          <plus/>
-          <ci>u_1</ci>
-          <ci>u_Na_o</ci>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_Re_2_r</ci>
-        <ci>u_3</ci>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_Re_3_f</ci>
-        <ci>u_3</ci>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_Re_3_r</ci>
-        <ci>u_4</ci>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_Re_4_f</ci>
-        <ci>u_4</ci>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_Re_4_r</ci>
-        <apply>
-          <plus/>
-          <ci>u_2</ci>
-          <ci>u_Na_o</ci>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_Re_5_f</ci>
-        <apply>
-          <plus/>
-          <ci>u_open</ci>
-          <ci>u_Na_o</ci>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_Re_5_r</ci>
-        <ci>u_open_int</ci>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_Re_6_f</ci>
-        <ci>u_open_int</ci>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_Re_6_r</ci>
-        <apply>
-          <plus/>
-          <ci>u_open</ci>
-          <ci>u_Na_i</ci>
-          <apply>
-            <times/>
-            <ci>zNa</ci>
-            <ci>F</ci>
-            <ci>u_e_m</ci>
-          </apply>
-        </apply>
-      </apply>
-    </math>
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <apply>
-        <eq/>
         <ci>v_1</ci>
         <apply>
           <times/>
@@ -1422,20 +2278,14 @@
           <apply>
             <minus/>
             <apply>
-              <exp/>
-              <apply>
-                <divide/>
-                <ci>u_Re_1_f</ci>
-                <ci>RT</ci>
-              </apply>
+              <times/>
+              <ci>K_2</ci>
+              <ci>q_2</ci>
             </apply>
             <apply>
-              <exp/>
-              <apply>
-                <divide/>
-                <ci>u_Re_1_r</ci>
-                <ci>RT</ci>
-              </apply>
+              <times/>
+              <ci>K_1</ci>
+              <ci>q_1</ci>
             </apply>
           </apply>
         </apply>
@@ -1449,20 +2299,16 @@
           <apply>
             <minus/>
             <apply>
-              <exp/>
-              <apply>
-                <divide/>
-                <ci>u_Re_2_f</ci>
-                <ci>RT</ci>
-              </apply>
+              <times/>
+              <ci>K_1</ci>
+              <ci>q_1</ci>
+              <ci>K_Na</ci>
+              <ci>c_Na_o</ci>
             </apply>
             <apply>
-              <exp/>
-              <apply>
-                <divide/>
-                <ci>u_Re_2_r</ci>
-                <ci>RT</ci>
-              </apply>
+              <times/>
+              <ci>K_3</ci>
+              <ci>q_3</ci>
             </apply>
           </apply>
         </apply>
@@ -1476,20 +2322,14 @@
           <apply>
             <minus/>
             <apply>
-              <exp/>
-              <apply>
-                <divide/>
-                <ci>u_Re_3_f</ci>
-                <ci>RT</ci>
-              </apply>
+              <times/>
+              <ci>K_3</ci>
+              <ci>q_3</ci>
             </apply>
             <apply>
-              <exp/>
-              <apply>
-                <divide/>
-                <ci>u_Re_3_r</ci>
-                <ci>RT</ci>
-              </apply>
+              <times/>
+              <ci>K_4</ci>
+              <ci>q_4</ci>
             </apply>
           </apply>
         </apply>
@@ -1503,74 +2343,14 @@
           <apply>
             <minus/>
             <apply>
-              <exp/>
-              <apply>
-                <divide/>
-                <ci>u_Re_4_f</ci>
-                <ci>RT</ci>
-              </apply>
+              <times/>
+              <ci>K_2</ci>
+              <ci>q_2</ci>
             </apply>
             <apply>
-              <exp/>
-              <apply>
-                <divide/>
-                <ci>u_Re_4_r</ci>
-                <ci>RT</ci>
-              </apply>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>v_5</ci>
-        <apply>
-          <times/>
-          <ci>kappa_5</ci>
-          <apply>
-            <minus/>
-            <apply>
-              <exp/>
-              <apply>
-                <divide/>
-                <ci>u_Re_5_f</ci>
-                <ci>RT</ci>
-              </apply>
-            </apply>
-            <apply>
-              <exp/>
-              <apply>
-                <divide/>
-                <ci>u_Re_5_r</ci>
-                <ci>RT</ci>
-              </apply>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>v_6</ci>
-        <apply>
-          <times/>
-          <ci>kappa_6</ci>
-          <apply>
-            <minus/>
-            <apply>
-              <exp/>
-              <apply>
-                <divide/>
-                <ci>u_Re_6_f</ci>
-                <ci>RT</ci>
-              </apply>
-            </apply>
-            <apply>
-              <exp/>
-              <apply>
-                <divide/>
-                <ci>u_Re_6_r</ci>
-                <ci>RT</ci>
-              </apply>
+              <times/>
+              <ci>K_Na</ci>
+              <ci>c_Na_o</ci>
             </apply>
           </apply>
         </apply>
@@ -1639,452 +2419,146 @@
       </apply>
       <apply>
         <eq/>
+        <ci>I_ENaC</ci>
         <apply>
-          <diff/>
-          <bvar>
-            <ci>t</ci>
-          </bvar>
-          <ci>q_open</ci>
-        </apply>
-        <apply>
-          <minus/>
+          <times/>
           <apply>
             <plus/>
             <apply>
-              <minus/>
-              <ci>v_1</ci>
-              <ci>v_3</ci>
+              <times/>
+              <ci>gamma_Na</ci>
+              <ci>q_3</ci>
             </apply>
-            <ci>v_6</ci>
+            <apply>
+              <times/>
+              <ci>gamma_o</ci>
+              <ci>q_1</ci>
+            </apply>
           </apply>
-          <ci>v_5</ci>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <apply>
-          <diff/>
-          <bvar>
-            <ci>t</ci>
-          </bvar>
-          <ci>q_open_int</ci>
-        </apply>
-        <apply>
-          <minus/>
-          <ci>v_5</ci>
-          <ci>v_6</ci>
+          <apply>
+            <minus/>
+            <ci>u_e_m</ci>
+            <apply>
+              <times/>
+              <apply>
+                <divide/>
+                <ci>RT</ci>
+                <apply>
+                  <times/>
+                  <ci>zNa</ci>
+                  <ci>F</ci>
+                </apply>
+              </apply>
+              <apply>
+                <ln/>
+                <apply>
+                  <divide/>
+                  <ci>c_Na_o</ci>
+                  <ci>c_Na_i</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
         </apply>
       </apply>
       <!-- output fluxes-->
       <apply>
         <eq/>
         <ci>v_q_Na_i</ci>
-        <ci>v_6</ci>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>v_q_Na_o</ci>
         <apply>
-          <minus/>
+          <divide/>
           <apply>
             <minus/>
-            <ci>v_4</ci>
-            <ci>v_2</ci>
-          </apply>
-          <ci>v_5</ci>
-        </apply>
-      </apply>
-    </math>
-  </component>
-  <component name="membrane_module">
-    <variable name="t" units="second" interface="public"/>
-    <variable name="C_m" units="picoF" interface="public"/>
-    <variable name="zNa" units="dimensionless" interface="public"/>
-    <variable name="zK" units="dimensionless" interface="public"/>
-    <variable name="z_1_NKE" units="dimensionless" interface="public"/>
-    <variable name="z_2_NKE" units="dimensionless"/>
-    <variable name="F" units="C_per_mmol_3" interface="public"/>
-    <variable name="q_e_m_init" units="pC" interface="public"/>
-    <variable name="v_ENaC_i" units="fmol_per_s_5" interface="public"/>
-    <variable name="v_NKE_K_o" units="fmol_per_s_5" interface="public"/>
-    <variable name="v_NKE_Na_i" units="fmol_per_s_5" interface="public"/>
-    <variable name="v_Kir_i" units="fmol_per_s_5" interface="public"/>
-    <variable name="u_e_m" units="volt" interface="public"/>
-    <variable name="q_e_m" units="pC" initial_value="q_e_m_init"/>
-    <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
-      <apply>
-        <eq/>
-        <ci>z_2_NKE</ci>
-        <apply>
-          <minus/>
-          <cn cellml:units="dimensionless">1</cn>
-          <ci>z_1_NKE</ci>
-        </apply>
-      </apply>
-    </math>
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <apply>
-        <eq/>
-        <apply>
-          <diff/>
-          <bvar>
-            <ci>t</ci>
-          </bvar>
-          <ci>q_e_m</ci>
-        </apply>
-        <apply>
-          <plus/>
-          <apply>
-            <times/>
-            <ci>z_2_NKE</ci>
-            <ci>F</ci>
-            <ci>v_NKE_K_o</ci>
-          </apply>
-          <apply>
-            <times/>
-            <ci>z_1_NKE</ci>
-            <ci>F</ci>
-            <ci>v_NKE_Na_i</ci>
+            <ci>I_ENaC</ci>
           </apply>
           <apply>
             <times/>
             <ci>zNa</ci>
             <ci>F</ci>
-            <ci>v_ENaC_i</ci>
-          </apply>
-          <apply>
-            <times/>
-            <ci>zK</ci>
-            <ci>F</ci>
-            <ci>v_Kir_i</ci>
           </apply>
         </apply>
       </apply>
       <apply>
         <eq/>
-        <ci>u_e_m</ci>
+        <ci>v_q_Na_o</ci>
         <apply>
-          <divide/>
-          <ci>q_e_m</ci>
-          <ci>C_m</ci>
+          <plus/>
+          <apply>
+            <minus/>
+            <ci>v_4</ci>
+            <ci>v_2</ci>
+          </apply>
+          <apply>
+            <divide/>
+            <ci>I_ENaC</ci>
+            <apply>
+              <times/>
+              <ci>zNa</ci>
+              <ci>F</ci>
+            </apply>
+          </apply>
         </apply>
       </apply>
     </math>
   </component>
-  <component name="AQ_apical_module">
+  <component name="AQ_api_module">
     <variable name="t" units="second" interface="public"/>
-    <variable name="R" units="J_per_K_per_mmol" interface="public"/>
-    <variable name="T" units="kelvin" interface="public"/>
-    <variable name="RT" units="J_per_mmol"/>
-    <variable name="V_w" units="L_per_mmol" interface="public"/>
-    <variable name="q_AQ" units="fmol" interface="public"/>
-    <variable name="q_H2O_i" units="fmol" interface="public"/>
-    <variable name="q_H2O_o" units="fmol" interface="public"/>
-    <variable name="K_AQ" units="per_fmol_3" interface="public"/>
-    <variable name="K_H2O_i" units="per_fmol_3" interface="public"/>
-    <variable name="K_H2O_o" units="per_fmol_3" interface="public"/>
-    <variable name="kappa_1" units="fmol_per_s_6" interface="public"/>
-    <variable name="u_AQ" units="J_per_mmol"/>
-    <variable name="u_H2O_i" units="J_per_mmol"/>
-    <variable name="u_H2O_o" units="J_per_mmol"/>
-    <variable name="u_P_i" units="kPa" interface="public"/>
-    <variable name="u_P_o" units="kPa" interface="public"/>
-    <variable name="u_Re_1_f" units="J_per_mmol"/>
-    <variable name="u_Re_1_r" units="J_per_mmol"/>
-    <variable name="v_1" units="fmol_per_s_6"/>
-    <variable name="v_q_H2O_i" units="fmol_per_s_6" interface="public"/>
-    <variable name="v_q_H2O_o" units="fmol_per_s_6" interface="public"/>
+    <variable name="kappa_AQ" units="pL_per_kPa_per_s_1" interface="public"/>
+    <variable name="u_P_pi_i" units="kPa" interface="public"/>
+    <variable name="u_P_pi_o" units="kPa" interface="public"/>
+    <variable name="v_AQ_o" units="pL_per_s_5" interface="public"/>
+    <variable name="v_AQ_i" units="pL_per_s_5" interface="public"/>
     <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply>
         <eq/>
-        <ci>RT</ci>
-        <apply>
-          <times/>
-          <ci>R</ci>
-          <ci>T</ci>
-        </apply>
-      </apply>
-    </math>
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <apply>
-        <eq/>
-        <ci>u_H2O_i</ci>
-        <apply>
-          <times/>
-          <ci>RT</ci>
-          <apply>
-            <ln/>
-            <apply>
-              <times/>
-              <ci>K_H2O_i</ci>
-              <ci>q_H2O_i</ci>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_H2O_o</ci>
-        <apply>
-          <times/>
-          <ci>RT</ci>
-          <apply>
-            <ln/>
-            <apply>
-              <times/>
-              <ci>K_H2O_o</ci>
-              <ci>q_H2O_o</ci>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_AQ</ci>
-        <apply>
-          <times/>
-          <ci>RT</ci>
-          <apply>
-            <ln/>
-            <apply>
-              <times/>
-              <ci>K_AQ</ci>
-              <ci>q_AQ</ci>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-    </math>
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <apply>
-        <eq/>
-        <ci>u_Re_1_f</ci>
-        <apply>
-          <plus/>
-          <ci>u_H2O_o</ci>
-          <ci>u_AQ</ci>
-          <apply>
-            <times/>
-            <ci>u_P_o</ci>
-            <ci>V_w</ci>
-          </apply>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_Re_1_r</ci>
-        <apply>
-          <plus/>
-          <ci>u_H2O_i</ci>
-          <ci>u_AQ</ci>
-          <apply>
-            <times/>
-            <ci>u_P_i</ci>
-            <ci>V_w</ci>
-          </apply>
-        </apply>
-      </apply>
-    </math>
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <apply>
-        <eq/>
-        <ci>v_1</ci>
-        <apply>
-          <times/>
-          <ci>kappa_1</ci>
-          <apply>
-            <minus/>
-            <apply>
-              <exp/>
-              <apply>
-                <divide/>
-                <ci>u_Re_1_f</ci>
-                <ci>RT</ci>
-              </apply>
-            </apply>
-            <apply>
-              <exp/>
-              <apply>
-                <divide/>
-                <ci>u_Re_1_r</ci>
-                <ci>RT</ci>
-              </apply>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-    </math>
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <apply>
-        <eq/>
-        <ci>v_q_H2O_i</ci>
-        <ci>v_1</ci>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>v_q_H2O_o</ci>
+        <ci>v_AQ_o</ci>
         <apply>
           <minus/>
-          <ci>v_1</ci>
+          <ci>v_AQ_i</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_AQ_i</ci>
+        <apply>
+          <times/>
+          <ci>kappa_AQ</ci>
+          <apply>
+            <minus/>
+            <ci>u_P_pi_o</ci>
+            <ci>u_P_pi_i</ci>
+          </apply>
         </apply>
       </apply>
     </math>
   </component>
-  <component name="AQ_baso_module">
+  <component name="AQ_bas_module">
     <variable name="t" units="second" interface="public"/>
-    <variable name="R" units="J_per_K_per_mmol" interface="public"/>
-    <variable name="T" units="kelvin" interface="public"/>
-    <variable name="RT" units="J_per_mmol"/>
-    <variable name="V_w" units="L_per_mmol" interface="public"/>
-    <variable name="q_AQ" units="fmol" interface="public"/>
-    <variable name="q_H2O_i" units="fmol" interface="public"/>
-    <variable name="q_H2O_o" units="fmol" interface="public"/>
-    <variable name="K_AQ" units="per_fmol_4" interface="public"/>
-    <variable name="K_H2O_i" units="per_fmol_4" interface="public"/>
-    <variable name="K_H2O_o" units="per_fmol_4" interface="public"/>
-    <variable name="kappa_1" units="fmol_per_s_7" interface="public"/>
-    <variable name="u_AQ" units="J_per_mmol"/>
-    <variable name="u_H2O_i" units="J_per_mmol"/>
-    <variable name="u_H2O_o" units="J_per_mmol"/>
-    <variable name="u_P_i" units="kPa" interface="public"/>
-    <variable name="u_P_o" units="kPa" interface="public"/>
-    <variable name="u_Re_1_f" units="J_per_mmol"/>
-    <variable name="u_Re_1_r" units="J_per_mmol"/>
-    <variable name="v_1" units="fmol_per_s_7"/>
-    <variable name="v_q_H2O_i" units="fmol_per_s_7" interface="public"/>
-    <variable name="v_q_H2O_o" units="fmol_per_s_7" interface="public"/>
+    <variable name="kappa_AQ" units="pL_per_kPa_per_s_2" interface="public"/>
+    <variable name="u_P_pi_i" units="kPa" interface="public"/>
+    <variable name="u_P_pi_o" units="kPa" interface="public"/>
+    <variable name="v_AQ_o" units="pL_per_s_6" interface="public"/>
+    <variable name="v_AQ_i" units="pL_per_s_6" interface="public"/>
     <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply>
         <eq/>
-        <ci>RT</ci>
-        <apply>
-          <times/>
-          <ci>R</ci>
-          <ci>T</ci>
-        </apply>
-      </apply>
-    </math>
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <apply>
-        <eq/>
-        <ci>u_H2O_i</ci>
-        <apply>
-          <times/>
-          <ci>RT</ci>
-          <apply>
-            <ln/>
-            <apply>
-              <times/>
-              <ci>K_H2O_i</ci>
-              <ci>q_H2O_i</ci>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_H2O_o</ci>
-        <apply>
-          <times/>
-          <ci>RT</ci>
-          <apply>
-            <ln/>
-            <apply>
-              <times/>
-              <ci>K_H2O_o</ci>
-              <ci>q_H2O_o</ci>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_AQ</ci>
-        <apply>
-          <times/>
-          <ci>RT</ci>
-          <apply>
-            <ln/>
-            <apply>
-              <times/>
-              <ci>K_AQ</ci>
-              <ci>q_AQ</ci>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-    </math>
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <apply>
-        <eq/>
-        <ci>u_Re_1_f</ci>
-        <apply>
-          <plus/>
-          <ci>u_H2O_o</ci>
-          <ci>u_AQ</ci>
-          <apply>
-            <times/>
-            <ci>u_P_o</ci>
-            <ci>V_w</ci>
-          </apply>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_Re_1_r</ci>
-        <apply>
-          <plus/>
-          <ci>u_H2O_i</ci>
-          <ci>u_AQ</ci>
-          <apply>
-            <times/>
-            <ci>u_P_i</ci>
-            <ci>V_w</ci>
-          </apply>
-        </apply>
-      </apply>
-    </math>
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <apply>
-        <eq/>
-        <ci>v_1</ci>
-        <apply>
-          <times/>
-          <ci>kappa_1</ci>
-          <apply>
-            <minus/>
-            <apply>
-              <exp/>
-              <apply>
-                <divide/>
-                <ci>u_Re_1_f</ci>
-                <ci>RT</ci>
-              </apply>
-            </apply>
-            <apply>
-              <exp/>
-              <apply>
-                <divide/>
-                <ci>u_Re_1_r</ci>
-                <ci>RT</ci>
-              </apply>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-    </math>
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <apply>
-        <eq/>
-        <ci>v_q_H2O_i</ci>
-        <ci>v_1</ci>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>v_q_H2O_o</ci>
+        <ci>v_AQ_o</ci>
         <apply>
           <minus/>
-          <ci>v_1</ci>
+          <ci>v_AQ_i</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_AQ_i</ci>
+        <apply>
+          <times/>
+          <ci>kappa_AQ</ci>
+          <apply>
+            <minus/>
+            <ci>u_P_pi_o</ci>
+            <ci>u_P_pi_i</ci>
+          </apply>
         </apply>
       </apply>
     </math>
@@ -2093,18 +2567,18 @@
     <variable name="t" units="second" interface="public"/>
     <variable name="R" units="J_per_K_per_mmol" interface="public"/>
     <variable name="T" units="kelvin" interface="public"/>
-    <variable name="F" units="C_per_mmol_4" interface="public"/>
+    <variable name="F" units="C_per_mmol_7" interface="public"/>
     <variable name="RT" units="J_per_mmol"/>
     <variable name="z_1" units="dimensionless" interface="public"/>
     <variable name="z_2" units="dimensionless"/>
-    <variable name="q_Na_o" units="fmol" interface="public"/>
-    <variable name="q_Na_i" units="fmol" interface="public"/>
-    <variable name="q_K_o" units="fmol" interface="public"/>
-    <variable name="q_K_i" units="fmol" interface="public"/>
-    <variable name="q_ATP" units="fmol" interface="public"/>
-    <variable name="q_ADP" units="fmol" interface="public"/>
-    <variable name="q_Pi" units="fmol" interface="public"/>
-    <variable name="u_e" units="volt" interface="public"/>
+    <variable name="c_Na_o" units="mol_per_m3" interface="public"/>
+    <variable name="c_Na_i" units="mol_per_m3" interface="public"/>
+    <variable name="c_K_o" units="mol_per_m3" interface="public"/>
+    <variable name="c_K_i" units="mol_per_m3" interface="public"/>
+    <variable name="c_ATP" units="mol_per_m3" interface="public"/>
+    <variable name="c_ADP" units="mol_per_m3" interface="public"/>
+    <variable name="c_Pi" units="mol_per_m3" interface="public"/>
+    <variable name="u_e_m" units="volt" interface="public"/>
     <variable name="e_1" units="milliV_per_kiloV"/>
     <variable name="e_2" units="milliV_per_kiloV"/>
     <variable name="q_1_init" units="fmol" interface="public"/>
@@ -2119,25 +2593,23 @@
     <variable name="q_4" units="fmol" initial_value="q_4_init"/>
     <variable name="q_5" units="fmol" initial_value="q_5_init"/>
     <variable name="q_6" units="fmol" initial_value="q_6_init"/>
-    <variable name="K_1" units="per_fmol_5" interface="public"/>
-    <variable name="K_2" units="per_fmol_5" interface="public"/>
-    <variable name="K_3" units="per_fmol_5" interface="public"/>
-    <variable name="K_4" units="per_fmol_5" interface="public"/>
-    <variable name="K_5" units="per_fmol_5" interface="public"/>
-    <variable name="K_6" units="per_fmol_5" interface="public"/>
-    <variable name="K_Ko" units="per_fmol_5" interface="public"/>
-    <variable name="K_Ki" units="per_fmol_5" interface="public"/>
-    <variable name="K_ADP" units="per_fmol_5" interface="public"/>
-    <variable name="K_ATP" units="per_fmol_5" interface="public"/>
-    <variable name="K_Nao" units="per_fmol_5" interface="public"/>
-    <variable name="K_Nai" units="per_fmol_5" interface="public"/>
-    <variable name="K_Pi" units="per_fmol_5" interface="public"/>
-    <variable name="kappa_1" units="fmol_per_s_8" interface="public"/>
-    <variable name="kappa_2" units="fmol_per_s_8" interface="public"/>
-    <variable name="kappa_3" units="fmol_per_s_8" interface="public"/>
-    <variable name="kappa_4" units="fmol_per_s_8" interface="public"/>
-    <variable name="kappa_5" units="fmol_per_s_8" interface="public"/>
-    <variable name="kappa_6" units="fmol_per_s_8" interface="public"/>
+    <variable name="K_1" units="per_fmol_3" interface="public"/>
+    <variable name="K_2" units="per_fmol_3" interface="public"/>
+    <variable name="K_3" units="per_fmol_3" interface="public"/>
+    <variable name="K_4" units="per_fmol_3" interface="public"/>
+    <variable name="K_5" units="per_fmol_3" interface="public"/>
+    <variable name="K_6" units="per_fmol_3" interface="public"/>
+    <variable name="K_K" units="per_mM_5" interface="public"/>
+    <variable name="K_ADP" units="per_mM_5" interface="public"/>
+    <variable name="K_ATP" units="per_mM_5" interface="public"/>
+    <variable name="K_Na" units="per_mM_5" interface="public"/>
+    <variable name="K_Pi" units="per_mM_5" interface="public"/>
+    <variable name="kappa_1" units="fmol_per_s_7" interface="public"/>
+    <variable name="kappa_2" units="fmol_per_s_7" interface="public"/>
+    <variable name="kappa_3" units="fmol_per_s_7" interface="public"/>
+    <variable name="kappa_4" units="fmol_per_s_7" interface="public"/>
+    <variable name="kappa_5" units="fmol_per_s_7" interface="public"/>
+    <variable name="kappa_6" units="fmol_per_s_7" interface="public"/>
     <variable name="Q_1" units="dimensionless"/>
     <variable name="Q_2" units="dimensionless"/>
     <variable name="Q_3" units="dimensionless"/>
@@ -2151,16 +2623,17 @@
     <variable name="Q_ATP" units="dimensionless"/>
     <variable name="Q_ADP" units="dimensionless"/>
     <variable name="Q_Pi" units="dimensionless"/>
-    <variable name="v_1" units="fmol_per_s_8"/>
-    <variable name="v_2" units="fmol_per_s_8"/>
-    <variable name="v_3" units="fmol_per_s_8"/>
-    <variable name="v_4" units="fmol_per_s_8"/>
-    <variable name="v_5" units="fmol_per_s_8"/>
-    <variable name="v_6" units="fmol_per_s_8"/>
-    <variable name="v_q_Na_i" units="fmol_per_s_8" interface="public"/>
-    <variable name="v_q_Na_o" units="fmol_per_s_8" interface="public"/>
-    <variable name="v_q_K_i" units="fmol_per_s_8" interface="public"/>
-    <variable name="v_q_K_o" units="fmol_per_s_8" interface="public"/>
+    <variable name="v_1" units="fmol_per_s_7"/>
+    <variable name="v_2" units="fmol_per_s_7"/>
+    <variable name="v_3" units="fmol_per_s_7"/>
+    <variable name="v_4" units="fmol_per_s_7"/>
+    <variable name="v_5" units="fmol_per_s_7"/>
+    <variable name="v_6" units="fmol_per_s_7"/>
+    <variable name="v_q_Na_i" units="fmol_per_s_7" interface="public"/>
+    <variable name="v_q_Na_o" units="fmol_per_s_7" interface="public"/>
+    <variable name="v_q_K_i" units="fmol_per_s_7" interface="public"/>
+    <variable name="v_q_K_o" units="fmol_per_s_7" interface="public"/>
+    <variable name="I_NKE" units="nSmV" interface="public"/>
     <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
       <apply>
         <eq/>
@@ -2193,7 +2666,7 @@
               <times/>
               <ci>z_1</ci>
               <ci>F</ci>
-              <ci>u_e</ci>
+              <ci>u_e_m</ci>
             </apply>
             <ci>RT</ci>
           </apply>
@@ -2210,7 +2683,7 @@
               <times/>
               <ci>z_2</ci>
               <ci>F</ci>
-              <ci>u_e</ci>
+              <ci>u_e_m</ci>
             </apply>
             <ci>RT</ci>
           </apply>
@@ -2277,8 +2750,8 @@
         <ci>Q_Na_o</ci>
         <apply>
           <times/>
-          <ci>K_Nao</ci>
-          <ci>q_Na_o</ci>
+          <ci>K_Na</ci>
+          <ci>c_Na_o</ci>
         </apply>
       </apply>
       <apply>
@@ -2286,8 +2759,8 @@
         <ci>Q_Na_i</ci>
         <apply>
           <times/>
-          <ci>K_Nai</ci>
-          <ci>q_Na_i</ci>
+          <ci>K_Na</ci>
+          <ci>c_Na_i</ci>
         </apply>
       </apply>
       <apply>
@@ -2295,8 +2768,8 @@
         <ci>Q_K_o</ci>
         <apply>
           <times/>
-          <ci>K_Ko</ci>
-          <ci>q_K_o</ci>
+          <ci>K_K</ci>
+          <ci>c_K_o</ci>
         </apply>
       </apply>
       <apply>
@@ -2304,8 +2777,8 @@
         <ci>Q_K_i</ci>
         <apply>
           <times/>
-          <ci>K_Ki</ci>
-          <ci>q_K_i</ci>
+          <ci>K_K</ci>
+          <ci>c_K_i</ci>
         </apply>
       </apply>
       <apply>
@@ -2314,7 +2787,7 @@
         <apply>
           <times/>
           <ci>K_ATP</ci>
-          <ci>q_ATP</ci>
+          <ci>c_ATP</ci>
         </apply>
       </apply>
       <apply>
@@ -2323,7 +2796,7 @@
         <apply>
           <times/>
           <ci>K_ADP</ci>
-          <ci>q_ADP</ci>
+          <ci>c_ADP</ci>
         </apply>
       </apply>
       <apply>
@@ -2332,7 +2805,7 @@
         <apply>
           <times/>
           <ci>K_Pi</ci>
-          <ci>q_Pi</ci>
+          <ci>c_Pi</ci>
         </apply>
       </apply>
     </math>
@@ -2550,26 +3023,72 @@
         </apply>
       </apply>
     </math>
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
       <apply>
         <eq/>
         <ci>v_q_Na_o</ci>
-        <ci>v_1</ci>
+        <apply>
+          <times/>
+          <apply>
+            <minus/>
+            <cn cellml:units="dimensionless">3</cn>
+          </apply>
+          <ci>v_1</ci>
+        </apply>
       </apply>
       <apply>
         <eq/>
         <ci>v_q_Na_i</ci>
-        <ci>v_3</ci>
+        <apply>
+          <times/>
+          <cn cellml:units="dimensionless">3</cn>
+          <ci>v_3</ci>
+        </apply>
       </apply>
       <apply>
         <eq/>
         <ci>v_q_K_o</ci>
-        <ci>v_6</ci>
+        <apply>
+          <times/>
+          <cn cellml:units="dimensionless">2</cn>
+          <ci>v_6</ci>
+        </apply>
       </apply>
       <apply>
         <eq/>
         <ci>v_q_K_i</ci>
-        <ci>v_4</ci>
+        <apply>
+          <times/>
+          <apply>
+            <minus/>
+            <cn cellml:units="dimensionless">2</cn>
+          </apply>
+          <ci>v_4</ci>
+        </apply>
+      </apply>
+    </math>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq/>
+        <ci>I_NKE</ci>
+        <apply>
+          <minus/>
+          <apply>
+            <plus/>
+            <apply>
+              <times/>
+              <ci>v_4</ci>
+              <ci>z_2</ci>
+              <ci>F</ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci>v_1</ci>
+              <ci>z_1</ci>
+              <ci>F</ci>
+            </apply>
+          </apply>
+        </apply>
       </apply>
     </math>
   </component>
@@ -2577,25 +3096,16 @@
     <variable name="t" units="second" interface="public"/>
     <variable name="R" units="J_per_K_per_mmol" interface="public"/>
     <variable name="T" units="kelvin" interface="public"/>
-    <variable name="F" units="C_per_mmol_5" interface="public"/>
+    <variable name="F" units="C_per_mmol_8" interface="public"/>
     <variable name="zK" units="dimensionless" interface="public"/>
     <variable name="RT" units="J_per_mmol"/>
-    <variable name="q_Kir" units="fmol" interface="public"/>
-    <variable name="q_K_i" units="fmol" interface="public"/>
-    <variable name="q_K_o" units="fmol" interface="public"/>
-    <variable name="K_Kir" units="per_fmol_6" interface="public"/>
-    <variable name="K_K_i" units="per_fmol_6" interface="public"/>
-    <variable name="K_K_o" units="per_fmol_6" interface="public"/>
-    <variable name="kappa_1" units="fmol_per_s_9" interface="public"/>
-    <variable name="u_Kir" units="J_per_mmol"/>
-    <variable name="u_K_i" units="J_per_mmol"/>
-    <variable name="u_K_o" units="J_per_mmol"/>
+    <variable name="kappa_Kir" units="picoS" interface="public"/>
     <variable name="u_e_m" units="volt" interface="public"/>
-    <variable name="u_Re_1_f" units="J_per_mmol"/>
-    <variable name="u_Re_1_r" units="J_per_mmol"/>
-    <variable name="v_1" units="fmol_per_s_9"/>
-    <variable name="v_q_K_i" units="fmol_per_s_9" interface="public"/>
-    <variable name="v_q_K_o" units="fmol_per_s_9" interface="public"/>
+    <variable name="v_Kir_o" units="fmol_per_s_8" interface="public"/>
+    <variable name="v_Kir_i" units="fmol_per_s_8" interface="public"/>
+    <variable name="I_Kir" units="nSmV" interface="public"/>
+    <variable name="c_K_i" units="mol_per_m3" interface="public"/>
+    <variable name="c_K_o" units="mol_per_m3" interface="public"/>
     <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply>
         <eq/>
@@ -2610,194 +3120,56 @@
     <math xmlns="http://www.w3.org/1998/Math/MathML">
       <apply>
         <eq/>
-        <ci>u_K_i</ci>
+        <ci>I_Kir</ci>
         <apply>
           <times/>
-          <ci>RT</ci>
+          <ci>kappa_Kir</ci>
           <apply>
-            <ln/>
+            <minus/>
+            <ci>u_e_m</ci>
             <apply>
               <times/>
-              <ci>K_K_i</ci>
-              <ci>q_K_i</ci>
+              <apply>
+                <divide/>
+                <ci>RT</ci>
+                <apply>
+                  <times/>
+                  <ci>zK</ci>
+                  <ci>F</ci>
+                </apply>
+              </apply>
+              <apply>
+                <ln/>
+                <apply>
+                  <divide/>
+                  <ci>c_K_o</ci>
+                  <ci>c_K_i</ci>
+                </apply>
+              </apply>
             </apply>
           </apply>
         </apply>
       </apply>
       <apply>
         <eq/>
-        <ci>u_K_o</ci>
+        <ci>v_Kir_o</ci>
         <apply>
-          <times/>
-          <ci>RT</ci>
-          <apply>
-            <ln/>
-            <apply>
-              <times/>
-              <ci>K_K_o</ci>
-              <ci>q_K_o</ci>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>u_Kir</ci>
-        <apply>
-          <times/>
-          <ci>RT</ci>
-          <apply>
-            <ln/>
-            <apply>
-              <times/>
-              <ci>K_Kir</ci>
-              <ci>q_Kir</ci>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-    </math>
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <apply>
-        <eq/>
-        <ci>u_Re_1_f</ci>
-        <apply>
-          <plus/>
-          <ci>u_K_i</ci>
-          <ci>u_Kir</ci>
+          <divide/>
+          <ci>I_Kir</ci>
           <apply>
             <times/>
             <ci>zK</ci>
             <ci>F</ci>
-            <ci>u_e_m</ci>
           </apply>
         </apply>
       </apply>
       <apply>
         <eq/>
-        <ci>u_Re_1_r</ci>
-        <apply>
-          <plus/>
-          <ci>u_K_o</ci>
-          <ci>u_Kir</ci>
-        </apply>
-      </apply>
-    </math>
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <apply>
-        <eq/>
-        <ci>v_1</ci>
-        <apply>
-          <times/>
-          <ci>kappa_1</ci>
-          <apply>
-            <minus/>
-            <apply>
-              <exp/>
-              <apply>
-                <divide/>
-                <ci>u_Re_1_f</ci>
-                <ci>RT</ci>
-              </apply>
-            </apply>
-            <apply>
-              <exp/>
-              <apply>
-                <divide/>
-                <ci>u_Re_1_r</ci>
-                <ci>RT</ci>
-              </apply>
-            </apply>
-          </apply>
-        </apply>
-      </apply>
-    </math>
-    <math xmlns="http://www.w3.org/1998/Math/MathML">
-      <apply>
-        <eq/>
-        <ci>v_q_K_i</ci>
+        <ci>v_Kir_i</ci>
         <apply>
           <minus/>
-          <ci>v_1</ci>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <ci>v_q_K_o</ci>
-        <ci>v_1</ci>
-      </apply>
-    </math>
-  </component>
-  <component name="int_fluid_module">
-    <variable name="t" units="second" interface="public"/>
-    <variable name="q_H2O_int_init" units="fmol" interface="public"/>
-    <variable name="q_Na_int_init" units="fmol" interface="public"/>
-    <variable name="q_K_int_init" units="fmol" interface="public"/>
-    <variable name="u_P_int_init" units="kPa" interface="public"/>
-    <variable name="q_K_int" units="fmol" initial_value="q_K_int_init" interface="public"/>
-    <variable name="q_Na_int" units="fmol" initial_value="q_Na_int_init" interface="public"/>
-    <variable name="q_H2O_int" units="fmol" initial_value="q_H2O_int_init" interface="public"/>
-    <variable name="v_NKE_K_o" units="fmol_per_s_10" interface="public"/>
-    <variable name="v_NKE_Na_o" units="fmol_per_s_10" interface="public"/>
-    <variable name="v_Kir_o" units="fmol_per_s_10" interface="public"/>
-    <variable name="v_AQ_o" units="fmol_per_s_10" interface="public"/>
-    <variable name="u_P_int" units="kPa" initial_value="u_P_int_init" interface="public"/>
-    <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
-      <apply>
-        <eq/>
-        <apply>
-          <diff/>
-          <bvar>
-            <ci>t</ci>
-          </bvar>
-          <ci>u_P_int</ci>
-        </apply>
-        <cn cellml:units="kPa_per_s_3">0</cn>
-      </apply>
-      <apply>
-        <eq/>
-        <apply>
-          <diff/>
-          <bvar>
-            <ci>t</ci>
-          </bvar>
-          <ci>q_Na_int</ci>
-        </apply>
-        <apply>
-          <times/>
-          <cn cellml:units="dimensionless">3</cn>
-          <ci>v_NKE_Na_o</ci>
-        </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <apply>
-          <diff/>
-          <bvar>
-            <ci>t</ci>
-          </bvar>
-          <ci>q_K_int</ci>
-        </apply>
-        <apply>
-          <plus/>
-          <apply>
-            <times/>
-            <cn cellml:units="dimensionless">2</cn>
-            <ci>v_NKE_K_o</ci>
-          </apply>
           <ci>v_Kir_o</ci>
         </apply>
-      </apply>
-      <apply>
-        <eq/>
-        <apply>
-          <diff/>
-          <bvar>
-            <ci>t</ci>
-          </bvar>
-          <ci>q_H2O_int</ci>
-        </apply>
-        <ci>v_AQ_o</ci>
       </apply>
     </math>
   </component>
@@ -2805,25 +3177,115 @@
   <component name="generic_junction_connection"/>
   <component name="sum_blood_volume"/>
   <component name="mucus">
-    <variable name="q_Na_muc_init" units="fmol" interface="public"/>
-    <variable name="q_Na_muc" units="fmol" interface="public"/>
-    <variable name="q_H2O_muc_init" units="fmol" interface="public"/>
-    <variable name="q_H2O_muc" units="fmol" interface="public"/>
-    <variable name="u_P_muc_init" units="kPa" interface="public"/>
-    <variable name="u_P_muc" units="kPa" interface="public"/>
+    <variable name="zNa" units="dimensionless" interface="public"/>
+    <variable name="zK" units="dimensionless" interface="public"/>
+    <variable name="zCl" units="dimensionless" interface="public"/>
+    <variable name="R" units="J_per_K_per_mmol" interface="public"/>
+    <variable name="T" units="kelvin" interface="public"/>
+    <variable name="F" units="C_per_mmol" interface="public"/>
+    <variable name="q_V_init" units="pL" interface="public"/>
+    <variable name="q_Na_init" units="fmol" interface="public"/>
+    <variable name="q_Cl_init" units="fmol" interface="public"/>
+    <variable name="q_K_init" units="fmol" interface="public"/>
+    <variable name="u_e_lumen_init" units="volt" interface="public"/>
+    <variable name="q_V" units="pL" interface="public"/>
+    <variable name="q_Na" units="fmol" interface="public"/>
+    <variable name="q_Cl" units="fmol" interface="public"/>
+    <variable name="q_K" units="fmol" interface="public"/>
+    <variable name="u_e_lumen" units="volt" interface="public"/>
+    <variable name="u_P" units="kPa" interface="public"/>
+    <variable name="c_Na" units="mM" interface="public"/>
+    <variable name="c_K" units="mM" interface="public"/>
+    <variable name="c_Cl" units="mM" interface="public"/>
+    <variable name="C_m_bas" units="picoFarad" interface="public"/>
+    <variable name="C_m_api" units="picoFarad" interface="public"/>
+    <variable name="K_Na" units="per_mM" interface="public"/>
+    <variable name="K_K" units="per_mM" interface="public"/>
+    <variable name="K_Cl" units="per_mM" interface="public"/>
   </component>
   <component name="cell">
-    <variable name="q_ATP_epi_init" units="fmol" interface="public"/>
-    <variable name="q_ADP_epi_init" units="fmol" interface="public"/>
-    <variable name="q_Pi_epi_init" units="fmol" interface="public"/>
-    <variable name="q_Na_epi_init" units="fmol" interface="public"/>
-    <variable name="q_Na_epi" units="fmol" interface="public"/>
-    <variable name="q_K_epi_init" units="fmol" interface="public"/>
-    <variable name="q_K_epi" units="fmol" interface="public"/>
-    <variable name="q_H2O_epi_init" units="fmol" interface="public"/>
-    <variable name="q_H2O_epi" units="fmol" interface="public"/>
-    <variable name="u_P_epi_init" units="kPa" interface="public"/>
-    <variable name="u_P_epi" units="kPa" interface="public"/>
+    <variable name="R" units="J_per_K_per_mmol" interface="public"/>
+    <variable name="T" units="kelvin" interface="public"/>
+    <variable name="F" units="C_per_mmol" interface="public"/>
+    <variable name="q_V_init" units="pL" interface="public"/>
+    <variable name="q_Na_init" units="fmol" interface="public"/>
+    <variable name="q_Cl_init" units="fmol" interface="public"/>
+    <variable name="q_K_init" units="fmol" interface="public"/>
+    <variable name="u_e_cell_init" units="volt" interface="public"/>
+    <variable name="q_V" units="pL" interface="public"/>
+    <variable name="q_Na" units="fmol" interface="public"/>
+    <variable name="q_Cl" units="fmol" interface="public"/>
+    <variable name="q_K" units="fmol" interface="public"/>
+    <variable name="c_ATP_init" units="mM" interface="public"/>
+    <variable name="c_ADP_init" units="mM" interface="public"/>
+    <variable name="c_Pi_init" units="mM" interface="public"/>
+    <variable name="u_e_cell" units="volt" interface="public"/>
+    <variable name="u_P" units="kPa" interface="public"/>
+    <variable name="c_Na" units="mM" interface="public"/>
+    <variable name="c_K" units="mM" interface="public"/>
+    <variable name="c_Cl" units="mM" interface="public"/>
+    <variable name="c_ATP" units="mM" interface="public"/>
+    <variable name="c_ADP" units="mM" interface="public"/>
+    <variable name="c_Pi" units="mM" interface="public"/>
+    <variable name="C_m_bas" units="picoFarad" interface="public"/>
+  </component>
+  <component name="int_fluid">
+    <variable name="zNa" units="dimensionless" interface="public"/>
+    <variable name="zK" units="dimensionless" interface="public"/>
+    <variable name="zCl" units="dimensionless" interface="public"/>
+    <variable name="R" units="J_per_K_per_mmol" interface="public"/>
+    <variable name="T" units="kelvin" interface="public"/>
+    <variable name="F" units="C_per_mmol" interface="public"/>
+    <variable name="q_V_init" units="pL" interface="public"/>
+    <variable name="q_Na_init" units="fmol" interface="public"/>
+    <variable name="q_Cl_init" units="fmol" interface="public"/>
+    <variable name="q_K_init" units="fmol" interface="public"/>
+    <variable name="q_V" units="pL" interface="public"/>
+    <variable name="q_Na" units="fmol" interface="public"/>
+    <variable name="q_Cl" units="fmol" interface="public"/>
+    <variable name="q_K" units="fmol" interface="public"/>
+    <variable name="u_P" units="kPa" interface="public"/>
+    <variable name="c_Na" units="mM" interface="public"/>
+    <variable name="c_K" units="mM" interface="public"/>
+    <variable name="c_Cl" units="mM" interface="public"/>
+    <variable name="K_Na" units="per_mM" interface="public"/>
+    <variable name="K_K" units="per_mM" interface="public"/>
+    <variable name="K_Cl" units="per_mM" interface="public"/>
+    <variable name="u_P_pi" units="kPa" interface="public"/>
+    <variable name="u_mu_e_Na" units="J_per_mmol" interface="public"/>
+    <variable name="u_mu_e_K" units="J_per_mmol" interface="public"/>
+    <variable name="u_mu_e_Cl" units="J_per_mmol" interface="public"/>
+  </component>
+  <component name="para_transport">
+    <variable name="R" units="J_per_K_per_mmol" interface="public"/>
+    <variable name="T" units="kelvin" interface="public"/>
+    <variable name="F" units="C_per_mmol" interface="public"/>
+    <variable name="omega_Na" units="L_fmol_per_J_per_s" interface="public"/>
+    <variable name="omega_Cl" units="L_fmol_per_J_per_s" interface="public"/>
+    <variable name="omega_K" units="L_fmol_per_J_per_s" interface="public"/>
+    <variable name="sigma_Na" units="dimensionless" interface="public"/>
+    <variable name="sigma_Cl" units="dimensionless" interface="public"/>
+    <variable name="sigma_K" units="dimensionless" interface="public"/>
+    <variable name="L_P" units="pL_L_per_J_per_s" interface="public"/>
+    <variable name="zNa" units="dimensionless" interface="public"/>
+    <variable name="zCl" units="dimensionless" interface="public"/>
+    <variable name="zK" units="dimensionless" interface="public"/>
+    <variable name="v_Na" units="fmol_per_s" interface="public"/>
+    <variable name="v_K" units="fmol_per_s" interface="public"/>
+    <variable name="v_Cl" units="fmol_per_s" interface="public"/>
+    <variable name="v_V" units="pL_per_s" interface="public"/>
+    <variable name="I_para" units="picoA" interface="public"/>
+  </component>
+  <component name="bas_membrane">
+    <variable name="I_bas" units="picoA" interface="public"/>
+    <variable name="u_e_bas" units="volt" interface="public"/>
+    <variable name="I_NKE" units="picoA" interface="public"/>
+    <variable name="I_Kir" units="picoA" interface="public"/>
+  </component>
+  <component name="api_membrane">
+    <variable name="I_apical" units="picoA" interface="public"/>
+    <variable name="u_e_api" units="volt" interface="public"/>
+    <variable name="I_ENaC" units="picoA" interface="public"/>
   </component>
   <component name="ENaC">
     <variable name="R" units="J_per_K_per_mmol" interface="public"/>
@@ -2834,52 +3296,29 @@
     <variable name="q_2_init" units="fmol" interface="public"/>
     <variable name="q_3_init" units="fmol" interface="public"/>
     <variable name="q_4_init" units="fmol" interface="public"/>
-    <variable name="q_open_init" units="fmol" interface="public"/>
-    <variable name="q_open_int_init" units="fmol" interface="public"/>
     <variable name="v_q_Na_i" units="fmol_per_s" interface="public"/>
     <variable name="v_q_Na_o" units="fmol_per_s" interface="public"/>
     <variable name="K_1" units="per_fmol" interface="public"/>
     <variable name="K_2" units="per_fmol" interface="public"/>
     <variable name="K_3" units="per_fmol" interface="public"/>
     <variable name="K_4" units="per_fmol" interface="public"/>
-    <variable name="K_open" units="per_fmol" interface="public"/>
-    <variable name="K_open_int" units="per_fmol" interface="public"/>
-    <variable name="K_Na_i" units="per_fmol" interface="public"/>
-    <variable name="K_Na_o" units="per_fmol" interface="public"/>
+    <variable name="K_Na" units="per_mM" interface="public"/>
     <variable name="kappa_1" units="fmol_per_s" interface="public"/>
     <variable name="kappa_2" units="fmol_per_s" interface="public"/>
     <variable name="kappa_3" units="fmol_per_s" interface="public"/>
     <variable name="kappa_4" units="fmol_per_s" interface="public"/>
-    <variable name="kappa_5" units="fmol_per_s" interface="public"/>
-    <variable name="kappa_6" units="fmol_per_s" interface="public"/>
+    <variable name="gamma_Na" units="picoS_per_fmol" interface="public"/>
+    <variable name="gamma_o" units="picoS_per_fmol" interface="public"/>
   </component>
-  <component name="membrane">
-    <variable name="zNa" units="dimensionless" interface="public"/>
-    <variable name="zK" units="dimensionless" interface="public"/>
-    <variable name="F" units="C_per_mmol" interface="public"/>
-    <variable name="q_e_m_init" units="pC" interface="public"/>
-    <variable name="C_m" units="picoFarad" interface="public"/>
-    <variable name="u_e_m" units="volt" interface="public"/>
+  <component name="AQ_api">
+    <variable name="kappa_AQ" units="pL_per_kPa_per_s" interface="public"/>
+    <variable name="v_AQ_i" units="pL_per_s" interface="public"/>
+    <variable name="v_AQ_o" units="pL_per_s" interface="public"/>
   </component>
-  <component name="AQ_apical">
-    <variable name="R" units="J_per_K_per_mmol" interface="public"/>
-    <variable name="T" units="kelvin" interface="public"/>
-    <variable name="V_w" units="L_per_mmol" interface="public"/>
-    <variable name="q_AQ" units="fmol" interface="public"/>
-    <variable name="K_AQ" units="per_fmol" interface="public"/>
-    <variable name="K_H2O_i" units="per_fmol" interface="public"/>
-    <variable name="K_H2O_o" units="per_fmol" interface="public"/>
-    <variable name="kappa_1" units="fmol_per_s" interface="public"/>
-  </component>
-  <component name="AQ_baso">
-    <variable name="R" units="J_per_K_per_mmol" interface="public"/>
-    <variable name="T" units="kelvin" interface="public"/>
-    <variable name="V_w" units="L_per_mmol" interface="public"/>
-    <variable name="q_AQ" units="fmol" interface="public"/>
-    <variable name="K_AQ" units="per_fmol" interface="public"/>
-    <variable name="K_H2O_i" units="per_fmol" interface="public"/>
-    <variable name="K_H2O_o" units="per_fmol" interface="public"/>
-    <variable name="kappa_1" units="fmol_per_s" interface="public"/>
+  <component name="AQ_bas">
+    <variable name="kappa_AQ" units="pL_per_kPa_per_s" interface="public"/>
+    <variable name="v_AQ_i" units="pL_per_s" interface="public"/>
+    <variable name="v_AQ_o" units="pL_per_s" interface="public"/>
   </component>
   <component name="NKE">
     <variable name="R" units="J_per_K_per_mmol" interface="public"/>
@@ -2902,13 +3341,11 @@
     <variable name="K_4" units="per_fmol" interface="public"/>
     <variable name="K_5" units="per_fmol" interface="public"/>
     <variable name="K_6" units="per_fmol" interface="public"/>
-    <variable name="K_Nai" units="per_fmol" interface="public"/>
-    <variable name="K_Nao" units="per_fmol" interface="public"/>
-    <variable name="K_Ki" units="per_fmol" interface="public"/>
-    <variable name="K_Ko" units="per_fmol" interface="public"/>
-    <variable name="K_ADP" units="per_fmol" interface="public"/>
-    <variable name="K_ATP" units="per_fmol" interface="public"/>
-    <variable name="K_Pi" units="per_fmol" interface="public"/>
+    <variable name="K_Na" units="per_mM" interface="public"/>
+    <variable name="K_K" units="per_mM" interface="public"/>
+    <variable name="K_ADP" units="per_mM" interface="public"/>
+    <variable name="K_ATP" units="per_mM" interface="public"/>
+    <variable name="K_Pi" units="per_mM" interface="public"/>
     <variable name="kappa_1" units="fmol_per_s" interface="public"/>
     <variable name="kappa_2" units="fmol_per_s" interface="public"/>
     <variable name="kappa_3" units="fmol_per_s" interface="public"/>
@@ -2921,85 +3358,82 @@
     <variable name="T" units="kelvin" interface="public"/>
     <variable name="F" units="C_per_mmol" interface="public"/>
     <variable name="zK" units="dimensionless" interface="public"/>
-    <variable name="q_Kir" units="fmol" interface="public"/>
-    <variable name="v_q_K_o" units="fmol_per_s" interface="public"/>
-    <variable name="v_q_K_i" units="fmol_per_s" interface="public"/>
-    <variable name="K_K_i" units="per_fmol" interface="public"/>
-    <variable name="K_K_o" units="per_fmol" interface="public"/>
-    <variable name="K_Kir" units="per_fmol" interface="public"/>
-    <variable name="kappa_1" units="fmol_per_s" interface="public"/>
-  </component>
-  <component name="int_fluid">
-    <variable name="q_Na_int_init" units="fmol" interface="public"/>
-    <variable name="q_Na_int" units="fmol" interface="public"/>
-    <variable name="q_K_int_init" units="fmol" interface="public"/>
-    <variable name="q_K_int" units="fmol" interface="public"/>
-    <variable name="q_H2O_int_init" units="fmol" interface="public"/>
-    <variable name="q_H2O_int" units="fmol" interface="public"/>
-    <variable name="u_P_int_init" units="kPa" interface="public"/>
-    <variable name="u_P_int" units="kPa" interface="public"/>
+    <variable name="v_Kir_o" units="fmol_per_s" interface="public"/>
+    <variable name="v_Kir_i" units="fmol_per_s" interface="public"/>
+    <variable name="kappa_Kir" units="picoS" interface="public"/>
   </component>
   <component name="global">
-    <variable name="R" units="J_per_K_per_mmol" interface="public"/>
-    <variable name="F" units="C_per_mmol" interface="public"/>
-    <variable name="T" units="kelvin" interface="public"/>
     <variable name="zNa" units="dimensionless" interface="public"/>
     <variable name="zK" units="dimensionless" interface="public"/>
-    <variable name="V_w" units="L_per_mmol" interface="public"/>
+    <variable name="zCl" units="dimensionless" interface="public"/>
+    <variable name="R" units="J_per_K_per_mmol" interface="public"/>
+    <variable name="T" units="kelvin" interface="public"/>
+    <variable name="F" units="C_per_mmol" interface="public"/>
+    <variable name="C_m_bas" units="picoFarad" interface="public"/>
+    <variable name="C_m_api" units="picoFarad" interface="public"/>
+    <variable name="K_Na" units="per_mM" interface="public"/>
+    <variable name="K_K" units="per_mM" interface="public"/>
+    <variable name="K_Cl" units="per_mM" interface="public"/>
+    <variable name="K_ADP" units="per_mM" interface="public"/>
+    <variable name="K_ATP" units="per_mM" interface="public"/>
+    <variable name="K_Pi" units="per_mM" interface="public"/>
   </component>
   <connection component_1="parameters" component_2="mucus_module">
-    <map_variables variable_1="q_Na_muc_init_mucus" variable_2="q_Na_muc_init"/>
-    <map_variables variable_1="q_H2O_muc_init_mucus" variable_2="q_H2O_muc_init"/>
-    <map_variables variable_1="u_P_muc_init_mucus" variable_2="u_P_muc_init"/>
+    <map_variables variable_1="q_V_init_mucus" variable_2="q_V_init"/>
+    <map_variables variable_1="q_Na_init_mucus" variable_2="q_Na_init"/>
+    <map_variables variable_1="q_Cl_init_mucus" variable_2="q_Cl_init"/>
+    <map_variables variable_1="q_K_init_mucus" variable_2="q_K_init"/>
+    <map_variables variable_1="u_e_lumen_init_mucus" variable_2="u_e_lumen_init"/>
+    <map_variables variable_1="u_P_mucus" variable_2="u_P"/>
   </connection>
   <connection component_1="parameters" component_2="cell_module">
-    <map_variables variable_1="q_ATP_epi_init_cell" variable_2="q_ATP_epi_init"/>
-    <map_variables variable_1="q_ADP_epi_init_cell" variable_2="q_ADP_epi_init"/>
-    <map_variables variable_1="q_Pi_epi_init_cell" variable_2="q_Pi_epi_init"/>
-    <map_variables variable_1="q_Na_epi_init_cell" variable_2="q_Na_epi_init"/>
-    <map_variables variable_1="q_K_epi_init_cell" variable_2="q_K_epi_init"/>
-    <map_variables variable_1="q_H2O_epi_init_cell" variable_2="q_H2O_epi_init"/>
-    <map_variables variable_1="u_P_epi_init_cell" variable_2="u_P_epi_init"/>
+    <map_variables variable_1="q_V_init_cell" variable_2="q_V_init"/>
+    <map_variables variable_1="q_Na_init_cell" variable_2="q_Na_init"/>
+    <map_variables variable_1="q_Cl_init_cell" variable_2="q_Cl_init"/>
+    <map_variables variable_1="q_K_init_cell" variable_2="q_K_init"/>
+    <map_variables variable_1="u_e_cell_init_cell" variable_2="u_e_cell_init"/>
+    <map_variables variable_1="c_ATP_init_cell" variable_2="c_ATP_init"/>
+    <map_variables variable_1="c_ADP_init_cell" variable_2="c_ADP_init"/>
+    <map_variables variable_1="c_Pi_init_cell" variable_2="c_Pi_init"/>
+    <map_variables variable_1="u_P_cell" variable_2="u_P"/>
+  </connection>
+  <connection component_1="parameters" component_2="int_fluid_module">
+    <map_variables variable_1="q_V_init_int_fluid" variable_2="q_V_init"/>
+    <map_variables variable_1="q_Na_init_int_fluid" variable_2="q_Na_init"/>
+    <map_variables variable_1="q_Cl_init_int_fluid" variable_2="q_Cl_init"/>
+    <map_variables variable_1="q_K_init_int_fluid" variable_2="q_K_init"/>
+    <map_variables variable_1="u_P_int_fluid" variable_2="u_P"/>
+  </connection>
+  <connection component_1="parameters" component_2="para_transport_module">
+    <map_variables variable_1="omega_Na_para_transport" variable_2="omega_Na"/>
+    <map_variables variable_1="omega_Cl_para_transport" variable_2="omega_Cl"/>
+    <map_variables variable_1="omega_K_para_transport" variable_2="omega_K"/>
+    <map_variables variable_1="sigma_Na_para_transport" variable_2="sigma_Na"/>
+    <map_variables variable_1="sigma_Cl_para_transport" variable_2="sigma_Cl"/>
+    <map_variables variable_1="sigma_K_para_transport" variable_2="sigma_K"/>
+    <map_variables variable_1="L_P_para_transport" variable_2="L_P"/>
   </connection>
   <connection component_1="parameters" component_2="ENaC_module">
     <map_variables variable_1="q_1_init_ENaC" variable_2="q_1_init"/>
     <map_variables variable_1="q_2_init_ENaC" variable_2="q_2_init"/>
     <map_variables variable_1="q_3_init_ENaC" variable_2="q_3_init"/>
     <map_variables variable_1="q_4_init_ENaC" variable_2="q_4_init"/>
-    <map_variables variable_1="q_open_init_ENaC" variable_2="q_open_init"/>
-    <map_variables variable_1="q_open_int_init_ENaC" variable_2="q_open_int_init"/>
     <map_variables variable_1="K_1_ENaC" variable_2="K_1"/>
     <map_variables variable_1="K_2_ENaC" variable_2="K_2"/>
     <map_variables variable_1="K_3_ENaC" variable_2="K_3"/>
     <map_variables variable_1="K_4_ENaC" variable_2="K_4"/>
-    <map_variables variable_1="K_open_ENaC" variable_2="K_open"/>
-    <map_variables variable_1="K_open_int_ENaC" variable_2="K_open_int"/>
-    <map_variables variable_1="K_Na_i_ENaC" variable_2="K_Na_i"/>
-    <map_variables variable_1="K_Na_o_ENaC" variable_2="K_Na_o"/>
     <map_variables variable_1="kappa_1_ENaC" variable_2="kappa_1"/>
     <map_variables variable_1="kappa_2_ENaC" variable_2="kappa_2"/>
     <map_variables variable_1="kappa_3_ENaC" variable_2="kappa_3"/>
     <map_variables variable_1="kappa_4_ENaC" variable_2="kappa_4"/>
-    <map_variables variable_1="kappa_5_ENaC" variable_2="kappa_5"/>
-    <map_variables variable_1="kappa_6_ENaC" variable_2="kappa_6"/>
+    <map_variables variable_1="gamma_Na_ENaC" variable_2="gamma_Na"/>
+    <map_variables variable_1="gamma_o_ENaC" variable_2="gamma_o"/>
   </connection>
-  <connection component_1="parameters" component_2="membrane_module">
-    <map_variables variable_1="q_e_m_init_membrane" variable_2="q_e_m_init"/>
-    <map_variables variable_1="C_m_membrane" variable_2="C_m"/>
+  <connection component_1="parameters" component_2="AQ_api_module">
+    <map_variables variable_1="kappa_AQ_AQ_api" variable_2="kappa_AQ"/>
   </connection>
-  <connection component_1="parameters" component_2="AQ_apical_module">
-    <map_variables variable_1="q_AQ_AQ_apical" variable_2="q_AQ"/>
-    <map_variables variable_1="K_AQ_AQ_apical" variable_2="K_AQ"/>
-    <map_variables variable_1="K_H2O_i_AQ_apical" variable_2="K_H2O_i"/>
-    <map_variables variable_1="K_H2O_o_AQ_apical" variable_2="K_H2O_o"/>
-    <map_variables variable_1="kappa_1_AQ_apical" variable_2="kappa_1"/>
-  </connection>
-  <connection component_1="parameters" component_2="AQ_baso_module">
-    <map_variables variable_1="q_AQ_AQ_baso" variable_2="q_AQ"/>
-    <map_variables variable_1="K_AQ_AQ_baso" variable_2="K_AQ"/>
-    <map_variables variable_1="K_H2O_i_AQ_baso" variable_2="K_H2O_i"/>
-    <map_variables variable_1="K_H2O_o_AQ_baso" variable_2="K_H2O_o"/>
-    <map_variables variable_1="kappa_1_AQ_baso" variable_2="kappa_1"/>
+  <connection component_1="parameters" component_2="AQ_bas_module">
+    <map_variables variable_1="kappa_AQ_AQ_bas" variable_2="kappa_AQ"/>
   </connection>
   <connection component_1="parameters" component_2="NKE_module">
     <map_variables variable_1="z_1_NKE" variable_2="z_1"/>
@@ -3015,13 +3449,6 @@
     <map_variables variable_1="K_4_NKE" variable_2="K_4"/>
     <map_variables variable_1="K_5_NKE" variable_2="K_5"/>
     <map_variables variable_1="K_6_NKE" variable_2="K_6"/>
-    <map_variables variable_1="K_Nai_NKE" variable_2="K_Nai"/>
-    <map_variables variable_1="K_Nao_NKE" variable_2="K_Nao"/>
-    <map_variables variable_1="K_Ki_NKE" variable_2="K_Ki"/>
-    <map_variables variable_1="K_Ko_NKE" variable_2="K_Ko"/>
-    <map_variables variable_1="K_ADP_NKE" variable_2="K_ADP"/>
-    <map_variables variable_1="K_ATP_NKE" variable_2="K_ATP"/>
-    <map_variables variable_1="K_Pi_NKE" variable_2="K_Pi"/>
     <map_variables variable_1="kappa_1_NKE" variable_2="kappa_1"/>
     <map_variables variable_1="kappa_2_NKE" variable_2="kappa_2"/>
     <map_variables variable_1="kappa_3_NKE" variable_2="kappa_3"/>
@@ -3030,57 +3457,84 @@
     <map_variables variable_1="kappa_6_NKE" variable_2="kappa_6"/>
   </connection>
   <connection component_1="parameters" component_2="Kir_module">
-    <map_variables variable_1="q_Kir_Kir" variable_2="q_Kir"/>
-    <map_variables variable_1="K_K_i_Kir" variable_2="K_K_i"/>
-    <map_variables variable_1="K_K_o_Kir" variable_2="K_K_o"/>
-    <map_variables variable_1="K_Kir_Kir" variable_2="K_Kir"/>
-    <map_variables variable_1="kappa_1_Kir" variable_2="kappa_1"/>
-  </connection>
-  <connection component_1="parameters" component_2="int_fluid_module">
-    <map_variables variable_1="q_Na_int_init_int_fluid" variable_2="q_Na_int_init"/>
-    <map_variables variable_1="q_K_int_init_int_fluid" variable_2="q_K_int_init"/>
-    <map_variables variable_1="q_H2O_int_init_int_fluid" variable_2="q_H2O_int_init"/>
-    <map_variables variable_1="u_P_int_init_int_fluid" variable_2="u_P_int_init"/>
+    <map_variables variable_1="kappa_Kir_Kir" variable_2="kappa_Kir"/>
   </connection>
   <connection component_1="parameters_global" component_2="global">
-    <map_variables variable_1="R" variable_2="R"/>
-    <map_variables variable_1="F" variable_2="F"/>
-    <map_variables variable_1="T" variable_2="T"/>
     <map_variables variable_1="zNa" variable_2="zNa"/>
     <map_variables variable_1="zK" variable_2="zK"/>
-    <map_variables variable_1="V_w" variable_2="V_w"/>
+    <map_variables variable_1="zCl" variable_2="zCl"/>
+    <map_variables variable_1="R" variable_2="R"/>
+    <map_variables variable_1="T" variable_2="T"/>
+    <map_variables variable_1="F" variable_2="F"/>
+    <map_variables variable_1="C_m_bas" variable_2="C_m_bas"/>
+    <map_variables variable_1="C_m_api" variable_2="C_m_api"/>
+    <map_variables variable_1="K_Na" variable_2="K_Na"/>
+    <map_variables variable_1="K_K" variable_2="K_K"/>
+    <map_variables variable_1="K_Cl" variable_2="K_Cl"/>
+    <map_variables variable_1="K_ADP" variable_2="K_ADP"/>
+    <map_variables variable_1="K_ATP" variable_2="K_ATP"/>
+    <map_variables variable_1="K_Pi" variable_2="K_Pi"/>
+  </connection>
+  <connection component_1="parameters_global" component_2="mucus_module">
+    <map_variables variable_1="zNa" variable_2="zNa"/>
+    <map_variables variable_1="zK" variable_2="zK"/>
+    <map_variables variable_1="zCl" variable_2="zCl"/>
+    <map_variables variable_1="R" variable_2="R"/>
+    <map_variables variable_1="T" variable_2="T"/>
+    <map_variables variable_1="F" variable_2="F"/>
+    <map_variables variable_1="C_m_bas" variable_2="C_m_bas"/>
+    <map_variables variable_1="C_m_api" variable_2="C_m_api"/>
+    <map_variables variable_1="K_Na" variable_2="K_Na"/>
+    <map_variables variable_1="K_K" variable_2="K_K"/>
+    <map_variables variable_1="K_Cl" variable_2="K_Cl"/>
+  </connection>
+  <connection component_1="parameters_global" component_2="int_fluid_module">
+    <map_variables variable_1="zNa" variable_2="zNa"/>
+    <map_variables variable_1="zK" variable_2="zK"/>
+    <map_variables variable_1="zCl" variable_2="zCl"/>
+    <map_variables variable_1="R" variable_2="R"/>
+    <map_variables variable_1="T" variable_2="T"/>
+    <map_variables variable_1="F" variable_2="F"/>
+    <map_variables variable_1="K_Na" variable_2="K_Na"/>
+    <map_variables variable_1="K_K" variable_2="K_K"/>
+    <map_variables variable_1="K_Cl" variable_2="K_Cl"/>
+  </connection>
+  <connection component_1="parameters_global" component_2="para_transport_module">
+    <map_variables variable_1="zNa" variable_2="zNa"/>
+    <map_variables variable_1="zK" variable_2="zK"/>
+    <map_variables variable_1="zCl" variable_2="zCl"/>
+    <map_variables variable_1="R" variable_2="R"/>
+    <map_variables variable_1="T" variable_2="T"/>
+    <map_variables variable_1="F" variable_2="F"/>
   </connection>
   <connection component_1="parameters_global" component_2="ENaC_module">
-    <map_variables variable_1="R" variable_2="R"/>
-    <map_variables variable_1="F" variable_2="F"/>
-    <map_variables variable_1="T" variable_2="T"/>
     <map_variables variable_1="zNa" variable_2="zNa"/>
-  </connection>
-  <connection component_1="parameters_global" component_2="AQ_apical_module">
     <map_variables variable_1="R" variable_2="R"/>
     <map_variables variable_1="T" variable_2="T"/>
-    <map_variables variable_1="V_w" variable_2="V_w"/>
+    <map_variables variable_1="F" variable_2="F"/>
+    <map_variables variable_1="K_Na" variable_2="K_Na"/>
   </connection>
-  <connection component_1="parameters_global" component_2="AQ_baso_module">
+  <connection component_1="parameters_global" component_2="Kir_module">
+    <map_variables variable_1="zK" variable_2="zK"/>
     <map_variables variable_1="R" variable_2="R"/>
     <map_variables variable_1="T" variable_2="T"/>
-    <map_variables variable_1="V_w" variable_2="V_w"/>
+    <map_variables variable_1="F" variable_2="F"/>
+  </connection>
+  <connection component_1="parameters_global" component_2="cell_module">
+    <map_variables variable_1="R" variable_2="R"/>
+    <map_variables variable_1="T" variable_2="T"/>
+    <map_variables variable_1="F" variable_2="F"/>
+    <map_variables variable_1="C_m_bas" variable_2="C_m_bas"/>
   </connection>
   <connection component_1="parameters_global" component_2="NKE_module">
     <map_variables variable_1="R" variable_2="R"/>
-    <map_variables variable_1="F" variable_2="F"/>
     <map_variables variable_1="T" variable_2="T"/>
-  </connection>
-  <connection component_1="parameters_global" component_2="Kir_module">
-    <map_variables variable_1="R" variable_2="R"/>
     <map_variables variable_1="F" variable_2="F"/>
-    <map_variables variable_1="T" variable_2="T"/>
-    <map_variables variable_1="zK" variable_2="zK"/>
-  </connection>
-  <connection component_1="parameters_global" component_2="membrane_module">
-    <map_variables variable_1="F" variable_2="F"/>
-    <map_variables variable_1="zNa" variable_2="zNa"/>
-    <map_variables variable_1="zK" variable_2="zK"/>
+    <map_variables variable_1="K_Na" variable_2="K_Na"/>
+    <map_variables variable_1="K_K" variable_2="K_K"/>
+    <map_variables variable_1="K_ADP" variable_2="K_ADP"/>
+    <map_variables variable_1="K_ATP" variable_2="K_ATP"/>
+    <map_variables variable_1="K_Pi" variable_2="K_Pi"/>
   </connection>
   <connection component_1="environment" component_2="mucus_module">
     <map_variables variable_1="time" variable_2="t"/>
@@ -3088,16 +3542,25 @@
   <connection component_1="environment" component_2="cell_module">
     <map_variables variable_1="time" variable_2="t"/>
   </connection>
+  <connection component_1="environment" component_2="int_fluid_module">
+    <map_variables variable_1="time" variable_2="t"/>
+  </connection>
+  <connection component_1="environment" component_2="para_transport_module">
+    <map_variables variable_1="time" variable_2="t"/>
+  </connection>
+  <connection component_1="environment" component_2="bas_membrane_module">
+    <map_variables variable_1="time" variable_2="t"/>
+  </connection>
+  <connection component_1="environment" component_2="api_membrane_module">
+    <map_variables variable_1="time" variable_2="t"/>
+  </connection>
   <connection component_1="environment" component_2="ENaC_module">
     <map_variables variable_1="time" variable_2="t"/>
   </connection>
-  <connection component_1="environment" component_2="membrane_module">
+  <connection component_1="environment" component_2="AQ_api_module">
     <map_variables variable_1="time" variable_2="t"/>
   </connection>
-  <connection component_1="environment" component_2="AQ_apical_module">
-    <map_variables variable_1="time" variable_2="t"/>
-  </connection>
-  <connection component_1="environment" component_2="AQ_baso_module">
+  <connection component_1="environment" component_2="AQ_bas_module">
     <map_variables variable_1="time" variable_2="t"/>
   </connection>
   <connection component_1="environment" component_2="NKE_module">
@@ -3106,65 +3569,222 @@
   <connection component_1="environment" component_2="Kir_module">
     <map_variables variable_1="time" variable_2="t"/>
   </connection>
-  <connection component_1="environment" component_2="int_fluid_module">
-    <map_variables variable_1="time" variable_2="t"/>
-  </connection>
   <connection component_1="mucus_module" component_2="mucus">
-    <map_variables variable_1="q_H2O_muc_init" variable_2="q_H2O_muc_init"/>
-    <map_variables variable_1="q_Na_muc_init" variable_2="q_Na_muc_init"/>
-    <map_variables variable_1="u_P_muc_init" variable_2="u_P_muc_init"/>
-    <map_variables variable_1="q_H2O_muc" variable_2="q_H2O_muc"/>
-    <map_variables variable_1="q_Na_muc" variable_2="q_Na_muc"/>
-    <map_variables variable_1="u_P_muc" variable_2="u_P_muc"/>
+    <map_variables variable_1="zNa" variable_2="zNa"/>
+    <map_variables variable_1="zK" variable_2="zK"/>
+    <map_variables variable_1="zCl" variable_2="zCl"/>
+    <map_variables variable_1="R" variable_2="R"/>
+    <map_variables variable_1="T" variable_2="T"/>
+    <map_variables variable_1="F" variable_2="F"/>
+    <map_variables variable_1="q_V_init" variable_2="q_V_init"/>
+    <map_variables variable_1="q_Na_init" variable_2="q_Na_init"/>
+    <map_variables variable_1="q_Cl_init" variable_2="q_Cl_init"/>
+    <map_variables variable_1="q_K_init" variable_2="q_K_init"/>
+    <map_variables variable_1="u_e_lumen_init" variable_2="u_e_lumen_init"/>
+    <map_variables variable_1="u_e_lumen" variable_2="u_e_lumen"/>
+    <map_variables variable_1="u_P" variable_2="u_P"/>
+    <map_variables variable_1="q_V" variable_2="q_V"/>
+    <map_variables variable_1="q_Na" variable_2="q_Na"/>
+    <map_variables variable_1="q_K" variable_2="q_K"/>
+    <map_variables variable_1="q_Cl" variable_2="q_Cl"/>
+    <map_variables variable_1="c_Na" variable_2="c_Na"/>
+    <map_variables variable_1="c_K" variable_2="c_K"/>
+    <map_variables variable_1="c_Cl" variable_2="c_Cl"/>
+    <map_variables variable_1="C_m_bas" variable_2="C_m_bas"/>
+    <map_variables variable_1="C_m_api" variable_2="C_m_api"/>
+    <map_variables variable_1="K_Na" variable_2="K_Na"/>
+    <map_variables variable_1="K_K" variable_2="K_K"/>
+    <map_variables variable_1="K_Cl" variable_2="K_Cl"/>
   </connection>
-  <connection component_1="mucus_module" component_2="AQ_apical_module">
-    <map_variables variable_1="q_H2O_muc" variable_2="q_H2O_o"/>
-    <map_variables variable_1="u_P_muc" variable_2="u_P_o"/>
-    <map_variables variable_1="v_AQ_o" variable_2="v_q_H2O_o"/>
+  <connection component_1="mucus_module" component_2="api_membrane_module">
+    <map_variables variable_1="u_e_lumen" variable_2="u_e_lumen"/>
+    <map_variables variable_1="I_api" variable_2="I_apical"/>
+  </connection>
+  <connection component_1="mucus_module" component_2="para_transport_module">
+    <map_variables variable_1="u_mu_e_Na" variable_2="u_mu_e_Na_o"/>
+    <map_variables variable_1="u_mu_e_K" variable_2="u_mu_e_K_o"/>
+    <map_variables variable_1="u_mu_e_Cl" variable_2="u_mu_e_Cl_o"/>
+    <map_variables variable_1="u_P_pi" variable_2="u_P_pi_o"/>
+    <map_variables variable_1="c_Na" variable_2="c_Na_o"/>
+    <map_variables variable_1="c_K" variable_2="c_K_o"/>
+    <map_variables variable_1="c_Cl" variable_2="c_Cl_o"/>
+    <map_variables variable_1="v_Na_para" variable_2="v_Na"/>
+    <map_variables variable_1="v_K_para" variable_2="v_K"/>
+    <map_variables variable_1="v_Cl_para" variable_2="v_Cl"/>
+    <map_variables variable_1="v_V_para" variable_2="v_V"/>
+    <map_variables variable_1="I_para" variable_2="I_para"/>
+  </connection>
+  <connection component_1="mucus_module" component_2="AQ_api_module">
+    <map_variables variable_1="u_P_pi" variable_2="u_P_pi_o"/>
+    <map_variables variable_1="v_AQ_o" variable_2="v_AQ_o"/>
   </connection>
   <connection component_1="mucus_module" component_2="ENaC_module">
-    <map_variables variable_1="q_Na_muc" variable_2="q_Na_o"/>
+    <map_variables variable_1="c_Na" variable_2="c_Na_o"/>
     <map_variables variable_1="v_ENaC_o" variable_2="v_q_Na_o"/>
   </connection>
+  <connection component_1="mucus_module" component_2="bas_membrane_module">
+    <map_variables variable_1="I_bas" variable_2="I_bas"/>
+  </connection>
   <connection component_1="cell_module" component_2="cell">
-    <map_variables variable_1="q_H2O_epi_init" variable_2="q_H2O_epi_init"/>
-    <map_variables variable_1="q_Na_epi_init" variable_2="q_Na_epi_init"/>
-    <map_variables variable_1="q_K_epi_init" variable_2="q_K_epi_init"/>
-    <map_variables variable_1="u_P_epi_init" variable_2="u_P_epi_init"/>
-    <map_variables variable_1="q_ATP_epi_init" variable_2="q_ATP_epi_init"/>
-    <map_variables variable_1="q_ADP_epi_init" variable_2="q_ADP_epi_init"/>
-    <map_variables variable_1="q_Pi_epi_init" variable_2="q_Pi_epi_init"/>
-    <map_variables variable_1="q_Na_epi" variable_2="q_Na_epi"/>
-    <map_variables variable_1="q_K_epi" variable_2="q_K_epi"/>
-    <map_variables variable_1="q_H2O_epi" variable_2="q_H2O_epi"/>
-    <map_variables variable_1="u_P_epi" variable_2="u_P_epi"/>
+    <map_variables variable_1="R" variable_2="R"/>
+    <map_variables variable_1="T" variable_2="T"/>
+    <map_variables variable_1="F" variable_2="F"/>
+    <map_variables variable_1="q_V_init" variable_2="q_V_init"/>
+    <map_variables variable_1="q_Na_init" variable_2="q_Na_init"/>
+    <map_variables variable_1="q_Cl_init" variable_2="q_Cl_init"/>
+    <map_variables variable_1="q_K_init" variable_2="q_K_init"/>
+    <map_variables variable_1="u_e_cell_init" variable_2="u_e_cell_init"/>
+    <map_variables variable_1="u_e_cell" variable_2="u_e_cell"/>
+    <map_variables variable_1="u_P" variable_2="u_P"/>
+    <map_variables variable_1="q_V" variable_2="q_V"/>
+    <map_variables variable_1="q_Na" variable_2="q_Na"/>
+    <map_variables variable_1="q_K" variable_2="q_K"/>
+    <map_variables variable_1="q_Cl" variable_2="q_Cl"/>
+    <map_variables variable_1="c_ATP_init" variable_2="c_ATP_init"/>
+    <map_variables variable_1="c_ADP_init" variable_2="c_ADP_init"/>
+    <map_variables variable_1="c_Pi_init" variable_2="c_Pi_init"/>
+    <map_variables variable_1="c_Na" variable_2="c_Na"/>
+    <map_variables variable_1="c_K" variable_2="c_K"/>
+    <map_variables variable_1="c_Cl" variable_2="c_Cl"/>
+    <map_variables variable_1="c_ADP" variable_2="c_ADP"/>
+    <map_variables variable_1="c_ATP" variable_2="c_ATP"/>
+    <map_variables variable_1="c_Pi" variable_2="c_Pi"/>
+    <map_variables variable_1="C_m_bas" variable_2="C_m_bas"/>
+  </connection>
+  <connection component_1="cell_module" component_2="bas_membrane_module">
+    <map_variables variable_1="u_e_cell" variable_2="u_e_cell"/>
+    <map_variables variable_1="I_bas" variable_2="I_bas"/>
+  </connection>
+  <connection component_1="cell_module" component_2="api_membrane_module">
+    <map_variables variable_1="u_e_cell" variable_2="u_e_cell"/>
+  </connection>
+  <connection component_1="cell_module" component_2="AQ_api_module">
+    <map_variables variable_1="u_P_pi" variable_2="u_P_pi_i"/>
+    <map_variables variable_1="v_AQ_api_i" variable_2="v_AQ_i"/>
+  </connection>
+  <connection component_1="cell_module" component_2="AQ_bas_module">
+    <map_variables variable_1="u_P_pi" variable_2="u_P_pi_i"/>
+    <map_variables variable_1="v_AQ_bas_i" variable_2="v_AQ_i"/>
   </connection>
   <connection component_1="cell_module" component_2="ENaC_module">
-    <map_variables variable_1="q_Na_epi" variable_2="q_Na_i"/>
+    <map_variables variable_1="c_Na" variable_2="c_Na_i"/>
     <map_variables variable_1="v_ENaC_i" variable_2="v_q_Na_i"/>
   </connection>
   <connection component_1="cell_module" component_2="NKE_module">
-    <map_variables variable_1="q_Na_epi" variable_2="q_Na_i"/>
-    <map_variables variable_1="q_K_epi" variable_2="q_K_i"/>
-    <map_variables variable_1="q_ATP_epi" variable_2="q_ATP"/>
-    <map_variables variable_1="q_ADP_epi" variable_2="q_ADP"/>
-    <map_variables variable_1="q_Pi_epi" variable_2="q_Pi"/>
-    <map_variables variable_1="v_NKE_Na_i" variable_2="v_q_Na_i"/>
+    <map_variables variable_1="c_Na" variable_2="c_Na_i"/>
+    <map_variables variable_1="c_K" variable_2="c_K_i"/>
+    <map_variables variable_1="c_ADP" variable_2="c_ADP"/>
+    <map_variables variable_1="c_ATP" variable_2="c_ATP"/>
+    <map_variables variable_1="c_Pi" variable_2="c_Pi"/>
     <map_variables variable_1="v_NKE_K_i" variable_2="v_q_K_i"/>
+    <map_variables variable_1="v_NKE_Na_i" variable_2="v_q_Na_i"/>
   </connection>
   <connection component_1="cell_module" component_2="Kir_module">
-    <map_variables variable_1="q_K_epi" variable_2="q_K_i"/>
-    <map_variables variable_1="v_Kir_i" variable_2="v_q_K_i"/>
+    <map_variables variable_1="c_K" variable_2="c_K_i"/>
+    <map_variables variable_1="v_Kir_i" variable_2="v_Kir_i"/>
   </connection>
-  <connection component_1="cell_module" component_2="AQ_apical_module">
-    <map_variables variable_1="q_H2O_epi" variable_2="q_H2O_i"/>
-    <map_variables variable_1="v_AQ_api_i" variable_2="v_q_H2O_i"/>
-    <map_variables variable_1="u_P_epi" variable_2="u_P_i"/>
+  <connection component_1="cell_module" component_2="para_transport_module">
+    <map_variables variable_1="I_para" variable_2="I_para"/>
   </connection>
-  <connection component_1="cell_module" component_2="AQ_baso_module">
-    <map_variables variable_1="q_H2O_epi" variable_2="q_H2O_i"/>
-    <map_variables variable_1="v_AQ_bas_i" variable_2="v_q_H2O_i"/>
-    <map_variables variable_1="u_P_epi" variable_2="u_P_i"/>
+  <connection component_1="int_fluid_module" component_2="int_fluid">
+    <map_variables variable_1="zNa" variable_2="zNa"/>
+    <map_variables variable_1="zK" variable_2="zK"/>
+    <map_variables variable_1="zCl" variable_2="zCl"/>
+    <map_variables variable_1="R" variable_2="R"/>
+    <map_variables variable_1="T" variable_2="T"/>
+    <map_variables variable_1="F" variable_2="F"/>
+    <map_variables variable_1="q_V_init" variable_2="q_V_init"/>
+    <map_variables variable_1="q_Na_init" variable_2="q_Na_init"/>
+    <map_variables variable_1="q_Cl_init" variable_2="q_Cl_init"/>
+    <map_variables variable_1="q_K_init" variable_2="q_K_init"/>
+    <map_variables variable_1="u_mu_e_Na" variable_2="u_mu_e_Na"/>
+    <map_variables variable_1="u_mu_e_K" variable_2="u_mu_e_K"/>
+    <map_variables variable_1="u_mu_e_Cl" variable_2="u_mu_e_Cl"/>
+    <map_variables variable_1="u_P" variable_2="u_P"/>
+    <map_variables variable_1="u_P_pi" variable_2="u_P_pi"/>
+    <map_variables variable_1="q_V" variable_2="q_V"/>
+    <map_variables variable_1="q_Na" variable_2="q_Na"/>
+    <map_variables variable_1="q_K" variable_2="q_K"/>
+    <map_variables variable_1="q_Cl" variable_2="q_Cl"/>
+    <map_variables variable_1="c_Na" variable_2="c_Na"/>
+    <map_variables variable_1="c_K" variable_2="c_K"/>
+    <map_variables variable_1="c_Cl" variable_2="c_Cl"/>
+    <map_variables variable_1="K_Na" variable_2="K_Na"/>
+    <map_variables variable_1="K_K" variable_2="K_K"/>
+    <map_variables variable_1="K_Cl" variable_2="K_Cl"/>
+  </connection>
+  <connection component_1="int_fluid_module" component_2="bas_membrane_module">
+    <map_variables variable_1="u_e_int" variable_2="u_e_int"/>
+  </connection>
+  <connection component_1="int_fluid_module" component_2="para_transport_module">
+    <map_variables variable_1="u_mu_e_Na" variable_2="u_mu_e_Na_i"/>
+    <map_variables variable_1="u_mu_e_K" variable_2="u_mu_e_K_i"/>
+    <map_variables variable_1="u_mu_e_Cl" variable_2="u_mu_e_Cl_i"/>
+    <map_variables variable_1="u_P_pi" variable_2="u_P_pi_i"/>
+    <map_variables variable_1="c_Na" variable_2="c_Na_i"/>
+    <map_variables variable_1="c_K" variable_2="c_K_i"/>
+    <map_variables variable_1="c_Cl" variable_2="c_Cl_i"/>
+    <map_variables variable_1="v_Na_para" variable_2="v_Na"/>
+    <map_variables variable_1="v_K_para" variable_2="v_K"/>
+    <map_variables variable_1="v_Cl_para" variable_2="v_Cl"/>
+    <map_variables variable_1="v_V_para" variable_2="v_V"/>
+  </connection>
+  <connection component_1="int_fluid_module" component_2="AQ_bas_module">
+    <map_variables variable_1="u_P_pi" variable_2="u_P_pi_o"/>
+    <map_variables variable_1="v_AQ_o" variable_2="v_AQ_o"/>
+  </connection>
+  <connection component_1="int_fluid_module" component_2="NKE_module">
+    <map_variables variable_1="c_Na" variable_2="c_Na_o"/>
+    <map_variables variable_1="c_K" variable_2="c_K_o"/>
+    <map_variables variable_1="v_NKE_Na_o" variable_2="v_q_Na_o"/>
+    <map_variables variable_1="v_NKE_K_o" variable_2="v_q_K_o"/>
+  </connection>
+  <connection component_1="int_fluid_module" component_2="Kir_module">
+    <map_variables variable_1="c_K" variable_2="c_K_o"/>
+    <map_variables variable_1="v_Kir_o" variable_2="v_Kir_o"/>
+  </connection>
+  <connection component_1="para_transport_module" component_2="para_transport">
+    <map_variables variable_1="v_Na" variable_2="v_Na"/>
+    <map_variables variable_1="v_Cl" variable_2="v_Cl"/>
+    <map_variables variable_1="v_K" variable_2="v_K"/>
+    <map_variables variable_1="I_para" variable_2="I_para"/>
+    <map_variables variable_1="v_V" variable_2="v_V"/>
+    <map_variables variable_1="R" variable_2="R"/>
+    <map_variables variable_1="T" variable_2="T"/>
+    <map_variables variable_1="F" variable_2="F"/>
+    <map_variables variable_1="zNa" variable_2="zNa"/>
+    <map_variables variable_1="zCl" variable_2="zCl"/>
+    <map_variables variable_1="zK" variable_2="zK"/>
+    <map_variables variable_1="omega_Na" variable_2="omega_Na"/>
+    <map_variables variable_1="omega_Cl" variable_2="omega_Cl"/>
+    <map_variables variable_1="omega_K" variable_2="omega_K"/>
+    <map_variables variable_1="L_P" variable_2="L_P"/>
+    <map_variables variable_1="sigma_Na" variable_2="sigma_Na"/>
+    <map_variables variable_1="sigma_Cl" variable_2="sigma_Cl"/>
+    <map_variables variable_1="sigma_K" variable_2="sigma_K"/>
+  </connection>
+  <connection component_1="bas_membrane_module" component_2="bas_membrane">
+    <map_variables variable_1="I_NKE" variable_2="I_NKE"/>
+    <map_variables variable_1="I_Kir" variable_2="I_Kir"/>
+    <map_variables variable_1="I_bas" variable_2="I_bas"/>
+    <map_variables variable_1="u_e_bas" variable_2="u_e_bas"/>
+  </connection>
+  <connection component_1="bas_membrane_module" component_2="NKE_module">
+    <map_variables variable_1="I_NKE" variable_2="I_NKE"/>
+    <map_variables variable_1="u_e_bas" variable_2="u_e_m"/>
+  </connection>
+  <connection component_1="bas_membrane_module" component_2="Kir_module">
+    <map_variables variable_1="I_Kir" variable_2="I_Kir"/>
+    <map_variables variable_1="u_e_bas" variable_2="u_e_m"/>
+  </connection>
+  <connection component_1="api_membrane_module" component_2="api_membrane">
+    <map_variables variable_1="I_ENaC" variable_2="I_ENaC"/>
+    <map_variables variable_1="I_apical" variable_2="I_apical"/>
+    <map_variables variable_1="u_e_api" variable_2="u_e_api"/>
+  </connection>
+  <connection component_1="api_membrane_module" component_2="ENaC_module">
+    <map_variables variable_1="I_ENaC" variable_2="I_ENaC"/>
+    <map_variables variable_1="u_e_api" variable_2="u_e_m"/>
   </connection>
   <connection component_1="ENaC_module" component_2="ENaC">
     <map_variables variable_1="R" variable_2="R"/>
@@ -3175,71 +3795,29 @@
     <map_variables variable_1="q_2_init" variable_2="q_2_init"/>
     <map_variables variable_1="q_3_init" variable_2="q_3_init"/>
     <map_variables variable_1="q_4_init" variable_2="q_4_init"/>
-    <map_variables variable_1="q_open_init" variable_2="q_open_init"/>
-    <map_variables variable_1="q_open_int_init" variable_2="q_open_int_init"/>
     <map_variables variable_1="K_1" variable_2="K_1"/>
     <map_variables variable_1="K_2" variable_2="K_2"/>
     <map_variables variable_1="K_3" variable_2="K_3"/>
     <map_variables variable_1="K_4" variable_2="K_4"/>
-    <map_variables variable_1="K_open" variable_2="K_open"/>
-    <map_variables variable_1="K_open_int" variable_2="K_open_int"/>
-    <map_variables variable_1="K_Na_i" variable_2="K_Na_i"/>
-    <map_variables variable_1="K_Na_o" variable_2="K_Na_o"/>
+    <map_variables variable_1="K_Na" variable_2="K_Na"/>
     <map_variables variable_1="kappa_1" variable_2="kappa_1"/>
     <map_variables variable_1="kappa_2" variable_2="kappa_2"/>
     <map_variables variable_1="kappa_3" variable_2="kappa_3"/>
     <map_variables variable_1="kappa_4" variable_2="kappa_4"/>
-    <map_variables variable_1="kappa_5" variable_2="kappa_5"/>
-    <map_variables variable_1="kappa_6" variable_2="kappa_6"/>
+    <map_variables variable_1="gamma_Na" variable_2="gamma_Na"/>
+    <map_variables variable_1="gamma_o" variable_2="gamma_o"/>
     <map_variables variable_1="v_q_Na_i" variable_2="v_q_Na_i"/>
     <map_variables variable_1="v_q_Na_o" variable_2="v_q_Na_o"/>
   </connection>
-  <connection component_1="ENaC_module" component_2="membrane_module">
-    <map_variables variable_1="u_e_m" variable_2="u_e_m"/>
-    <map_variables variable_1="v_q_Na_i" variable_2="v_ENaC_i"/>
+  <connection component_1="AQ_api_module" component_2="AQ_api">
+    <map_variables variable_1="kappa_AQ" variable_2="kappa_AQ"/>
+    <map_variables variable_1="v_AQ_o" variable_2="v_AQ_o"/>
+    <map_variables variable_1="v_AQ_i" variable_2="v_AQ_i"/>
   </connection>
-  <connection component_1="membrane_module" component_2="membrane">
-    <map_variables variable_1="C_m" variable_2="C_m"/>
-    <map_variables variable_1="zNa" variable_2="zNa"/>
-    <map_variables variable_1="zK" variable_2="zK"/>
-    <map_variables variable_1="F" variable_2="F"/>
-    <map_variables variable_1="q_e_m_init" variable_2="q_e_m_init"/>
-    <map_variables variable_1="u_e_m" variable_2="u_e_m"/>
-  </connection>
-  <connection component_1="membrane_module" component_2="NKE_module">
-    <map_variables variable_1="z_1_NKE" variable_2="z_1"/>
-    <map_variables variable_1="v_NKE_K_o" variable_2="v_q_K_o"/>
-    <map_variables variable_1="v_NKE_Na_i" variable_2="v_q_Na_i"/>
-    <map_variables variable_1="u_e_m" variable_2="u_e"/>
-  </connection>
-  <connection component_1="membrane_module" component_2="Kir_module">
-    <map_variables variable_1="v_Kir_i" variable_2="v_q_K_i"/>
-    <map_variables variable_1="u_e_m" variable_2="u_e_m"/>
-  </connection>
-  <connection component_1="AQ_apical_module" component_2="AQ_apical">
-    <map_variables variable_1="R" variable_2="R"/>
-    <map_variables variable_1="T" variable_2="T"/>
-    <map_variables variable_1="V_w" variable_2="V_w"/>
-    <map_variables variable_1="q_AQ" variable_2="q_AQ"/>
-    <map_variables variable_1="K_AQ" variable_2="K_AQ"/>
-    <map_variables variable_1="K_H2O_i" variable_2="K_H2O_i"/>
-    <map_variables variable_1="K_H2O_o" variable_2="K_H2O_o"/>
-    <map_variables variable_1="kappa_1" variable_2="kappa_1"/>
-  </connection>
-  <connection component_1="AQ_baso_module" component_2="AQ_baso">
-    <map_variables variable_1="R" variable_2="R"/>
-    <map_variables variable_1="T" variable_2="T"/>
-    <map_variables variable_1="V_w" variable_2="V_w"/>
-    <map_variables variable_1="q_AQ" variable_2="q_AQ"/>
-    <map_variables variable_1="K_AQ" variable_2="K_AQ"/>
-    <map_variables variable_1="K_H2O_i" variable_2="K_H2O_i"/>
-    <map_variables variable_1="K_H2O_o" variable_2="K_H2O_o"/>
-    <map_variables variable_1="kappa_1" variable_2="kappa_1"/>
-  </connection>
-  <connection component_1="AQ_baso_module" component_2="int_fluid_module">
-    <map_variables variable_1="q_H2O_o" variable_2="q_H2O_int"/>
-    <map_variables variable_1="u_P_o" variable_2="u_P_int"/>
-    <map_variables variable_1="v_q_H2O_o" variable_2="v_AQ_o"/>
+  <connection component_1="AQ_bas_module" component_2="AQ_bas">
+    <map_variables variable_1="kappa_AQ" variable_2="kappa_AQ"/>
+    <map_variables variable_1="v_AQ_o" variable_2="v_AQ_o"/>
+    <map_variables variable_1="v_AQ_i" variable_2="v_AQ_i"/>
   </connection>
   <connection component_1="NKE_module" component_2="NKE">
     <map_variables variable_1="R" variable_2="R"/>
@@ -3258,12 +3836,10 @@
     <map_variables variable_1="K_4" variable_2="K_4"/>
     <map_variables variable_1="K_5" variable_2="K_5"/>
     <map_variables variable_1="K_6" variable_2="K_6"/>
-    <map_variables variable_1="K_Ko" variable_2="K_Ko"/>
-    <map_variables variable_1="K_Ki" variable_2="K_Ki"/>
+    <map_variables variable_1="K_K" variable_2="K_K"/>
     <map_variables variable_1="K_ADP" variable_2="K_ADP"/>
     <map_variables variable_1="K_ATP" variable_2="K_ATP"/>
-    <map_variables variable_1="K_Nao" variable_2="K_Nao"/>
-    <map_variables variable_1="K_Nai" variable_2="K_Nai"/>
+    <map_variables variable_1="K_Na" variable_2="K_Na"/>
     <map_variables variable_1="K_Pi" variable_2="K_Pi"/>
     <map_variables variable_1="kappa_1" variable_2="kappa_1"/>
     <map_variables variable_1="kappa_2" variable_2="kappa_2"/>
@@ -3276,37 +3852,13 @@
     <map_variables variable_1="v_q_K_i" variable_2="v_q_K_i"/>
     <map_variables variable_1="v_q_K_o" variable_2="v_q_K_o"/>
   </connection>
-  <connection component_1="NKE_module" component_2="int_fluid_module">
-    <map_variables variable_1="q_Na_o" variable_2="q_Na_int"/>
-    <map_variables variable_1="q_K_o" variable_2="q_K_int"/>
-    <map_variables variable_1="v_q_Na_o" variable_2="v_NKE_Na_o"/>
-    <map_variables variable_1="v_q_K_o" variable_2="v_NKE_K_o"/>
-  </connection>
   <connection component_1="Kir_module" component_2="Kir">
     <map_variables variable_1="R" variable_2="R"/>
     <map_variables variable_1="T" variable_2="T"/>
     <map_variables variable_1="F" variable_2="F"/>
     <map_variables variable_1="zK" variable_2="zK"/>
-    <map_variables variable_1="q_Kir" variable_2="q_Kir"/>
-    <map_variables variable_1="K_Kir" variable_2="K_Kir"/>
-    <map_variables variable_1="K_K_i" variable_2="K_K_i"/>
-    <map_variables variable_1="K_K_o" variable_2="K_K_o"/>
-    <map_variables variable_1="kappa_1" variable_2="kappa_1"/>
-    <map_variables variable_1="v_q_K_i" variable_2="v_q_K_i"/>
-    <map_variables variable_1="v_q_K_o" variable_2="v_q_K_o"/>
-  </connection>
-  <connection component_1="Kir_module" component_2="int_fluid_module">
-    <map_variables variable_1="q_K_o" variable_2="q_K_int"/>
-    <map_variables variable_1="v_q_K_o" variable_2="v_Kir_o"/>
-  </connection>
-  <connection component_1="int_fluid_module" component_2="int_fluid">
-    <map_variables variable_1="q_H2O_int_init" variable_2="q_H2O_int_init"/>
-    <map_variables variable_1="q_Na_int_init" variable_2="q_Na_int_init"/>
-    <map_variables variable_1="q_K_int_init" variable_2="q_K_int_init"/>
-    <map_variables variable_1="u_P_int_init" variable_2="u_P_int_init"/>
-    <map_variables variable_1="q_K_int" variable_2="q_K_int"/>
-    <map_variables variable_1="q_Na_int" variable_2="q_Na_int"/>
-    <map_variables variable_1="q_H2O_int" variable_2="q_H2O_int"/>
-    <map_variables variable_1="u_P_int" variable_2="u_P_int"/>
+    <map_variables variable_1="kappa_Kir" variable_2="kappa_Kir"/>
+    <map_variables variable_1="v_Kir_o" variable_2="v_Kir_o"/>
+    <map_variables variable_1="v_Kir_i" variable_2="v_Kir_i"/>
   </connection>
 </model>

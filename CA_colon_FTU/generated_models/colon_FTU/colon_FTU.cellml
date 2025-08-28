@@ -195,6 +195,9 @@
     <units name="pC" units_ref="pC"/>
     <units name="C_per_mmol" units_ref="C_per_mmol"/>
     <units name="picoA" units_ref="picoA"/>
+    <units name="picoS" units_ref="picoS"/>
+    <units name="picoS_per_fmol" units_ref="picoS_per_fmol"/>
+    <units name="L_fmol_per_J_per_s" units_ref="L_fmol_per_J_per_s"/>
     <units name="picoA_per_picoFarad" units_ref="picoA_per_picoFarad"/>
     <units name="microL" units_ref="microL"/>
     <units name="picoFarad" units_ref="picoFarad"/>
@@ -218,184 +221,278 @@
     <units name="kPa_per_s" units_ref="kPa_per_s"/>
     <units name="L_per_kPa" units_ref="L_per_kPa"/>
     <units name="kPa_s_per_L" units_ref="kPa_s_per_L"/>
+    <units name="pL_L_per_J_per_s" units_ref="pL_L_per_J_per_s"/>
+    <units name="pL" units_ref="pL"/>
+    <units name="pL_per_s" units_ref="pL_per_s"/>
+    <units name="pL_per_kPa_per_s" units_ref="pL_per_kPa_per_s"/>
     <units name="L_per_mmol" units_ref="L_per_mmol"/>
 </import>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;imports&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <import xlink:href="colon_FTU_modules.cellml">
-    <component component_ref="mucus" name="mucus_module"/>
+    <component component_ref="comprehensive_lumen" name="mucus_module"/>
 </import>
 <import xlink:href="colon_FTU_modules.cellml">
-    <component component_ref="colonocyte" name="cell_module"/>
+    <component component_ref="comprehensive_colonocyte" name="cell_module"/>
 </import>
 <import xlink:href="colon_FTU_modules.cellml">
-    <component component_ref="ENaC" name="ENaC_module"/>
+    <component component_ref="comprehensive_interstitial_fluid" name="int_fluid_module"/>
 </import>
 <import xlink:href="colon_FTU_modules.cellml">
-    <component component_ref="membrane" name="membrane_module"/>
+    <component component_ref="paracellular_module" name="para_transport_module"/>
 </import>
 <import xlink:href="colon_FTU_modules.cellml">
-    <component component_ref="AQ" name="AQ_apical_module"/>
+    <component component_ref="basolateral_membrane" name="bas_membrane_module"/>
 </import>
 <import xlink:href="colon_FTU_modules.cellml">
-    <component component_ref="AQ" name="AQ_baso_module"/>
+    <component component_ref="apical_membrane" name="api_membrane_module"/>
 </import>
 <import xlink:href="colon_FTU_modules.cellml">
-    <component component_ref="NKE" name="NKE_module"/>
+    <component component_ref="ENaC_volume" name="ENaC_module"/>
 </import>
 <import xlink:href="colon_FTU_modules.cellml">
-    <component component_ref="Kir" name="Kir_module"/>
+    <component component_ref="AQ_volume" name="AQ_api_module"/>
 </import>
 <import xlink:href="colon_FTU_modules.cellml">
-    <component component_ref="interstitial_fluid" name="int_fluid_module"/>
+    <component component_ref="AQ_volume" name="AQ_bas_module"/>
+</import>
+<import xlink:href="colon_FTU_modules.cellml">
+    <component component_ref="NKE_volume" name="NKE_module"/>
+</import>
+<import xlink:href="colon_FTU_modules.cellml">
+    <component component_ref="Kir_volume" name="Kir_module"/>
 </import>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;vessel mappings&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>
+   <map_components component_1="mucus_module" component_2="para_transport_module"/>
+   <map_variables variable_1="u_P_pi" variable_2="u_P_pi_o"/>
+</connection>
+<connection>
+   <map_components component_1="mucus_module" component_2="para_transport_module"/>
+   <map_variables variable_1="u_mu_e_Na" variable_2="u_mu_e_Na_o"/>
+</connection>
+<connection>
+   <map_components component_1="mucus_module" component_2="para_transport_module"/>
+   <map_variables variable_1="u_mu_e_K" variable_2="u_mu_e_K_o"/>
+</connection>
+<connection>
+   <map_components component_1="mucus_module" component_2="para_transport_module"/>
+   <map_variables variable_1="u_mu_e_Cl" variable_2="u_mu_e_Cl_o"/>
+</connection>
+<connection>
+   <map_components component_1="mucus_module" component_2="para_transport_module"/>
+   <map_variables variable_1="c_Na" variable_2="c_Na_o"/>
+</connection>
+<connection>
+   <map_components component_1="mucus_module" component_2="para_transport_module"/>
+   <map_variables variable_1="c_K" variable_2="c_K_o"/>
+</connection>
+<connection>
+   <map_components component_1="mucus_module" component_2="para_transport_module"/>
+   <map_variables variable_1="c_Cl" variable_2="c_Cl_o"/>
+</connection>
+<connection>
+   <map_components component_1="mucus_module" component_2="para_transport_module"/>
+   <map_variables variable_1="v_Na_para" variable_2="v_Na"/>
+</connection>
+<connection>
+   <map_components component_1="mucus_module" component_2="para_transport_module"/>
+   <map_variables variable_1="v_Cl_para" variable_2="v_Cl"/>
+</connection>
+<connection>
+   <map_components component_1="mucus_module" component_2="para_transport_module"/>
+   <map_variables variable_1="v_K_para" variable_2="v_K"/>
+</connection>
+<connection>
+   <map_components component_1="mucus_module" component_2="para_transport_module"/>
+   <map_variables variable_1="v_V_para" variable_2="v_V"/>
+</connection>
+<connection>
+   <map_components component_1="mucus_module" component_2="para_transport_module"/>
+   <map_variables variable_1="I_para" variable_2="I_para"/>
+</connection>
+<connection>
+   <map_components component_1="mucus_module" component_2="api_membrane_module"/>
+   <map_variables variable_1="u_e_lumen" variable_2="u_e_lumen"/>
+</connection>
+<connection>
+   <map_components component_1="mucus_module" component_2="api_membrane_module"/>
+   <map_variables variable_1="I_api" variable_2="I_apical"/>
+</connection>
+<connection>
    <map_components component_1="mucus_module" component_2="ENaC_module"/>
-   <map_variables variable_1="q_Na_muc" variable_2="q_Na_o"/>
+   <map_variables variable_1="c_Na" variable_2="c_Na_o"/>
 </connection>
 <connection>
    <map_components component_1="mucus_module" component_2="ENaC_module"/>
    <map_variables variable_1="v_ENaC_o" variable_2="v_q_Na_o"/>
 </connection>
 <connection>
-   <map_components component_1="mucus_module" component_2="AQ_apical_module"/>
-   <map_variables variable_1="q_H2O_muc" variable_2="q_H2O_o"/>
+   <map_components component_1="mucus_module" component_2="AQ_api_module"/>
+   <map_variables variable_1="u_P_pi" variable_2="u_P_pi_o"/>
 </connection>
 <connection>
-   <map_components component_1="mucus_module" component_2="AQ_apical_module"/>
-   <map_variables variable_1="v_AQ_o" variable_2="v_q_H2O_o"/>
+   <map_components component_1="mucus_module" component_2="AQ_api_module"/>
+   <map_variables variable_1="v_AQ_o" variable_2="v_AQ_o"/>
 </connection>
 <connection>
-   <map_components component_1="mucus_module" component_2="AQ_apical_module"/>
-   <map_variables variable_1="u_P_muc" variable_2="u_P_o"/>
+   <map_components component_1="cell_module" component_2="api_membrane_module"/>
+   <map_variables variable_1="u_e_cell" variable_2="u_e_cell"/>
 </connection>
 <connection>
-   <map_components component_1="cell_module" component_2="NKE_module"/>
-   <map_variables variable_1="q_Na_epi" variable_2="q_Na_i"/>
+   <map_components component_1="cell_module" component_2="bas_membrane_module"/>
+   <map_variables variable_1="I_bas" variable_2="I_bas"/>
 </connection>
 <connection>
-   <map_components component_1="cell_module" component_2="NKE_module"/>
-   <map_variables variable_1="q_K_epi" variable_2="q_K_i"/>
-</connection>
-<connection>
-   <map_components component_1="cell_module" component_2="NKE_module"/>
-   <map_variables variable_1="q_ATP_epi" variable_2="q_ATP"/>
+   <map_components component_1="cell_module" component_2="bas_membrane_module"/>
+   <map_variables variable_1="u_e_cell" variable_2="u_e_cell"/>
 </connection>
 <connection>
    <map_components component_1="cell_module" component_2="NKE_module"/>
-   <map_variables variable_1="q_ADP_epi" variable_2="q_ADP"/>
+   <map_variables variable_1="c_Na" variable_2="c_Na_i"/>
 </connection>
 <connection>
    <map_components component_1="cell_module" component_2="NKE_module"/>
-   <map_variables variable_1="q_Pi_epi" variable_2="q_Pi"/>
+   <map_variables variable_1="c_K" variable_2="c_K_i"/>
 </connection>
 <connection>
    <map_components component_1="cell_module" component_2="NKE_module"/>
-   <map_variables variable_1="v_NKE_Na_i" variable_2="v_q_Na_i"/>
+   <map_variables variable_1="c_ATP" variable_2="c_ATP"/>
+</connection>
+<connection>
+   <map_components component_1="cell_module" component_2="NKE_module"/>
+   <map_variables variable_1="c_ADP" variable_2="c_ADP"/>
+</connection>
+<connection>
+   <map_components component_1="cell_module" component_2="NKE_module"/>
+   <map_variables variable_1="c_Pi" variable_2="c_Pi"/>
 </connection>
 <connection>
    <map_components component_1="cell_module" component_2="NKE_module"/>
    <map_variables variable_1="v_NKE_K_i" variable_2="v_q_K_i"/>
 </connection>
 <connection>
-   <map_components component_1="cell_module" component_2="Kir_module"/>
-   <map_variables variable_1="q_K_epi" variable_2="q_K_i"/>
-</connection>
-<connection>
-   <map_components component_1="cell_module" component_2="Kir_module"/>
-   <map_variables variable_1="v_Kir_i" variable_2="v_q_K_i"/>
-</connection>
-<connection>
-   <map_components component_1="cell_module" component_2="AQ_baso_module"/>
-   <map_variables variable_1="q_H2O_epi" variable_2="q_H2O_i"/>
-</connection>
-<connection>
-   <map_components component_1="cell_module" component_2="AQ_baso_module"/>
-   <map_variables variable_1="v_AQ_bas_i" variable_2="v_q_H2O_i"/>
-</connection>
-<connection>
-   <map_components component_1="cell_module" component_2="AQ_baso_module"/>
-   <map_variables variable_1="u_P_epi" variable_2="u_P_i"/>
-</connection>
-<connection>
-   <map_components component_1="ENaC_module" component_2="cell_module"/>
-   <map_variables variable_1="q_Na_i" variable_2="q_Na_epi"/>
-</connection>
-<connection>
-   <map_components component_1="ENaC_module" component_2="cell_module"/>
-   <map_variables variable_1="v_q_Na_i" variable_2="v_ENaC_i"/>
-</connection>
-<connection>
-   <map_components component_1="ENaC_module" component_2="membrane_module"/>
-   <map_variables variable_1="v_q_Na_i" variable_2="v_ENaC_i"/>
-</connection>
-<connection>
-   <map_components component_1="ENaC_module" component_2="membrane_module"/>
-   <map_variables variable_1="u_e_m" variable_2="u_e_m"/>
-</connection>
-<connection>
-   <map_components component_1="membrane_module" component_2="ENaC_module"/>
-   <map_variables variable_1="u_e_m" variable_2="u_e_m"/>
-</connection>
-<connection>
-   <map_components component_1="membrane_module" component_2="ENaC_module"/>
-   <map_variables variable_1="v_ENaC_i" variable_2="v_q_Na_i"/>
-</connection>
-<connection>
-   <map_components component_1="membrane_module" component_2="Kir_module"/>
-   <map_variables variable_1="u_e_m" variable_2="u_e_m"/>
-</connection>
-<connection>
-   <map_components component_1="membrane_module" component_2="Kir_module"/>
-   <map_variables variable_1="v_Kir_i" variable_2="v_q_K_i"/>
-</connection>
-<connection>
-   <map_components component_1="membrane_module" component_2="NKE_module"/>
-   <map_variables variable_1="u_e_m" variable_2="u_e"/>
-</connection>
-<connection>
-   <map_components component_1="membrane_module" component_2="NKE_module"/>
-   <map_variables variable_1="v_NKE_K_o" variable_2="v_q_K_o"/>
-</connection>
-<connection>
-   <map_components component_1="membrane_module" component_2="NKE_module"/>
+   <map_components component_1="cell_module" component_2="NKE_module"/>
    <map_variables variable_1="v_NKE_Na_i" variable_2="v_q_Na_i"/>
 </connection>
 <connection>
-   <map_components component_1="membrane_module" component_2="NKE_module"/>
-   <map_variables variable_1="z_1_NKE" variable_2="z_1"/>
+   <map_components component_1="cell_module" component_2="AQ_bas_module"/>
+   <map_variables variable_1="u_P_pi" variable_2="u_P_pi_i"/>
 </connection>
 <connection>
-   <map_components component_1="AQ_apical_module" component_2="cell_module"/>
-   <map_variables variable_1="q_H2O_i" variable_2="q_H2O_epi"/>
+   <map_components component_1="cell_module" component_2="AQ_bas_module"/>
+   <map_variables variable_1="v_AQ_bas_i" variable_2="v_AQ_i"/>
 </connection>
 <connection>
-   <map_components component_1="AQ_apical_module" component_2="cell_module"/>
-   <map_variables variable_1="v_q_H2O_i" variable_2="v_AQ_api_i"/>
+   <map_components component_1="cell_module" component_2="Kir_module"/>
+   <map_variables variable_1="c_K" variable_2="c_K_i"/>
 </connection>
 <connection>
-   <map_components component_1="AQ_apical_module" component_2="cell_module"/>
-   <map_variables variable_1="u_P_i" variable_2="u_P_epi"/>
+   <map_components component_1="cell_module" component_2="Kir_module"/>
+   <map_variables variable_1="v_Kir_i" variable_2="v_Kir_i"/>
 </connection>
 <connection>
-   <map_components component_1="AQ_baso_module" component_2="int_fluid_module"/>
-   <map_variables variable_1="q_H2O_o" variable_2="q_H2O_int"/>
+   <map_components component_1="int_fluid_module" component_2="bas_membrane_module"/>
+   <map_variables variable_1="u_e_int" variable_2="u_e_int"/>
 </connection>
 <connection>
-   <map_components component_1="AQ_baso_module" component_2="int_fluid_module"/>
-   <map_variables variable_1="v_q_H2O_o" variable_2="v_AQ_o"/>
+   <map_components component_1="para_transport_module" component_2="int_fluid_module"/>
+   <map_variables variable_1="c_Na_i" variable_2="c_Na"/>
 </connection>
 <connection>
-   <map_components component_1="AQ_baso_module" component_2="int_fluid_module"/>
-   <map_variables variable_1="u_P_o" variable_2="u_P_int"/>
+   <map_components component_1="para_transport_module" component_2="int_fluid_module"/>
+   <map_variables variable_1="c_K_i" variable_2="c_K"/>
+</connection>
+<connection>
+   <map_components component_1="para_transport_module" component_2="int_fluid_module"/>
+   <map_variables variable_1="c_Cl_i" variable_2="c_Cl"/>
+</connection>
+<connection>
+   <map_components component_1="para_transport_module" component_2="int_fluid_module"/>
+   <map_variables variable_1="v_Na" variable_2="v_Na_para"/>
+</connection>
+<connection>
+   <map_components component_1="para_transport_module" component_2="int_fluid_module"/>
+   <map_variables variable_1="v_Cl" variable_2="v_Cl_para"/>
+</connection>
+<connection>
+   <map_components component_1="para_transport_module" component_2="int_fluid_module"/>
+   <map_variables variable_1="v_K" variable_2="v_K_para"/>
+</connection>
+<connection>
+   <map_components component_1="para_transport_module" component_2="int_fluid_module"/>
+   <map_variables variable_1="v_V" variable_2="v_V_para"/>
+</connection>
+<connection>
+   <map_components component_1="para_transport_module" component_2="int_fluid_module"/>
+   <map_variables variable_1="u_mu_e_Na_i" variable_2="u_mu_e_Na"/>
+</connection>
+<connection>
+   <map_components component_1="para_transport_module" component_2="int_fluid_module"/>
+   <map_variables variable_1="u_mu_e_K_i" variable_2="u_mu_e_K"/>
+</connection>
+<connection>
+   <map_components component_1="para_transport_module" component_2="int_fluid_module"/>
+   <map_variables variable_1="u_mu_e_Cl_i" variable_2="u_mu_e_Cl"/>
+</connection>
+<connection>
+   <map_components component_1="para_transport_module" component_2="int_fluid_module"/>
+   <map_variables variable_1="u_P_pi_i" variable_2="u_P_pi"/>
+</connection>
+<connection>
+   <map_components component_1="para_transport_module" component_2="cell_module"/>
+   <map_variables variable_1="I_para" variable_2="I_para"/>
+</connection>
+<connection>
+   <map_components component_1="bas_membrane_module" component_2="mucus_module"/>
+   <map_variables variable_1="I_bas" variable_2="I_bas"/>
+</connection>
+<connection>
+   <map_components component_1="ENaC_module" component_2="api_membrane_module"/>
+   <map_variables variable_1="u_e_m" variable_2="u_e_api"/>
+</connection>
+<connection>
+   <map_components component_1="ENaC_module" component_2="api_membrane_module"/>
+   <map_variables variable_1="I_ENaC" variable_2="I_ENaC"/>
+</connection>
+<connection>
+   <map_components component_1="ENaC_module" component_2="cell_module"/>
+   <map_variables variable_1="c_Na_i" variable_2="c_Na"/>
+</connection>
+<connection>
+   <map_components component_1="ENaC_module" component_2="cell_module"/>
+   <map_variables variable_1="v_q_Na_i" variable_2="v_ENaC_i"/>
+</connection>
+<connection>
+   <map_components component_1="AQ_api_module" component_2="cell_module"/>
+   <map_variables variable_1="u_P_pi_i" variable_2="u_P_pi"/>
+</connection>
+<connection>
+   <map_components component_1="AQ_api_module" component_2="cell_module"/>
+   <map_variables variable_1="v_AQ_i" variable_2="v_AQ_api_i"/>
+</connection>
+<connection>
+   <map_components component_1="AQ_bas_module" component_2="int_fluid_module"/>
+   <map_variables variable_1="u_P_pi_o" variable_2="u_P_pi"/>
+</connection>
+<connection>
+   <map_components component_1="AQ_bas_module" component_2="int_fluid_module"/>
+   <map_variables variable_1="v_AQ_o" variable_2="v_AQ_o"/>
+</connection>
+<connection>
+   <map_components component_1="NKE_module" component_2="bas_membrane_module"/>
+   <map_variables variable_1="I_NKE" variable_2="I_NKE"/>
+</connection>
+<connection>
+   <map_components component_1="NKE_module" component_2="bas_membrane_module"/>
+   <map_variables variable_1="u_e_m" variable_2="u_e_bas"/>
 </connection>
 <connection>
    <map_components component_1="NKE_module" component_2="int_fluid_module"/>
-   <map_variables variable_1="q_Na_o" variable_2="q_Na_int"/>
+   <map_variables variable_1="c_Na_o" variable_2="c_Na"/>
 </connection>
 <connection>
    <map_components component_1="NKE_module" component_2="int_fluid_module"/>
-   <map_variables variable_1="q_K_o" variable_2="q_K_int"/>
+   <map_variables variable_1="c_K_o" variable_2="c_K"/>
 </connection>
 <connection>
    <map_components component_1="NKE_module" component_2="int_fluid_module"/>
@@ -406,36 +503,20 @@
    <map_variables variable_1="v_q_K_o" variable_2="v_NKE_K_o"/>
 </connection>
 <connection>
-   <map_components component_1="NKE_module" component_2="membrane_module"/>
-   <map_variables variable_1="z_1" variable_2="z_1_NKE"/>
+   <map_components component_1="Kir_module" component_2="bas_membrane_module"/>
+   <map_variables variable_1="I_Kir" variable_2="I_Kir"/>
 </connection>
 <connection>
-   <map_components component_1="NKE_module" component_2="membrane_module"/>
-   <map_variables variable_1="v_q_Na_i" variable_2="v_NKE_Na_i"/>
-</connection>
-<connection>
-   <map_components component_1="NKE_module" component_2="membrane_module"/>
-   <map_variables variable_1="v_q_K_o" variable_2="v_NKE_K_o"/>
-</connection>
-<connection>
-   <map_components component_1="NKE_module" component_2="membrane_module"/>
-   <map_variables variable_1="u_e" variable_2="u_e_m"/>
+   <map_components component_1="Kir_module" component_2="bas_membrane_module"/>
+   <map_variables variable_1="u_e_m" variable_2="u_e_bas"/>
 </connection>
 <connection>
    <map_components component_1="Kir_module" component_2="int_fluid_module"/>
-   <map_variables variable_1="q_K_o" variable_2="q_K_int"/>
+   <map_variables variable_1="c_K_o" variable_2="c_K"/>
 </connection>
 <connection>
    <map_components component_1="Kir_module" component_2="int_fluid_module"/>
-   <map_variables variable_1="v_q_K_o" variable_2="v_Kir_o"/>
-</connection>
-<connection>
-   <map_components component_1="Kir_module" component_2="membrane_module"/>
-   <map_variables variable_1="v_q_K_i" variable_2="v_Kir_i"/>
-</connection>
-<connection>
-   <map_components component_1="Kir_module" component_2="membrane_module"/>
-   <map_variables variable_1="u_e_m" variable_2="u_e_m"/>
+   <map_variables variable_1="v_Kir_o" variable_2="v_Kir_o"/>
 </connection>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;terminal venous connection&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <component name="terminal_venous_connection">
@@ -448,25 +529,115 @@
 </component>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;access_variables&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <component name="mucus">
-   <variable name="q_Na_muc_init" public_interface="in" units="fmol"/>
-   <variable name="q_Na_muc" public_interface="in" units="fmol"/>
-   <variable name="q_H2O_muc_init" public_interface="in" units="fmol"/>
-   <variable name="q_H2O_muc" public_interface="in" units="fmol"/>
-   <variable name="u_P_muc_init" public_interface="in" units="kPa"/>
-   <variable name="u_P_muc" public_interface="in" units="kPa"/>
+   <variable name="zNa" public_interface="in" units="dimensionless"/>
+   <variable name="zK" public_interface="in" units="dimensionless"/>
+   <variable name="zCl" public_interface="in" units="dimensionless"/>
+   <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
+   <variable name="T" public_interface="in" units="kelvin"/>
+   <variable name="F" public_interface="in" units="C_per_mmol"/>
+   <variable name="q_V_init" public_interface="in" units="pL"/>
+   <variable name="q_Na_init" public_interface="in" units="fmol"/>
+   <variable name="q_Cl_init" public_interface="in" units="fmol"/>
+   <variable name="q_K_init" public_interface="in" units="fmol"/>
+   <variable name="u_e_lumen_init" public_interface="in" units="volt"/>
+   <variable name="q_V" public_interface="in" units="pL"/>
+   <variable name="q_Na" public_interface="in" units="fmol"/>
+   <variable name="q_Cl" public_interface="in" units="fmol"/>
+   <variable name="q_K" public_interface="in" units="fmol"/>
+   <variable name="u_e_lumen" public_interface="in" units="volt"/>
+   <variable name="u_P" public_interface="in" units="kPa"/>
+   <variable name="c_Na" public_interface="in" units="mM"/>
+   <variable name="c_K" public_interface="in" units="mM"/>
+   <variable name="c_Cl" public_interface="in" units="mM"/>
+   <variable name="C_m_bas" public_interface="in" units="picoFarad"/>
+   <variable name="C_m_api" public_interface="in" units="picoFarad"/>
+   <variable name="K_Na" public_interface="in" units="per_mM"/>
+   <variable name="K_K" public_interface="in" units="per_mM"/>
+   <variable name="K_Cl" public_interface="in" units="per_mM"/>
 </component>
 <component name="cell">
-   <variable name="q_ATP_epi_init" public_interface="in" units="fmol"/>
-   <variable name="q_ADP_epi_init" public_interface="in" units="fmol"/>
-   <variable name="q_Pi_epi_init" public_interface="in" units="fmol"/>
-   <variable name="q_Na_epi_init" public_interface="in" units="fmol"/>
-   <variable name="q_Na_epi" public_interface="in" units="fmol"/>
-   <variable name="q_K_epi_init" public_interface="in" units="fmol"/>
-   <variable name="q_K_epi" public_interface="in" units="fmol"/>
-   <variable name="q_H2O_epi_init" public_interface="in" units="fmol"/>
-   <variable name="q_H2O_epi" public_interface="in" units="fmol"/>
-   <variable name="u_P_epi_init" public_interface="in" units="kPa"/>
-   <variable name="u_P_epi" public_interface="in" units="kPa"/>
+   <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
+   <variable name="T" public_interface="in" units="kelvin"/>
+   <variable name="F" public_interface="in" units="C_per_mmol"/>
+   <variable name="q_V_init" public_interface="in" units="pL"/>
+   <variable name="q_Na_init" public_interface="in" units="fmol"/>
+   <variable name="q_Cl_init" public_interface="in" units="fmol"/>
+   <variable name="q_K_init" public_interface="in" units="fmol"/>
+   <variable name="u_e_cell_init" public_interface="in" units="volt"/>
+   <variable name="q_V" public_interface="in" units="pL"/>
+   <variable name="q_Na" public_interface="in" units="fmol"/>
+   <variable name="q_Cl" public_interface="in" units="fmol"/>
+   <variable name="q_K" public_interface="in" units="fmol"/>
+   <variable name="c_ATP_init" public_interface="in" units="mM"/>
+   <variable name="c_ADP_init" public_interface="in" units="mM"/>
+   <variable name="c_Pi_init" public_interface="in" units="mM"/>
+   <variable name="u_e_cell" public_interface="in" units="volt"/>
+   <variable name="u_P" public_interface="in" units="kPa"/>
+   <variable name="c_Na" public_interface="in" units="mM"/>
+   <variable name="c_K" public_interface="in" units="mM"/>
+   <variable name="c_Cl" public_interface="in" units="mM"/>
+   <variable name="c_ATP" public_interface="in" units="mM"/>
+   <variable name="c_ADP" public_interface="in" units="mM"/>
+   <variable name="c_Pi" public_interface="in" units="mM"/>
+   <variable name="C_m_bas" public_interface="in" units="picoFarad"/>
+</component>
+<component name="int_fluid">
+   <variable name="zNa" public_interface="in" units="dimensionless"/>
+   <variable name="zK" public_interface="in" units="dimensionless"/>
+   <variable name="zCl" public_interface="in" units="dimensionless"/>
+   <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
+   <variable name="T" public_interface="in" units="kelvin"/>
+   <variable name="F" public_interface="in" units="C_per_mmol"/>
+   <variable name="q_V_init" public_interface="in" units="pL"/>
+   <variable name="q_Na_init" public_interface="in" units="fmol"/>
+   <variable name="q_Cl_init" public_interface="in" units="fmol"/>
+   <variable name="q_K_init" public_interface="in" units="fmol"/>
+   <variable name="q_V" public_interface="in" units="pL"/>
+   <variable name="q_Na" public_interface="in" units="fmol"/>
+   <variable name="q_Cl" public_interface="in" units="fmol"/>
+   <variable name="q_K" public_interface="in" units="fmol"/>
+   <variable name="u_P" public_interface="in" units="kPa"/>
+   <variable name="c_Na" public_interface="in" units="mM"/>
+   <variable name="c_K" public_interface="in" units="mM"/>
+   <variable name="c_Cl" public_interface="in" units="mM"/>
+   <variable name="K_Na" public_interface="in" units="per_mM"/>
+   <variable name="K_K" public_interface="in" units="per_mM"/>
+   <variable name="K_Cl" public_interface="in" units="per_mM"/>
+   <variable name="u_P_pi" public_interface="in" units="kPa"/>
+   <variable name="u_mu_e_Na" public_interface="in" units="J_per_mmol"/>
+   <variable name="u_mu_e_K" public_interface="in" units="J_per_mmol"/>
+   <variable name="u_mu_e_Cl" public_interface="in" units="J_per_mmol"/>
+</component>
+<component name="para_transport">
+   <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
+   <variable name="T" public_interface="in" units="kelvin"/>
+   <variable name="F" public_interface="in" units="C_per_mmol"/>
+   <variable name="omega_Na" public_interface="in" units="L_fmol_per_J_per_s"/>
+   <variable name="omega_Cl" public_interface="in" units="L_fmol_per_J_per_s"/>
+   <variable name="omega_K" public_interface="in" units="L_fmol_per_J_per_s"/>
+   <variable name="sigma_Na" public_interface="in" units="dimensionless"/>
+   <variable name="sigma_Cl" public_interface="in" units="dimensionless"/>
+   <variable name="sigma_K" public_interface="in" units="dimensionless"/>
+   <variable name="L_P" public_interface="in" units="pL_L_per_J_per_s"/>
+   <variable name="zNa" public_interface="in" units="dimensionless"/>
+   <variable name="zCl" public_interface="in" units="dimensionless"/>
+   <variable name="zK" public_interface="in" units="dimensionless"/>
+   <variable name="v_Na" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_K" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_Cl" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_V" public_interface="in" units="pL_per_s"/>
+   <variable name="I_para" public_interface="in" units="picoA"/>
+</component>
+<component name="bas_membrane">
+   <variable name="I_bas" public_interface="in" units="picoA"/>
+   <variable name="u_e_bas" public_interface="in" units="volt"/>
+   <variable name="I_NKE" public_interface="in" units="picoA"/>
+   <variable name="I_Kir" public_interface="in" units="picoA"/>
+</component>
+<component name="api_membrane">
+   <variable name="I_apical" public_interface="in" units="picoA"/>
+   <variable name="u_e_api" public_interface="in" units="volt"/>
+   <variable name="I_ENaC" public_interface="in" units="picoA"/>
 </component>
 <component name="ENaC">
    <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
@@ -477,52 +648,29 @@
    <variable name="q_2_init" public_interface="in" units="fmol"/>
    <variable name="q_3_init" public_interface="in" units="fmol"/>
    <variable name="q_4_init" public_interface="in" units="fmol"/>
-   <variable name="q_open_init" public_interface="in" units="fmol"/>
-   <variable name="q_open_int_init" public_interface="in" units="fmol"/>
    <variable name="v_q_Na_i" public_interface="in" units="fmol_per_s"/>
    <variable name="v_q_Na_o" public_interface="in" units="fmol_per_s"/>
    <variable name="K_1" public_interface="in" units="per_fmol"/>
    <variable name="K_2" public_interface="in" units="per_fmol"/>
    <variable name="K_3" public_interface="in" units="per_fmol"/>
    <variable name="K_4" public_interface="in" units="per_fmol"/>
-   <variable name="K_open" public_interface="in" units="per_fmol"/>
-   <variable name="K_open_int" public_interface="in" units="per_fmol"/>
-   <variable name="K_Na_i" public_interface="in" units="per_fmol"/>
-   <variable name="K_Na_o" public_interface="in" units="per_fmol"/>
+   <variable name="K_Na" public_interface="in" units="per_mM"/>
    <variable name="kappa_1" public_interface="in" units="fmol_per_s"/>
    <variable name="kappa_2" public_interface="in" units="fmol_per_s"/>
    <variable name="kappa_3" public_interface="in" units="fmol_per_s"/>
    <variable name="kappa_4" public_interface="in" units="fmol_per_s"/>
-   <variable name="kappa_5" public_interface="in" units="fmol_per_s"/>
-   <variable name="kappa_6" public_interface="in" units="fmol_per_s"/>
+   <variable name="gamma_Na" public_interface="in" units="picoS_per_fmol"/>
+   <variable name="gamma_o" public_interface="in" units="picoS_per_fmol"/>
 </component>
-<component name="membrane">
-   <variable name="zNa" public_interface="in" units="dimensionless"/>
-   <variable name="zK" public_interface="in" units="dimensionless"/>
-   <variable name="F" public_interface="in" units="C_per_mmol"/>
-   <variable name="q_e_m_init" public_interface="in" units="pC"/>
-   <variable name="C_m" public_interface="in" units="picoFarad"/>
-   <variable name="u_e_m" public_interface="in" units="volt"/>
+<component name="AQ_api">
+   <variable name="kappa_AQ" public_interface="in" units="pL_per_kPa_per_s"/>
+   <variable name="v_AQ_i" public_interface="in" units="pL_per_s"/>
+   <variable name="v_AQ_o" public_interface="in" units="pL_per_s"/>
 </component>
-<component name="AQ_apical">
-   <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
-   <variable name="T" public_interface="in" units="kelvin"/>
-   <variable name="V_w" public_interface="in" units="L_per_mmol"/>
-   <variable name="q_AQ" public_interface="in" units="fmol"/>
-   <variable name="K_AQ" public_interface="in" units="per_fmol"/>
-   <variable name="K_H2O_i" public_interface="in" units="per_fmol"/>
-   <variable name="K_H2O_o" public_interface="in" units="per_fmol"/>
-   <variable name="kappa_1" public_interface="in" units="fmol_per_s"/>
-</component>
-<component name="AQ_baso">
-   <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
-   <variable name="T" public_interface="in" units="kelvin"/>
-   <variable name="V_w" public_interface="in" units="L_per_mmol"/>
-   <variable name="q_AQ" public_interface="in" units="fmol"/>
-   <variable name="K_AQ" public_interface="in" units="per_fmol"/>
-   <variable name="K_H2O_i" public_interface="in" units="per_fmol"/>
-   <variable name="K_H2O_o" public_interface="in" units="per_fmol"/>
-   <variable name="kappa_1" public_interface="in" units="fmol_per_s"/>
+<component name="AQ_bas">
+   <variable name="kappa_AQ" public_interface="in" units="pL_per_kPa_per_s"/>
+   <variable name="v_AQ_i" public_interface="in" units="pL_per_s"/>
+   <variable name="v_AQ_o" public_interface="in" units="pL_per_s"/>
 </component>
 <component name="NKE">
    <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
@@ -545,13 +693,11 @@
    <variable name="K_4" public_interface="in" units="per_fmol"/>
    <variable name="K_5" public_interface="in" units="per_fmol"/>
    <variable name="K_6" public_interface="in" units="per_fmol"/>
-   <variable name="K_Nai" public_interface="in" units="per_fmol"/>
-   <variable name="K_Nao" public_interface="in" units="per_fmol"/>
-   <variable name="K_Ki" public_interface="in" units="per_fmol"/>
-   <variable name="K_Ko" public_interface="in" units="per_fmol"/>
-   <variable name="K_ADP" public_interface="in" units="per_fmol"/>
-   <variable name="K_ATP" public_interface="in" units="per_fmol"/>
-   <variable name="K_Pi" public_interface="in" units="per_fmol"/>
+   <variable name="K_Na" public_interface="in" units="per_mM"/>
+   <variable name="K_K" public_interface="in" units="per_mM"/>
+   <variable name="K_ADP" public_interface="in" units="per_mM"/>
+   <variable name="K_ATP" public_interface="in" units="per_mM"/>
+   <variable name="K_Pi" public_interface="in" units="per_mM"/>
    <variable name="kappa_1" public_interface="in" units="fmol_per_s"/>
    <variable name="kappa_2" public_interface="in" units="fmol_per_s"/>
    <variable name="kappa_3" public_interface="in" units="fmol_per_s"/>
@@ -564,56 +710,144 @@
    <variable name="T" public_interface="in" units="kelvin"/>
    <variable name="F" public_interface="in" units="C_per_mmol"/>
    <variable name="zK" public_interface="in" units="dimensionless"/>
-   <variable name="q_Kir" public_interface="in" units="fmol"/>
-   <variable name="v_q_K_o" public_interface="in" units="fmol_per_s"/>
-   <variable name="v_q_K_i" public_interface="in" units="fmol_per_s"/>
-   <variable name="K_K_i" public_interface="in" units="per_fmol"/>
-   <variable name="K_K_o" public_interface="in" units="per_fmol"/>
-   <variable name="K_Kir" public_interface="in" units="per_fmol"/>
-   <variable name="kappa_1" public_interface="in" units="fmol_per_s"/>
-</component>
-<component name="int_fluid">
-   <variable name="q_Na_int_init" public_interface="in" units="fmol"/>
-   <variable name="q_Na_int" public_interface="in" units="fmol"/>
-   <variable name="q_K_int_init" public_interface="in" units="fmol"/>
-   <variable name="q_K_int" public_interface="in" units="fmol"/>
-   <variable name="q_H2O_int_init" public_interface="in" units="fmol"/>
-   <variable name="q_H2O_int" public_interface="in" units="fmol"/>
-   <variable name="u_P_int_init" public_interface="in" units="kPa"/>
-   <variable name="u_P_int" public_interface="in" units="kPa"/>
+   <variable name="v_Kir_o" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_Kir_i" public_interface="in" units="fmol_per_s"/>
+   <variable name="kappa_Kir" public_interface="in" units="picoS"/>
 </component>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;global_parameters_access&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <component name="global">
-   <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
-   <variable name="F" public_interface="in" units="C_per_mmol"/>
-   <variable name="T" public_interface="in" units="kelvin"/>
    <variable name="zNa" public_interface="in" units="dimensionless"/>
    <variable name="zK" public_interface="in" units="dimensionless"/>
-   <variable name="V_w" public_interface="in" units="L_per_mmol"/>
+   <variable name="zCl" public_interface="in" units="dimensionless"/>
+   <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
+   <variable name="T" public_interface="in" units="kelvin"/>
+   <variable name="F" public_interface="in" units="C_per_mmol"/>
+   <variable name="C_m_bas" public_interface="in" units="picoFarad"/>
+   <variable name="C_m_api" public_interface="in" units="picoFarad"/>
+   <variable name="K_Na" public_interface="in" units="per_mM"/>
+   <variable name="K_K" public_interface="in" units="per_mM"/>
+   <variable name="K_Cl" public_interface="in" units="per_mM"/>
+   <variable name="K_ADP" public_interface="in" units="per_mM"/>
+   <variable name="K_ATP" public_interface="in" units="per_mM"/>
+   <variable name="K_Pi" public_interface="in" units="per_mM"/>
 </component>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;own vessel mappings&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>
    <map_components component_1="mucus" component_2="mucus_module"/>
-   <map_variables variable_1="q_Na_muc_init" variable_2="q_Na_muc_init"/>
-   <map_variables variable_1="q_Na_muc" variable_2="q_Na_muc"/>
-   <map_variables variable_1="q_H2O_muc_init" variable_2="q_H2O_muc_init"/>
-   <map_variables variable_1="q_H2O_muc" variable_2="q_H2O_muc"/>
-   <map_variables variable_1="u_P_muc_init" variable_2="u_P_muc_init"/>
-   <map_variables variable_1="u_P_muc" variable_2="u_P_muc"/>
+   <map_variables variable_1="zNa" variable_2="zNa"/>
+   <map_variables variable_1="zK" variable_2="zK"/>
+   <map_variables variable_1="zCl" variable_2="zCl"/>
+   <map_variables variable_1="R" variable_2="R"/>
+   <map_variables variable_1="T" variable_2="T"/>
+   <map_variables variable_1="F" variable_2="F"/>
+   <map_variables variable_1="q_V_init" variable_2="q_V_init"/>
+   <map_variables variable_1="q_Na_init" variable_2="q_Na_init"/>
+   <map_variables variable_1="q_Cl_init" variable_2="q_Cl_init"/>
+   <map_variables variable_1="q_K_init" variable_2="q_K_init"/>
+   <map_variables variable_1="u_e_lumen_init" variable_2="u_e_lumen_init"/>
+   <map_variables variable_1="q_V" variable_2="q_V"/>
+   <map_variables variable_1="q_Na" variable_2="q_Na"/>
+   <map_variables variable_1="q_Cl" variable_2="q_Cl"/>
+   <map_variables variable_1="q_K" variable_2="q_K"/>
+   <map_variables variable_1="u_e_lumen" variable_2="u_e_lumen"/>
+   <map_variables variable_1="u_P" variable_2="u_P"/>
+   <map_variables variable_1="c_Na" variable_2="c_Na"/>
+   <map_variables variable_1="c_K" variable_2="c_K"/>
+   <map_variables variable_1="c_Cl" variable_2="c_Cl"/>
+   <map_variables variable_1="C_m_bas" variable_2="C_m_bas"/>
+   <map_variables variable_1="C_m_api" variable_2="C_m_api"/>
+   <map_variables variable_1="K_Na" variable_2="K_Na"/>
+   <map_variables variable_1="K_K" variable_2="K_K"/>
+   <map_variables variable_1="K_Cl" variable_2="K_Cl"/>
 </connection>
 <connection>
    <map_components component_1="cell" component_2="cell_module"/>
-   <map_variables variable_1="q_ATP_epi_init" variable_2="q_ATP_epi_init"/>
-   <map_variables variable_1="q_ADP_epi_init" variable_2="q_ADP_epi_init"/>
-   <map_variables variable_1="q_Pi_epi_init" variable_2="q_Pi_epi_init"/>
-   <map_variables variable_1="q_Na_epi_init" variable_2="q_Na_epi_init"/>
-   <map_variables variable_1="q_Na_epi" variable_2="q_Na_epi"/>
-   <map_variables variable_1="q_K_epi_init" variable_2="q_K_epi_init"/>
-   <map_variables variable_1="q_K_epi" variable_2="q_K_epi"/>
-   <map_variables variable_1="q_H2O_epi_init" variable_2="q_H2O_epi_init"/>
-   <map_variables variable_1="q_H2O_epi" variable_2="q_H2O_epi"/>
-   <map_variables variable_1="u_P_epi_init" variable_2="u_P_epi_init"/>
-   <map_variables variable_1="u_P_epi" variable_2="u_P_epi"/>
+   <map_variables variable_1="R" variable_2="R"/>
+   <map_variables variable_1="T" variable_2="T"/>
+   <map_variables variable_1="F" variable_2="F"/>
+   <map_variables variable_1="q_V_init" variable_2="q_V_init"/>
+   <map_variables variable_1="q_Na_init" variable_2="q_Na_init"/>
+   <map_variables variable_1="q_Cl_init" variable_2="q_Cl_init"/>
+   <map_variables variable_1="q_K_init" variable_2="q_K_init"/>
+   <map_variables variable_1="u_e_cell_init" variable_2="u_e_cell_init"/>
+   <map_variables variable_1="q_V" variable_2="q_V"/>
+   <map_variables variable_1="q_Na" variable_2="q_Na"/>
+   <map_variables variable_1="q_Cl" variable_2="q_Cl"/>
+   <map_variables variable_1="q_K" variable_2="q_K"/>
+   <map_variables variable_1="c_ATP_init" variable_2="c_ATP_init"/>
+   <map_variables variable_1="c_ADP_init" variable_2="c_ADP_init"/>
+   <map_variables variable_1="c_Pi_init" variable_2="c_Pi_init"/>
+   <map_variables variable_1="u_e_cell" variable_2="u_e_cell"/>
+   <map_variables variable_1="u_P" variable_2="u_P"/>
+   <map_variables variable_1="c_Na" variable_2="c_Na"/>
+   <map_variables variable_1="c_K" variable_2="c_K"/>
+   <map_variables variable_1="c_Cl" variable_2="c_Cl"/>
+   <map_variables variable_1="c_ATP" variable_2="c_ATP"/>
+   <map_variables variable_1="c_ADP" variable_2="c_ADP"/>
+   <map_variables variable_1="c_Pi" variable_2="c_Pi"/>
+   <map_variables variable_1="C_m_bas" variable_2="C_m_bas"/>
+</connection>
+<connection>
+   <map_components component_1="int_fluid" component_2="int_fluid_module"/>
+   <map_variables variable_1="zNa" variable_2="zNa"/>
+   <map_variables variable_1="zK" variable_2="zK"/>
+   <map_variables variable_1="zCl" variable_2="zCl"/>
+   <map_variables variable_1="R" variable_2="R"/>
+   <map_variables variable_1="T" variable_2="T"/>
+   <map_variables variable_1="F" variable_2="F"/>
+   <map_variables variable_1="q_V_init" variable_2="q_V_init"/>
+   <map_variables variable_1="q_Na_init" variable_2="q_Na_init"/>
+   <map_variables variable_1="q_Cl_init" variable_2="q_Cl_init"/>
+   <map_variables variable_1="q_K_init" variable_2="q_K_init"/>
+   <map_variables variable_1="q_V" variable_2="q_V"/>
+   <map_variables variable_1="q_Na" variable_2="q_Na"/>
+   <map_variables variable_1="q_Cl" variable_2="q_Cl"/>
+   <map_variables variable_1="q_K" variable_2="q_K"/>
+   <map_variables variable_1="u_P" variable_2="u_P"/>
+   <map_variables variable_1="c_Na" variable_2="c_Na"/>
+   <map_variables variable_1="c_K" variable_2="c_K"/>
+   <map_variables variable_1="c_Cl" variable_2="c_Cl"/>
+   <map_variables variable_1="K_Na" variable_2="K_Na"/>
+   <map_variables variable_1="K_K" variable_2="K_K"/>
+   <map_variables variable_1="K_Cl" variable_2="K_Cl"/>
+   <map_variables variable_1="u_P_pi" variable_2="u_P_pi"/>
+   <map_variables variable_1="u_mu_e_Na" variable_2="u_mu_e_Na"/>
+   <map_variables variable_1="u_mu_e_K" variable_2="u_mu_e_K"/>
+   <map_variables variable_1="u_mu_e_Cl" variable_2="u_mu_e_Cl"/>
+</connection>
+<connection>
+   <map_components component_1="para_transport" component_2="para_transport_module"/>
+   <map_variables variable_1="R" variable_2="R"/>
+   <map_variables variable_1="T" variable_2="T"/>
+   <map_variables variable_1="F" variable_2="F"/>
+   <map_variables variable_1="omega_Na" variable_2="omega_Na"/>
+   <map_variables variable_1="omega_Cl" variable_2="omega_Cl"/>
+   <map_variables variable_1="omega_K" variable_2="omega_K"/>
+   <map_variables variable_1="sigma_Na" variable_2="sigma_Na"/>
+   <map_variables variable_1="sigma_Cl" variable_2="sigma_Cl"/>
+   <map_variables variable_1="sigma_K" variable_2="sigma_K"/>
+   <map_variables variable_1="L_P" variable_2="L_P"/>
+   <map_variables variable_1="zNa" variable_2="zNa"/>
+   <map_variables variable_1="zCl" variable_2="zCl"/>
+   <map_variables variable_1="zK" variable_2="zK"/>
+   <map_variables variable_1="v_Na" variable_2="v_Na"/>
+   <map_variables variable_1="v_K" variable_2="v_K"/>
+   <map_variables variable_1="v_Cl" variable_2="v_Cl"/>
+   <map_variables variable_1="v_V" variable_2="v_V"/>
+   <map_variables variable_1="I_para" variable_2="I_para"/>
+</connection>
+<connection>
+   <map_components component_1="bas_membrane" component_2="bas_membrane_module"/>
+   <map_variables variable_1="I_bas" variable_2="I_bas"/>
+   <map_variables variable_1="u_e_bas" variable_2="u_e_bas"/>
+   <map_variables variable_1="I_NKE" variable_2="I_NKE"/>
+   <map_variables variable_1="I_Kir" variable_2="I_Kir"/>
+</connection>
+<connection>
+   <map_components component_1="api_membrane" component_2="api_membrane_module"/>
+   <map_variables variable_1="I_apical" variable_2="I_apical"/>
+   <map_variables variable_1="u_e_api" variable_2="u_e_api"/>
+   <map_variables variable_1="I_ENaC" variable_2="I_ENaC"/>
 </connection>
 <connection>
    <map_components component_1="ENaC" component_2="ENaC_module"/>
@@ -625,55 +859,31 @@
    <map_variables variable_1="q_2_init" variable_2="q_2_init"/>
    <map_variables variable_1="q_3_init" variable_2="q_3_init"/>
    <map_variables variable_1="q_4_init" variable_2="q_4_init"/>
-   <map_variables variable_1="q_open_init" variable_2="q_open_init"/>
-   <map_variables variable_1="q_open_int_init" variable_2="q_open_int_init"/>
    <map_variables variable_1="v_q_Na_i" variable_2="v_q_Na_i"/>
    <map_variables variable_1="v_q_Na_o" variable_2="v_q_Na_o"/>
    <map_variables variable_1="K_1" variable_2="K_1"/>
    <map_variables variable_1="K_2" variable_2="K_2"/>
    <map_variables variable_1="K_3" variable_2="K_3"/>
    <map_variables variable_1="K_4" variable_2="K_4"/>
-   <map_variables variable_1="K_open" variable_2="K_open"/>
-   <map_variables variable_1="K_open_int" variable_2="K_open_int"/>
-   <map_variables variable_1="K_Na_i" variable_2="K_Na_i"/>
-   <map_variables variable_1="K_Na_o" variable_2="K_Na_o"/>
+   <map_variables variable_1="K_Na" variable_2="K_Na"/>
    <map_variables variable_1="kappa_1" variable_2="kappa_1"/>
    <map_variables variable_1="kappa_2" variable_2="kappa_2"/>
    <map_variables variable_1="kappa_3" variable_2="kappa_3"/>
    <map_variables variable_1="kappa_4" variable_2="kappa_4"/>
-   <map_variables variable_1="kappa_5" variable_2="kappa_5"/>
-   <map_variables variable_1="kappa_6" variable_2="kappa_6"/>
+   <map_variables variable_1="gamma_Na" variable_2="gamma_Na"/>
+   <map_variables variable_1="gamma_o" variable_2="gamma_o"/>
 </connection>
 <connection>
-   <map_components component_1="membrane" component_2="membrane_module"/>
-   <map_variables variable_1="zNa" variable_2="zNa"/>
-   <map_variables variable_1="zK" variable_2="zK"/>
-   <map_variables variable_1="F" variable_2="F"/>
-   <map_variables variable_1="q_e_m_init" variable_2="q_e_m_init"/>
-   <map_variables variable_1="C_m" variable_2="C_m"/>
-   <map_variables variable_1="u_e_m" variable_2="u_e_m"/>
+   <map_components component_1="AQ_api" component_2="AQ_api_module"/>
+   <map_variables variable_1="kappa_AQ" variable_2="kappa_AQ"/>
+   <map_variables variable_1="v_AQ_i" variable_2="v_AQ_i"/>
+   <map_variables variable_1="v_AQ_o" variable_2="v_AQ_o"/>
 </connection>
 <connection>
-   <map_components component_1="AQ_apical" component_2="AQ_apical_module"/>
-   <map_variables variable_1="R" variable_2="R"/>
-   <map_variables variable_1="T" variable_2="T"/>
-   <map_variables variable_1="V_w" variable_2="V_w"/>
-   <map_variables variable_1="q_AQ" variable_2="q_AQ"/>
-   <map_variables variable_1="K_AQ" variable_2="K_AQ"/>
-   <map_variables variable_1="K_H2O_i" variable_2="K_H2O_i"/>
-   <map_variables variable_1="K_H2O_o" variable_2="K_H2O_o"/>
-   <map_variables variable_1="kappa_1" variable_2="kappa_1"/>
-</connection>
-<connection>
-   <map_components component_1="AQ_baso" component_2="AQ_baso_module"/>
-   <map_variables variable_1="R" variable_2="R"/>
-   <map_variables variable_1="T" variable_2="T"/>
-   <map_variables variable_1="V_w" variable_2="V_w"/>
-   <map_variables variable_1="q_AQ" variable_2="q_AQ"/>
-   <map_variables variable_1="K_AQ" variable_2="K_AQ"/>
-   <map_variables variable_1="K_H2O_i" variable_2="K_H2O_i"/>
-   <map_variables variable_1="K_H2O_o" variable_2="K_H2O_o"/>
-   <map_variables variable_1="kappa_1" variable_2="kappa_1"/>
+   <map_components component_1="AQ_bas" component_2="AQ_bas_module"/>
+   <map_variables variable_1="kappa_AQ" variable_2="kappa_AQ"/>
+   <map_variables variable_1="v_AQ_i" variable_2="v_AQ_i"/>
+   <map_variables variable_1="v_AQ_o" variable_2="v_AQ_o"/>
 </connection>
 <connection>
    <map_components component_1="NKE" component_2="NKE_module"/>
@@ -697,10 +907,8 @@
    <map_variables variable_1="K_4" variable_2="K_4"/>
    <map_variables variable_1="K_5" variable_2="K_5"/>
    <map_variables variable_1="K_6" variable_2="K_6"/>
-   <map_variables variable_1="K_Nai" variable_2="K_Nai"/>
-   <map_variables variable_1="K_Nao" variable_2="K_Nao"/>
-   <map_variables variable_1="K_Ki" variable_2="K_Ki"/>
-   <map_variables variable_1="K_Ko" variable_2="K_Ko"/>
+   <map_variables variable_1="K_Na" variable_2="K_Na"/>
+   <map_variables variable_1="K_K" variable_2="K_K"/>
    <map_variables variable_1="K_ADP" variable_2="K_ADP"/>
    <map_variables variable_1="K_ATP" variable_2="K_ATP"/>
    <map_variables variable_1="K_Pi" variable_2="K_Pi"/>
@@ -717,51 +925,109 @@
    <map_variables variable_1="T" variable_2="T"/>
    <map_variables variable_1="F" variable_2="F"/>
    <map_variables variable_1="zK" variable_2="zK"/>
-   <map_variables variable_1="q_Kir" variable_2="q_Kir"/>
-   <map_variables variable_1="v_q_K_o" variable_2="v_q_K_o"/>
-   <map_variables variable_1="v_q_K_i" variable_2="v_q_K_i"/>
-   <map_variables variable_1="K_K_i" variable_2="K_K_i"/>
-   <map_variables variable_1="K_K_o" variable_2="K_K_o"/>
-   <map_variables variable_1="K_Kir" variable_2="K_Kir"/>
-   <map_variables variable_1="kappa_1" variable_2="kappa_1"/>
-</connection>
-<connection>
-   <map_components component_1="int_fluid" component_2="int_fluid_module"/>
-   <map_variables variable_1="q_Na_int_init" variable_2="q_Na_int_init"/>
-   <map_variables variable_1="q_Na_int" variable_2="q_Na_int"/>
-   <map_variables variable_1="q_K_int_init" variable_2="q_K_int_init"/>
-   <map_variables variable_1="q_K_int" variable_2="q_K_int"/>
-   <map_variables variable_1="q_H2O_int_init" variable_2="q_H2O_int_init"/>
-   <map_variables variable_1="q_H2O_int" variable_2="q_H2O_int"/>
-   <map_variables variable_1="u_P_int_init" variable_2="u_P_int_init"/>
-   <map_variables variable_1="u_P_int" variable_2="u_P_int"/>
+   <map_variables variable_1="v_Kir_o" variable_2="v_Kir_o"/>
+   <map_variables variable_1="v_Kir_i" variable_2="v_Kir_i"/>
+   <map_variables variable_1="kappa_Kir" variable_2="kappa_Kir"/>
 </connection>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;own global parameters mapping&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>
    <map_components component_1="global" component_2="parameters_global"/>
-   <map_variables variable_1="R" variable_2="R"/>
-   <map_variables variable_1="F" variable_2="F"/>
-   <map_variables variable_1="T" variable_2="T"/>
    <map_variables variable_1="zNa" variable_2="zNa"/>
    <map_variables variable_1="zK" variable_2="zK"/>
-   <map_variables variable_1="V_w" variable_2="V_w"/>
+   <map_variables variable_1="zCl" variable_2="zCl"/>
+   <map_variables variable_1="R" variable_2="R"/>
+   <map_variables variable_1="T" variable_2="T"/>
+   <map_variables variable_1="F" variable_2="F"/>
+   <map_variables variable_1="C_m_bas" variable_2="C_m_bas"/>
+   <map_variables variable_1="C_m_api" variable_2="C_m_api"/>
+   <map_variables variable_1="K_Na" variable_2="K_Na"/>
+   <map_variables variable_1="K_K" variable_2="K_K"/>
+   <map_variables variable_1="K_Cl" variable_2="K_Cl"/>
+   <map_variables variable_1="K_ADP" variable_2="K_ADP"/>
+   <map_variables variable_1="K_ATP" variable_2="K_ATP"/>
+   <map_variables variable_1="K_Pi" variable_2="K_Pi"/>
 </connection>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;parameters mapping to modules&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>
    <map_components component_1="parameters" component_2="mucus_module"/>
-   <map_variables variable_1="q_Na_muc_init_mucus" variable_2="q_Na_muc_init"/>
-   <map_variables variable_1="q_H2O_muc_init_mucus" variable_2="q_H2O_muc_init"/>
-   <map_variables variable_1="u_P_muc_init_mucus" variable_2="u_P_muc_init"/>
+   <map_variables variable_1="q_V_init_mucus" variable_2="q_V_init"/>
+   <map_variables variable_1="q_Na_init_mucus" variable_2="q_Na_init"/>
+   <map_variables variable_1="q_Cl_init_mucus" variable_2="q_Cl_init"/>
+   <map_variables variable_1="q_K_init_mucus" variable_2="q_K_init"/>
+   <map_variables variable_1="u_e_lumen_init_mucus" variable_2="u_e_lumen_init"/>
+   <map_variables variable_1="u_P_mucus" variable_2="u_P"/>
+</connection>
+<connection>
+   <map_components component_1="parameters_global" component_2="mucus_module"/>
+   <map_variables variable_1="zNa" variable_2="zNa"/>
+   <map_variables variable_1="zK" variable_2="zK"/>
+   <map_variables variable_1="zCl" variable_2="zCl"/>
+   <map_variables variable_1="R" variable_2="R"/>
+   <map_variables variable_1="T" variable_2="T"/>
+   <map_variables variable_1="F" variable_2="F"/>
+   <map_variables variable_1="C_m_bas" variable_2="C_m_bas"/>
+   <map_variables variable_1="C_m_api" variable_2="C_m_api"/>
+   <map_variables variable_1="K_Na" variable_2="K_Na"/>
+   <map_variables variable_1="K_K" variable_2="K_K"/>
+   <map_variables variable_1="K_Cl" variable_2="K_Cl"/>
 </connection>
 <connection>
    <map_components component_1="parameters" component_2="cell_module"/>
-   <map_variables variable_1="q_ATP_epi_init_cell" variable_2="q_ATP_epi_init"/>
-   <map_variables variable_1="q_ADP_epi_init_cell" variable_2="q_ADP_epi_init"/>
-   <map_variables variable_1="q_Pi_epi_init_cell" variable_2="q_Pi_epi_init"/>
-   <map_variables variable_1="q_Na_epi_init_cell" variable_2="q_Na_epi_init"/>
-   <map_variables variable_1="q_K_epi_init_cell" variable_2="q_K_epi_init"/>
-   <map_variables variable_1="q_H2O_epi_init_cell" variable_2="q_H2O_epi_init"/>
-   <map_variables variable_1="u_P_epi_init_cell" variable_2="u_P_epi_init"/>
+   <map_variables variable_1="q_V_init_cell" variable_2="q_V_init"/>
+   <map_variables variable_1="q_Na_init_cell" variable_2="q_Na_init"/>
+   <map_variables variable_1="q_Cl_init_cell" variable_2="q_Cl_init"/>
+   <map_variables variable_1="q_K_init_cell" variable_2="q_K_init"/>
+   <map_variables variable_1="u_e_cell_init_cell" variable_2="u_e_cell_init"/>
+   <map_variables variable_1="c_ATP_init_cell" variable_2="c_ATP_init"/>
+   <map_variables variable_1="c_ADP_init_cell" variable_2="c_ADP_init"/>
+   <map_variables variable_1="c_Pi_init_cell" variable_2="c_Pi_init"/>
+   <map_variables variable_1="u_P_cell" variable_2="u_P"/>
+</connection>
+<connection>
+   <map_components component_1="parameters_global" component_2="cell_module"/>
+   <map_variables variable_1="R" variable_2="R"/>
+   <map_variables variable_1="T" variable_2="T"/>
+   <map_variables variable_1="F" variable_2="F"/>
+   <map_variables variable_1="C_m_bas" variable_2="C_m_bas"/>
+</connection>
+<connection>
+   <map_components component_1="parameters" component_2="int_fluid_module"/>
+   <map_variables variable_1="q_V_init_int_fluid" variable_2="q_V_init"/>
+   <map_variables variable_1="q_Na_init_int_fluid" variable_2="q_Na_init"/>
+   <map_variables variable_1="q_Cl_init_int_fluid" variable_2="q_Cl_init"/>
+   <map_variables variable_1="q_K_init_int_fluid" variable_2="q_K_init"/>
+   <map_variables variable_1="u_P_int_fluid" variable_2="u_P"/>
+</connection>
+<connection>
+   <map_components component_1="parameters_global" component_2="int_fluid_module"/>
+   <map_variables variable_1="zNa" variable_2="zNa"/>
+   <map_variables variable_1="zK" variable_2="zK"/>
+   <map_variables variable_1="zCl" variable_2="zCl"/>
+   <map_variables variable_1="R" variable_2="R"/>
+   <map_variables variable_1="T" variable_2="T"/>
+   <map_variables variable_1="F" variable_2="F"/>
+   <map_variables variable_1="K_Na" variable_2="K_Na"/>
+   <map_variables variable_1="K_K" variable_2="K_K"/>
+   <map_variables variable_1="K_Cl" variable_2="K_Cl"/>
+</connection>
+<connection>
+   <map_components component_1="parameters" component_2="para_transport_module"/>
+   <map_variables variable_1="omega_Na_para_transport" variable_2="omega_Na"/>
+   <map_variables variable_1="omega_Cl_para_transport" variable_2="omega_Cl"/>
+   <map_variables variable_1="omega_K_para_transport" variable_2="omega_K"/>
+   <map_variables variable_1="sigma_Na_para_transport" variable_2="sigma_Na"/>
+   <map_variables variable_1="sigma_Cl_para_transport" variable_2="sigma_Cl"/>
+   <map_variables variable_1="sigma_K_para_transport" variable_2="sigma_K"/>
+   <map_variables variable_1="L_P_para_transport" variable_2="L_P"/>
+</connection>
+<connection>
+   <map_components component_1="parameters_global" component_2="para_transport_module"/>
+   <map_variables variable_1="R" variable_2="R"/>
+   <map_variables variable_1="T" variable_2="T"/>
+   <map_variables variable_1="F" variable_2="F"/>
+   <map_variables variable_1="zNa" variable_2="zNa"/>
+   <map_variables variable_1="zCl" variable_2="zCl"/>
+   <map_variables variable_1="zK" variable_2="zK"/>
 </connection>
 <connection>
    <map_components component_1="parameters" component_2="ENaC_module"/>
@@ -769,22 +1035,16 @@
    <map_variables variable_1="q_2_init_ENaC" variable_2="q_2_init"/>
    <map_variables variable_1="q_3_init_ENaC" variable_2="q_3_init"/>
    <map_variables variable_1="q_4_init_ENaC" variable_2="q_4_init"/>
-   <map_variables variable_1="q_open_init_ENaC" variable_2="q_open_init"/>
-   <map_variables variable_1="q_open_int_init_ENaC" variable_2="q_open_int_init"/>
    <map_variables variable_1="K_1_ENaC" variable_2="K_1"/>
    <map_variables variable_1="K_2_ENaC" variable_2="K_2"/>
    <map_variables variable_1="K_3_ENaC" variable_2="K_3"/>
    <map_variables variable_1="K_4_ENaC" variable_2="K_4"/>
-   <map_variables variable_1="K_open_ENaC" variable_2="K_open"/>
-   <map_variables variable_1="K_open_int_ENaC" variable_2="K_open_int"/>
-   <map_variables variable_1="K_Na_i_ENaC" variable_2="K_Na_i"/>
-   <map_variables variable_1="K_Na_o_ENaC" variable_2="K_Na_o"/>
    <map_variables variable_1="kappa_1_ENaC" variable_2="kappa_1"/>
    <map_variables variable_1="kappa_2_ENaC" variable_2="kappa_2"/>
    <map_variables variable_1="kappa_3_ENaC" variable_2="kappa_3"/>
    <map_variables variable_1="kappa_4_ENaC" variable_2="kappa_4"/>
-   <map_variables variable_1="kappa_5_ENaC" variable_2="kappa_5"/>
-   <map_variables variable_1="kappa_6_ENaC" variable_2="kappa_6"/>
+   <map_variables variable_1="gamma_Na_ENaC" variable_2="gamma_Na"/>
+   <map_variables variable_1="gamma_o_ENaC" variable_2="gamma_o"/>
 </connection>
 <connection>
    <map_components component_1="parameters_global" component_2="ENaC_module"/>
@@ -792,45 +1052,15 @@
    <map_variables variable_1="F" variable_2="F"/>
    <map_variables variable_1="T" variable_2="T"/>
    <map_variables variable_1="zNa" variable_2="zNa"/>
+   <map_variables variable_1="K_Na" variable_2="K_Na"/>
 </connection>
 <connection>
-   <map_components component_1="parameters" component_2="membrane_module"/>
-   <map_variables variable_1="q_e_m_init_membrane" variable_2="q_e_m_init"/>
-   <map_variables variable_1="C_m_membrane" variable_2="C_m"/>
+   <map_components component_1="parameters" component_2="AQ_api_module"/>
+   <map_variables variable_1="kappa_AQ_AQ_api" variable_2="kappa_AQ"/>
 </connection>
 <connection>
-   <map_components component_1="parameters_global" component_2="membrane_module"/>
-   <map_variables variable_1="zNa" variable_2="zNa"/>
-   <map_variables variable_1="zK" variable_2="zK"/>
-   <map_variables variable_1="F" variable_2="F"/>
-</connection>
-<connection>
-   <map_components component_1="parameters" component_2="AQ_apical_module"/>
-   <map_variables variable_1="q_AQ_AQ_apical" variable_2="q_AQ"/>
-   <map_variables variable_1="K_AQ_AQ_apical" variable_2="K_AQ"/>
-   <map_variables variable_1="K_H2O_i_AQ_apical" variable_2="K_H2O_i"/>
-   <map_variables variable_1="K_H2O_o_AQ_apical" variable_2="K_H2O_o"/>
-   <map_variables variable_1="kappa_1_AQ_apical" variable_2="kappa_1"/>
-</connection>
-<connection>
-   <map_components component_1="parameters_global" component_2="AQ_apical_module"/>
-   <map_variables variable_1="R" variable_2="R"/>
-   <map_variables variable_1="T" variable_2="T"/>
-   <map_variables variable_1="V_w" variable_2="V_w"/>
-</connection>
-<connection>
-   <map_components component_1="parameters" component_2="AQ_baso_module"/>
-   <map_variables variable_1="q_AQ_AQ_baso" variable_2="q_AQ"/>
-   <map_variables variable_1="K_AQ_AQ_baso" variable_2="K_AQ"/>
-   <map_variables variable_1="K_H2O_i_AQ_baso" variable_2="K_H2O_i"/>
-   <map_variables variable_1="K_H2O_o_AQ_baso" variable_2="K_H2O_o"/>
-   <map_variables variable_1="kappa_1_AQ_baso" variable_2="kappa_1"/>
-</connection>
-<connection>
-   <map_components component_1="parameters_global" component_2="AQ_baso_module"/>
-   <map_variables variable_1="R" variable_2="R"/>
-   <map_variables variable_1="T" variable_2="T"/>
-   <map_variables variable_1="V_w" variable_2="V_w"/>
+   <map_components component_1="parameters" component_2="AQ_bas_module"/>
+   <map_variables variable_1="kappa_AQ_AQ_bas" variable_2="kappa_AQ"/>
 </connection>
 <connection>
    <map_components component_1="parameters" component_2="NKE_module"/>
@@ -847,13 +1077,6 @@
    <map_variables variable_1="K_4_NKE" variable_2="K_4"/>
    <map_variables variable_1="K_5_NKE" variable_2="K_5"/>
    <map_variables variable_1="K_6_NKE" variable_2="K_6"/>
-   <map_variables variable_1="K_Nai_NKE" variable_2="K_Nai"/>
-   <map_variables variable_1="K_Nao_NKE" variable_2="K_Nao"/>
-   <map_variables variable_1="K_Ki_NKE" variable_2="K_Ki"/>
-   <map_variables variable_1="K_Ko_NKE" variable_2="K_Ko"/>
-   <map_variables variable_1="K_ADP_NKE" variable_2="K_ADP"/>
-   <map_variables variable_1="K_ATP_NKE" variable_2="K_ATP"/>
-   <map_variables variable_1="K_Pi_NKE" variable_2="K_Pi"/>
    <map_variables variable_1="kappa_1_NKE" variable_2="kappa_1"/>
    <map_variables variable_1="kappa_2_NKE" variable_2="kappa_2"/>
    <map_variables variable_1="kappa_3_NKE" variable_2="kappa_3"/>
@@ -866,14 +1089,15 @@
    <map_variables variable_1="R" variable_2="R"/>
    <map_variables variable_1="T" variable_2="T"/>
    <map_variables variable_1="F" variable_2="F"/>
+   <map_variables variable_1="K_Na" variable_2="K_Na"/>
+   <map_variables variable_1="K_K" variable_2="K_K"/>
+   <map_variables variable_1="K_ADP" variable_2="K_ADP"/>
+   <map_variables variable_1="K_ATP" variable_2="K_ATP"/>
+   <map_variables variable_1="K_Pi" variable_2="K_Pi"/>
 </connection>
 <connection>
    <map_components component_1="parameters" component_2="Kir_module"/>
-   <map_variables variable_1="q_Kir_Kir" variable_2="q_Kir"/>
-   <map_variables variable_1="K_K_i_Kir" variable_2="K_K_i"/>
-   <map_variables variable_1="K_K_o_Kir" variable_2="K_K_o"/>
-   <map_variables variable_1="K_Kir_Kir" variable_2="K_Kir"/>
-   <map_variables variable_1="kappa_1_Kir" variable_2="kappa_1"/>
+   <map_variables variable_1="kappa_Kir_Kir" variable_2="kappa_Kir"/>
 </connection>
 <connection>
    <map_components component_1="parameters_global" component_2="Kir_module"/>
@@ -881,13 +1105,6 @@
    <map_variables variable_1="T" variable_2="T"/>
    <map_variables variable_1="F" variable_2="F"/>
    <map_variables variable_1="zK" variable_2="zK"/>
-</connection>
-<connection>
-   <map_components component_1="parameters" component_2="int_fluid_module"/>
-   <map_variables variable_1="q_Na_int_init_int_fluid" variable_2="q_Na_int_init"/>
-   <map_variables variable_1="q_K_int_init_int_fluid" variable_2="q_K_int_init"/>
-   <map_variables variable_1="q_H2O_int_init_int_fluid" variable_2="q_H2O_int_init"/>
-   <map_variables variable_1="u_P_int_init_int_fluid" variable_2="u_P_int_init"/>
 </connection>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;time mapping&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>
@@ -899,19 +1116,31 @@
    <map_variables variable_1="time" variable_2="t"/>
 </connection>
 <connection>
+   <map_components component_1="environment" component_2="int_fluid_module"/>
+   <map_variables variable_1="time" variable_2="t"/>
+</connection>
+<connection>
+   <map_components component_1="environment" component_2="para_transport_module"/>
+   <map_variables variable_1="time" variable_2="t"/>
+</connection>
+<connection>
+   <map_components component_1="environment" component_2="bas_membrane_module"/>
+   <map_variables variable_1="time" variable_2="t"/>
+</connection>
+<connection>
+   <map_components component_1="environment" component_2="api_membrane_module"/>
+   <map_variables variable_1="time" variable_2="t"/>
+</connection>
+<connection>
    <map_components component_1="environment" component_2="ENaC_module"/>
    <map_variables variable_1="time" variable_2="t"/>
 </connection>
 <connection>
-   <map_components component_1="environment" component_2="membrane_module"/>
+   <map_components component_1="environment" component_2="AQ_api_module"/>
    <map_variables variable_1="time" variable_2="t"/>
 </connection>
 <connection>
-   <map_components component_1="environment" component_2="AQ_apical_module"/>
-   <map_variables variable_1="time" variable_2="t"/>
-</connection>
-<connection>
-   <map_components component_1="environment" component_2="AQ_baso_module"/>
+   <map_components component_1="environment" component_2="AQ_bas_module"/>
    <map_variables variable_1="time" variable_2="t"/>
 </connection>
 <connection>
@@ -920,10 +1149,6 @@
 </connection>
 <connection>
    <map_components component_1="environment" component_2="Kir_module"/>
-   <map_variables variable_1="time" variable_2="t"/>
-</connection>
-<connection>
-   <map_components component_1="environment" component_2="int_fluid_module"/>
    <map_variables variable_1="time" variable_2="t"/>
 </connection>
 </model>
