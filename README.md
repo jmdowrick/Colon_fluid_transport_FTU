@@ -68,10 +68,11 @@ user_inputs_path_override: [colon_FTU_dir]/CA_colon_FTU/colon_FTU_user_inputs.ya
     ├── NKE_pump_SS_BG_6_states_v1.cellml
     ├── colon_FTU_module_config.json
     ├── colon_FTU_modules.cellml
+    ├── coupled_solute_solvent_transport.cellml
     ├── epithelial_dynamics.cellml
     └── units_and_constants
 
-10 directories, 19 files
+10 directories, 20 files
 ```
 # Citation
 *Insert journal citations when this model is published.*
