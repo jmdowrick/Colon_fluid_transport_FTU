@@ -1,12 +1,12 @@
 #_______ general inputs ________
 DEBUG: false
-user_inputs_path_override: /Users/jdow403/Documents/_publications/_Dowrick/Colon_fluid_transport_FTU/CA_colon_FTU/colon_FTU_user_inputs.yaml
+user_inputs_path_override: /Users/jdow403/Documents/_projects/Project_Colon_fluid_transport_FTU/CA_colon_FTU/colon_FTU_user_inputs.yaml
 file_prefix: colon_FTU
 input_param_file: colon_FTU_parameters.csv
-external_modules_dir: /Users/jdow403/Documents/_publications/_Dowrick/Colon_fluid_transport_FTU/modules
-resources_dir: /Users/jdow403/Documents/_publications/_Dowrick/Colon_fluid_transport_FTU/CA_colon_FTU/resources
-generated_models_dir: /Users/jdow403/Documents/_publications/_Dowrick/Colon_fluid_transport_FTU/CA_colon_FTU/generated_models
-param_id_output_dir: /Users/jdow403/Documents/_publications/_Dowrick/Colon_fluid_transport_FTU/CA_colon_FTU/param_id_output
+external_modules_dir: /Users/jdow403/Documents/_projects/Project_Colon_fluid_transport_FTU/modules
+resources_dir: /Users/jdow403/Documents/_projects/Project_Colon_fluid_transport_FTU/CA_colon_FTU/resources
+generated_models_dir: /Users/jdow403/Documents/_projects/Project_Colon_fluid_transport_FTU/CA_colon_FTU/generated_models
+param_id_output_dir: /Users/jdow403/Documents/_projects/Project_Colon_fluid_transport_FTU/CA_colon_FTU/param_id_output
 
 # TODO - make these paths relative
 

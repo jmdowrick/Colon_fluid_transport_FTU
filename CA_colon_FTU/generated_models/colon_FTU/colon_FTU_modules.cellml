@@ -289,6 +289,7 @@
     <!-- paracellular transport-->
     <component name="paracellular_module">
         <variable name="t" public_interface="in" units="second"/>
+        <!-- currently ignores movement of albumin-->
         <!-- state variables       -->
         <variable name="u_P_pi_o" public_interface="in" units="kPa"/>
         <variable name="u_P_pi_i" public_interface="in" units="kPa"/>
@@ -328,7 +329,7 @@
                                     <ci>c_Na_i</ci>
                                 </apply>
                             </apply>
-                            <cn cellml:units="mM" type="e-notation">1<sep/>-5</cn>
+                            <cn cellml:units="mM" type="e-notation">1<sep/>-7</cn>
                         </apply>
                     </piece>
                     <otherwise>
@@ -367,7 +368,7 @@
                                     <ci>c_K_i</ci>
                                 </apply>
                             </apply>
-                            <cn cellml:units="mM" type="e-notation">1<sep/>-5</cn>
+                            <cn cellml:units="mM" type="e-notation">1<sep/>-7</cn>
                         </apply>
                     </piece>
                     <otherwise>
@@ -406,7 +407,7 @@
                                     <ci>c_Cl_i</ci>
                                 </apply>
                             </apply>
-                            <cn cellml:units="mM" type="e-notation">1<sep/>-5</cn>
+                            <cn cellml:units="mM" type="e-notation">1<sep/>-7</cn>
                         </apply>
                     </piece>
                     <otherwise>
@@ -630,7 +631,7 @@
     <!-- #########################################################
  ################## Compartments #########################
  #########################################################-->
-    <component name="comprehensive_lumen">
+    <component name="lumen_">
         <variable name="t" public_interface="in" units="second"/>
         <!-- constants-->
         <variable name="zNa" public_interface="in" units="dimensionless"/>
@@ -931,7 +932,7 @@
             </apply>
         </math>
     </component>
-    <component name="comprehensive_colonocyte">
+    <component name="colonocyte">
         <variable name="t" public_interface="in" units="second"/>
         <!-- constants-->
         <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
@@ -1130,7 +1131,7 @@
             </apply>
         </math>
     </component>
-    <component name="comprehensive_interstitial_fluid">
+    <component name="interstitial_fluid">
         <variable name="t" public_interface="in" units="second"/>
         <!-- constants-->
         <variable name="zNa" public_interface="in" units="dimensionless"/>
@@ -1284,6 +1285,10 @@
         <variable name="v_K_para" public_interface="in" units="fmol_per_s"/>
         <variable name="v_Cl_para" public_interface="in" units="fmol_per_s"/>
         <variable name="v_V_para" public_interface="in" units="pL_per_s"/>
+        <variable name="v_Na_cap" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_K_cap" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_Cl_cap" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_V_cap" public_interface="in" units="pL_per_s"/>
         <variable name="v_NKE_Na_o" public_interface="in" units="fmol_per_s"/>
         <variable name="v_NKE_K_o" public_interface="in" units="fmol_per_s"/>
         <variable name="v_Kir_o" public_interface="in" units="fmol_per_s"/>
@@ -1357,7 +1362,11 @@
                 </apply>
                 <apply>
                     <plus/>
-                    <ci>v_Na_para</ci>
+                    <apply>
+                        <minus/>
+                        <ci>v_Na_para</ci>
+                        <ci>v_Na_cap</ci>
+                    </apply>
                     <ci>v_NKE_Na_o</ci>
                 </apply>
             </apply>
@@ -1372,7 +1381,11 @@
                 </apply>
                 <apply>
                     <plus/>
-                    <ci>v_K_para</ci>
+                    <apply>
+                        <minus/>
+                        <ci>v_K_para</ci>
+                        <ci>v_K_cap</ci>
+                    </apply>
                     <ci>v_NKE_K_o</ci>
                     <ci>v_Kir_o</ci>
                 </apply>
@@ -1386,7 +1399,11 @@
                     </bvar>
                     <ci>q_Cl</ci>
                 </apply>
-                <ci>v_Cl_para</ci>
+                <apply>
+                    <minus/>
+                    <ci>v_Cl_para</ci>
+                    <ci>v_Cl_cap</ci>
+                </apply>
             </apply>
             <apply>
                 <eq/>
@@ -1399,16 +1416,336 @@
                 </apply>
                 <apply>
                     <plus/>
-                    <ci>v_V_para</ci>
+                    <apply>
+                        <minus/>
+                        <ci>v_V_para</ci>
+                        <ci>v_V_cap</ci>
+                    </apply>
                     <ci>v_AQ_o</ci>
                 </apply>
+            </apply>
+        </math>
+    </component>
+    <component name="blood">
+        <variable name="t" public_interface="in" units="second"/>
+        <!-- constants-->
+        <variable name="zNa" public_interface="in" units="dimensionless"/>
+        <variable name="zK" public_interface="in" units="dimensionless"/>
+        <variable name="zCl" public_interface="in" units="dimensionless"/>
+        <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
+        <variable name="T" public_interface="in" units="kelvin"/>
+        <variable name="F" public_interface="in" units="C_per_mmol"/>
+        <variable name="G_cap" public_interface="in" units="picoS"/>
+        <!-- initial conditions-->
+        <variable name="q_V_init" public_interface="in" units="pL"/>
+        <variable name="q_Na_init" public_interface="in" units="fmol"/>
+        <variable name="q_Cl_init" public_interface="in" units="fmol"/>
+        <variable name="q_K_init" public_interface="in" units="fmol"/>
+        <!-- state variables-->
+        <variable name="u_e_blood" public_interface="out" units="volt"/>
+        <!-- describes the negative fixed potential contributed by the plasma (albumin)-->
+        <variable name="u_e_Donnan" public_interface="in" units="volt"/>
+        <!-- u_e_Donnan = RT/z_proteinF*ln(c_protein_plasma/c_protein_interstitial) + RT/z_albuminF*ln(c_albumin_plasma/c_albumin_interstitial)
+ z_protein = -2-5, z_albumin = -14; c_protein_plasma = 15 mM, c_protein_int = 5 mM, c_albumin_plasma = 60 mM, c_albumin_ int = 20 mM-->
+        <variable name="u_mu_Na" units="J_per_mmol"/>
+        <variable name="u_mu_K" units="J_per_mmol"/>
+        <variable name="u_mu_Cl" units="J_per_mmol"/>
+        <variable name="u_mu_e_Na" public_interface="out" units="J_per_mmol"/>
+        <variable name="u_mu_e_K" public_interface="out" units="J_per_mmol"/>
+        <variable name="u_mu_e_Cl" public_interface="out" units="J_per_mmol"/>
+        <variable name="u_pi_Na" units="kPa"/>
+        <variable name="u_pi_K" units="kPa"/>
+        <variable name="u_pi_Cl" units="kPa"/>
+        <variable name="u_pi_proteins" units="kPa"/>
+        <variable name="u_P" public_interface="in" units="kPa"/>
+        <variable name="u_P_pi" public_interface="out" units="kPa"/>
+        <variable initial_value="q_V_init" name="q_V" public_interface="out" units="pL"/>
+        <variable initial_value="q_Na_init" name="q_Na" public_interface="out" units="fmol"/>
+        <variable initial_value="q_K_init" name="q_K" public_interface="out" units="fmol"/>
+        <variable initial_value="q_Cl_init" name="q_Cl" public_interface="out" units="fmol"/>
+        <variable name="q_proteins" public_interface="in" units="fmol"/>
+        <variable name="q_albumin" public_interface="in" units="fmol"/>
+        <variable name="c_Na" public_interface="out" units="mM"/>
+        <variable name="c_K" public_interface="out" units="mM"/>
+        <variable name="c_Cl" public_interface="out" units="mM"/>
+        <variable name="c_proteins" public_interface="out" units="mM"/>
+        <variable name="c_albumin" public_interface="out" units="mM"/>
+        <!-- constitutive parameters-->
+        <variable name="K_Na" public_interface="in" units="per_mM"/>
+        <variable name="K_K" public_interface="in" units="per_mM"/>
+        <variable name="K_Cl" public_interface="in" units="per_mM"/>
+        <!-- constitutive relations-->
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>c_Na</ci>
+                <apply>
+                    <divide/>
+                    <ci>q_Na</ci>
+                    <ci>q_V</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>c_K</ci>
+                <apply>
+                    <divide/>
+                    <ci>q_K</ci>
+                    <ci>q_V</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>c_Cl</ci>
+                <apply>
+                    <divide/>
+                    <ci>q_Cl</ci>
+                    <ci>q_V</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>c_proteins</ci>
+                <apply>
+                    <divide/>
+                    <ci>q_proteins</ci>
+                    <ci>q_V</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>c_albumin</ci>
+                <apply>
+                    <divide/>
+                    <ci>q_albumin</ci>
+                    <ci>q_V</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_pi_Na</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <ci>c_Na</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_pi_K</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <ci>c_K</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_pi_Cl</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <ci>c_Cl</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_pi_proteins</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <plus/>
+                        <ci>c_proteins</ci>
+                        <ci>c_albumin</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_mu_Na</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_Na</ci>
+                            <ci>c_Na</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_mu_K</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_K</ci>
+                            <ci>c_K</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_mu_Cl</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                    <apply>
+                        <ln/>
+                        <apply>
+                            <times/>
+                            <ci>K_Cl</ci>
+                            <ci>c_Cl</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_e_blood</ci>
+                <apply>
+                    <plus/>
+                    <apply>
+                        <divide/>
+                        <ci>I_cap</ci>
+                        <ci>G_cap</ci>
+                    </apply>
+                    <ci>u_e_Donnan</ci>
+                </apply>
+            </apply>
+        </math>
+        <!-- flows-->
+        <variable name="v_Na_cap" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_K_cap" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_Cl_cap" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_V_cap" public_interface="in" units="pL_per_s"/>
+        <variable name="I_cap" public_interface="in" units="picoA"/>
+        <!-- conservation laws-->
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>u_P_pi</ci>
+                <apply>
+                    <minus/>
+                    <ci>u_P</ci>
+                    <apply>
+                        <plus/>
+                        <ci>u_pi_Na</ci>
+                        <ci>u_pi_K</ci>
+                        <ci>u_pi_Cl</ci>
+                        <ci>u_pi_proteins</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_mu_e_Na</ci>
+                <apply>
+                    <plus/>
+                    <ci>u_mu_Na</ci>
+                    <apply>
+                        <times/>
+                        <ci>zNa</ci>
+                        <ci>F</ci>
+                        <ci>u_e_blood</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_mu_e_K</ci>
+                <apply>
+                    <plus/>
+                    <ci>u_mu_K</ci>
+                    <apply>
+                        <times/>
+                        <ci>zK</ci>
+                        <ci>F</ci>
+                        <ci>u_e_blood</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_mu_e_Cl</ci>
+                <apply>
+                    <plus/>
+                    <ci>u_mu_Cl</ci>
+                    <apply>
+                        <times/>
+                        <ci>zCl</ci>
+                        <ci>F</ci>
+                        <ci>u_e_blood</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <!-- assume blood flow is such that the amount of these species don't change-->
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_Na</ci>
+                </apply>
+                <cn cellml:units="fmol_per_s">0</cn>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_K</ci>
+                </apply>
+                <cn cellml:units="fmol_per_s">0</cn>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_Cl</ci>
+                </apply>
+                <cn cellml:units="fmol_per_s">0</cn>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_V</ci>
+                </apply>
+                <cn cellml:units="pL_per_s">0</cn>
             </apply>
         </math>
     </component>
     <!-- #########################################################
  #################### Proteins ###########################
  #########################################################-->
-    <component name="ENaC_volume">
+    <component name="ENaC">
         <variable name="t" public_interface="in" units="second"/>
         <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
         <variable name="T" public_interface="in" units="kelvin"/>
@@ -1694,7 +2031,7 @@
         </math>
     </component>
     <!-- ###########################################-->
-    <component name="AQ_volume">
+    <component name="AQ">
         <variable name="t" public_interface="in" units="second"/>
         <!-- Parameters-->
         <variable name="kappa_AQ" public_interface="in" units="pL_per_kPa_per_s"/>
@@ -1702,17 +2039,9 @@
         <variable name="u_P_pi_i" public_interface="in" units="kPa"/>
         <variable name="u_P_pi_o" public_interface="in" units="kPa"/>
         <!-- Flows-->
-        <variable name="v_AQ_o" public_interface="out" units="pL_per_s"/>
         <variable name="v_AQ_i" public_interface="out" units="pL_per_s"/>
+        <variable name="v_AQ_o" public_interface="out" units="pL_per_s"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-                <eq/>
-                <ci>v_AQ_o</ci>
-                <apply>
-                    <minus/>
-                    <ci>v_AQ_i</ci>
-                </apply>
-            </apply>
             <apply>
                 <eq/>
                 <ci>v_AQ_i</ci>
@@ -1726,10 +2055,18 @@
                     </apply>
                 </apply>
             </apply>
+            <apply>
+                <eq/>
+                <ci>v_AQ_o</ci>
+                <apply>
+                    <minus/>
+                    <ci>v_AQ_i</ci>
+                </apply>
+            </apply>
         </math>
     </component>
     <!-- ###########################################-->
-    <component name="Kir_volume">
+    <component name="Kir">
         <variable name="t" public_interface="in" units="second"/>
         <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
         <variable name="T" public_interface="in" units="kelvin"/>
@@ -1815,7 +2152,7 @@
         <variable name="c_K_o" public_interface="in" units="mM"/>
     </component>
     <!-- #########################################################-->
-    <component name="NKE_volume">
+    <component name="NKE">
         <variable name="t" public_interface="in" units="second"/>
         <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
         <variable name="T" public_interface="in" units="kelvin"/>
@@ -1851,8 +2188,8 @@
         <variable name="c_ADP" public_interface="in" units="mM"/>
         <variable name="c_Pi" public_interface="in" units="mM"/>
         <variable name="u_e_m" public_interface="in" units="volt"/>
-        <variable name="e_1" units="dim"/>
-        <variable name="e_2" units="dim"/>
+        <variable name="e_1" units="dimensionless"/>
+        <variable name="e_2" units="dimensionless"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
@@ -2074,7 +2411,7 @@
                             <apply>
                                 <power/>
                                 <ci>Q_Na_i</ci>
-                                <cn cellml:units="dim">3</cn>
+                                <cn cellml:units="dimensionless">3</cn>
                             </apply>
                             <ci>Q_ATP</ci>
                         </apply>
@@ -2114,7 +2451,7 @@
                             <apply>
                                 <power/>
                                 <ci>Q_Na_o</ci>
-                                <cn cellml:units="dim">3</cn>
+                                <cn cellml:units="dimensionless">3</cn>
                             </apply>
                             <ci>e_1</ci>
                         </apply>

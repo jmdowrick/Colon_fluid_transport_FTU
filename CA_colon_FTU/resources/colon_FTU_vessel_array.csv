@@ -1,12 +1,14 @@
 name,BC_type,vessel_type,inp_vessels,out_vessels
-mucus,nn,comprehensive_lumen,bas_membrane,para_transport api_membrane ENaC AQ_api
-cell,nn,comprehensive_colonocyte,ENaC AQ_api para_transport,api_membrane bas_membrane NKE AQ_bas Kir
-int_fluid,nn,comprehensive_interstitial_fluid,para_transport Kir NKE AQ_bas,bas_membrane
-para_transport,nn,paracellular_module,mucus,int_fluid cell
-bas_membrane,nn,basolateral_membrane,cell int_fluid Kir NKE,mucus
-api_membrane,nn,apical_membrane,mucus cell ENaC,""
-ENaC,nn,ENaC_volume,mucus,api_membrane cell
-AQ_api,nn,AQ_api_vol,mucus,cell
-AQ_bas,nn,AQ_bas_vol,cell,int_fluid
-NKE,nn,NKE_volume,cell ,bas_membrane int_fluid
-Kir,nn,Kir_volume,cell,bas_membrane int_fluid
+lumen,nn,lumen,bas_membrane,para_transport api_membrane ENaC AQ_api
+cell,nn,colonocyte,ENaC AQ_api para_transport,api_membrane bas_membrane NKE AQ_bas Kir
+int_fluid,nn,interstitial_fluid,para_transport Kir NKE AQ_bas,bas_membrane cap_transport
+para_transport,nn,paracellular_module,lumen,int_fluid cell
+bas_membrane,nn,basolateral_membrane,cell int_fluid Kir NKE,lumen
+api_membrane,nn,apical_membrane,lumen cell ENaC,
+ENaC,nn,ENaC,lumen,api_membrane cell
+AQ_api,nn,AQ_api,lumen,cell
+AQ_bas,nn,AQ_bas,cell,int_fluid
+NKE,nn,NKE,cell ,bas_membrane int_fluid
+Kir,nn,Kir,cell,bas_membrane int_fluid
+cap_transport,nn,cap_transport,int_fluid,blood 
+blood,nn,blood,cap_transport,
