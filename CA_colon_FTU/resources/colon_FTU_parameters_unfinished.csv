@@ -75,6 +75,7 @@ kappa_6_NKE,fmol_per_s,1,user_defined
 K_ADP,per_mM,1,user_defined
 K_ATP,per_mM,1,user_defined
 K_Pi,per_mM,1,user_defined
+kappa_Kir_Kir,pL_per_s,EMPTY_MUST_BE_FILLED,EMPTY_MUST_BE_FILLED
 N_Kir_Kir,fmol,0.02,user_defined
 P_Kir_Kir,pL_per_s_per_fmol,1,user_defined
 omega_Na_cap_transport,L_fmol_per_J_per_s,1,user_defined

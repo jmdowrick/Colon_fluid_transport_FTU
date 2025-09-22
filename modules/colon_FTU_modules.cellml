@@ -142,8 +142,8 @@
                 <ci>u_e_api</ci>
                 <apply>
                     <minus/>
-                    <ci>u_e_lumen</ci>
                     <ci>u_e_cell</ci>
+                    <ci>u_e_lumen</ci>
                 </apply>
             </apply>
         </math>
@@ -174,8 +174,8 @@
                 <ci>u_e_bas</ci>
                 <apply>
                     <minus/>
-                    <ci>u_e_int</ci>
                     <ci>u_e_cell</ci>
+                    <ci>u_e_int</ci>
                 </apply>
             </apply>
         </math>
@@ -325,11 +325,19 @@
                 </piecewise>
             </apply>
         </math>
-        <variable name="v_Na" public_interface="out" units="fmol_per_s"/>
-        <variable name="v_Cl" public_interface="out" units="fmol_per_s"/>
-        <variable name="v_K" public_interface="out" units="fmol_per_s"/>
+        <variable name="J_Na" public_interface="out" units="fmol_per_s"/>
+        <variable name="J_Cl" public_interface="out" units="fmol_per_s"/>
+        <variable name="J_K" public_interface="out" units="fmol_per_s"/>
+        <variable name="J_V" public_interface="out" units="pL_per_s"/>
+        <variable name="v_Na_o" public_interface="out" units="fmol_per_s"/>
+        <variable name="v_Cl_o" public_interface="out" units="fmol_per_s"/>
+        <variable name="v_K_o" public_interface="out" units="fmol_per_s"/>
+        <variable name="v_V_o" public_interface="out" units="pL_per_s"/>
+        <variable name="v_Na_i" public_interface="out" units="fmol_per_s"/>
+        <variable name="v_Cl_i" public_interface="out" units="fmol_per_s"/>
+        <variable name="v_K_i" public_interface="out" units="fmol_per_s"/>
+        <variable name="v_V_i" public_interface="out" units="pL_per_s"/>
         <variable name="I_para" public_interface="out" units="picoA"/>
-        <variable name="v_V" public_interface="out" units="pL_per_s"/>
         <!-- constants-->
         <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
         <variable name="T" public_interface="in" units="kelvin"/>
@@ -386,7 +394,7 @@
             <!-- constitutive relations        -->
             <apply>
                 <eq/>
-                <ci>v_Na</ci>
+                <ci>J_Na</ci>
                 <apply>
                     <plus/>
                     <apply>
@@ -403,13 +411,13 @@
                             <ci>sigma_Na</ci>
                         </apply>
                         <ci>c_Na_bar</ci>
-                        <ci>v_V</ci>
+                        <ci>J_V</ci>
                     </apply>
                 </apply>
             </apply>
             <apply>
                 <eq/>
-                <ci>v_Cl</ci>
+                <ci>J_Cl</ci>
                 <apply>
                     <plus/>
                     <apply>
@@ -426,13 +434,13 @@
                             <ci>sigma_Cl</ci>
                         </apply>
                         <ci>c_Cl_bar</ci>
-                        <ci>v_V</ci>
+                        <ci>J_V</ci>
                     </apply>
                 </apply>
             </apply>
             <apply>
                 <eq/>
-                <ci>v_K</ci>
+                <ci>J_K</ci>
                 <apply>
                     <plus/>
                     <apply>
@@ -449,13 +457,13 @@
                             <ci>sigma_K</ci>
                         </apply>
                         <ci>c_K_bar</ci>
-                        <ci>v_V</ci>
+                        <ci>J_V</ci>
                     </apply>
                 </apply>
             </apply>
             <apply>
                 <eq/>
-                <ci>v_V</ci>
+                <ci>J_V</ci>
                 <apply>
                     <times/>
                     <ci>L_P</ci>
@@ -499,26 +507,82 @@
                 <eq/>
                 <ci>I_para</ci>
                 <apply>
-                    <plus/>
+                    <minus/>
                     <apply>
-                        <times/>
-                        <ci>zNa</ci>
-                        <ci>F</ci>
-                        <ci>v_Na</ci>
-                    </apply>
-                    <apply>
-                        <times/>
-                        <ci>zCl</ci>
-                        <ci>F</ci>
-                        <ci>v_Cl</ci>
-                    </apply>
-                    <apply>
-                        <times/>
-                        <ci>zK</ci>
-                        <ci>F</ci>
-                        <ci>v_K</ci>
+                        <plus/>
+                        <apply>
+                            <times/>
+                            <ci>zNa</ci>
+                            <ci>F</ci>
+                            <ci>J_Na</ci>
+                        </apply>
+                        <apply>
+                            <times/>
+                            <ci>zCl</ci>
+                            <ci>F</ci>
+                            <ci>J_Cl</ci>
+                        </apply>
+                        <apply>
+                            <times/>
+                            <ci>zK</ci>
+                            <ci>F</ci>
+                            <ci>J_K</ci>
+                        </apply>
                     </apply>
                 </apply>
+            </apply>
+            <!-- flows-->
+            <apply>
+                <eq/>
+                <ci>v_Na_o</ci>
+                <apply>
+                    <minus/>
+                    <ci>J_Na</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_Cl_o</ci>
+                <apply>
+                    <minus/>
+                    <ci>J_Cl</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_K_o</ci>
+                <apply>
+                    <minus/>
+                    <ci>J_K</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_V_o</ci>
+                <apply>
+                    <minus/>
+                    <ci>J_V</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_Na_i</ci>
+                <ci>J_Na</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_Cl_i</ci>
+                <ci>J_Cl</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_K_i</ci>
+                <ci>J_K</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_V_i</ci>
+                <ci>J_V</ci>
             </apply>
         </math>
     </component>
@@ -560,287 +624,6 @@
                     <ci>q_Na_cell</ci>
                 </apply>
                 <ci>v_ENaC_i</ci>
-            </apply>
-        </math>
-    </component>
-    <!-- template module for creating any additional compartments
- might need to distinguish between the apical and basolateral membranes-->
-    <component name="compartment_module">
-        <variable name="t" public_interface="in" units="second"/>
-        <!-- initial conditions-->
-        <variable name="q_V_init" public_interface="in" units="pL"/>
-        <variable name="q_e_init" public_interface="in" units="coulomb"/>
-        <variable name="q_Na_init" public_interface="in" units="fmol"/>
-        <variable name="q_Cl_init" public_interface="in" units="fmol"/>
-        <variable name="q_K_init" public_interface="in" units="fmol"/>
-        <!-- state variables-->
-        <variable name="u_e" public_interface="out" units="volt"/>
-        <variable name="u_mu_Na" units="J_per_mmol"/>
-        <variable name="u_mu_K" units="J_per_mmol"/>
-        <variable name="u_mu_Cl" units="J_per_mmol"/>
-        <variable name="u_mu_e_Na" public_interface="out" units="J_per_mmol"/>
-        <variable name="u_mu_e_K" public_interface="out" units="J_per_mmol"/>
-        <variable name="u_mu_e_Cl" public_interface="out" units="J_per_mmol"/>
-        <variable name="u_pi_Na" units="kPa"/>
-        <variable name="u_pi_K" units="kPa"/>
-        <variable name="u_pi_Cl" units="kPa"/>
-        <variable name="u_P" public_interface="in" units="kPa"/>
-        <variable name="u_P_pi" public_interface="out" units="kPa"/>
-        <variable initial_value="q_V_init" name="q_V" units="pL"/>
-        <variable initial_value="q_e_init" name="q_e" units="coulomb"/>
-        <variable initial_value="q_Na_init" name="q_Na" units="fmol"/>
-        <variable initial_value="q_K_init" name="q_K" units="fmol"/>
-        <variable initial_value="q_Cl_init" name="q_Cl" units="fmol"/>
-        <variable name="c_Na" units="mM"/>
-        <variable name="c_K" units="mM"/>
-        <variable name="c_Cl" units="mM"/>
-        <variable name="v_Na_para" public_interface="in" units="fmol_per_s"/>
-        <variable name="v_K_para" public_interface="in" units="fmol_per_s"/>
-        <variable name="v_Cl_para" public_interface="in" units="fmol_per_s"/>
-        <variable name="v_V_para" public_interface="in" units="pL_per_s"/>
-        <!-- constants-->
-        <variable name="zNa" public_interface="in" units="dimensionless"/>
-        <variable name="zK" public_interface="in" units="dimensionless"/>
-        <variable name="zCl" public_interface="in" units="dimensionless"/>
-        <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
-        <variable name="T" public_interface="in" units="kelvin"/>
-        <variable name="F" public_interface="in" units="C_per_mmol"/>
-        <!-- constitutive parameters-->
-        <variable name="C_m" public_interface="in" units="farad"/>
-        <variable name="K_Na" public_interface="in" units="per_mM"/>
-        <variable name="K_K" public_interface="in" units="per_mM"/>
-        <variable name="K_Cl" public_interface="in" units="per_mM"/>
-        <!-- constitutive relations-->
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-                <eq/>
-                <ci>c_Na</ci>
-                <apply>
-                    <divide/>
-                    <ci>q_Na</ci>
-                    <ci>q_V</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>c_K</ci>
-                <apply>
-                    <divide/>
-                    <ci>q_K</ci>
-                    <ci>q_V</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>c_Cl</ci>
-                <apply>
-                    <divide/>
-                    <ci>q_Cl</ci>
-                    <ci>q_V</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>u_pi_Na</ci>
-                <apply>
-                    <times/>
-                    <ci>R</ci>
-                    <ci>T</ci>
-                    <ci>c_Na</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>u_pi_K</ci>
-                <apply>
-                    <times/>
-                    <ci>R</ci>
-                    <ci>T</ci>
-                    <ci>c_K</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>u_pi_Cl</ci>
-                <apply>
-                    <times/>
-                    <ci>R</ci>
-                    <ci>T</ci>
-                    <ci>c_Cl</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>u_e</ci>
-                <apply>
-                    <divide/>
-                    <ci>q_e</ci>
-                    <ci>C_m</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>u_mu_Na</ci>
-                <apply>
-                    <times/>
-                    <ci>R</ci>
-                    <ci>T</ci>
-                    <apply>
-                        <ln/>
-                        <apply>
-                            <times/>
-                            <ci>K_Na</ci>
-                            <ci>c_Na</ci>
-                        </apply>
-                    </apply>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>u_mu_K</ci>
-                <apply>
-                    <times/>
-                    <ci>R</ci>
-                    <ci>T</ci>
-                    <apply>
-                        <ln/>
-                        <apply>
-                            <times/>
-                            <ci>K_K</ci>
-                            <ci>c_K</ci>
-                        </apply>
-                    </apply>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>u_mu_Cl</ci>
-                <apply>
-                    <times/>
-                    <ci>R</ci>
-                    <ci>T</ci>
-                    <apply>
-                        <ln/>
-                        <apply>
-                            <times/>
-                            <ci>K_Cl</ci>
-                            <ci>c_Cl</ci>
-                        </apply>
-                    </apply>
-                </apply>
-            </apply>
-            <!-- conservation laws-->
-            <apply>
-                <eq/>
-                <ci>u_P_pi</ci>
-                <apply>
-                    <minus/>
-                    <ci>u_P</ci>
-                    <apply>
-                        <plus/>
-                        <ci>u_pi_Na</ci>
-                        <ci>u_pi_K</ci>
-                        <ci>u_pi_Cl</ci>
-                    </apply>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>u_mu_e_Na</ci>
-                <apply>
-                    <plus/>
-                    <ci>u_mu_Na</ci>
-                    <apply>
-                        <times/>
-                        <ci>zNa</ci>
-                        <ci>F</ci>
-                        <ci>u_e</ci>
-                    </apply>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>u_mu_e_K</ci>
-                <apply>
-                    <plus/>
-                    <ci>u_mu_K</ci>
-                    <apply>
-                        <times/>
-                        <ci>zK</ci>
-                        <ci>F</ci>
-                        <ci>u_e</ci>
-                    </apply>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>u_mu_e_Cl</ci>
-                <apply>
-                    <plus/>
-                    <ci>u_mu_Cl</ci>
-                    <apply>
-                        <times/>
-                        <ci>zCl</ci>
-                        <ci>F</ci>
-                        <ci>u_e</ci>
-                    </apply>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <apply>
-                    <diff/>
-                    <bvar>
-                        <ci>t</ci>
-                    </bvar>
-                    <ci>q_Na</ci>
-                </apply>
-                <apply>
-                    <minus/>
-                    <ci>v_Na_para</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <apply>
-                    <diff/>
-                    <bvar>
-                        <ci>t</ci>
-                    </bvar>
-                    <ci>q_K</ci>
-                </apply>
-                <apply>
-                    <minus/>
-                    <ci>v_K_para</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <apply>
-                    <diff/>
-                    <bvar>
-                        <ci>t</ci>
-                    </bvar>
-                    <ci>q_Cl</ci>
-                </apply>
-                <apply>
-                    <minus/>
-                    <ci>v_Cl_para</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <apply>
-                    <diff/>
-                    <bvar>
-                        <ci>t</ci>
-                    </bvar>
-                    <ci>q_V</ci>
-                </apply>
-                <apply>
-                    <minus/>
-                    <ci>v_V_para</ci>
-                </apply>
             </apply>
         </math>
     </component>
@@ -1040,6 +823,10 @@
                     </apply>
                 </apply>
             </apply>
+            <!--ode(q_Na, t) = v_Na_para+v_ENaC_o;
+ode(q_K, t)  = v_K_para;
+ode(q_Cl, t) = v_Cl_para;
+ode(q_V, t)  = v_V_para+v_AQ_o;-->
             <apply>
                 <eq/>
                 <apply>
@@ -1049,14 +836,7 @@
                     </bvar>
                     <ci>q_Na</ci>
                 </apply>
-                <apply>
-                    <plus/>
-                    <apply>
-                        <minus/>
-                        <ci>v_Na_para</ci>
-                    </apply>
-                    <ci>v_ENaC_o</ci>
-                </apply>
+                <cn cellml:units="fmol_per_s">0</cn>
             </apply>
             <apply>
                 <eq/>
@@ -1067,10 +847,7 @@
                     </bvar>
                     <ci>q_K</ci>
                 </apply>
-                <apply>
-                    <minus/>
-                    <ci>v_K_para</ci>
-                </apply>
+                <cn cellml:units="fmol_per_s">0</cn>
             </apply>
             <apply>
                 <eq/>
@@ -1081,10 +858,7 @@
                     </bvar>
                     <ci>q_Cl</ci>
                 </apply>
-                <apply>
-                    <minus/>
-                    <ci>v_Cl_para</ci>
-                </apply>
+                <cn cellml:units="fmol_per_s">0</cn>
             </apply>
             <apply>
                 <eq/>
@@ -1095,14 +869,7 @@
                     </bvar>
                     <ci>q_V</ci>
                 </apply>
-                <apply>
-                    <plus/>
-                    <apply>
-                        <minus/>
-                        <ci>v_V_para</ci>
-                    </apply>
-                    <ci>v_AQ_o</ci>
-                </apply>
+                <cn cellml:units="pL_per_s">0</cn>
             </apply>
         </math>
         <variable name="I_para" public_interface="in" units="picoA"/>
@@ -1123,12 +890,9 @@
                     <apply>
                         <divide/>
                         <apply>
-                            <minus/>
-                            <apply>
-                                <plus/>
-                                <ci>I_para</ci>
-                                <ci>I_bas</ci>
-                            </apply>
+                            <plus/>
+                            <ci>I_para</ci>
+                            <ci>I_bas</ci>
                         </apply>
                         <ci>C_m_bas</ci>
                     </apply>
@@ -1136,8 +900,8 @@
                         <divide/>
                         <apply>
                             <minus/>
-                            <ci>I_api</ci>
                             <ci>I_para</ci>
+                            <ci>I_api</ci>
                         </apply>
                         <ci>C_m_api</ci>
                     </apply>
@@ -1332,12 +1096,9 @@
                 <apply>
                     <divide/>
                     <apply>
-                        <minus/>
-                        <apply>
-                            <plus/>
-                            <ci>I_para</ci>
-                            <ci>I_bas</ci>
-                        </apply>
+                        <plus/>
+                        <ci>I_para</ci>
+                        <ci>I_bas</ci>
                     </apply>
                     <ci>C_m_bas</ci>
                 </apply>
@@ -1502,6 +1263,10 @@
         <variable name="v_K_cap" public_interface="in" units="fmol_per_s"/>
         <variable name="v_Cl_cap" public_interface="in" units="fmol_per_s"/>
         <variable name="v_V_cap" public_interface="in" units="pL_per_s"/>
+        <variable name="v_Na_lym" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_K_lym" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_Cl_lym" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_V_lym" public_interface="in" units="pL_per_s"/>
         <variable name="v_NKE_Na_o" public_interface="in" units="fmol_per_s"/>
         <variable name="v_NKE_K_o" public_interface="in" units="fmol_per_s"/>
         <variable name="v_Kir_o" public_interface="in" units="fmol_per_s"/>
@@ -1575,11 +1340,9 @@
                 </apply>
                 <apply>
                     <plus/>
-                    <apply>
-                        <minus/>
-                        <ci>v_Na_para</ci>
-                        <ci>v_Na_cap</ci>
-                    </apply>
+                    <ci>v_Na_para</ci>
+                    <ci>v_Na_cap</ci>
+                    <ci>v_Na_lym</ci>
                     <ci>v_NKE_Na_o</ci>
                 </apply>
             </apply>
@@ -1594,11 +1357,9 @@
                 </apply>
                 <apply>
                     <plus/>
-                    <apply>
-                        <minus/>
-                        <ci>v_K_para</ci>
-                        <ci>v_K_cap</ci>
-                    </apply>
+                    <ci>v_K_para</ci>
+                    <ci>v_K_cap</ci>
+                    <ci>v_K_lym</ci>
                     <ci>v_NKE_K_o</ci>
                     <ci>v_Kir_o</ci>
                 </apply>
@@ -1613,8 +1374,9 @@
                     <ci>q_Cl</ci>
                 </apply>
                 <apply>
-                    <minus/>
+                    <plus/>
                     <ci>v_Cl_para</ci>
+                    <ci>v_Cl_lym</ci>
                     <ci>v_Cl_cap</ci>
                 </apply>
             </apply>
@@ -1629,17 +1391,15 @@
                 </apply>
                 <apply>
                     <plus/>
-                    <apply>
-                        <minus/>
-                        <ci>v_V_para</ci>
-                        <ci>v_V_cap</ci>
-                    </apply>
+                    <ci>v_V_para</ci>
+                    <ci>v_V_lym</ci>
+                    <ci>v_V_cap</ci>
                     <ci>v_AQ_o</ci>
                 </apply>
             </apply>
         </math>
     </component>
-    <component name="blood">
+    <component name="blood_lymph">
         <variable name="t" public_interface="in" units="second"/>
         <!-- constants-->
         <variable name="zNa" public_interface="in" units="dimensionless"/>
@@ -1648,14 +1408,14 @@
         <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
         <variable name="T" public_interface="in" units="kelvin"/>
         <variable name="F" public_interface="in" units="C_per_mmol"/>
-        <variable name="G_cap" public_interface="in" units="picoS"/>
+        <variable name="G_m" public_interface="in" units="picoS"/>
         <!-- initial conditions-->
         <variable name="q_V_init" public_interface="in" units="pL"/>
         <variable name="q_Na_init" public_interface="in" units="fmol"/>
         <variable name="q_Cl_init" public_interface="in" units="fmol"/>
         <variable name="q_K_init" public_interface="in" units="fmol"/>
         <!-- state variables-->
-        <variable name="u_e_blood" public_interface="out" units="volt"/>
+        <variable name="u_e_fluid" public_interface="out" units="volt"/>
         <!-- describes the negative fixed potential contributed by the plasma (albumin)-->
         <variable name="u_e_Donnan" public_interface="in" units="volt"/>
         <!-- u_e_Donnan = RT/z_proteinF*ln(c_protein_plasma/c_protein_interstitial) + RT/z_albuminF*ln(c_albumin_plasma/c_albumin_interstitial)
@@ -1831,24 +1591,24 @@
             </apply>
             <apply>
                 <eq/>
-                <ci>u_e_blood</ci>
+                <ci>u_e_fluid</ci>
                 <apply>
                     <plus/>
                     <apply>
                         <divide/>
-                        <ci>I_cap</ci>
-                        <ci>G_cap</ci>
+                        <ci>I_fluid</ci>
+                        <ci>G_m</ci>
                     </apply>
                     <ci>u_e_Donnan</ci>
                 </apply>
             </apply>
         </math>
         <!-- flows-->
-        <variable name="v_Na_cap" public_interface="in" units="fmol_per_s"/>
-        <variable name="v_K_cap" public_interface="in" units="fmol_per_s"/>
-        <variable name="v_Cl_cap" public_interface="in" units="fmol_per_s"/>
-        <variable name="v_V_cap" public_interface="in" units="pL_per_s"/>
-        <variable name="I_cap" public_interface="in" units="picoA"/>
+        <variable name="v_Na_fluid" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_K_fluid" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_Cl_fluid" public_interface="in" units="fmol_per_s"/>
+        <variable name="v_V_fluid" public_interface="in" units="pL_per_s"/>
+        <variable name="I_fluid" public_interface="in" units="picoA"/>
         <!-- conservation laws-->
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
@@ -1876,7 +1636,7 @@
                         <times/>
                         <ci>zNa</ci>
                         <ci>F</ci>
-                        <ci>u_e_blood</ci>
+                        <ci>u_e_fluid</ci>
                     </apply>
                 </apply>
             </apply>
@@ -1890,7 +1650,7 @@
                         <times/>
                         <ci>zK</ci>
                         <ci>F</ci>
-                        <ci>u_e_blood</ci>
+                        <ci>u_e_fluid</ci>
                     </apply>
                 </apply>
             </apply>
@@ -1904,7 +1664,7 @@
                         <times/>
                         <ci>zCl</ci>
                         <ci>F</ci>
-                        <ci>u_e_blood</ci>
+                        <ci>u_e_fluid</ci>
                     </apply>
                 </apply>
             </apply>
@@ -2082,11 +1842,13 @@
                         <minus/>
                         <apply>
                             <times/>
-                            <ci>K_2</ci>
-                            <ci>q_2</ci>
+                            <ci>K_4</ci>
+                            <ci>q_4</ci>
                         </apply>
                         <apply>
                             <times/>
+                            <ci>K_2</ci>
+                            <ci>q_2</ci>
                             <ci>K_Na</ci>
                             <ci>c_Na_o</ci>
                         </apply>
@@ -2098,6 +1860,7 @@
         <variable name="v_q_Na_i" public_interface="out" units="fmol_per_s"/>
         <variable name="v_q_Na_o" public_interface="out" units="fmol_per_s"/>
         <variable name="I_ENaC" public_interface="out" units="picoA"/>
+        <variable name="J_ENaC" units="fmol_per_s"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
@@ -2206,7 +1969,7 @@
             <!-- output fluxes-->
             <apply>
                 <eq/>
-                <ci>v_q_Na_i</ci>
+                <ci>J_ENaC</ci>
                 <apply>
                     <divide/>
                     <apply>
@@ -2222,23 +1985,20 @@
             </apply>
             <apply>
                 <eq/>
+                <ci>v_q_Na_i</ci>
+                <ci>J_ENaC</ci>
+            </apply>
+            <apply>
+                <eq/>
                 <ci>v_q_Na_o</ci>
                 <apply>
-                    <plus/>
+                    <minus/>
                     <apply>
                         <minus/>
                         <ci>v_4</ci>
                         <ci>v_2</ci>
                     </apply>
-                    <apply>
-                        <divide/>
-                        <ci>I_ENaC</ci>
-                        <apply>
-                            <times/>
-                            <ci>zNa</ci>
-                            <ci>F</ci>
-                        </apply>
-                    </apply>
+                    <ci>J_ENaC</ci>
                 </apply>
             </apply>
         </math>
@@ -2298,52 +2058,128 @@
             </apply>
         </math>
         <!-- Parameters-->
-        <variable name="kappa_Kir" public_interface="in" units="picoS"/>
+        <variable name="kappa_Kir" public_interface="out" units="pL_per_s"/>
+        <variable name="P_Kir" public_interface="in" units="pL_per_s_per_fmol"/>
+        <variable name="N_Kir" public_interface="in" units="fmol"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>kappa_Kir</ci>
+                <apply>
+                    <times/>
+                    <ci>P_Kir</ci>
+                    <ci>N_Kir</ci>
+                </apply>
+            </apply>
+        </math>
+        <!-- Quantities-->
+        <variable name="c_K_o" public_interface="in" units="mM"/>
+        <variable name="c_K_i" public_interface="in" units="mM"/>
         <!-- Potentials-->
         <variable name="u_e_m" public_interface="in" units="volt"/>
         <!-- Flows-->
         <variable name="v_Kir_o" public_interface="out" units="fmol_per_s"/>
         <variable name="v_Kir_i" public_interface="out" units="fmol_per_s"/>
+        <variable name="J_Kir" units="fmol_per_s"/>
         <variable name="I_Kir" public_interface="out" units="picoA"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
                 <ci>I_Kir</ci>
-                <apply>
-                    <times/>
-                    <ci>kappa_Kir</ci>
-                    <apply>
-                        <minus/>
-                        <ci>u_e_m</ci>
+                <piecewise>
+                    <piece>
+                        <cn cellml:units="picoA">0</cn>
+                        <apply>
+                            <lt/>
+                            <apply>
+                                <abs/>
+                                <ci>u_e_m</ci>
+                            </apply>
+                            <cn cellml:units="volt" type="e-notation">1<sep/>-9</cn>
+                        </apply>
+                    </piece>
+                    <otherwise>
                         <apply>
                             <times/>
+                            <ci>kappa_Kir</ci>
                             <apply>
-                                <divide/>
-                                <ci>RT</ci>
-                                <apply>
-                                    <times/>
-                                    <ci>zK</ci>
-                                    <ci>F</ci>
-                                </apply>
+                                <power/>
+                                <ci>zK</ci>
+                                <cn cellml:units="dimensionless">2</cn>
                             </apply>
                             <apply>
-                                <ln/>
+                                <divide/>
                                 <apply>
-                                    <divide/>
-                                    <ci>c_K_o</ci>
+                                    <times/>
+                                    <ci>u_e_m</ci>
+                                    <apply>
+                                        <power/>
+                                        <ci>F</ci>
+                                        <cn cellml:units="dimensionless">2</cn>
+                                    </apply>
+                                </apply>
+                                <ci>RT</ci>
+                            </apply>
+                            <apply>
+                                <divide/>
+                                <apply>
+                                    <minus/>
                                     <ci>c_K_i</ci>
+                                    <apply>
+                                        <times/>
+                                        <ci>c_K_o</ci>
+                                        <apply>
+                                            <exp/>
+                                            <apply>
+                                                <divide/>
+                                                <apply>
+                                                    <times/>
+                                                    <apply>
+                                                        <minus/>
+                                                        <ci>zK</ci>
+                                                    </apply>
+                                                    <ci>F</ci>
+                                                    <ci>u_e_m</ci>
+                                                </apply>
+                                                <ci>RT</ci>
+                                            </apply>
+                                        </apply>
+                                    </apply>
+                                </apply>
+                                <apply>
+                                    <minus/>
+                                    <cn cellml:units="dimensionless">1</cn>
+                                    <apply>
+                                        <exp/>
+                                        <apply>
+                                            <divide/>
+                                            <apply>
+                                                <times/>
+                                                <apply>
+                                                    <minus/>
+                                                    <ci>zK</ci>
+                                                </apply>
+                                                <ci>F</ci>
+                                                <ci>u_e_m</ci>
+                                            </apply>
+                                            <ci>RT</ci>
+                                        </apply>
+                                    </apply>
                                 </apply>
                             </apply>
                         </apply>
-                    </apply>
-                </apply>
+                    </otherwise>
+                </piecewise>
             </apply>
             <apply>
                 <eq/>
-                <ci>v_Kir_o</ci>
+                <ci>J_Kir</ci>
                 <apply>
                     <divide/>
-                    <ci>I_Kir</ci>
+                    <apply>
+                        <minus/>
+                        <ci>I_Kir</ci>
+                    </apply>
                     <apply>
                         <times/>
                         <ci>zK</ci>
@@ -2354,15 +2190,17 @@
             <apply>
                 <eq/>
                 <ci>v_Kir_i</ci>
+                <ci>J_Kir</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_Kir_o</ci>
                 <apply>
                     <minus/>
-                    <ci>v_Kir_o</ci>
+                    <ci>J_Kir</ci>
                 </apply>
             </apply>
         </math>
-        <!-- Quantities-->
-        <variable name="c_K_i" public_interface="in" units="mM"/>
-        <variable name="c_K_o" public_interface="in" units="mM"/>
     </component>
     <!-- #########################################################-->
     <component name="NKE">

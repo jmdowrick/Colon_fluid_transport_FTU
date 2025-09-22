@@ -214,6 +214,7 @@
     <units name="pic0" units_ref="pic0"/>
     <units name="nanoV" units_ref="nanoV"/>
     <units name="nan0" units_ref="nan0"/>
+    <units name="pL_per_s_per_fmol" units_ref="pL_per_s_per_fmol"/>
     <units name="kPa" units_ref="kPa"/>
     <units name="L_per_s" units_ref="L_per_s"/>
     <units name="L_per_s_per_kPa" units_ref="L_per_s_per_kPa"/>
@@ -265,7 +266,13 @@
     <component component_ref="paracellular_module" name="cap_transport_module"/>
 </import>
 <import xlink:href="colon_FTU_modules.cellml">
-    <component component_ref="blood" name="blood_module"/>
+    <component component_ref="blood_lymph" name="blood_module"/>
+</import>
+<import xlink:href="colon_FTU_modules.cellml">
+    <component component_ref="blood_lymph" name="lymph_module"/>
+</import>
+<import xlink:href="colon_FTU_modules.cellml">
+    <component component_ref="paracellular_module" name="lymph_transport_module"/>
 </import>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;vessel mappings&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>
@@ -298,19 +305,19 @@
 </connection>
 <connection>
    <map_components component_1="lumen_module" component_2="para_transport_module"/>
-   <map_variables variable_1="v_Na_para" variable_2="v_Na"/>
+   <map_variables variable_1="v_Na_para" variable_2="v_Na_o"/>
 </connection>
 <connection>
    <map_components component_1="lumen_module" component_2="para_transport_module"/>
-   <map_variables variable_1="v_Cl_para" variable_2="v_Cl"/>
+   <map_variables variable_1="v_Cl_para" variable_2="v_Cl_o"/>
 </connection>
 <connection>
    <map_components component_1="lumen_module" component_2="para_transport_module"/>
-   <map_variables variable_1="v_K_para" variable_2="v_K"/>
+   <map_variables variable_1="v_K_para" variable_2="v_K_o"/>
 </connection>
 <connection>
    <map_components component_1="lumen_module" component_2="para_transport_module"/>
-   <map_variables variable_1="v_V_para" variable_2="v_V"/>
+   <map_variables variable_1="v_V_para" variable_2="v_V_o"/>
 </connection>
 <connection>
    <map_components component_1="lumen_module" component_2="para_transport_module"/>
@@ -430,19 +437,63 @@
 </connection>
 <connection>
    <map_components component_1="int_fluid_module" component_2="cap_transport_module"/>
-   <map_variables variable_1="v_Na_cap" variable_2="v_Na"/>
+   <map_variables variable_1="v_Na_cap" variable_2="v_Na_o"/>
 </connection>
 <connection>
    <map_components component_1="int_fluid_module" component_2="cap_transport_module"/>
-   <map_variables variable_1="v_Cl_cap" variable_2="v_Cl"/>
+   <map_variables variable_1="v_Cl_cap" variable_2="v_Cl_o"/>
 </connection>
 <connection>
    <map_components component_1="int_fluid_module" component_2="cap_transport_module"/>
-   <map_variables variable_1="v_K_cap" variable_2="v_K"/>
+   <map_variables variable_1="v_K_cap" variable_2="v_K_o"/>
 </connection>
 <connection>
    <map_components component_1="int_fluid_module" component_2="cap_transport_module"/>
-   <map_variables variable_1="v_V_cap" variable_2="v_V"/>
+   <map_variables variable_1="v_V_cap" variable_2="v_V_o"/>
+</connection>
+<connection>
+   <map_components component_1="int_fluid_module" component_2="lymph_transport_module"/>
+   <map_variables variable_1="u_P_pi" variable_2="u_P_pi_o"/>
+</connection>
+<connection>
+   <map_components component_1="int_fluid_module" component_2="lymph_transport_module"/>
+   <map_variables variable_1="u_mu_e_Na" variable_2="u_mu_e_Na_o"/>
+</connection>
+<connection>
+   <map_components component_1="int_fluid_module" component_2="lymph_transport_module"/>
+   <map_variables variable_1="u_mu_e_K" variable_2="u_mu_e_K_o"/>
+</connection>
+<connection>
+   <map_components component_1="int_fluid_module" component_2="lymph_transport_module"/>
+   <map_variables variable_1="u_mu_e_Cl" variable_2="u_mu_e_Cl_o"/>
+</connection>
+<connection>
+   <map_components component_1="int_fluid_module" component_2="lymph_transport_module"/>
+   <map_variables variable_1="c_Na" variable_2="c_Na_o"/>
+</connection>
+<connection>
+   <map_components component_1="int_fluid_module" component_2="lymph_transport_module"/>
+   <map_variables variable_1="c_K" variable_2="c_K_o"/>
+</connection>
+<connection>
+   <map_components component_1="int_fluid_module" component_2="lymph_transport_module"/>
+   <map_variables variable_1="c_Cl" variable_2="c_Cl_o"/>
+</connection>
+<connection>
+   <map_components component_1="int_fluid_module" component_2="lymph_transport_module"/>
+   <map_variables variable_1="v_Na_lym" variable_2="v_Na_o"/>
+</connection>
+<connection>
+   <map_components component_1="int_fluid_module" component_2="lymph_transport_module"/>
+   <map_variables variable_1="v_Cl_lym" variable_2="v_Cl_o"/>
+</connection>
+<connection>
+   <map_components component_1="int_fluid_module" component_2="lymph_transport_module"/>
+   <map_variables variable_1="v_K_lym" variable_2="v_K_o"/>
+</connection>
+<connection>
+   <map_components component_1="int_fluid_module" component_2="lymph_transport_module"/>
+   <map_variables variable_1="v_V_lym" variable_2="v_V_o"/>
 </connection>
 <connection>
    <map_components component_1="para_transport_module" component_2="int_fluid_module"/>
@@ -458,19 +509,19 @@
 </connection>
 <connection>
    <map_components component_1="para_transport_module" component_2="int_fluid_module"/>
-   <map_variables variable_1="v_Na" variable_2="v_Na_para"/>
+   <map_variables variable_1="v_Na_i" variable_2="v_Na_para"/>
 </connection>
 <connection>
    <map_components component_1="para_transport_module" component_2="int_fluid_module"/>
-   <map_variables variable_1="v_Cl" variable_2="v_Cl_para"/>
+   <map_variables variable_1="v_Cl_i" variable_2="v_Cl_para"/>
 </connection>
 <connection>
    <map_components component_1="para_transport_module" component_2="int_fluid_module"/>
-   <map_variables variable_1="v_K" variable_2="v_K_para"/>
+   <map_variables variable_1="v_K_i" variable_2="v_K_para"/>
 </connection>
 <connection>
    <map_components component_1="para_transport_module" component_2="int_fluid_module"/>
-   <map_variables variable_1="v_V" variable_2="v_V_para"/>
+   <map_variables variable_1="v_V_i" variable_2="v_V_para"/>
 </connection>
 <connection>
    <map_components component_1="para_transport_module" component_2="int_fluid_module"/>
@@ -582,23 +633,23 @@
 </connection>
 <connection>
    <map_components component_1="cap_transport_module" component_2="blood_module"/>
-   <map_variables variable_1="v_Na" variable_2="v_Na_cap"/>
+   <map_variables variable_1="v_Na_i" variable_2="v_Na_fluid"/>
 </connection>
 <connection>
    <map_components component_1="cap_transport_module" component_2="blood_module"/>
-   <map_variables variable_1="v_Cl" variable_2="v_Cl_cap"/>
+   <map_variables variable_1="v_Cl_i" variable_2="v_Cl_fluid"/>
 </connection>
 <connection>
    <map_components component_1="cap_transport_module" component_2="blood_module"/>
-   <map_variables variable_1="v_K" variable_2="v_K_cap"/>
+   <map_variables variable_1="v_K_i" variable_2="v_K_fluid"/>
 </connection>
 <connection>
    <map_components component_1="cap_transport_module" component_2="blood_module"/>
-   <map_variables variable_1="v_V" variable_2="v_V_cap"/>
+   <map_variables variable_1="v_V_i" variable_2="v_V_fluid"/>
 </connection>
 <connection>
    <map_components component_1="cap_transport_module" component_2="blood_module"/>
-   <map_variables variable_1="I_para" variable_2="I_cap"/>
+   <map_variables variable_1="I_para" variable_2="I_fluid"/>
 </connection>
 <connection>
    <map_components component_1="cap_transport_module" component_2="blood_module"/>
@@ -614,6 +665,54 @@
 </connection>
 <connection>
    <map_components component_1="cap_transport_module" component_2="blood_module"/>
+   <map_variables variable_1="u_P_pi_i" variable_2="u_P_pi"/>
+</connection>
+<connection>
+   <map_components component_1="lymph_transport_module" component_2="lymph_module"/>
+   <map_variables variable_1="c_Na_i" variable_2="c_Na"/>
+</connection>
+<connection>
+   <map_components component_1="lymph_transport_module" component_2="lymph_module"/>
+   <map_variables variable_1="c_K_i" variable_2="c_K"/>
+</connection>
+<connection>
+   <map_components component_1="lymph_transport_module" component_2="lymph_module"/>
+   <map_variables variable_1="c_Cl_i" variable_2="c_Cl"/>
+</connection>
+<connection>
+   <map_components component_1="lymph_transport_module" component_2="lymph_module"/>
+   <map_variables variable_1="v_Na_i" variable_2="v_Na_fluid"/>
+</connection>
+<connection>
+   <map_components component_1="lymph_transport_module" component_2="lymph_module"/>
+   <map_variables variable_1="v_Cl_i" variable_2="v_Cl_fluid"/>
+</connection>
+<connection>
+   <map_components component_1="lymph_transport_module" component_2="lymph_module"/>
+   <map_variables variable_1="v_K_i" variable_2="v_K_fluid"/>
+</connection>
+<connection>
+   <map_components component_1="lymph_transport_module" component_2="lymph_module"/>
+   <map_variables variable_1="v_V_i" variable_2="v_V_fluid"/>
+</connection>
+<connection>
+   <map_components component_1="lymph_transport_module" component_2="lymph_module"/>
+   <map_variables variable_1="I_para" variable_2="I_fluid"/>
+</connection>
+<connection>
+   <map_components component_1="lymph_transport_module" component_2="lymph_module"/>
+   <map_variables variable_1="u_mu_e_Na_i" variable_2="u_mu_e_Na"/>
+</connection>
+<connection>
+   <map_components component_1="lymph_transport_module" component_2="lymph_module"/>
+   <map_variables variable_1="u_mu_e_K_i" variable_2="u_mu_e_K"/>
+</connection>
+<connection>
+   <map_components component_1="lymph_transport_module" component_2="lymph_module"/>
+   <map_variables variable_1="u_mu_e_Cl_i" variable_2="u_mu_e_Cl"/>
+</connection>
+<connection>
+   <map_components component_1="lymph_transport_module" component_2="lymph_module"/>
    <map_variables variable_1="u_P_pi_i" variable_2="u_P_pi"/>
 </connection>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;terminal venous connection&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
@@ -724,10 +823,14 @@
    <variable name="zNa" public_interface="in" units="dimensionless"/>
    <variable name="zCl" public_interface="in" units="dimensionless"/>
    <variable name="zK" public_interface="in" units="dimensionless"/>
-   <variable name="v_Na" public_interface="in" units="fmol_per_s"/>
-   <variable name="v_K" public_interface="in" units="fmol_per_s"/>
-   <variable name="v_Cl" public_interface="in" units="fmol_per_s"/>
-   <variable name="v_V" public_interface="in" units="pL_per_s"/>
+   <variable name="v_Na_o" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_K_o" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_Cl_o" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_V_o" public_interface="in" units="pL_per_s"/>
+   <variable name="v_Na_i" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_K_i" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_Cl_i" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_V_i" public_interface="in" units="pL_per_s"/>
    <variable name="I_para" public_interface="in" units="picoA"/>
 </component>
 <component name="bas_membrane">
@@ -814,7 +917,9 @@
    <variable name="zK" public_interface="in" units="dimensionless"/>
    <variable name="v_Kir_o" public_interface="in" units="fmol_per_s"/>
    <variable name="v_Kir_i" public_interface="in" units="fmol_per_s"/>
-   <variable name="kappa_Kir" public_interface="in" units="picoS"/>
+   <variable name="kappa_Kir" public_interface="in" units="pL_per_s"/>
+   <variable name="N_Kir" public_interface="in" units="fmol"/>
+   <variable name="P_Kir" public_interface="in" units="pL_per_s_per_fmol"/>
 </component>
 <component name="cap_transport">
    <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
@@ -830,10 +935,14 @@
    <variable name="zNa" public_interface="in" units="dimensionless"/>
    <variable name="zCl" public_interface="in" units="dimensionless"/>
    <variable name="zK" public_interface="in" units="dimensionless"/>
-   <variable name="v_Na" public_interface="in" units="fmol_per_s"/>
-   <variable name="v_K" public_interface="in" units="fmol_per_s"/>
-   <variable name="v_Cl" public_interface="in" units="fmol_per_s"/>
-   <variable name="v_V" public_interface="in" units="pL_per_s"/>
+   <variable name="v_Na_o" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_K_o" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_Cl_o" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_V_o" public_interface="in" units="pL_per_s"/>
+   <variable name="v_Na_i" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_K_i" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_Cl_i" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_V_i" public_interface="in" units="pL_per_s"/>
    <variable name="I_para" public_interface="in" units="picoA"/>
 </component>
 <component name="blood">
@@ -863,12 +972,70 @@
    <variable name="c_albumin" public_interface="in" units="mM"/>
    <variable name="u_P" public_interface="in" units="kPa"/>
    <variable name="u_P_pi" public_interface="in" units="kPa"/>
-   <variable name="u_e_blood" public_interface="in" units="volt"/>
+   <variable name="u_e_fluid" public_interface="in" units="volt"/>
    <variable name="u_e_Donnan" public_interface="in" units="volt"/>
    <variable name="u_mu_e_Na" public_interface="in" units="J_per_mmol"/>
    <variable name="u_mu_e_K" public_interface="in" units="J_per_mmol"/>
    <variable name="u_mu_e_Cl" public_interface="in" units="J_per_mmol"/>
-   <variable name="G_cap" public_interface="in" units="picoS"/>
+   <variable name="G_m" public_interface="in" units="picoS"/>
+</component>
+<component name="lymph">
+   <variable name="zNa" public_interface="in" units="dimensionless"/>
+   <variable name="zK" public_interface="in" units="dimensionless"/>
+   <variable name="zCl" public_interface="in" units="dimensionless"/>
+   <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
+   <variable name="T" public_interface="in" units="kelvin"/>
+   <variable name="F" public_interface="in" units="C_per_mmol"/>
+   <variable name="K_Na" public_interface="in" units="per_mM"/>
+   <variable name="K_K" public_interface="in" units="per_mM"/>
+   <variable name="K_Cl" public_interface="in" units="per_mM"/>
+   <variable name="q_V_init" public_interface="in" units="pL"/>
+   <variable name="q_Na_init" public_interface="in" units="fmol"/>
+   <variable name="q_Cl_init" public_interface="in" units="fmol"/>
+   <variable name="q_K_init" public_interface="in" units="fmol"/>
+   <variable name="q_albumin" public_interface="in" units="fmol"/>
+   <variable name="q_proteins" public_interface="in" units="fmol"/>
+   <variable name="q_V" public_interface="in" units="pL"/>
+   <variable name="q_Na" public_interface="in" units="fmol"/>
+   <variable name="q_Cl" public_interface="in" units="fmol"/>
+   <variable name="q_K" public_interface="in" units="fmol"/>
+   <variable name="c_Na" public_interface="in" units="mM"/>
+   <variable name="c_K" public_interface="in" units="mM"/>
+   <variable name="c_Cl" public_interface="in" units="mM"/>
+   <variable name="c_proteins" public_interface="in" units="mM"/>
+   <variable name="c_albumin" public_interface="in" units="mM"/>
+   <variable name="u_P" public_interface="in" units="kPa"/>
+   <variable name="u_P_pi" public_interface="in" units="kPa"/>
+   <variable name="u_e_fluid" public_interface="in" units="volt"/>
+   <variable name="u_e_Donnan" public_interface="in" units="volt"/>
+   <variable name="u_mu_e_Na" public_interface="in" units="J_per_mmol"/>
+   <variable name="u_mu_e_K" public_interface="in" units="J_per_mmol"/>
+   <variable name="u_mu_e_Cl" public_interface="in" units="J_per_mmol"/>
+   <variable name="G_m" public_interface="in" units="picoS"/>
+</component>
+<component name="lymph_transport">
+   <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
+   <variable name="T" public_interface="in" units="kelvin"/>
+   <variable name="F" public_interface="in" units="C_per_mmol"/>
+   <variable name="omega_Na" public_interface="in" units="L_fmol_per_J_per_s"/>
+   <variable name="omega_Cl" public_interface="in" units="L_fmol_per_J_per_s"/>
+   <variable name="omega_K" public_interface="in" units="L_fmol_per_J_per_s"/>
+   <variable name="sigma_Na" public_interface="in" units="dimensionless"/>
+   <variable name="sigma_Cl" public_interface="in" units="dimensionless"/>
+   <variable name="sigma_K" public_interface="in" units="dimensionless"/>
+   <variable name="L_P" public_interface="in" units="pL_L_per_J_per_s"/>
+   <variable name="zNa" public_interface="in" units="dimensionless"/>
+   <variable name="zCl" public_interface="in" units="dimensionless"/>
+   <variable name="zK" public_interface="in" units="dimensionless"/>
+   <variable name="v_Na_o" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_K_o" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_Cl_o" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_V_o" public_interface="in" units="pL_per_s"/>
+   <variable name="v_Na_i" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_K_i" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_Cl_i" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_V_i" public_interface="in" units="pL_per_s"/>
+   <variable name="I_para" public_interface="in" units="picoA"/>
 </component>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;global_parameters_access&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <component name="global">
@@ -990,10 +1157,14 @@
    <map_variables variable_1="zNa" variable_2="zNa"/>
    <map_variables variable_1="zCl" variable_2="zCl"/>
    <map_variables variable_1="zK" variable_2="zK"/>
-   <map_variables variable_1="v_Na" variable_2="v_Na"/>
-   <map_variables variable_1="v_K" variable_2="v_K"/>
-   <map_variables variable_1="v_Cl" variable_2="v_Cl"/>
-   <map_variables variable_1="v_V" variable_2="v_V"/>
+   <map_variables variable_1="v_Na_o" variable_2="v_Na_o"/>
+   <map_variables variable_1="v_K_o" variable_2="v_K_o"/>
+   <map_variables variable_1="v_Cl_o" variable_2="v_Cl_o"/>
+   <map_variables variable_1="v_V_o" variable_2="v_V_o"/>
+   <map_variables variable_1="v_Na_i" variable_2="v_Na_i"/>
+   <map_variables variable_1="v_K_i" variable_2="v_K_i"/>
+   <map_variables variable_1="v_Cl_i" variable_2="v_Cl_i"/>
+   <map_variables variable_1="v_V_i" variable_2="v_V_i"/>
    <map_variables variable_1="I_para" variable_2="I_para"/>
 </connection>
 <connection>
@@ -1088,6 +1259,8 @@
    <map_variables variable_1="v_Kir_o" variable_2="v_Kir_o"/>
    <map_variables variable_1="v_Kir_i" variable_2="v_Kir_i"/>
    <map_variables variable_1="kappa_Kir" variable_2="kappa_Kir"/>
+   <map_variables variable_1="N_Kir" variable_2="N_Kir"/>
+   <map_variables variable_1="P_Kir" variable_2="P_Kir"/>
 </connection>
 <connection>
    <map_components component_1="cap_transport" component_2="cap_transport_module"/>
@@ -1104,10 +1277,14 @@
    <map_variables variable_1="zNa" variable_2="zNa"/>
    <map_variables variable_1="zCl" variable_2="zCl"/>
    <map_variables variable_1="zK" variable_2="zK"/>
-   <map_variables variable_1="v_Na" variable_2="v_Na"/>
-   <map_variables variable_1="v_K" variable_2="v_K"/>
-   <map_variables variable_1="v_Cl" variable_2="v_Cl"/>
-   <map_variables variable_1="v_V" variable_2="v_V"/>
+   <map_variables variable_1="v_Na_o" variable_2="v_Na_o"/>
+   <map_variables variable_1="v_K_o" variable_2="v_K_o"/>
+   <map_variables variable_1="v_Cl_o" variable_2="v_Cl_o"/>
+   <map_variables variable_1="v_V_o" variable_2="v_V_o"/>
+   <map_variables variable_1="v_Na_i" variable_2="v_Na_i"/>
+   <map_variables variable_1="v_K_i" variable_2="v_K_i"/>
+   <map_variables variable_1="v_Cl_i" variable_2="v_Cl_i"/>
+   <map_variables variable_1="v_V_i" variable_2="v_V_i"/>
    <map_variables variable_1="I_para" variable_2="I_para"/>
 </connection>
 <connection>
@@ -1138,12 +1315,72 @@
    <map_variables variable_1="c_albumin" variable_2="c_albumin"/>
    <map_variables variable_1="u_P" variable_2="u_P"/>
    <map_variables variable_1="u_P_pi" variable_2="u_P_pi"/>
-   <map_variables variable_1="u_e_blood" variable_2="u_e_blood"/>
+   <map_variables variable_1="u_e_fluid" variable_2="u_e_fluid"/>
    <map_variables variable_1="u_e_Donnan" variable_2="u_e_Donnan"/>
    <map_variables variable_1="u_mu_e_Na" variable_2="u_mu_e_Na"/>
    <map_variables variable_1="u_mu_e_K" variable_2="u_mu_e_K"/>
    <map_variables variable_1="u_mu_e_Cl" variable_2="u_mu_e_Cl"/>
-   <map_variables variable_1="G_cap" variable_2="G_cap"/>
+   <map_variables variable_1="G_m" variable_2="G_m"/>
+</connection>
+<connection>
+   <map_components component_1="lymph" component_2="lymph_module"/>
+   <map_variables variable_1="zNa" variable_2="zNa"/>
+   <map_variables variable_1="zK" variable_2="zK"/>
+   <map_variables variable_1="zCl" variable_2="zCl"/>
+   <map_variables variable_1="R" variable_2="R"/>
+   <map_variables variable_1="T" variable_2="T"/>
+   <map_variables variable_1="F" variable_2="F"/>
+   <map_variables variable_1="K_Na" variable_2="K_Na"/>
+   <map_variables variable_1="K_K" variable_2="K_K"/>
+   <map_variables variable_1="K_Cl" variable_2="K_Cl"/>
+   <map_variables variable_1="q_V_init" variable_2="q_V_init"/>
+   <map_variables variable_1="q_Na_init" variable_2="q_Na_init"/>
+   <map_variables variable_1="q_Cl_init" variable_2="q_Cl_init"/>
+   <map_variables variable_1="q_K_init" variable_2="q_K_init"/>
+   <map_variables variable_1="q_albumin" variable_2="q_albumin"/>
+   <map_variables variable_1="q_proteins" variable_2="q_proteins"/>
+   <map_variables variable_1="q_V" variable_2="q_V"/>
+   <map_variables variable_1="q_Na" variable_2="q_Na"/>
+   <map_variables variable_1="q_Cl" variable_2="q_Cl"/>
+   <map_variables variable_1="q_K" variable_2="q_K"/>
+   <map_variables variable_1="c_Na" variable_2="c_Na"/>
+   <map_variables variable_1="c_K" variable_2="c_K"/>
+   <map_variables variable_1="c_Cl" variable_2="c_Cl"/>
+   <map_variables variable_1="c_proteins" variable_2="c_proteins"/>
+   <map_variables variable_1="c_albumin" variable_2="c_albumin"/>
+   <map_variables variable_1="u_P" variable_2="u_P"/>
+   <map_variables variable_1="u_P_pi" variable_2="u_P_pi"/>
+   <map_variables variable_1="u_e_fluid" variable_2="u_e_fluid"/>
+   <map_variables variable_1="u_e_Donnan" variable_2="u_e_Donnan"/>
+   <map_variables variable_1="u_mu_e_Na" variable_2="u_mu_e_Na"/>
+   <map_variables variable_1="u_mu_e_K" variable_2="u_mu_e_K"/>
+   <map_variables variable_1="u_mu_e_Cl" variable_2="u_mu_e_Cl"/>
+   <map_variables variable_1="G_m" variable_2="G_m"/>
+</connection>
+<connection>
+   <map_components component_1="lymph_transport" component_2="lymph_transport_module"/>
+   <map_variables variable_1="R" variable_2="R"/>
+   <map_variables variable_1="T" variable_2="T"/>
+   <map_variables variable_1="F" variable_2="F"/>
+   <map_variables variable_1="omega_Na" variable_2="omega_Na"/>
+   <map_variables variable_1="omega_Cl" variable_2="omega_Cl"/>
+   <map_variables variable_1="omega_K" variable_2="omega_K"/>
+   <map_variables variable_1="sigma_Na" variable_2="sigma_Na"/>
+   <map_variables variable_1="sigma_Cl" variable_2="sigma_Cl"/>
+   <map_variables variable_1="sigma_K" variable_2="sigma_K"/>
+   <map_variables variable_1="L_P" variable_2="L_P"/>
+   <map_variables variable_1="zNa" variable_2="zNa"/>
+   <map_variables variable_1="zCl" variable_2="zCl"/>
+   <map_variables variable_1="zK" variable_2="zK"/>
+   <map_variables variable_1="v_Na_o" variable_2="v_Na_o"/>
+   <map_variables variable_1="v_K_o" variable_2="v_K_o"/>
+   <map_variables variable_1="v_Cl_o" variable_2="v_Cl_o"/>
+   <map_variables variable_1="v_V_o" variable_2="v_V_o"/>
+   <map_variables variable_1="v_Na_i" variable_2="v_Na_i"/>
+   <map_variables variable_1="v_K_i" variable_2="v_K_i"/>
+   <map_variables variable_1="v_Cl_i" variable_2="v_Cl_i"/>
+   <map_variables variable_1="v_V_i" variable_2="v_V_i"/>
+   <map_variables variable_1="I_para" variable_2="I_para"/>
 </connection>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;own global parameters mapping&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>
@@ -1313,7 +1550,8 @@
 </connection>
 <connection>
    <map_components component_1="parameters" component_2="Kir_module"/>
-   <map_variables variable_1="kappa_Kir_Kir" variable_2="kappa_Kir"/>
+   <map_variables variable_1="N_Kir_Kir" variable_2="N_Kir"/>
+   <map_variables variable_1="P_Kir_Kir" variable_2="P_Kir"/>
 </connection>
 <connection>
    <map_components component_1="parameters_global" component_2="Kir_module"/>
@@ -1351,7 +1589,7 @@
    <map_variables variable_1="q_proteins_blood" variable_2="q_proteins"/>
    <map_variables variable_1="u_P_blood" variable_2="u_P"/>
    <map_variables variable_1="u_e_Donnan_blood" variable_2="u_e_Donnan"/>
-   <map_variables variable_1="G_cap_blood" variable_2="G_cap"/>
+   <map_variables variable_1="G_m_blood" variable_2="G_m"/>
 </connection>
 <connection>
    <map_components component_1="parameters_global" component_2="blood_module"/>
@@ -1364,6 +1602,49 @@
    <map_variables variable_1="K_Na" variable_2="K_Na"/>
    <map_variables variable_1="K_K" variable_2="K_K"/>
    <map_variables variable_1="K_Cl" variable_2="K_Cl"/>
+</connection>
+<connection>
+   <map_components component_1="parameters" component_2="lymph_module"/>
+   <map_variables variable_1="q_V_init_lymph" variable_2="q_V_init"/>
+   <map_variables variable_1="q_Na_init_lymph" variable_2="q_Na_init"/>
+   <map_variables variable_1="q_Cl_init_lymph" variable_2="q_Cl_init"/>
+   <map_variables variable_1="q_K_init_lymph" variable_2="q_K_init"/>
+   <map_variables variable_1="q_albumin_lymph" variable_2="q_albumin"/>
+   <map_variables variable_1="q_proteins_lymph" variable_2="q_proteins"/>
+   <map_variables variable_1="u_P_lymph" variable_2="u_P"/>
+   <map_variables variable_1="u_e_Donnan_lymph" variable_2="u_e_Donnan"/>
+   <map_variables variable_1="G_m_lymph" variable_2="G_m"/>
+</connection>
+<connection>
+   <map_components component_1="parameters_global" component_2="lymph_module"/>
+   <map_variables variable_1="zNa" variable_2="zNa"/>
+   <map_variables variable_1="zK" variable_2="zK"/>
+   <map_variables variable_1="zCl" variable_2="zCl"/>
+   <map_variables variable_1="R" variable_2="R"/>
+   <map_variables variable_1="T" variable_2="T"/>
+   <map_variables variable_1="F" variable_2="F"/>
+   <map_variables variable_1="K_Na" variable_2="K_Na"/>
+   <map_variables variable_1="K_K" variable_2="K_K"/>
+   <map_variables variable_1="K_Cl" variable_2="K_Cl"/>
+</connection>
+<connection>
+   <map_components component_1="parameters" component_2="lymph_transport_module"/>
+   <map_variables variable_1="omega_Na_lymph_transport" variable_2="omega_Na"/>
+   <map_variables variable_1="omega_Cl_lymph_transport" variable_2="omega_Cl"/>
+   <map_variables variable_1="omega_K_lymph_transport" variable_2="omega_K"/>
+   <map_variables variable_1="sigma_Na_lymph_transport" variable_2="sigma_Na"/>
+   <map_variables variable_1="sigma_Cl_lymph_transport" variable_2="sigma_Cl"/>
+   <map_variables variable_1="sigma_K_lymph_transport" variable_2="sigma_K"/>
+   <map_variables variable_1="L_P_lymph_transport" variable_2="L_P"/>
+</connection>
+<connection>
+   <map_components component_1="parameters_global" component_2="lymph_transport_module"/>
+   <map_variables variable_1="R" variable_2="R"/>
+   <map_variables variable_1="T" variable_2="T"/>
+   <map_variables variable_1="F" variable_2="F"/>
+   <map_variables variable_1="zNa" variable_2="zNa"/>
+   <map_variables variable_1="zCl" variable_2="zCl"/>
+   <map_variables variable_1="zK" variable_2="zK"/>
 </connection>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;time mapping&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>
@@ -1416,6 +1697,14 @@
 </connection>
 <connection>
    <map_components component_1="environment" component_2="blood_module"/>
+   <map_variables variable_1="time" variable_2="t"/>
+</connection>
+<connection>
+   <map_components component_1="environment" component_2="lymph_module"/>
+   <map_variables variable_1="time" variable_2="t"/>
+</connection>
+<connection>
+   <map_components component_1="environment" component_2="lymph_transport_module"/>
    <map_variables variable_1="time" variable_2="t"/>
 </connection>
 </model>

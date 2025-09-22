@@ -204,6 +204,7 @@
     <units name="pic0" units_ref="pic0"/>
     <units name="nanoV" units_ref="nanoV"/>
     <units name="nan0" units_ref="nan0"/>
+    <units name="pL_per_s_per_fmol" units_ref="pL_per_s_per_fmol"/>
     <units name="kPa" units_ref="kPa"/>
     <units name="L_per_s" units_ref="L_per_s"/>
     <units name="L_per_s_per_kPa" units_ref="L_per_s_per_kPa"/>
@@ -235,9 +236,9 @@
 </component>
 <component name="parameters">
 <variable initial_value="50" name="q_V_init_lumen" public_interface="out" units="pL"/>
-<variable initial_value="1500" name="q_Na_init_lumen" public_interface="out" units="fmol"/>
-<variable initial_value="1500" name="q_Cl_init_lumen" public_interface="out" units="fmol"/>
-<variable initial_value="3750" name="q_K_init_lumen" public_interface="out" units="fmol"/>
+<variable initial_value="7000" name="q_Na_init_lumen" public_interface="out" units="fmol"/>
+<variable initial_value="5000" name="q_Cl_init_lumen" public_interface="out" units="fmol"/>
+<variable initial_value="200" name="q_K_init_lumen" public_interface="out" units="fmol"/>
 <variable initial_value="0" name="u_e_lumen_init_lumen" public_interface="out" units="volt"/>
 <variable initial_value="0" name="u_P_lumen" public_interface="out" units="kPa"/>
 <variable initial_value="300" name="q_V_init_cell" public_interface="out" units="pL"/>
@@ -254,13 +255,13 @@
 <variable initial_value="10000" name="q_Cl_init_int_fluid" public_interface="out" units="fmol"/>
 <variable initial_value="400" name="q_K_init_int_fluid" public_interface="out" units="fmol"/>
 <variable initial_value="0" name="u_P_int_fluid" public_interface="out" units="kPa"/>
-<variable initial_value="117" name="omega_Na_para_transport" public_interface="out" units="L_fmol_per_J_per_s"/>
-<variable initial_value="234" name="omega_Cl_para_transport" public_interface="out" units="L_fmol_per_J_per_s"/>
-<variable initial_value="75" name="omega_K_para_transport" public_interface="out" units="L_fmol_per_J_per_s"/>
+<variable initial_value="1" name="omega_Na_para_transport" public_interface="out" units="L_fmol_per_J_per_s"/>
+<variable initial_value="1" name="omega_Cl_para_transport" public_interface="out" units="L_fmol_per_J_per_s"/>
+<variable initial_value="1" name="omega_K_para_transport" public_interface="out" units="L_fmol_per_J_per_s"/>
 <variable initial_value="0.9" name="sigma_Na_para_transport" public_interface="out" units="dimensionless"/>
 <variable initial_value="0.4" name="sigma_Cl_para_transport" public_interface="out" units="dimensionless"/>
 <variable initial_value="0.95" name="sigma_K_para_transport" public_interface="out" units="dimensionless"/>
-<variable initial_value="100" name="L_P_para_transport" public_interface="out" units="pL_L_per_J_per_s"/>
+<variable initial_value="1" name="L_P_para_transport" public_interface="out" units="pL_L_per_J_per_s"/>
 <variable initial_value="0.015" name="q_1_init_ENaC" public_interface="out" units="fmol"/>
 <variable initial_value="0.015" name="q_2_init_ENaC" public_interface="out" units="fmol"/>
 <variable initial_value="0.015" name="q_3_init_ENaC" public_interface="out" units="fmol"/>
@@ -273,8 +274,8 @@
 <variable initial_value="1" name="kappa_2_ENaC" public_interface="out" units="fmol_per_s"/>
 <variable initial_value="1" name="kappa_3_ENaC" public_interface="out" units="fmol_per_s"/>
 <variable initial_value="1" name="kappa_4_ENaC" public_interface="out" units="fmol_per_s"/>
-<variable initial_value="48184000" name="gamma_Na_ENaC" public_interface="out" units="picoS_per_fmol"/>
-<variable initial_value="48184000" name="gamma_o_ENaC" public_interface="out" units="picoS_per_fmol"/>
+<variable initial_value="8000" name="gamma_Na_ENaC" public_interface="out" units="picoS_per_fmol"/>
+<variable initial_value="10000" name="gamma_o_ENaC" public_interface="out" units="picoS_per_fmol"/>
 <variable initial_value="1" name="kappa_AQ_AQ_api" public_interface="out" units="pL_per_kPa_per_s"/>
 <variable initial_value="4" name="kappa_AQ_AQ_bas" public_interface="out" units="pL_per_kPa_per_s"/>
 <variable initial_value="0.17" name="z_1_NKE" public_interface="out" units="dimensionless"/>
@@ -296,7 +297,8 @@
 <variable initial_value="1" name="kappa_4_NKE" public_interface="out" units="fmol_per_s"/>
 <variable initial_value="1" name="kappa_5_NKE" public_interface="out" units="fmol_per_s"/>
 <variable initial_value="1" name="kappa_6_NKE" public_interface="out" units="fmol_per_s"/>
-<variable initial_value="4000" name="kappa_Kir_Kir" public_interface="out" units="picoS"/>
+<variable initial_value="0.02" name="N_Kir_Kir" public_interface="out" units="fmol"/>
+<variable initial_value="1" name="P_Kir_Kir" public_interface="out" units="pL_per_s_per_fmol"/>
 <variable initial_value="1" name="omega_Na_cap_transport" public_interface="out" units="L_fmol_per_J_per_s"/>
 <variable initial_value="1" name="omega_Cl_cap_transport" public_interface="out" units="L_fmol_per_J_per_s"/>
 <variable initial_value="1" name="omega_K_cap_transport" public_interface="out" units="L_fmol_per_J_per_s"/>
@@ -306,12 +308,28 @@
 <variable initial_value="1" name="L_P_cap_transport" public_interface="out" units="pL_L_per_J_per_s"/>
 <variable initial_value="100" name="q_V_init_blood" public_interface="out" units="pL"/>
 <variable initial_value="14000" name="q_Na_init_blood" public_interface="out" units="fmol"/>
-<variable initial_value="400" name="q_Cl_init_blood" public_interface="out" units="fmol"/>
-<variable initial_value="10000" name="q_K_init_blood" public_interface="out" units="fmol"/>
+<variable initial_value="10000" name="q_Cl_init_blood" public_interface="out" units="fmol"/>
+<variable initial_value="400" name="q_K_init_blood" public_interface="out" units="fmol"/>
 <variable initial_value="60" name="q_albumin_blood" public_interface="out" units="fmol"/>
 <variable initial_value="30" name="q_proteins_blood" public_interface="out" units="fmol"/>
 <variable initial_value="16" name="u_P_blood" public_interface="out" units="kPa"/>
 <variable initial_value="-0.003" name="u_e_Donnan_blood" public_interface="out" units="volt"/>
-<variable initial_value="5000" name="G_cap_blood" public_interface="out" units="picoS"/>
+<variable initial_value="5000" name="G_m_blood" public_interface="out" units="picoS"/>
+<variable initial_value="100" name="q_V_init_lymph" public_interface="out" units="pL"/>
+<variable initial_value="14000" name="q_Na_init_lymph" public_interface="out" units="fmol"/>
+<variable initial_value="10000" name="q_Cl_init_lymph" public_interface="out" units="fmol"/>
+<variable initial_value="400" name="q_K_init_lymph" public_interface="out" units="fmol"/>
+<variable initial_value="30" name="q_albumin_lymph" public_interface="out" units="fmol"/>
+<variable initial_value="15" name="q_proteins_lymph" public_interface="out" units="fmol"/>
+<variable initial_value="0" name="u_P_lymph" public_interface="out" units="kPa"/>
+<variable initial_value="-0.0005" name="u_e_Donnan_lymph" public_interface="out" units="volt"/>
+<variable initial_value="5000" name="G_m_lymph" public_interface="out" units="picoS"/>
+<variable initial_value="1" name="omega_Na_lymph_transport" public_interface="out" units="L_fmol_per_J_per_s"/>
+<variable initial_value="1" name="omega_Cl_lymph_transport" public_interface="out" units="L_fmol_per_J_per_s"/>
+<variable initial_value="1" name="omega_K_lymph_transport" public_interface="out" units="L_fmol_per_J_per_s"/>
+<variable initial_value="0.05" name="sigma_Na_lymph_transport" public_interface="out" units="dimensionless"/>
+<variable initial_value="0.05" name="sigma_Cl_lymph_transport" public_interface="out" units="dimensionless"/>
+<variable initial_value="0.05" name="sigma_K_lymph_transport" public_interface="out" units="dimensionless"/>
+<variable initial_value="1" name="L_P_lymph_transport" public_interface="out" units="pL_L_per_J_per_s"/>
 </component>
 </model>

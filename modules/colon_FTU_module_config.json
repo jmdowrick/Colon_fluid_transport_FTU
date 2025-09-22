@@ -173,23 +173,43 @@
         "multi_port": "True"
       },
       {
-        "port_type":"v_Na_cap",
-        "variables":["v_Na"],
+        "port_type":"v_Na_int_cap",
+        "variables":["v_Na_o"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_Cl_cap",
-        "variables":["v_Cl"],
+        "port_type":"v_Cl_int_cap",
+        "variables":["v_Cl_o"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_K_cap",
-        "variables":["v_K"],
+        "port_type":"v_K_int_cap",
+        "variables":["v_K_o"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_V_cap",
-        "variables":["v_V"],
+        "port_type":"v_V_int_cap",
+        "variables":["v_V_o"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_Na_bld_cap",
+        "variables":["v_Na_i"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_Cl_bld_cap",
+        "variables":["v_Cl_i"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_K_bld_cap",
+        "variables":["v_K_i"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_V_bld_cap",
+        "variables":["v_V_i"],
         "multi_port": "True"
       },
       {
@@ -245,10 +265,165 @@
       ["zNa", "dimensionless", "access", "global_constant"],
       ["zCl", "dimensionless", "access", "global_constant"],
       ["zK", "dimensionless", "access", "global_constant"],
-      ["v_Na", "fmol_per_s", "access", "variable"],
-      ["v_K", "fmol_per_s", "access", "variable"],
-      ["v_Cl", "fmol_per_s", "access", "variable"],
-      ["v_V", "pL_per_s", "access", "variable"],
+      ["v_Na_o", "fmol_per_s", "access", "variable"],
+      ["v_K_o", "fmol_per_s", "access", "variable"],
+      ["v_Cl_o", "fmol_per_s", "access", "variable"],
+      ["v_V_o", "pL_per_s", "access", "variable"],
+      ["v_Na_i", "fmol_per_s", "access", "variable"],
+      ["v_K_i", "fmol_per_s", "access", "variable"],
+      ["v_Cl_i", "fmol_per_s", "access", "variable"],
+      ["v_V_i", "pL_per_s", "access", "variable"],
+      ["I_para", "picoA", "access", "variable"]
+    ]
+  },
+  {
+    "vessel_type":"lymph_transport",
+    "BC_type":"nn",
+    "module_format":"cellml",
+    "module_file":"colon_FTU_modules.cellml",
+    "module_type":"paracellular_module",
+    "entrance_ports":
+    [
+    ],
+    "exit_ports":
+    [
+    ],
+    "general_ports":
+    [
+      {
+        "port_type":"c_Na_int",
+        "variables":["c_Na_o"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"c_K_int",
+        "variables":["c_K_o"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"c_Cl_int",
+        "variables":["c_Cl_o"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"c_Na_lymph",
+        "variables":["c_Na_i"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"c_K_lymph",
+        "variables":["c_K_i"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"c_Cl_lymph",
+        "variables":["c_Cl_i"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_Na_int_lymph",
+        "variables":["v_Na_o"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_Cl_int_lymph",
+        "variables":["v_Cl_o"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_K_int_lymph",
+        "variables":["v_K_o"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_V_int_lymph",
+        "variables":["v_V_o"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_Na_lym_lymph",
+        "variables":["v_Na_i"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_Cl_lym_lymph",
+        "variables":["v_Cl_i"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_K_lym_lymph",
+        "variables":["v_K_i"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_V_lym_lymph",
+        "variables":["v_V_i"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"I_lym",
+        "variables":["I_para"]
+      },
+      {
+        "port_type": "int_potential_Na",
+        "variables": ["u_mu_e_Na_o"],
+        "multi_port": "True"
+      },
+      {
+        "port_type": "int_potential_K",
+        "variables": ["u_mu_e_K_o"],
+        "multi_port": "True"
+      },
+      {
+        "port_type": "int_potential_Cl",
+        "variables": ["u_mu_e_Cl_o"],
+        "multi_port": "True"
+      },
+      {
+        "port_type": "int_pressures",
+        "variables": ["u_P_pi_o"],
+        "multi_port": "True"
+      },
+      {
+        "port_type": "lymph_potential_Na",
+        "variables": ["u_mu_e_Na_i"]
+      },
+      {
+        "port_type": "lymph_potential_K",
+        "variables": ["u_mu_e_K_i"]
+      },
+      {
+        "port_type": "lymph_potential_Cl",
+        "variables": ["u_mu_e_Cl_i"]
+      },
+      {
+        "port_type": "lymph_pressures",
+        "variables": ["u_P_pi_i"]
+      }
+    ],
+    "variables_and_units":
+    [
+      ["R", "J_per_K_per_mmol", "access", "global_constant"],
+      ["T", "kelvin", "access", "global_constant"],
+      ["F", "C_per_mmol", "access", "global_constant"],
+      ["omega_Na", "L_fmol_per_J_per_s", "access", "constant"],
+      ["omega_Cl", "L_fmol_per_J_per_s", "access", "constant"],
+      ["omega_K", "L_fmol_per_J_per_s", "access", "constant"],
+      ["sigma_Na", "dimensionless", "access", "constant"],
+      ["sigma_Cl", "dimensionless", "access", "constant"],
+      ["sigma_K", "dimensionless", "access", "constant"],
+      ["L_P", "pL_L_per_J_per_s", "access", "constant"],
+      ["zNa", "dimensionless", "access", "global_constant"],
+      ["zCl", "dimensionless", "access", "global_constant"],
+      ["zK", "dimensionless", "access", "global_constant"],
+      ["v_Na_o", "fmol_per_s", "access", "variable"],
+      ["v_K_o", "fmol_per_s", "access", "variable"],
+      ["v_Cl_o", "fmol_per_s", "access", "variable"],
+      ["v_V_o", "pL_per_s", "access", "variable"],
+      ["v_Na_i", "fmol_per_s", "access", "variable"],
+      ["v_K_i", "fmol_per_s", "access", "variable"],
+      ["v_Cl_i", "fmol_per_s", "access", "variable"],
+      ["v_V_i", "pL_per_s", "access", "variable"],
       ["I_para", "picoA", "access", "variable"]
     ]
   },
@@ -297,23 +472,43 @@
         "multi_port": "True"
       },
       {
-        "port_type":"paracellular_Na",
-        "variables":["v_Na"],
+        "port_type":"v_Na_lum_para",
+        "variables":["v_Na_o"],
         "multi_port": "True"
       },
       {
-        "port_type":"paracellular_Cl",
-        "variables":["v_Cl"],
+        "port_type":"v_Cl_lum_para",
+        "variables":["v_Cl_o"],
         "multi_port": "True"
       },
       {
-        "port_type":"paracellular_K",
-        "variables":["v_K"],
+        "port_type":"v_K_lum_para",
+        "variables":["v_K_o"],
         "multi_port": "True"
       },
       {
-        "port_type":"paracellular_V",
-        "variables":["v_V"],
+        "port_type":"v_V_lum_para",
+        "variables":["v_V_o"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_Na_int_para",
+        "variables":["v_Na_i"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_Cl_int_para",
+        "variables":["v_Cl_i"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_K_int_para",
+        "variables":["v_K_i"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_V_int_para",
+        "variables":["v_V_i"],
         "multi_port": "True"
       },
       {
@@ -340,15 +535,18 @@
       },
       {
         "port_type": "int_potential_Na",
-        "variables": ["u_mu_e_Na_i"]
+        "variables": ["u_mu_e_Na_i"],
+        "multi_port": "True"
       },
       {
         "port_type": "int_potential_K",
-        "variables": ["u_mu_e_K_i"]
+        "variables": ["u_mu_e_K_i"],
+        "multi_port": "True"
       },
       {
         "port_type": "int_potential_Cl",
-        "variables": ["u_mu_e_Cl_i"]
+        "variables": ["u_mu_e_Cl_i"],
+        "multi_port": "True"
       },
       {
         "port_type": "int_pressures",
@@ -371,10 +569,14 @@
       ["zNa", "dimensionless", "access", "global_constant"],
       ["zCl", "dimensionless", "access", "global_constant"],
       ["zK", "dimensionless", "access", "global_constant"],
-      ["v_Na", "fmol_per_s", "access", "variable"],
-      ["v_K", "fmol_per_s", "access", "variable"],
-      ["v_Cl", "fmol_per_s", "access", "variable"],
-      ["v_V", "pL_per_s", "access", "variable"],
+      ["v_Na_o", "fmol_per_s", "access", "variable"],
+      ["v_K_o", "fmol_per_s", "access", "variable"],
+      ["v_Cl_o", "fmol_per_s", "access", "variable"],
+      ["v_V_o", "pL_per_s", "access", "variable"],
+      ["v_Na_i", "fmol_per_s", "access", "variable"],
+      ["v_K_i", "fmol_per_s", "access", "variable"],
+      ["v_Cl_i", "fmol_per_s", "access", "variable"],
+      ["v_V_i", "pL_per_s", "access", "variable"],
       ["I_para", "picoA", "access", "variable"]
     ]
   },
@@ -490,22 +692,22 @@
         "multi_port": "True"
       },
       {
-        "port_type":"paracellular_Na",
+        "port_type":"v_Na_lum_para",
         "variables":["v_Na_para"],
         "multi_port": "True"
       },
       {
-        "port_type":"paracellular_Cl",
+        "port_type":"v_Cl_lum_para",
         "variables":["v_Cl_para"],
         "multi_port": "True"
       },
       {
-        "port_type":"paracellular_K",
+        "port_type":"v_K_lum_para",
         "variables":["v_K_para"],
         "multi_port": "True"
       },
       {
-        "port_type":"paracellular_V",
+        "port_type":"v_V_lum_para",
         "variables":["v_V_para"],
         "multi_port": "True"
       },
@@ -706,15 +908,18 @@
       },
       {
         "port_type": "int_potential_Na",
-        "variables": ["u_mu_e_Na"]
+        "variables": ["u_mu_e_Na"],
+        "multi_port": "True"
       },
       {
         "port_type": "int_potential_K",
-        "variables": ["u_mu_e_K"]
+        "variables": ["u_mu_e_K"],
+        "multi_port": "True"
       },
       {
         "port_type": "int_potential_Cl",
-        "variables": ["u_mu_e_Cl"]
+        "variables": ["u_mu_e_Cl"],
+        "multi_port": "True"
       },
       {
         "port_type":"c_Na_int",
@@ -732,42 +937,62 @@
         "multi_port": "True"
       },
       {
-        "port_type":"paracellular_Na",
+        "port_type":"v_Na_int_para",
         "variables":["v_Na_para"],
         "multi_port": "True"
       },
       {
-        "port_type":"paracellular_Cl",
+        "port_type":"v_Cl_int_para",
         "variables":["v_Cl_para"],
         "multi_port": "True"
       },
       {
-        "port_type":"paracellular_K",
+        "port_type":"v_K_int_para",
         "variables":["v_K_para"],
         "multi_port": "True"
       },
       {
-        "port_type":"paracellular_V",
+        "port_type":"v_V_int_para",
         "variables":["v_V_para"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_Na_cap",
+        "port_type":"v_Na_int_lymph",
+        "variables":["v_Na_lym"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_Cl_int_lymph",
+        "variables":["v_Cl_lym"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_K_int_lymph",
+        "variables":["v_K_lym"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_V_int_lymph",
+        "variables":["v_V_lym"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_Na_int_cap",
         "variables":["v_Na_cap"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_Cl_cap",
+        "port_type":"v_Cl_int_cap",
         "variables":["v_Cl_cap"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_K_cap",
+        "port_type":"v_K_int_cap",
         "variables":["v_K_cap"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_V_cap",
+        "port_type":"v_V_int_cap",
         "variables":["v_V_cap"],
         "multi_port": "True"
       },
@@ -830,7 +1055,7 @@
     "BC_type":"nn",
     "module_format":"cellml",
     "module_file":"colon_FTU_modules.cellml",
-    "module_type":"blood",
+    "module_type":"blood_lymph",
     "entrance_ports":
     [
     ],
@@ -841,7 +1066,7 @@
     [
       {
         "port_type": "I_cap",
-        "variables": ["I_cap"]
+        "variables": ["I_fluid"]
       },
       {
         "port_type": "blood_pressures",
@@ -875,28 +1100,24 @@
         "multi_port": "True"
       },
       {
-        "port_type":"v_Na_cap",
-        "variables":["v_Na_cap"],
+        "port_type":"v_Na_bld_cap",
+        "variables":["v_Na_fluid"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_Cl_cap",
-        "variables":["v_Cl_cap"],
+        "port_type":"v_Cl_bld_cap",
+        "variables":["v_Cl_fluid"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_K_cap",
-        "variables":["v_K_cap"],
+        "port_type":"v_K_bld_cap",
+        "variables":["v_K_fluid"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_V_cap",
-        "variables":["v_V_cap"],
+        "port_type":"v_V_bld_cap",
+        "variables":["v_V_fluid"],
         "multi_port": "True"
-      },
-      {
-        "port_type":"u_e_cap_m",
-        "variables":["u_e_cap_m"]
       }
     ],
     "variables_and_units":
@@ -927,12 +1148,118 @@
       ["c_albumin", "mM", "access", "variable"],
       ["u_P", "kPa", "access", "constant"],
       ["u_P_pi", "kPa", "access", "variable"],
-      ["u_e_blood", "volt", "access", "variable"],
+      ["u_e_fluid", "volt", "access", "variable"],
       ["u_e_Donnan", "volt", "access", "constant"],
       ["u_mu_e_Na", "J_per_mmol", "access", "variable"],
       ["u_mu_e_K", "J_per_mmol", "access", "variable"],
       ["u_mu_e_Cl", "J_per_mmol", "access", "variable"],
-      ["G_cap", "picoS", "access", "constant"]
+      ["G_m", "picoS", "access", "constant"]
+    ]
+  },
+  {
+    "vessel_type":"lymph",
+    "BC_type":"nn",
+    "module_format":"cellml",
+    "module_file":"colon_FTU_modules.cellml",
+    "module_type":"blood_lymph",
+    "entrance_ports":
+    [
+    ],
+    "exit_ports":
+    [
+    ],
+    "general_ports":
+    [
+      {
+        "port_type": "I_lym",
+        "variables": ["I_fluid"]
+      },
+      {
+        "port_type": "lymph_pressures",
+        "variables": ["u_P_pi"]
+      },
+      {
+        "port_type": "lymph_potential_Na",
+        "variables": ["u_mu_e_Na"]
+      },
+      {
+        "port_type": "lymph_potential_K",
+        "variables": ["u_mu_e_K"]
+      },
+      {
+        "port_type": "lymph_potential_Cl",
+        "variables": ["u_mu_e_Cl"]
+      },
+      {
+        "port_type":"c_Na_lymph",
+        "variables":["c_Na"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"c_K_lymph",
+        "variables":["c_K"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"c_Cl_lymph",
+        "variables":["c_Cl"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_Na_lym_lymph",
+        "variables":["v_Na_fluid"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_Cl_lym_lymph",
+        "variables":["v_Cl_fluid"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_K_lym_lymph",
+        "variables":["v_K_fluid"],
+        "multi_port": "True"
+      },
+      {
+        "port_type":"v_V_lym_lymph",
+        "variables":["v_V_fluid"],
+        "multi_port": "True"
+      }
+    ],
+    "variables_and_units":
+    [
+      ["zNa", "dimensionless", "access", "global_constant"],
+      ["zK", "dimensionless", "access", "global_constant"],
+      ["zCl", "dimensionless", "access", "global_constant"],
+      ["R", "J_per_K_per_mmol", "access", "global_constant"],
+      ["T", "kelvin", "access", "global_constant"],
+      ["F", "C_per_mmol", "access", "global_constant"],
+      ["K_Na", "per_mM", "access", "global_constant"],
+      ["K_K", "per_mM", "access", "global_constant"],
+      ["K_Cl", "per_mM", "access", "global_constant"],
+      ["q_V_init", "pL", "access", "constant"],
+      ["q_Na_init", "fmol", "access", "constant"],
+      ["q_Cl_init", "fmol", "access", "constant"],
+      ["q_K_init", "fmol", "access", "constant"],
+      ["q_albumin", "fmol", "access", "constant"],
+      ["q_proteins", "fmol", "access", "constant"],
+      ["q_V", "pL", "access", "variable"],
+      ["q_Na", "fmol", "access", "variable"],
+      ["q_Cl", "fmol", "access", "variable"],
+      ["q_K", "fmol", "access", "variable"],
+      ["c_Na", "mM", "access", "variable"],
+      ["c_K", "mM", "access", "variable"],
+      ["c_Cl", "mM", "access", "variable"],
+      ["c_proteins", "mM", "access", "variable"],
+      ["c_albumin", "mM", "access", "variable"],
+      ["u_P", "kPa", "access", "constant"],
+      ["u_P_pi", "kPa", "access", "variable"],
+      ["u_e_fluid", "volt", "access", "variable"],
+      ["u_e_Donnan", "volt", "access", "constant"],
+      ["u_mu_e_Na", "J_per_mmol", "access", "variable"],
+      ["u_mu_e_K", "J_per_mmol", "access", "variable"],
+      ["u_mu_e_Cl", "J_per_mmol", "access", "variable"],
+      ["G_m", "picoS", "access", "constant"]
     ]
   },
   {
@@ -1202,7 +1529,9 @@
       ["zK", "dimensionless", "access", "global_constant"],
       ["v_Kir_o", "fmol_per_s", "access", "variable"],
       ["v_Kir_i", "fmol_per_s", "access", "variable"],
-      ["kappa_Kir", "picoS", "access", "constant"]
+      ["kappa_Kir", "pL_per_s", "access", "variable"],
+      ["N_Kir", "fmol", "access", "constant"],
+      ["P_Kir", "pL_per_s_per_fmol", "access", "constant"]
     ]
   },
   {

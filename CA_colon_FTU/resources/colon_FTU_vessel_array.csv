@@ -1,7 +1,7 @@
 name,BC_type,vessel_type,inp_vessels,out_vessels
 lumen,nn,lumen,bas_membrane,para_transport api_membrane ENaC AQ_api
 cell,nn,colonocyte,ENaC AQ_api para_transport,api_membrane bas_membrane NKE AQ_bas Kir
-int_fluid,nn,interstitial_fluid,para_transport Kir NKE AQ_bas,bas_membrane cap_transport
+int_fluid,nn,interstitial_fluid,para_transport Kir NKE AQ_bas,bas_membrane cap_transport lymph_transport
 para_transport,nn,paracellular_module,lumen,int_fluid cell
 bas_membrane,nn,basolateral_membrane,cell int_fluid Kir NKE,lumen
 api_membrane,nn,apical_membrane,lumen cell ENaC,
@@ -12,3 +12,5 @@ NKE,nn,NKE,cell ,bas_membrane int_fluid
 Kir,nn,Kir,cell,bas_membrane int_fluid
 cap_transport,nn,cap_transport,int_fluid,blood 
 blood,nn,blood,cap_transport,
+lymph,nn,lymph,lymph_transport,
+lymph_transport,nn,lymph_transport,int_fluid,lymph
