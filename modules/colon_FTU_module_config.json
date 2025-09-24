@@ -173,43 +173,23 @@
         "multi_port": "True"
       },
       {
-        "port_type":"v_Na_int_cap",
-        "variables":["v_Na_o"],
+        "port_type":"v_Na_cap",
+        "variables":["v_Na"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_Cl_int_cap",
-        "variables":["v_Cl_o"],
+        "port_type":"v_Cl_cap",
+        "variables":["v_Cl"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_K_int_cap",
-        "variables":["v_K_o"],
+        "port_type":"v_K_cap",
+        "variables":["v_K"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_V_int_cap",
-        "variables":["v_V_o"],
-        "multi_port": "True"
-      },
-      {
-        "port_type":"v_Na_bld_cap",
-        "variables":["v_Na_i"],
-        "multi_port": "True"
-      },
-      {
-        "port_type":"v_Cl_bld_cap",
-        "variables":["v_Cl_i"],
-        "multi_port": "True"
-      },
-      {
-        "port_type":"v_K_bld_cap",
-        "variables":["v_K_i"],
-        "multi_port": "True"
-      },
-      {
-        "port_type":"v_V_bld_cap",
-        "variables":["v_V_i"],
+        "port_type":"v_V_cap",
+        "variables":["v_V"],
         "multi_port": "True"
       },
       {
@@ -265,14 +245,10 @@
       ["zNa", "dimensionless", "access", "global_constant"],
       ["zCl", "dimensionless", "access", "global_constant"],
       ["zK", "dimensionless", "access", "global_constant"],
-      ["v_Na_o", "fmol_per_s", "access", "variable"],
-      ["v_K_o", "fmol_per_s", "access", "variable"],
-      ["v_Cl_o", "fmol_per_s", "access", "variable"],
-      ["v_V_o", "pL_per_s", "access", "variable"],
-      ["v_Na_i", "fmol_per_s", "access", "variable"],
-      ["v_K_i", "fmol_per_s", "access", "variable"],
-      ["v_Cl_i", "fmol_per_s", "access", "variable"],
-      ["v_V_i", "pL_per_s", "access", "variable"],
+      ["v_Na", "fmol_per_s", "access", "variable"],
+      ["v_K", "fmol_per_s", "access", "variable"],
+      ["v_Cl", "fmol_per_s", "access", "variable"],
+      ["v_V", "pL_per_s", "access", "variable"],
       ["I_para", "picoA", "access", "variable"]
     ]
   },
@@ -321,43 +297,23 @@
         "multi_port": "True"
       },
       {
-        "port_type":"v_Na_int_lymph",
-        "variables":["v_Na_o"],
+        "port_type":"v_Na_lymph",
+        "variables":["v_Na"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_Cl_int_lymph",
-        "variables":["v_Cl_o"],
+        "port_type":"v_Cl_lymph",
+        "variables":["v_Cl"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_K_int_lymph",
-        "variables":["v_K_o"],
+        "port_type":"v_K_lymph",
+        "variables":["v_K"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_V_int_lymph",
-        "variables":["v_V_o"],
-        "multi_port": "True"
-      },
-      {
-        "port_type":"v_Na_lym_lymph",
-        "variables":["v_Na_i"],
-        "multi_port": "True"
-      },
-      {
-        "port_type":"v_Cl_lym_lymph",
-        "variables":["v_Cl_i"],
-        "multi_port": "True"
-      },
-      {
-        "port_type":"v_K_lym_lymph",
-        "variables":["v_K_i"],
-        "multi_port": "True"
-      },
-      {
-        "port_type":"v_V_lym_lymph",
-        "variables":["v_V_i"],
+        "port_type":"v_V_lymph",
+        "variables":["v_V"],
         "multi_port": "True"
       },
       {
@@ -416,14 +372,10 @@
       ["zNa", "dimensionless", "access", "global_constant"],
       ["zCl", "dimensionless", "access", "global_constant"],
       ["zK", "dimensionless", "access", "global_constant"],
-      ["v_Na_o", "fmol_per_s", "access", "variable"],
-      ["v_K_o", "fmol_per_s", "access", "variable"],
-      ["v_Cl_o", "fmol_per_s", "access", "variable"],
-      ["v_V_o", "pL_per_s", "access", "variable"],
-      ["v_Na_i", "fmol_per_s", "access", "variable"],
-      ["v_K_i", "fmol_per_s", "access", "variable"],
-      ["v_Cl_i", "fmol_per_s", "access", "variable"],
-      ["v_V_i", "pL_per_s", "access", "variable"],
+      ["v_Na", "fmol_per_s", "access", "variable"],
+      ["v_K", "fmol_per_s", "access", "variable"],
+      ["v_Cl", "fmol_per_s", "access", "variable"],
+      ["v_V", "pL_per_s", "access", "variable"],
       ["I_para", "picoA", "access", "variable"]
     ]
   },
@@ -472,43 +424,23 @@
         "multi_port": "True"
       },
       {
-        "port_type":"v_Na_lum_para",
-        "variables":["v_Na_o"],
+        "port_type":"v_Na_para",
+        "variables":["v_Na"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_Cl_lum_para",
-        "variables":["v_Cl_o"],
+        "port_type":"v_Cl_para",
+        "variables":["v_Cl"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_K_lum_para",
-        "variables":["v_K_o"],
+        "port_type":"v_K_para",
+        "variables":["v_K"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_V_lum_para",
-        "variables":["v_V_o"],
-        "multi_port": "True"
-      },
-      {
-        "port_type":"v_Na_int_para",
-        "variables":["v_Na_i"],
-        "multi_port": "True"
-      },
-      {
-        "port_type":"v_Cl_int_para",
-        "variables":["v_Cl_i"],
-        "multi_port": "True"
-      },
-      {
-        "port_type":"v_K_int_para",
-        "variables":["v_K_i"],
-        "multi_port": "True"
-      },
-      {
-        "port_type":"v_V_int_para",
-        "variables":["v_V_i"],
+        "port_type":"v_V_para",
+        "variables":["v_V"],
         "multi_port": "True"
       },
       {
@@ -569,14 +501,10 @@
       ["zNa", "dimensionless", "access", "global_constant"],
       ["zCl", "dimensionless", "access", "global_constant"],
       ["zK", "dimensionless", "access", "global_constant"],
-      ["v_Na_o", "fmol_per_s", "access", "variable"],
-      ["v_K_o", "fmol_per_s", "access", "variable"],
-      ["v_Cl_o", "fmol_per_s", "access", "variable"],
-      ["v_V_o", "pL_per_s", "access", "variable"],
-      ["v_Na_i", "fmol_per_s", "access", "variable"],
-      ["v_K_i", "fmol_per_s", "access", "variable"],
-      ["v_Cl_i", "fmol_per_s", "access", "variable"],
-      ["v_V_i", "pL_per_s", "access", "variable"],
+      ["v_Na", "fmol_per_s", "access", "variable"],
+      ["v_K", "fmol_per_s", "access", "variable"],
+      ["v_Cl", "fmol_per_s", "access", "variable"],
+      ["v_V", "pL_per_s", "access", "variable"],
       ["I_para", "picoA", "access", "variable"]
     ]
   },
@@ -692,22 +620,22 @@
         "multi_port": "True"
       },
       {
-        "port_type":"v_Na_lum_para",
+        "port_type":"v_Na_para",
         "variables":["v_Na_para"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_Cl_lum_para",
+        "port_type":"v_Cl_para",
         "variables":["v_Cl_para"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_K_lum_para",
+        "port_type":"v_K_para",
         "variables":["v_K_para"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_V_lum_para",
+        "port_type":"v_V_para",
         "variables":["v_V_para"],
         "multi_port": "True"
       },
@@ -937,62 +865,62 @@
         "multi_port": "True"
       },
       {
-        "port_type":"v_Na_int_para",
+        "port_type":"v_Na_para",
         "variables":["v_Na_para"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_Cl_int_para",
+        "port_type":"v_Cl_para",
         "variables":["v_Cl_para"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_K_int_para",
+        "port_type":"v_K_para",
         "variables":["v_K_para"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_V_int_para",
+        "port_type":"v_V_para",
         "variables":["v_V_para"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_Na_int_lymph",
+        "port_type":"v_Na_lymph",
         "variables":["v_Na_lym"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_Cl_int_lymph",
+        "port_type":"v_Cl_lymph",
         "variables":["v_Cl_lym"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_K_int_lymph",
+        "port_type":"v_K_lymph",
         "variables":["v_K_lym"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_V_int_lymph",
+        "port_type":"v_V_lymph",
         "variables":["v_V_lym"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_Na_int_cap",
+        "port_type":"v_Na_cap",
         "variables":["v_Na_cap"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_Cl_int_cap",
+        "port_type":"v_Cl_cap",
         "variables":["v_Cl_cap"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_K_int_cap",
+        "port_type":"v_K_cap",
         "variables":["v_K_cap"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_V_int_cap",
+        "port_type":"v_V_cap",
         "variables":["v_V_cap"],
         "multi_port": "True"
       },
@@ -1100,22 +1028,22 @@
         "multi_port": "True"
       },
       {
-        "port_type":"v_Na_bld_cap",
+        "port_type":"v_Na_cap",
         "variables":["v_Na_fluid"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_Cl_bld_cap",
+        "port_type":"v_Cl_cap",
         "variables":["v_Cl_fluid"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_K_bld_cap",
+        "port_type":"v_K_cap",
         "variables":["v_K_fluid"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_V_bld_cap",
+        "port_type":"v_V_cap",
         "variables":["v_V_fluid"],
         "multi_port": "True"
       }
@@ -1206,22 +1134,22 @@
         "multi_port": "True"
       },
       {
-        "port_type":"v_Na_lym_lymph",
+        "port_type":"v_Na_lymph",
         "variables":["v_Na_fluid"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_Cl_lym_lymph",
+        "port_type":"v_Cl_lymph",
         "variables":["v_Cl_fluid"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_K_lym_lymph",
+        "port_type":"v_K_lymph",
         "variables":["v_K_fluid"],
         "multi_port": "True"
       },
       {
-        "port_type":"v_V_lym_lymph",
+        "port_type":"v_V_lymph",
         "variables":["v_V_fluid"],
         "multi_port": "True"
       }
@@ -1395,8 +1323,9 @@
       ["kappa_2", "fmol_per_s", "access", "constant"],
       ["kappa_3", "fmol_per_s", "access", "constant"],
       ["kappa_4", "fmol_per_s", "access", "constant"],
-      ["gamma_Na", "picoS_per_fmol", "access", "constant"],
-      ["gamma_o", "picoS_per_fmol", "access", "constant"]
+      ["kappa_ENaC", "pL_per_s", "access", "variable"],
+      ["P_Na", "pL_per_s_per_fmol", "access", "constant"],
+      ["P_o", "pL_per_s_per_fmol", "access", "constant"]
     ]
   },
   {
@@ -1626,6 +1555,12 @@
       ["q_4_init", "fmol", "access", "constant"],
       ["q_5_init", "fmol", "access", "constant"],
       ["q_6_init", "fmol", "access", "constant"],
+      ["q_1", "fmol", "access", "variable"],
+      ["q_2", "fmol", "access", "variable"],
+      ["q_3", "fmol", "access", "variable"],
+      ["q_4", "fmol", "access", "variable"],
+      ["q_5", "fmol", "access", "variable"],
+      ["q_6", "fmol", "access", "variable"],
       ["v_q_Na_i", "fmol_per_s", "access", "variable"],
       ["v_q_Na_o", "fmol_per_s", "access", "variable"],
       ["v_q_K_i", "fmol_per_s", "access", "variable"],
