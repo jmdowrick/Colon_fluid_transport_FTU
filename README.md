@@ -4,25 +4,22 @@ This project contains the CellML bond graph modules and circulatory autogen inpu
 # Overview
 
 ## Full model
-<img width="1986" height="1785" alt="CA_colon_FTU" src="model_visualisations/CA_colon_FTU.png" />
+<img width="8192" height="4742" alt="CA_colon_FTU" src="model_visualisations/CA_colon_FTU.png" />
 
 ## Modules
-### Compartments
-####
-
-### Membranes
 
 ### Proteins
 #### Epithelial Sodium Channel (ENaC)
-<img width="1049" height="805" alt="BG_ENaC" src="model_visualisations/BG_ENaC.png" />
+<img width="3150" height="2244" alt="BG_ENaC" src="model_visualisations/BG_ENaC.png" />
 
 #### Na/K-ATPase
-#### Aquaporin
-#### K-leak channel
+<img width="2124" height="2106" alt="BG_NKE" src="model_visualisations/BG_Hunter_NKE.png" />
 
-### Processes
-#### Diffusion
-#### Solvent drag (advection)
+#### Aquaporin
+<img width="2694" height="519" alt="BG_NKE" src="model_visualisations/BG_AQ.png" />
+
+#### K-leak channel
+<img width="3147" height="795" alt="BG_NKE" src="model_visualisations/BG_Kir.png" />
 
 # How to use
 
@@ -38,6 +35,16 @@ and update:
 
 user_inputs_path_override: [colon_FTU_dir]/CA_colon_FTU/colon_FTU_user_inputs.yaml
 
+## Generating the functional tissue unit
+After updating modules, parameters, or the vessel array, it will be necessary to regenerate the functional tissue model. To do so, Navigate to the user_runs_files directory 
+
+
+
+ and run the following command 
+
+```
+ ./run_autogeneration.sh
+```
 
 # Directory structure
 
