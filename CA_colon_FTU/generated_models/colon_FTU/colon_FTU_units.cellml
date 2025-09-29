@@ -913,4 +913,14 @@
         <unit units="litre"/>
         <unit exponent="-1" prefix="milli" units="mole"/>
     </units>
+    <units name="nm">
+        <unit prefix="nano" units="meter"/>
+    </units>
+    <units name="um2">
+        <unit exponent="2" prefix="micro" units="meter"/>
+    </units>
+    <units name="um2_per_s">
+        <unit exponent="2" prefix="micro" units="meter"/>
+        <unit exponent="-1" units="second"/>
+    </units>
 </model>
