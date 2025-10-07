@@ -1,0 +1,17 @@
+variable_name,units,value,data_reference
+q_1_init_ENaC,fmol,0.0015,user_defined
+q_2_init_ENaC,fmol,0.0015,user_defined
+K_1_ENaC,per_fmol,EMPTY_MUST_BE_FILLED,EMPTY_MUST_BE_FILLED
+K_2_ENaC,per_fmol,EMPTY_MUST_BE_FILLED,EMPTY_MUST_BE_FILLED
+kappa_1_ENaC,fmol_per_s,EMPTY_MUST_BE_FILLED,EMPTY_MUST_BE_FILLED
+P_Na_ENaC,dimensionless,0.3,user_defined
+P_o_ENaC,dimensionless,0.55,user_defined
+P_max_ENaC,pL_per_s_per_fmol,15633.66876,Shen_2004
+c_Na_o_ENaC,mM,145,user_defined
+u_e_m_ENaC,volt,-0.05,user_defined
+c_Na_i_ENaC,mM,15,user_defined
+R,J_per_K_per_mmol,0.008314,known
+F,C_per_mmol,96.485,known
+T,kelvin,310,user_defined
+zNa,dimensionless,1,known
+K_Na,per_mM,EMPTY_MUST_BE_FILLED,EMPTY_MUST_BE_FILLED

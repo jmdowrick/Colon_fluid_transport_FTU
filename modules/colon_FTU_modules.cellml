@@ -2652,7 +2652,17 @@ ode(q_V, t)  = -v_V_lum;-->
                 <ci>I_ENaC</ci>
                 <piecewise>
                     <piece>
-                        <cn cellml:units="picoA">0</cn>
+                        <apply>
+                            <times/>
+                            <ci>kappa_ENaC</ci>
+                            <ci>zNa</ci>
+                            <ci>F</ci>
+                            <apply>
+                                <minus/>
+                                <ci>c_Na_i</ci>
+                                <ci>c_Na_o</ci>
+                            </apply>
+                        </apply>
                         <apply>
                             <lt/>
                             <apply>
@@ -2767,6 +2777,247 @@ ode(q_V, t)  = -v_V_lum;-->
             </apply>
         </math>
     </component>
+    <component name="ENaC_PE">
+        <variable name="t" public_interface="in" units="second"/>
+        <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
+        <variable name="T" public_interface="in" units="kelvin"/>
+        <variable name="F" public_interface="in" units="C_per_mmol"/>
+        <variable name="RT" units="J_per_mmol"/>
+        <variable name="zNa" public_interface="in" units="dimensionless"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>RT</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                </apply>
+            </apply>
+        </math>
+        <!-- Quantities-->
+        <variable name="q_1_init" public_interface="in" units="fmol"/>
+        <variable name="q_2_init" public_interface="in" units="fmol"/>
+        <variable initial_value="q_1_init" name="q_1" units="fmol"/>
+        <variable initial_value="q_2_init" name="q_2" units="fmol"/>
+        <variable name="c_Na_i" public_interface="in" units="mM"/>
+        <variable name="c_Na_o" public_interface="in" units="mM"/>
+        <!-- Parameters-->
+        <variable name="K_1" public_interface="in" units="per_fmol"/>
+        <variable name="K_2" public_interface="in" units="per_fmol"/>
+        <variable name="K_Na" public_interface="in" units="per_mM"/>
+        <variable name="kappa_1" public_interface="in" units="fmol_per_s"/>
+        <variable name="P_Na" public_interface="in" units="dimensionless"/>
+        <variable name="P_o" public_interface="in" units="dimensionless"/>
+        <variable name="P_max" public_interface="in" units="pL_per_s_per_fmol"/>
+        <!-- Potentials-->
+        <variable name="u_e_m" public_interface="in" units="volt"/>
+        <!-- flows-->
+        <variable name="v_1" units="fmol_per_s"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>v_1</ci>
+                <apply>
+                    <times/>
+                    <ci>kappa_1</ci>
+                    <apply>
+                        <minus/>
+                        <apply>
+                            <times/>
+                            <ci>K_1</ci>
+                            <ci>q_1</ci>
+                        </apply>
+                        <apply>
+                            <times/>
+                            <ci>K_2</ci>
+                            <ci>q_2</ci>
+                            <ci>K_Na</ci>
+                            <ci>c_Na_o</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+        <!-- net fluxes-->
+        <variable name="kappa_ENaC" public_interface="out" units="pL_per_s"/>
+        <variable name="v_q_Na_i" public_interface="out" units="fmol_per_s"/>
+        <variable name="v_q_Na_o" public_interface="out" units="fmol_per_s"/>
+        <variable name="I_ENaC" public_interface="out" units="picoA"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_1</ci>
+                </apply>
+                <apply>
+                    <minus/>
+                    <ci>v_1</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_2</ci>
+                </apply>
+                <ci>v_1</ci>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>kappa_ENaC</ci>
+                <apply>
+                    <times/>
+                    <apply>
+                        <plus/>
+                        <apply>
+                            <times/>
+                            <ci>P_Na</ci>
+                            <ci>q_1</ci>
+                        </apply>
+                        <apply>
+                            <times/>
+                            <ci>P_o</ci>
+                            <ci>q_2</ci>
+                        </apply>
+                    </apply>
+                    <ci>P_max</ci>
+                </apply>
+            </apply>
+            <!-- l'Hopitals rule applied at the limit 0/0-->
+            <apply>
+                <eq/>
+                <ci>I_ENaC</ci>
+                <piecewise>
+                    <piece>
+                        <apply>
+                            <times/>
+                            <ci>kappa_ENaC</ci>
+                            <ci>zNa</ci>
+                            <ci>F</ci>
+                            <apply>
+                                <minus/>
+                                <ci>c_Na_i</ci>
+                                <ci>c_Na_o</ci>
+                            </apply>
+                        </apply>
+                        <apply>
+                            <lt/>
+                            <apply>
+                                <abs/>
+                                <ci>u_e_m</ci>
+                            </apply>
+                            <cn cellml:units="volt" type="e-notation">1<sep/>-9</cn>
+                        </apply>
+                    </piece>
+                    <otherwise>
+                        <apply>
+                            <divide/>
+                            <apply>
+                                <times/>
+                                <apply>
+                                    <divide/>
+                                    <apply>
+                                        <times/>
+                                        <ci>kappa_ENaC</ci>
+                                        <apply>
+                                            <power/>
+                                            <ci>zNa</ci>
+                                            <cn cellml:units="dimensionless">2</cn>
+                                        </apply>
+                                        <ci>u_e_m</ci>
+                                        <apply>
+                                            <power/>
+                                            <ci>F</ci>
+                                            <cn cellml:units="dimensionless">2</cn>
+                                        </apply>
+                                    </apply>
+                                    <ci>RT</ci>
+                                </apply>
+                                <apply>
+                                    <minus/>
+                                    <ci>c_Na_i</ci>
+                                    <apply>
+                                        <times/>
+                                        <ci>c_Na_o</ci>
+                                        <apply>
+                                            <exp/>
+                                            <apply>
+                                                <divide/>
+                                                <apply>
+                                                    <times/>
+                                                    <apply>
+                                                        <minus/>
+                                                        <ci>zNa</ci>
+                                                    </apply>
+                                                    <ci>F</ci>
+                                                    <ci>u_e_m</ci>
+                                                </apply>
+                                                <ci>RT</ci>
+                                            </apply>
+                                        </apply>
+                                    </apply>
+                                </apply>
+                            </apply>
+                            <apply>
+                                <minus/>
+                                <cn cellml:units="dimensionless">1</cn>
+                                <apply>
+                                    <exp/>
+                                    <apply>
+                                        <divide/>
+                                        <apply>
+                                            <times/>
+                                            <apply>
+                                                <minus/>
+                                                <ci>zNa</ci>
+                                            </apply>
+                                            <ci>F</ci>
+                                            <ci>u_e_m</ci>
+                                        </apply>
+                                        <ci>RT</ci>
+                                    </apply>
+                                </apply>
+                            </apply>
+                        </apply>
+                    </otherwise>
+                </piecewise>
+            </apply>
+            <!-- output fluxes-->
+            <apply>
+                <eq/>
+                <ci>v_q_Na_i</ci>
+                <apply>
+                    <divide/>
+                    <apply>
+                        <minus/>
+                        <ci>I_ENaC</ci>
+                    </apply>
+                    <apply>
+                        <times/>
+                        <ci>zNa</ci>
+                        <ci>F</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_q_Na_o</ci>
+                <apply>
+                    <minus/>
+                    <ci>v_1</ci>
+                    <ci>v_q_Na_i</ci>
+                </apply>
+            </apply>
+        </math>
+    </component>
     <!-- ###########################################-->
     <component name="AQ">
         <variable name="t" public_interface="in" units="second"/>
@@ -2851,7 +3102,36 @@ ode(q_V, t)  = -v_V_lum;-->
                 <ci>I_Kir</ci>
                 <piecewise>
                     <piece>
-                        <cn cellml:units="picoA">0</cn>
+                        <apply>
+                            <times/>
+                            <apply>
+                                <divide/>
+                                <apply>
+                                    <times/>
+                                    <ci>kappa_Kir</ci>
+                                    <apply>
+                                        <power/>
+                                        <ci>zK</ci>
+                                        <cn cellml:units="dimensionless">2</cn>
+                                    </apply>
+                                    <apply>
+                                        <power/>
+                                        <ci>F</ci>
+                                        <cn cellml:units="dimensionless">2</cn>
+                                    </apply>
+                                </apply>
+                                <apply>
+                                    <times/>
+                                    <cn cellml:units="dimensionless">2</cn>
+                                    <ci>RT</ci>
+                                </apply>
+                            </apply>
+                            <apply>
+                                <minus/>
+                                <ci>c_K_i</ci>
+                                <ci>c_K_o</ci>
+                            </apply>
+                        </apply>
                         <apply>
                             <lt/>
                             <apply>

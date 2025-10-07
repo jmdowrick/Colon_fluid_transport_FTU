@@ -1,0 +1,5 @@
+vessel_name,param_name,param_type,min,max,     name_for_plotting
+ENaC,K_Na,const,1e-6,1000,K_{Na}
+ENaC,K_1,const,1e-6,1000,K_1
+ENaC,K_2,const,1e-6,1000,K_2
+ENaC,kappa_1,const,1e-6,1000,\kappa_1
