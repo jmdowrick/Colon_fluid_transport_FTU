@@ -58,6 +58,8 @@ After updating modules, parameters, or the vessel array, it will be necessary to
 │   ├── generated_models
 │   └── resources
 ├── LICENSE
+├── Module_calibration
+│   └── ENaC
 ├── README.md
 ├── model_visualisations
 │   ├── BG_AQ.png
@@ -79,7 +81,7 @@ After updating modules, parameters, or the vessel array, it will be necessary to
     ├── epithelial_dynamics.cellml
     └── units_and_constants
 
-10 directories, 20 files
+12 directories, 20 files
 ```
 # Citation
 *Insert journal citations when this model is published.*
