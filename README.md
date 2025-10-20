@@ -73,8 +73,6 @@ After updating modules, parameters, or the vessel array, it will be necessary to
     ├── BG_ENaC.cellml
     ├── BG_ENaC_SS.cellml
     ├── BG_Kir.cellml
-    ├── ENaC_pe_module_config.json
-    ├── Kellenberger_ENaC_modules.cellml
     ├── NKE_pump_BG_6_states_v2.cellml
     ├── NKE_pump_SS_BG_6_states_v1.cellml
     ├── colon_FTU_module_config.json
@@ -83,7 +81,7 @@ After updating modules, parameters, or the vessel array, it will be necessary to
     ├── epithelial_dynamics.cellml
     └── units_and_constants
 
-12 directories, 22 files
+12 directories, 20 files
 ```
 # Citation
 *Insert journal citations when this model is published.*
