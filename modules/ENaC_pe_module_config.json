@@ -1,0 +1,67 @@
+[
+  {
+    "vessel_type":"ENaC",
+    "BC_type":"nn",
+    "module_format":"cellml",
+    "module_file":"colon_FTU_modules.cellml",
+    "module_type":"ENaC",
+    "entrance_ports":
+    [
+    ],
+    "exit_ports":
+    [
+    ],
+    "general_ports":
+    [
+    ],
+    "variables_and_units":
+    [
+      ["zNa", "dimensionless", "access", "global_constant"],
+      ["R", "J_per_K_per_mmol", "access", "global_constant"],
+      ["F", "C_per_mmol", "access", "global_constant"],
+      ["T", "kelvin", "access", "global_constant"],
+
+      ["q_1_init", "fmol", "access", "constant"],
+      ["q_2_init", "fmol", "access", "constant"],
+      ["q_3_init", "fmol", "access", "constant"],
+      ["q_4_init", "fmol", "access", "constant"],
+      ["v_q_Na_i", "fmol_per_s", "access", "variable"],
+      ["v_q_Na_o", "fmol_per_s", "access", "variable"],
+      ["K_1", "per_fmol", "access", "constant"],
+      ["K_2", "per_fmol", "access", "constant"],
+      ["K_3", "per_fmol", "access", "constant"],
+      ["K_4", "per_fmol", "access", "constant"],
+      ["K_Na", "per_mM", "access", "global_constant"],
+      ["kappa_1", "fmol_per_s", "access", "constant"],
+      ["kappa_2", "fmol_per_s", "access", "constant"],
+      ["kappa_3", "fmol_per_s", "access", "constant"],
+      ["kappa_4", "fmol_per_s", "access", "constant"],
+      ["kappa_ENaC", "pL_per_s", "access", "variable"],
+      ["P_Na", "pL_per_s_per_fmol", "access", "constant"],
+      ["P_o", "pL_per_s_per_fmol", "access", "constant"]
+    ]
+  },
+  {
+    "vessel_type":"ENaC_pe",
+    "BC_type":"nn",
+    "module_format":"cellml",
+    "module_file":"colon_FTU_modules.cellml",
+    "module_type":"ENaC_PE",
+    "entrance_ports":
+    [
+    ],
+    "exit_ports":
+    [
+    ],
+    "general_ports":
+    [
+    ],
+    "variables_and_units":
+    [
+      ["q_Na_i", "fmol", "access", "constant"],
+      ["q_Na_o", "fmol", "access", "constant"],
+      ["u_e_m", "volt", "access", "constant"],
+      ["I_ENaC", "picoA", "access", "variable"]
+    ]
+  }
+]
