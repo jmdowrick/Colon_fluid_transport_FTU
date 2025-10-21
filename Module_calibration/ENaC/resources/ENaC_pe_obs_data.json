@@ -72,7 +72,7 @@
         [24, 24],
         [24, 24]
       ],
-      "ENaC/T": [
+      "global/T": [
         [294.5, 294.5],
         [294.5, 294.5],
         [294.5, 294.5],
@@ -85,6 +85,76 @@
         [294.5, 294.5],
         [294.5, 294.5],
         [294.5, 294.5]
+      ],
+      "ENaC/q_1_init": [
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016]
+      ],
+      "ENaC/q_2_init": [
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016]
+      ],
+      "ENaC/q_3_init": [
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016]
+      ],
+      "ENaC/q_4_init": [
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016],
+        [0.00000016, 0.00000016]
+      ],
+      "ENaC/q_5_init": [
+        [0.00000064, 0.00000064],
+        [0.00000064, 0.00000064],
+        [0.00000064, 0.00000064],
+        [0.00000064, 0.00000064],
+        [0.00000064, 0.00000064],
+        [0.00000064, 0.00000064],
+        [0.00000064, 0.00000064],
+        [0.00000064, 0.00000064],
+        [0.00000064, 0.00000064],
+        [0.00000064, 0.00000064],
+        [0.00000064, 0.00000064],
+        [0.00000064, 0.00000064]
       ]
     },
     "experiment_colors": ["r", "r", "r", "r", "r","r", "r", "r", "r", "r","r", "r"],
@@ -120,11 +190,11 @@
       "plot_type": "horizontal"
     },
     {
-      "variable": "ENaC/I_ENaC",
+      "variable": "ENaC/I_m_recorded",
       "name_for_plotting": "I_{ENaC}",
       "data_type": "constant",
       "operation": "steady_state_min",
-      "operands": ["ENaC/I_ENaC"],
+      "operands": ["ENaC/I_m_recorded"],
       "unit": "picoA",
       "weight": 1.0,
       "value": -95.24714829,
@@ -134,11 +204,11 @@
       "plot_type": "horizontal"
     },
     {
-      "variable": "ENaC/I_ENaC",
+      "variable": "ENaC/I_m_recorded",
       "name_for_plotting": "I_{ENaC}",
       "data_type": "constant",
       "operation": "steady_state_min",
-      "operands": ["ENaC/I_ENaC"],
+      "operands": ["ENaC/I_m_recorded"],
       "unit": "picoA",
       "weight": 1.0,
       "value": -81.55893536,
@@ -148,11 +218,11 @@
       "plot_type": "horizontal"
     },
     {
-      "variable": "ENaC/I_ENaC",
+      "variable": "ENaC/I_m_recorded",
       "name_for_plotting": "I_{ENaC}",
       "data_type": "constant",
       "operation": "steady_state_min",
-      "operands": ["ENaC/I_ENaC"],
+      "operands": ["ENaC/I_m_recorded"],
       "unit": "picoA",
       "weight": 1.0,
       "value": -67.11026616,
@@ -162,11 +232,11 @@
       "plot_type": "horizontal"
     },
     {
-      "variable": "ENaC/I_ENaC",
+      "variable": "ENaC/I_m_recorded",
       "name_for_plotting": "I_{ENaC}",
       "data_type": "constant",
       "operation": "steady_state_min",
-      "operands": ["ENaC/I_ENaC"],
+      "operands": ["ENaC/I_m_recorded"],
       "unit": "picoA",
       "weight": 1.0,
       "value": -54.94296578,
@@ -176,11 +246,11 @@
       "plot_type": "horizontal"
     },
     {
-      "variable": "ENaC/I_ENaC",
+      "variable": "ENaC/I_m_recorded",
       "name_for_plotting": "I_{ENaC}",
       "data_type": "constant",
       "operation": "steady_state_min",
-      "operands": ["ENaC/I_ENaC"],
+      "operands": ["ENaC/I_m_recorded"],
       "unit": "picoA",
       "weight": 1.0,
       "value": -42.7756654,
@@ -190,11 +260,11 @@
       "plot_type": "horizontal"
     },
     {
-      "variable": "ENaC/I_ENaC",
+      "variable": "ENaC/I_m_recorded",
       "name_for_plotting": "I_{ENaC}",
       "data_type": "constant",
       "operation": "steady_state_min",
-      "operands": ["ENaC/I_ENaC"],
+      "operands": ["ENaC/I_m_recorded"],
       "unit": "picoA",
       "weight": 1.0,
       "value": -31.36882129,
@@ -204,11 +274,11 @@
       "plot_type": "horizontal"
     },
     {
-      "variable": "ENaC/I_ENaC",
+      "variable": "ENaC/I_m_recorded",
       "name_for_plotting": "I_{ENaC}",
       "data_type": "constant",
       "operation": "steady_state_min",
-      "operands": ["ENaC/I_ENaC"],
+      "operands": ["ENaC/I_m_recorded"],
       "unit": "picoA",
       "weight": 1.0,
       "value": -22.24334601,
@@ -218,11 +288,11 @@
       "plot_type": "horizontal"
     },
     {
-      "variable": "ENaC/I_ENaC",
+      "variable": "ENaC/I_m_recorded",
       "name_for_plotting": "I_{ENaC}",
       "data_type": "constant",
       "operation": "steady_state_min",
-      "operands": ["ENaC/I_ENaC"],
+      "operands": ["ENaC/I_m_recorded"],
       "unit": "picoA",
       "weight": 1.0,
       "value": -11.59695817,
@@ -232,11 +302,11 @@
       "plot_type": "horizontal"
     },
     {
-      "variable": "ENaC/I_ENaC",
+      "variable": "ENaC/I_m_recorded",
       "name_for_plotting": "I_{ENaC}",
       "data_type": "constant",
       "operation": "steady_state_min",
-      "operands": ["ENaC/I_ENaC"],
+      "operands": ["ENaC/I_m_recorded"],
       "unit": "picoA",
       "weight": 1.0,
       "value": -3.992395437,
@@ -246,11 +316,11 @@
       "plot_type": "horizontal"
     },
     {
-      "variable": "ENaC/I_ENaC",
+      "variable": "ENaC/I_m_recorded",
       "name_for_plotting": "I_{ENaC}",
       "data_type": "constant",
       "operation": "steady_state_min",
-      "operands": ["ENaC/I_ENaC"],
+      "operands": ["ENaC/I_m_recorded"],
       "unit": "picoA",
       "weight": 1.0,
       "value": 5.133079848,
