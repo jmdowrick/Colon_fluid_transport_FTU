@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<model name="BG_constants" xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#">
-    <component name="constants">
-        <variable initial_value="0.008314" name="R" public_interface="out" units="J_per_K_per_mmol"/>
-        <variable initial_value="310" name="T" public_interface="out" units="kelvin"/>
-        <variable initial_value="96.485" name="F" public_interface="out" units="C_per_mmol"/>
-        <variable initial_value="0.018" name="V_w" public_interface="out" units="L_per_mmol"/>
-    </component>
-</model>

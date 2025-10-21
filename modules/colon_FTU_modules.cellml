@@ -2827,12 +2827,12 @@ ode(q_V, t)  = 0{pL_per_s};-->
         <variable name="u_G_6" public_interface="in" units="J_per_mmol"/>
         <variable name="u_G_Na" public_interface="in" units="J_per_mmol"/>
         <!-- Rate constants-->
-        <variable name="kappa_1" public_interface="in" units="per_s"/>
-        <variable name="kappa_2" public_interface="in" units="per_s"/>
-        <variable name="kappa_3" public_interface="in" units="per_s"/>
-        <variable name="kappa_4" public_interface="in" units="per_s"/>
-        <variable name="kappa_5" public_interface="in" units="per_s"/>
-        <variable name="kappa_6" public_interface="in" units="per_s"/>
+        <variable name="kappa_1" public_interface="in" units="per_s_per_K"/>
+        <variable name="kappa_2" public_interface="in" units="per_s_per_K"/>
+        <variable name="kappa_3" public_interface="in" units="per_s_per_K"/>
+        <variable name="kappa_4" public_interface="in" units="per_s_per_K"/>
+        <variable name="kappa_5" public_interface="in" units="per_s_per_K"/>
+        <variable name="kappa_6" public_interface="in" units="per_s_per_K"/>
         <!-- other variables-->
         <variable name="d_1" public_interface="in" units="dimensionless"/>
         <variable name="d_2" public_interface="in" units="dimensionless"/>
@@ -3335,6 +3335,7 @@ ode(q_V, t)  = 0{pL_per_s};-->
                     <times/>
                     <ci>kappa_1</ci>
                     <ci>q_ref</ci>
+                    <ci>T</ci>
                     <apply>
                         <minus/>
                         <apply>
@@ -3363,6 +3364,7 @@ ode(q_V, t)  = 0{pL_per_s};-->
                     <times/>
                     <ci>kappa_2</ci>
                     <ci>q_ref</ci>
+                    <ci>T</ci>
                     <apply>
                         <minus/>
                         <apply>
@@ -3391,6 +3393,7 @@ ode(q_V, t)  = 0{pL_per_s};-->
                     <times/>
                     <ci>kappa_3</ci>
                     <ci>q_ref</ci>
+                    <ci>T</ci>
                     <apply>
                         <minus/>
                         <apply>
@@ -3419,6 +3422,7 @@ ode(q_V, t)  = 0{pL_per_s};-->
                     <times/>
                     <ci>kappa_4</ci>
                     <ci>q_ref</ci>
+                    <ci>T</ci>
                     <apply>
                         <minus/>
                         <apply>
@@ -3447,6 +3451,7 @@ ode(q_V, t)  = 0{pL_per_s};-->
                     <times/>
                     <ci>kappa_5</ci>
                     <ci>q_ref</ci>
+                    <ci>T</ci>
                     <apply>
                         <minus/>
                         <apply>
