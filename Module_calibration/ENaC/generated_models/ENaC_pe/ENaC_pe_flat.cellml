@@ -885,11 +885,11 @@
     <variable name="d_4_ENaC" units="dimensionless" initial_value="2.50E-01" interface="public"/>
     <variable name="d_5_ENaC" units="dimensionless" initial_value="1.50E-01" interface="public"/>
     <variable name="d_6_ENaC" units="dimensionless" initial_value="1.00E-01" interface="public"/>
-    <variable name="q_1_init_ENaC" units="fmol" initial_value="0.003741128" interface="public"/>
-    <variable name="q_2_init_ENaC" units="fmol" initial_value="7.94E-06" interface="public"/>
-    <variable name="q_3_init_ENaC" units="fmol" initial_value="0.001875931" interface="public"/>
-    <variable name="q_4_init_ENaC" units="fmol" initial_value="0.001875" interface="public"/>
-    <variable name="q_5_init_ENaC" units="fmol" initial_value="0.0075" interface="public"/>
+    <variable name="q_1_init_ENaC" units="fmol" initial_value="1.6E-07" interface="public"/>
+    <variable name="q_2_init_ENaC" units="fmol" initial_value="1.6E-07" interface="public"/>
+    <variable name="q_3_init_ENaC" units="fmol" initial_value="1.6E-07" interface="public"/>
+    <variable name="q_4_init_ENaC" units="fmol" initial_value="1.6E-07" interface="public"/>
+    <variable name="q_5_init_ENaC" units="fmol" initial_value="6.4E-07" interface="public"/>
     <variable name="q_6_init_ENaC" units="fmol" initial_value="3.90E-10" interface="public"/>
     <variable name="q_Na_i_ENaC" units="fmol" initial_value="2.00E+01" interface="public"/>
     <variable name="q_Na_o_ENaC" units="fmol" initial_value="2.90E+02" interface="public"/>
@@ -1245,7 +1245,21 @@
       <apply>
         <eq/>
         <ci>u_Re_1_r</ci>
-        <ci>u_2</ci>
+        <apply>
+          <plus/>
+          <ci>u_2</ci>
+          <apply>
+            <times/>
+            <ci>zNa</ci>
+            <ci>F</ci>
+            <apply>
+              <plus/>
+              <ci>d_1</ci>
+              <ci>d_2</ci>
+            </apply>
+            <ci>u_e_m</ci>
+          </apply>
+        </apply>
       </apply>
       <apply>
         <eq/>
@@ -1269,7 +1283,21 @@
       <apply>
         <eq/>
         <ci>u_Re_2_r</ci>
-        <ci>u_3</ci>
+        <apply>
+          <plus/>
+          <ci>u_3</ci>
+          <apply>
+            <times/>
+            <ci>zNa</ci>
+            <ci>F</ci>
+            <apply>
+              <plus/>
+              <ci>d_3</ci>
+              <ci>d_4</ci>
+            </apply>
+            <ci>u_e_m</ci>
+          </apply>
+        </apply>
       </apply>
       <apply>
         <eq/>
@@ -1297,6 +1325,17 @@
           <plus/>
           <ci>u_Na_i</ci>
           <ci>u_1</ci>
+          <apply>
+            <times/>
+            <ci>zNa</ci>
+            <ci>F</ci>
+            <apply>
+              <plus/>
+              <ci>d_5</ci>
+              <ci>d_6</ci>
+            </apply>
+            <ci>u_e_m</ci>
+          </apply>
         </apply>
       </apply>
       <apply>
@@ -1325,7 +1364,21 @@
       <apply>
         <eq/>
         <ci>u_Re_4_r</ci>
-        <ci>u_4</ci>
+        <apply>
+          <plus/>
+          <ci>u_4</ci>
+          <apply>
+            <times/>
+            <ci>zNa</ci>
+            <ci>F</ci>
+            <apply>
+              <plus/>
+              <ci>d_1</ci>
+              <ci>d_2</ci>
+            </apply>
+            <ci>u_e_m</ci>
+          </apply>
+        </apply>
       </apply>
       <apply>
         <eq/>
@@ -1353,6 +1406,17 @@
           <plus/>
           <ci>u_2</ci>
           <ci>u_Na_i</ci>
+          <apply>
+            <times/>
+            <ci>zNa</ci>
+            <ci>F</ci>
+            <apply>
+              <plus/>
+              <ci>d_5</ci>
+              <ci>d_6</ci>
+            </apply>
+            <ci>u_e_m</ci>
+          </apply>
         </apply>
       </apply>
       <!-- Allosteric site affinities-->

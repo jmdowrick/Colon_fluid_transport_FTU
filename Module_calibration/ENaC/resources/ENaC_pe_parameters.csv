@@ -13,11 +13,11 @@ d_3_ENaC,dimensionless,2.50E-01,Kellenberger_1998
 d_4_ENaC,dimensionless,2.50E-01,Kellenberger_1998
 d_5_ENaC,dimensionless,1.50E-01,Kellenberger_1998
 d_6_ENaC,dimensionless,1.00E-01,Kellenberger_1998
-q_1_init_ENaC,fmol,0.003741128,user_defined
-q_2_init_ENaC,fmol,7.94E-06,user_defined
-q_3_init_ENaC,fmol,0.001875931,user_defined
-q_4_init_ENaC,fmol,0.001875,user_defined
-q_5_init_ENaC,fmol,0.0075,user_defined
+q_1_init_ENaC,fmol,1.6E-07,Inagaki_2004
+q_2_init_ENaC,fmol,1.6E-07,Inagaki_2004
+q_3_init_ENaC,fmol,1.6E-07,Inagaki_2004
+q_4_init_ENaC,fmol,1.6E-07,Inagaki_2004
+q_5_init_ENaC,fmol,6.4E-07,Inagaki_2004
 q_6_init_ENaC,fmol,3.90E-10,user_defined
 q_Na_i_ENaC,fmol,2.00E+01,parameter
 q_Na_o_ENaC,fmol,2.90E+02,parameter

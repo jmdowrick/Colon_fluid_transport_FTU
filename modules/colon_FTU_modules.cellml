@@ -3130,7 +3130,21 @@ ode(q_V, t)  = 0{pL_per_s};-->
             <apply>
                 <eq/>
                 <ci>u_Re_1_r</ci>
-                <ci>u_2</ci>
+                <apply>
+                    <plus/>
+                    <ci>u_2</ci>
+                    <apply>
+                        <times/>
+                        <ci>zNa</ci>
+                        <ci>F</ci>
+                        <apply>
+                            <plus/>
+                            <ci>d_1</ci>
+                            <ci>d_2</ci>
+                        </apply>
+                        <ci>u_e_m</ci>
+                    </apply>
+                </apply>
             </apply>
             <apply>
                 <eq/>
@@ -3154,7 +3168,21 @@ ode(q_V, t)  = 0{pL_per_s};-->
             <apply>
                 <eq/>
                 <ci>u_Re_2_r</ci>
-                <ci>u_3</ci>
+                <apply>
+                    <plus/>
+                    <ci>u_3</ci>
+                    <apply>
+                        <times/>
+                        <ci>zNa</ci>
+                        <ci>F</ci>
+                        <apply>
+                            <plus/>
+                            <ci>d_3</ci>
+                            <ci>d_4</ci>
+                        </apply>
+                        <ci>u_e_m</ci>
+                    </apply>
+                </apply>
             </apply>
             <apply>
                 <eq/>
@@ -3182,6 +3210,17 @@ ode(q_V, t)  = 0{pL_per_s};-->
                     <plus/>
                     <ci>u_Na_i</ci>
                     <ci>u_1</ci>
+                    <apply>
+                        <times/>
+                        <ci>zNa</ci>
+                        <ci>F</ci>
+                        <apply>
+                            <plus/>
+                            <ci>d_5</ci>
+                            <ci>d_6</ci>
+                        </apply>
+                        <ci>u_e_m</ci>
+                    </apply>
                 </apply>
             </apply>
             <apply>
@@ -3210,7 +3249,21 @@ ode(q_V, t)  = 0{pL_per_s};-->
             <apply>
                 <eq/>
                 <ci>u_Re_4_r</ci>
-                <ci>u_4</ci>
+                <apply>
+                    <plus/>
+                    <ci>u_4</ci>
+                    <apply>
+                        <times/>
+                        <ci>zNa</ci>
+                        <ci>F</ci>
+                        <apply>
+                            <plus/>
+                            <ci>d_1</ci>
+                            <ci>d_2</ci>
+                        </apply>
+                        <ci>u_e_m</ci>
+                    </apply>
+                </apply>
             </apply>
             <apply>
                 <eq/>
@@ -3238,6 +3291,17 @@ ode(q_V, t)  = 0{pL_per_s};-->
                     <plus/>
                     <ci>u_2</ci>
                     <ci>u_Na_i</ci>
+                    <apply>
+                        <times/>
+                        <ci>zNa</ci>
+                        <ci>F</ci>
+                        <apply>
+                            <plus/>
+                            <ci>d_5</ci>
+                            <ci>d_6</ci>
+                        </apply>
+                        <ci>u_e_m</ci>
+                    </apply>
                 </apply>
             </apply>
             <!-- Allosteric site affinities-->
