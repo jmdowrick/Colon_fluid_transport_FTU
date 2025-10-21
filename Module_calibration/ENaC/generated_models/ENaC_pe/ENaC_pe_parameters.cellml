@@ -226,19 +226,39 @@
 <variable initial_value="96.485" name="F" public_interface="out" units="C_per_mmol"/>
 <variable initial_value="310" name="T" public_interface="out" units="kelvin"/>
 <variable initial_value="1" name="zNa" public_interface="out" units="dimensionless"/>
-<variable initial_value="EMPTY_MUST_BE_FILLED" name="K_Na" public_interface="out" units="per_mM"/>
+<variable initial_value="1.00E+03" name="C_ref" public_interface="out" units="mM"/>
+<variable initial_value="1.00E+03" name="q_ref" public_interface="out" units="fmol"/>
 </component>
 <component name="parameters">
-<variable initial_value="0.0015" name="q_1_init_ENaC" public_interface="out" units="fmol"/>
-<variable initial_value="0.0015" name="q_2_init_ENaC" public_interface="out" units="fmol"/>
-<variable initial_value="EMPTY_MUST_BE_FILLED" name="K_1_ENaC" public_interface="out" units="per_fmol"/>
-<variable initial_value="EMPTY_MUST_BE_FILLED" name="K_2_ENaC" public_interface="out" units="per_fmol"/>
-<variable initial_value="EMPTY_MUST_BE_FILLED" name="kappa_1_ENaC" public_interface="out" units="fmol_per_s"/>
-<variable initial_value="0.3" name="P_Na_ENaC" public_interface="out" units="dimensionless"/>
-<variable initial_value="0.55" name="P_o_ENaC" public_interface="out" units="dimensionless"/>
-<variable initial_value="15633.66876" name="P_max_ENaC" public_interface="out" units="pL_per_s_per_fmol"/>
-<variable initial_value="145" name="c_Na_o_ENaC" public_interface="out" units="mM"/>
+<variable initial_value="2.00E+00" name="V_o_ENaC" public_interface="out" units="pL"/>
+<variable initial_value="2.00E+00" name="V_i_ENaC" public_interface="out" units="pL"/>
+<variable initial_value="1.00E+00" name="u_G_2_ENaC" public_interface="out" units="J_per_mmol"/>
+<variable initial_value="1.00E+00" name="u_G_5_ENaC" public_interface="out" units="J_per_mmol"/>
+<variable initial_value="1.00E+00" name="u_G_6_ENaC" public_interface="out" units="J_per_mmol"/>
+<variable initial_value="-261.87" name="u_G_Na_ENaC" public_interface="out" units="J_per_mmol"/>
+<variable initial_value="131767571.7" name="kappa_1_ENaC" public_interface="out" units="per_s"/>
+<variable initial_value="65433839.62" name="kappa_2_ENaC" public_interface="out" units="per_s"/>
+<variable initial_value="131767571.7" name="kappa_3_ENaC" public_interface="out" units="per_s"/>
+<variable initial_value="0.182054371" name="kappa_4_ENaC" public_interface="out" units="per_s"/>
+<variable initial_value="0.182054371" name="kappa_5_ENaC" public_interface="out" units="per_s"/>
+<variable initial_value="1.00E+00" name="kappa_6_ENaC" public_interface="out" units="per_s"/>
+<variable initial_value="0.1" name="d_1_ENaC" public_interface="out" units="dimensionless"/>
+<variable initial_value="1.50E-01" name="d_2_ENaC" public_interface="out" units="dimensionless"/>
+<variable initial_value="2.50E-01" name="d_3_ENaC" public_interface="out" units="dimensionless"/>
+<variable initial_value="2.50E-01" name="d_4_ENaC" public_interface="out" units="dimensionless"/>
+<variable initial_value="1.50E-01" name="d_5_ENaC" public_interface="out" units="dimensionless"/>
+<variable initial_value="1.00E-01" name="d_6_ENaC" public_interface="out" units="dimensionless"/>
+<variable initial_value="0.003741128" name="q_1_init_ENaC" public_interface="out" units="fmol"/>
+<variable initial_value="7.94E-06" name="q_2_init_ENaC" public_interface="out" units="fmol"/>
+<variable initial_value="0.001875931" name="q_3_init_ENaC" public_interface="out" units="fmol"/>
+<variable initial_value="0.001875" name="q_4_init_ENaC" public_interface="out" units="fmol"/>
+<variable initial_value="0.0075" name="q_5_init_ENaC" public_interface="out" units="fmol"/>
+<variable initial_value="3.90E-10" name="q_6_init_ENaC" public_interface="out" units="fmol"/>
+<variable initial_value="2.00E+01" name="q_Na_i_ENaC" public_interface="out" units="fmol"/>
+<variable initial_value="2.90E+02" name="q_Na_o_ENaC" public_interface="out" units="fmol"/>
+<variable initial_value="-0.128867" name="u_G_1_ref_ENaC" public_interface="out" units="J_per_mmol"/>
+<variable initial_value="-9.278424" name="u_G_2_ref_ENaC" public_interface="out" units="J_per_mmol"/>
+<variable initial_value="-43.9694204" name="u_G_5_ref_ENaC" public_interface="out" units="J_per_mmol"/>
 <variable initial_value="-0.05" name="u_e_m_ENaC" public_interface="out" units="volt"/>
-<variable initial_value="15" name="c_Na_i_ENaC" public_interface="out" units="mM"/>
 </component>
 </model>

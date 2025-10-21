@@ -251,22 +251,53 @@
    <variable name="F" public_interface="in" units="C_per_mmol"/>
    <variable name="T" public_interface="in" units="kelvin"/>
    <variable name="zNa" public_interface="in" units="dimensionless"/>
+   <variable name="V_o" public_interface="in" units="pL"/>
+   <variable name="V_i" public_interface="in" units="pL"/>
+   <variable name="C_ref" public_interface="in" units="mM"/>
+   <variable name="q_ref" public_interface="in" units="fmol"/>
+   <variable name="u_G_2" public_interface="in" units="J_per_mmol"/>
+   <variable name="u_G_5" public_interface="in" units="J_per_mmol"/>
+   <variable name="u_G_6" public_interface="in" units="J_per_mmol"/>
+   <variable name="u_G_Na" public_interface="in" units="J_per_mmol"/>
+   <variable name="kappa_1" public_interface="in" units="per_s"/>
+   <variable name="kappa_2" public_interface="in" units="per_s"/>
+   <variable name="kappa_3" public_interface="in" units="per_s"/>
+   <variable name="kappa_4" public_interface="in" units="per_s"/>
+   <variable name="kappa_5" public_interface="in" units="per_s"/>
+   <variable name="kappa_6" public_interface="in" units="per_s"/>
+   <variable name="d_1" public_interface="in" units="dimensionless"/>
+   <variable name="d_2" public_interface="in" units="dimensionless"/>
+   <variable name="d_3" public_interface="in" units="dimensionless"/>
+   <variable name="d_4" public_interface="in" units="dimensionless"/>
+   <variable name="d_5" public_interface="in" units="dimensionless"/>
+   <variable name="d_6" public_interface="in" units="dimensionless"/>
    <variable name="q_1_init" public_interface="in" units="fmol"/>
    <variable name="q_2_init" public_interface="in" units="fmol"/>
-   <variable name="v_q_Na_i" public_interface="in" units="fmol_per_s"/>
-   <variable name="v_q_Na_o" public_interface="in" units="fmol_per_s"/>
-   <variable name="K_1" public_interface="in" units="per_fmol"/>
-   <variable name="K_2" public_interface="in" units="per_fmol"/>
-   <variable name="K_Na" public_interface="in" units="per_mM"/>
-   <variable name="kappa_1" public_interface="in" units="fmol_per_s"/>
-   <variable name="kappa_ENaC" public_interface="in" units="pL_per_s"/>
-   <variable name="P_Na" public_interface="in" units="dimensionless"/>
-   <variable name="P_o" public_interface="in" units="dimensionless"/>
-   <variable name="P_max" public_interface="in" units="pL_per_s_per_fmol"/>
-   <variable name="c_Na_o" public_interface="in" units="mM"/>
+   <variable name="q_3_init" public_interface="in" units="fmol"/>
+   <variable name="q_4_init" public_interface="in" units="fmol"/>
+   <variable name="q_5_init" public_interface="in" units="fmol"/>
+   <variable name="q_6_init" public_interface="in" units="fmol"/>
+   <variable name="q_1" public_interface="in" units="fmol"/>
+   <variable name="q_2" public_interface="in" units="fmol"/>
+   <variable name="q_3" public_interface="in" units="fmol"/>
+   <variable name="q_4" public_interface="in" units="fmol"/>
+   <variable name="q_5" public_interface="in" units="fmol"/>
+   <variable name="q_6" public_interface="in" units="fmol"/>
+   <variable name="q_Na_i" public_interface="in" units="fmol"/>
+   <variable name="q_Na_o" public_interface="in" units="fmol"/>
+   <variable name="C_Na_i" public_interface="in" units="mM"/>
+   <variable name="C_Na_o" public_interface="in" units="mM"/>
    <variable name="u_e_m" public_interface="in" units="volt"/>
-   <variable name="c_Na_i" public_interface="in" units="mM"/>
-   <variable name="I_ENaC" public_interface="in" units="picoA"/>
+   <variable name="v_1" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_2" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_3" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_4" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_5" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_6" public_interface="in" units="fmol_per_s"/>
+   <variable name="I_m" public_interface="in" units="picoA"/>
+   <variable name="I_m_recorded" public_interface="in" units="picoA"/>
+   <variable name="v_Na_i" public_interface="in" units="fmol_per_s"/>
+   <variable name="v_Na_o" public_interface="in" units="fmol_per_s"/>
 </component>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;global_parameters_access&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <component name="global">
@@ -274,7 +305,8 @@
    <variable name="F" public_interface="in" units="C_per_mmol"/>
    <variable name="T" public_interface="in" units="kelvin"/>
    <variable name="zNa" public_interface="in" units="dimensionless"/>
-   <variable name="K_Na" public_interface="in" units="per_mM"/>
+   <variable name="C_ref" public_interface="in" units="mM"/>
+   <variable name="q_ref" public_interface="in" units="fmol"/>
 </component>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;own vessel mappings&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>
@@ -283,22 +315,53 @@
    <map_variables variable_1="F" variable_2="F"/>
    <map_variables variable_1="T" variable_2="T"/>
    <map_variables variable_1="zNa" variable_2="zNa"/>
+   <map_variables variable_1="V_o" variable_2="V_o"/>
+   <map_variables variable_1="V_i" variable_2="V_i"/>
+   <map_variables variable_1="C_ref" variable_2="C_ref"/>
+   <map_variables variable_1="q_ref" variable_2="q_ref"/>
+   <map_variables variable_1="u_G_2" variable_2="u_G_2"/>
+   <map_variables variable_1="u_G_5" variable_2="u_G_5"/>
+   <map_variables variable_1="u_G_6" variable_2="u_G_6"/>
+   <map_variables variable_1="u_G_Na" variable_2="u_G_Na"/>
+   <map_variables variable_1="kappa_1" variable_2="kappa_1"/>
+   <map_variables variable_1="kappa_2" variable_2="kappa_2"/>
+   <map_variables variable_1="kappa_3" variable_2="kappa_3"/>
+   <map_variables variable_1="kappa_4" variable_2="kappa_4"/>
+   <map_variables variable_1="kappa_5" variable_2="kappa_5"/>
+   <map_variables variable_1="kappa_6" variable_2="kappa_6"/>
+   <map_variables variable_1="d_1" variable_2="d_1"/>
+   <map_variables variable_1="d_2" variable_2="d_2"/>
+   <map_variables variable_1="d_3" variable_2="d_3"/>
+   <map_variables variable_1="d_4" variable_2="d_4"/>
+   <map_variables variable_1="d_5" variable_2="d_5"/>
+   <map_variables variable_1="d_6" variable_2="d_6"/>
    <map_variables variable_1="q_1_init" variable_2="q_1_init"/>
    <map_variables variable_1="q_2_init" variable_2="q_2_init"/>
-   <map_variables variable_1="v_q_Na_i" variable_2="v_q_Na_i"/>
-   <map_variables variable_1="v_q_Na_o" variable_2="v_q_Na_o"/>
-   <map_variables variable_1="K_1" variable_2="K_1"/>
-   <map_variables variable_1="K_2" variable_2="K_2"/>
-   <map_variables variable_1="K_Na" variable_2="K_Na"/>
-   <map_variables variable_1="kappa_1" variable_2="kappa_1"/>
-   <map_variables variable_1="kappa_ENaC" variable_2="kappa_ENaC"/>
-   <map_variables variable_1="P_Na" variable_2="P_Na"/>
-   <map_variables variable_1="P_o" variable_2="P_o"/>
-   <map_variables variable_1="P_max" variable_2="P_max"/>
-   <map_variables variable_1="c_Na_o" variable_2="c_Na_o"/>
+   <map_variables variable_1="q_3_init" variable_2="q_3_init"/>
+   <map_variables variable_1="q_4_init" variable_2="q_4_init"/>
+   <map_variables variable_1="q_5_init" variable_2="q_5_init"/>
+   <map_variables variable_1="q_6_init" variable_2="q_6_init"/>
+   <map_variables variable_1="q_1" variable_2="q_1"/>
+   <map_variables variable_1="q_2" variable_2="q_2"/>
+   <map_variables variable_1="q_3" variable_2="q_3"/>
+   <map_variables variable_1="q_4" variable_2="q_4"/>
+   <map_variables variable_1="q_5" variable_2="q_5"/>
+   <map_variables variable_1="q_6" variable_2="q_6"/>
+   <map_variables variable_1="q_Na_i" variable_2="q_Na_i"/>
+   <map_variables variable_1="q_Na_o" variable_2="q_Na_o"/>
+   <map_variables variable_1="C_Na_i" variable_2="C_Na_i"/>
+   <map_variables variable_1="C_Na_o" variable_2="C_Na_o"/>
    <map_variables variable_1="u_e_m" variable_2="u_e_m"/>
-   <map_variables variable_1="c_Na_i" variable_2="c_Na_i"/>
-   <map_variables variable_1="I_ENaC" variable_2="I_ENaC"/>
+   <map_variables variable_1="v_1" variable_2="v_1"/>
+   <map_variables variable_1="v_2" variable_2="v_2"/>
+   <map_variables variable_1="v_3" variable_2="v_3"/>
+   <map_variables variable_1="v_4" variable_2="v_4"/>
+   <map_variables variable_1="v_5" variable_2="v_5"/>
+   <map_variables variable_1="v_6" variable_2="v_6"/>
+   <map_variables variable_1="I_m" variable_2="I_m"/>
+   <map_variables variable_1="I_m_recorded" variable_2="I_m_recorded"/>
+   <map_variables variable_1="v_Na_i" variable_2="v_Na_i"/>
+   <map_variables variable_1="v_Na_o" variable_2="v_Na_o"/>
 </connection>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;own global parameters mapping&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>
@@ -307,22 +370,42 @@
    <map_variables variable_1="F" variable_2="F"/>
    <map_variables variable_1="T" variable_2="T"/>
    <map_variables variable_1="zNa" variable_2="zNa"/>
-   <map_variables variable_1="K_Na" variable_2="K_Na"/>
+   <map_variables variable_1="C_ref" variable_2="C_ref"/>
+   <map_variables variable_1="q_ref" variable_2="q_ref"/>
 </connection>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;parameters mapping to modules&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>
    <map_components component_1="parameters" component_2="ENaC_module"/>
+   <map_variables variable_1="V_o_ENaC" variable_2="V_o"/>
+   <map_variables variable_1="V_i_ENaC" variable_2="V_i"/>
+   <map_variables variable_1="u_G_2_ENaC" variable_2="u_G_2"/>
+   <map_variables variable_1="u_G_5_ENaC" variable_2="u_G_5"/>
+   <map_variables variable_1="u_G_6_ENaC" variable_2="u_G_6"/>
+   <map_variables variable_1="u_G_Na_ENaC" variable_2="u_G_Na"/>
+   <map_variables variable_1="kappa_1_ENaC" variable_2="kappa_1"/>
+   <map_variables variable_1="kappa_2_ENaC" variable_2="kappa_2"/>
+   <map_variables variable_1="kappa_3_ENaC" variable_2="kappa_3"/>
+   <map_variables variable_1="kappa_4_ENaC" variable_2="kappa_4"/>
+   <map_variables variable_1="kappa_5_ENaC" variable_2="kappa_5"/>
+   <map_variables variable_1="kappa_6_ENaC" variable_2="kappa_6"/>
+   <map_variables variable_1="d_1_ENaC" variable_2="d_1"/>
+   <map_variables variable_1="d_2_ENaC" variable_2="d_2"/>
+   <map_variables variable_1="d_3_ENaC" variable_2="d_3"/>
+   <map_variables variable_1="d_4_ENaC" variable_2="d_4"/>
+   <map_variables variable_1="d_5_ENaC" variable_2="d_5"/>
+   <map_variables variable_1="d_6_ENaC" variable_2="d_6"/>
    <map_variables variable_1="q_1_init_ENaC" variable_2="q_1_init"/>
    <map_variables variable_1="q_2_init_ENaC" variable_2="q_2_init"/>
-   <map_variables variable_1="K_1_ENaC" variable_2="K_1"/>
-   <map_variables variable_1="K_2_ENaC" variable_2="K_2"/>
-   <map_variables variable_1="kappa_1_ENaC" variable_2="kappa_1"/>
-   <map_variables variable_1="P_Na_ENaC" variable_2="P_Na"/>
-   <map_variables variable_1="P_o_ENaC" variable_2="P_o"/>
-   <map_variables variable_1="P_max_ENaC" variable_2="P_max"/>
-   <map_variables variable_1="c_Na_o_ENaC" variable_2="c_Na_o"/>
+   <map_variables variable_1="q_3_init_ENaC" variable_2="q_3_init"/>
+   <map_variables variable_1="q_4_init_ENaC" variable_2="q_4_init"/>
+   <map_variables variable_1="q_5_init_ENaC" variable_2="q_5_init"/>
+   <map_variables variable_1="q_6_init_ENaC" variable_2="q_6_init"/>
+   <map_variables variable_1="q_Na_i_ENaC" variable_2="q_Na_i"/>
+   <map_variables variable_1="q_Na_o_ENaC" variable_2="q_Na_o"/>
+   <map_variables variable_1="u_G_1_ref_ENaC" variable_2="u_G_1_ref"/>
+   <map_variables variable_1="u_G_2_ref_ENaC" variable_2="u_G_2_ref"/>
+   <map_variables variable_1="u_G_5_ref_ENaC" variable_2="u_G_5_ref"/>
    <map_variables variable_1="u_e_m_ENaC" variable_2="u_e_m"/>
-   <map_variables variable_1="c_Na_i_ENaC" variable_2="c_Na_i"/>
 </connection>
 <connection>
    <map_components component_1="parameters_global" component_2="ENaC_module"/>
@@ -330,7 +413,8 @@
    <map_variables variable_1="F" variable_2="F"/>
    <map_variables variable_1="T" variable_2="T"/>
    <map_variables variable_1="zNa" variable_2="zNa"/>
-   <map_variables variable_1="K_Na" variable_2="K_Na"/>
+   <map_variables variable_1="C_ref" variable_2="C_ref"/>
+   <map_variables variable_1="q_ref" variable_2="q_ref"/>
 </connection>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;time mapping&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>

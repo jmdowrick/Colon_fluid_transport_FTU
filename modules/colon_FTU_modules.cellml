@@ -2797,12 +2797,11 @@ ode(q_V, t)  = 0{pL_per_s};-->
         </math>
     </component>
     <component name="ENaC_PE">
-        <variable name="t" public_interface="in" units="s"/>
-        <variable name="R" public_interface="in" units="J_per_mmol_per_K"/>
+        <variable name="t" public_interface="in" units="second"/>
+        <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
         <variable name="T" public_interface="in" units="kelvin"/>
         <variable name="F" public_interface="in" units="C_per_mmol"/>
         <variable name="RT" units="J_per_mmol"/>
-        <variable name="N_A" public_interface="in" units="per_fmol"/>
         <variable name="V_o" public_interface="in" units="pL"/>
         <variable name="V_i" public_interface="in" units="pL"/>
         <variable name="zNa" public_interface="in" units="dimensionless"/>
@@ -3258,12 +3257,12 @@ ode(q_V, t)  = 0{pL_per_s};-->
             </apply>
         </math>
         <!-- Constitutive equations-->
-        <variable name="v_1" units="fmol_per_s"/>
-        <variable name="v_2" units="fmol_per_s"/>
-        <variable name="v_3" units="fmol_per_s"/>
-        <variable name="v_4" units="fmol_per_s"/>
-        <variable name="v_5" units="fmol_per_s"/>
-        <variable name="v_6" units="fmol_per_s"/>
+        <variable name="v_1" public_interface="out" units="fmol_per_s"/>
+        <variable name="v_2" public_interface="out" units="fmol_per_s"/>
+        <variable name="v_3" public_interface="out" units="fmol_per_s"/>
+        <variable name="v_4" public_interface="out" units="fmol_per_s"/>
+        <variable name="v_5" public_interface="out" units="fmol_per_s"/>
+        <variable name="v_6" public_interface="out" units="fmol_per_s"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
@@ -3405,37 +3404,17 @@ ode(q_V, t)  = 0{pL_per_s};-->
                     </apply>
                 </apply>
             </apply>
+            <!-- fix v_6 for now-->
             <apply>
                 <eq/>
                 <ci>v_6</ci>
-                <apply>
-                    <times/>
-                    <ci>kappa_6</ci>
-                    <ci>q_ref</ci>
-                    <apply>
-                        <minus/>
-                        <apply>
-                            <exp/>
-                            <apply>
-                                <divide/>
-                                <ci>u_Re_6_f</ci>
-                                <ci>RT</ci>
-                            </apply>
-                        </apply>
-                        <apply>
-                            <exp/>
-                            <apply>
-                                <divide/>
-                                <ci>u_Re_6_r</ci>
-                                <ci>RT</ci>
-                            </apply>
-                        </apply>
-                    </apply>
-                </apply>
+                <cn cellml:units="fmol_per_s">0</cn>
             </apply>
         </math>
+        <!-- v_6 = kappa_6*q_ref*(exp(u_Re_6_f/RT)-exp(u_Re_6_r/RT));-->
         <!-- Conservation equations-->
-        <variable name="I_m" public_interface="out" units="pA"/>
+        <variable name="I_m" public_interface="out" units="picoA"/>
+        <variable name="I_m_recorded" public_interface="out" units="picoA"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
@@ -3482,6 +3461,14 @@ ode(q_V, t)  = 0{pL_per_s};-->
                             </apply>
                         </apply>
                     </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>I_m_recorded</ci>
+                <apply>
+                    <minus/>
+                    <ci>I_m</ci>
                 </apply>
             </apply>
             <!-- assumes equal likelihood of allosteric inhibition-->
@@ -3627,7 +3614,36 @@ ode(q_V, t)  = 0{pL_per_s};-->
                 <ci>v_6</ci>
             </apply>
         </math>
-        <!-- ode(q_Na_i, t) = v_3+v_5;
+        <variable name="v_Na_i" public_interface="out" units="fmol_per_s"/>
+        <variable name="v_Na_o" public_interface="out" units="fmol_per_s"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>v_Na_i</ci>
+                <apply>
+                    <plus/>
+                    <ci>v_3</ci>
+                    <ci>v_5</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_Na_o</ci>
+                <apply>
+                    <minus/>
+                    <apply>
+                        <minus/>
+                        <apply>
+                            <minus/>
+                            <ci>v_6</ci>
+                        </apply>
+                        <ci>v_4</ci>
+                    </apply>
+                    <ci>v_1</ci>
+                </apply>
+            </apply>
+        </math>
+        <!-- ode(q_Na_i, t)
  ode(q_Na_o, t) = -v_6-v_4-v_1;-->
     </component>
     <!-- ###########################################-->

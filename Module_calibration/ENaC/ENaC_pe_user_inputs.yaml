@@ -1,13 +1,18 @@
 #_______ general inputs ________
 DEBUG: false
 
-user_inputs_path_override: /hpc/jdow403/projects/Colon_fluid_transport_FTU/Module_calibration/ENaC/ENaC_pe_user_inputs.yaml
 file_prefix: ENaC_pe
 input_param_file: ENaC_pe_parameters.csv
+user_inputs_path_override: /hpc/jdow403/projects/Colon_fluid_transport_FTU/Module_calibration/ENaC/ENaC_pe_user_inputs.yaml
 external_modules_dir: /hpc/jdow403/projects/Colon_fluid_transport_FTU/modules
 resources_dir: /hpc/jdow403/projects/Colon_fluid_transport_FTU/Module_calibration/ENaC/resources
 generated_models_dir: /hpc/jdow403/projects/Colon_fluid_transport_FTU/Module_calibration/ENaC/generated_models
 param_id_output_dir: /hpc/jdow403/projects/Colon_fluid_transport_FTU/Module_calibration/ENaC/param_id_output
+#user_inputs_path_override: /Users/jdow403/Documents/_projects/Project_Colon_fluid_transport_FTU/Module_calibration/ENaC/ENaC_pe_user_inputs.yaml
+#external_modules_dir: /Users/jdow403/Documents/_projects/Project_Colon_fluid_transport_FTU/modules
+#resources_dir: /Users/jdow403/Documents/_projects/Project_Colon_fluid_transport_FTU/Module_calibration/ENaC/resources
+#generated_models_dir: /Users/jdow403/Documents/_projects/Project_Colon_fluid_transport_FTU/Module_calibration/ENaC/generated_models
+#param_id_output_dir: /Users/jdow403/Documents/_projects/Project_Colon_fluid_transport_FTU/Module_calibration/ENaC/param_id_output
 
 #________ cpp generation inputs _______
 # solver options are: RK4, forward_euler, CVODE
@@ -28,6 +33,7 @@ sim_time: 2
 
 # This is for cpp generation
 cpp_generated_models_dir: /hpc/jdow403/projects/Colon_fluid_transport_FTU/Module_calibration/ENaC/generated_models
+#cpp_generated_models_dir: /Users/jdow403/Documents/_projects/Project_Colon_fluid_transport_FTU/Module_calibration/ENaC/generated_models
 
 # Output time step (sampling) 
 dt: 0.01 # This should be smaller than all of the dt in your obs_data.json file.
