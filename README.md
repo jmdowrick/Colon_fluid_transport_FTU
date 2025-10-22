@@ -58,8 +58,6 @@ After updating modules, parameters, or the vessel array, it will be necessary to
 │   ├── generated_models
 │   └── resources
 ├── LICENSE
-├── Module_calibration
-│   └── ENaC
 ├── README.md
 ├── model_visualisations
 │   ├── BG_AQ.png
@@ -68,6 +66,9 @@ After updating modules, parameters, or the vessel array, it will be necessary to
 │   ├── BG_Kir.png
 │   ├── CA_colon_FTU.png
 │   └── CA_colon_FTU_simple.png
+├── module_calibration
+│   ├── ENaC_forward_G_activation
+│   └── ENaC_rel_G_activation
 └── modules
     ├── BG_AQ.cellml
     ├── BG_ENaC.cellml
@@ -80,7 +81,7 @@ After updating modules, parameters, or the vessel array, it will be necessary to
     ├── coupled_solute_solvent_transport.cellml
     └── epithelial_dynamics.cellml
 
-11 directories, 20 files
+12 directories, 20 files
 ```
 # Citation
 *Insert journal citations when this model is published.*
