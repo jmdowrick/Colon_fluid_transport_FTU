@@ -2824,15 +2824,12 @@ ode(q_V, t)  = 0{pL_per_s};-->
         <variable name="u_G_3" units="J_per_mmol"/>
         <variable name="u_G_4" units="J_per_mmol"/>
         <variable name="u_G_5" public_interface="in" units="J_per_mmol"/>
-        <variable name="u_G_6" public_interface="in" units="J_per_mmol"/>
         <variable name="u_G_Na" public_interface="in" units="J_per_mmol"/>
         <!-- Rate constants-->
         <variable name="kappa_1" public_interface="in" units="per_s_per_K"/>
         <variable name="kappa_2" public_interface="in" units="per_s_per_K"/>
         <variable name="kappa_3" public_interface="in" units="per_s_per_K"/>
         <variable name="kappa_4" public_interface="in" units="per_s_per_K"/>
-        <variable name="kappa_5" public_interface="in" units="per_s_per_K"/>
-        <variable name="kappa_6" public_interface="in" units="per_s_per_K"/>
         <!-- other variables-->
         <variable name="d_1" public_interface="in" units="dimensionless"/>
         <variable name="d_2" public_interface="in" units="dimensionless"/>
@@ -2846,13 +2843,11 @@ ode(q_V, t)  = 0{pL_per_s};-->
         <variable name="q_3_init" public_interface="in" units="fmol"/>
         <variable name="q_4_init" public_interface="in" units="fmol"/>
         <variable name="q_5_init" public_interface="in" units="fmol"/>
-        <variable name="q_6_init" public_interface="in" units="fmol"/>
         <variable initial_value="q_1_init" name="q_1" public_interface="out" units="fmol"/>
         <variable initial_value="q_2_init" name="q_2" public_interface="out" units="fmol"/>
         <variable initial_value="q_3_init" name="q_3" public_interface="out" units="fmol"/>
         <variable initial_value="q_4_init" name="q_4" public_interface="out" units="fmol"/>
         <variable initial_value="q_5_init" name="q_5" public_interface="out" units="fmol"/>
-        <variable initial_value="q_6_init" name="q_6" public_interface="out" units="fmol"/>
         <variable name="q_Na_i" public_interface="in" units="fmol"/>
         <variable name="q_Na_o" public_interface="in" units="fmol"/>
         <variable name="C_Na_i" public_interface="out" units="mM"/>
@@ -2882,13 +2877,11 @@ ode(q_V, t)  = 0{pL_per_s};-->
         <variable name="u_3" units="J_per_mmol"/>
         <variable name="u_4" units="J_per_mmol"/>
         <variable name="u_5" units="J_per_mmol"/>
-        <variable name="u_6" units="J_per_mmol"/>
         <variable name="u_Na_i" units="J_per_mmol"/>
         <variable name="u_Na_o" units="J_per_mmol"/>
         <!-- constraints-->
         <variable name="u_G_1_ref" public_interface="in" units="J_per_mmol"/>
         <variable name="u_G_2_ref" public_interface="in" units="J_per_mmol"/>
-        <variable name="u_G_5_ref" public_interface="in" units="J_per_mmol"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
@@ -2910,19 +2903,6 @@ ode(q_V, t)  = 0{pL_per_s};-->
                     <minus/>
                     <ci>u_G_2_ref</ci>
                     <ci>u_G_2</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>u_G_4</ci>
-                <apply>
-                    <minus/>
-                    <apply>
-                        <plus/>
-                        <ci>u_G_2</ci>
-                        <ci>u_G_Na</ci>
-                    </apply>
-                    <ci>u_G_5_ref</ci>
                 </apply>
             </apply>
             <!-- Efforts-->
@@ -3028,26 +3008,6 @@ ode(q_V, t)  = 0{pL_per_s};-->
             </apply>
             <apply>
                 <eq/>
-                <ci>u_6</ci>
-                <apply>
-                    <plus/>
-                    <ci>u_G_6</ci>
-                    <apply>
-                        <times/>
-                        <ci>RT</ci>
-                        <apply>
-                            <ln/>
-                            <apply>
-                                <divide/>
-                                <ci>q_6</ci>
-                                <ci>q_ref</ci>
-                            </apply>
-                        </apply>
-                    </apply>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
                 <ci>u_Na_i</ci>
                 <apply>
                     <plus/>
@@ -3098,10 +3058,6 @@ ode(q_V, t)  = 0{pL_per_s};-->
         <variable name="u_Re_3_r" units="J_per_mmol"/>
         <variable name="u_Re_4_f" units="J_per_mmol"/>
         <variable name="u_Re_4_r" units="J_per_mmol"/>
-        <variable name="u_Re_5_f" units="J_per_mmol"/>
-        <variable name="u_Re_5_r" units="J_per_mmol"/>
-        <variable name="u_Re_6_f" units="J_per_mmol"/>
-        <variable name="u_Re_6_r" units="J_per_mmol"/>
         <!-- Ion transit affinities-->
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
@@ -3130,21 +3086,7 @@ ode(q_V, t)  = 0{pL_per_s};-->
             <apply>
                 <eq/>
                 <ci>u_Re_1_r</ci>
-                <apply>
-                    <plus/>
-                    <ci>u_2</ci>
-                    <apply>
-                        <times/>
-                        <ci>zNa</ci>
-                        <ci>F</ci>
-                        <apply>
-                            <plus/>
-                            <ci>d_1</ci>
-                            <ci>d_2</ci>
-                        </apply>
-                        <ci>u_e_m</ci>
-                    </apply>
-                </apply>
+                <ci>u_2</ci>
             </apply>
             <apply>
                 <eq/>
@@ -3168,21 +3110,7 @@ ode(q_V, t)  = 0{pL_per_s};-->
             <apply>
                 <eq/>
                 <ci>u_Re_2_r</ci>
-                <apply>
-                    <plus/>
-                    <ci>u_3</ci>
-                    <apply>
-                        <times/>
-                        <ci>zNa</ci>
-                        <ci>F</ci>
-                        <apply>
-                            <plus/>
-                            <ci>d_3</ci>
-                            <ci>d_4</ci>
-                        </apply>
-                        <ci>u_e_m</ci>
-                    </apply>
-                </apply>
+                <ci>u_3</ci>
             </apply>
             <apply>
                 <eq/>
@@ -3210,114 +3138,22 @@ ode(q_V, t)  = 0{pL_per_s};-->
                     <plus/>
                     <ci>u_Na_i</ci>
                     <ci>u_1</ci>
-                    <apply>
-                        <times/>
-                        <ci>zNa</ci>
-                        <ci>F</ci>
-                        <apply>
-                            <plus/>
-                            <ci>d_5</ci>
-                            <ci>d_6</ci>
-                        </apply>
-                        <ci>u_e_m</ci>
-                    </apply>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>u_Re_4_f</ci>
-                <apply>
-                    <minus/>
-                    <apply>
-                        <plus/>
-                        <ci>u_3</ci>
-                        <ci>u_Na_o</ci>
-                    </apply>
-                    <apply>
-                        <times/>
-                        <ci>zNa</ci>
-                        <ci>F</ci>
-                        <apply>
-                            <plus/>
-                            <ci>d_1</ci>
-                            <ci>d_2</ci>
-                        </apply>
-                        <ci>u_e_m</ci>
-                    </apply>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>u_Re_4_r</ci>
-                <apply>
-                    <plus/>
-                    <ci>u_4</ci>
-                    <apply>
-                        <times/>
-                        <ci>zNa</ci>
-                        <ci>F</ci>
-                        <apply>
-                            <plus/>
-                            <ci>d_1</ci>
-                            <ci>d_2</ci>
-                        </apply>
-                        <ci>u_e_m</ci>
-                    </apply>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>u_Re_5_f</ci>
-                <apply>
-                    <minus/>
-                    <ci>u_4</ci>
-                    <apply>
-                        <times/>
-                        <ci>zNa</ci>
-                        <ci>F</ci>
-                        <apply>
-                            <plus/>
-                            <ci>d_5</ci>
-                            <ci>d_6</ci>
-                        </apply>
-                        <ci>u_e_m</ci>
-                    </apply>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>u_Re_5_r</ci>
-                <apply>
-                    <plus/>
-                    <ci>u_2</ci>
-                    <ci>u_Na_i</ci>
-                    <apply>
-                        <times/>
-                        <ci>zNa</ci>
-                        <ci>F</ci>
-                        <apply>
-                            <plus/>
-                            <ci>d_5</ci>
-                            <ci>d_6</ci>
-                        </apply>
-                        <ci>u_e_m</ci>
-                    </apply>
                 </apply>
             </apply>
             <!-- Allosteric site affinities-->
             <apply>
                 <eq/>
-                <ci>u_Re_6_f</ci>
+                <ci>u_Re_4_f</ci>
                 <apply>
                     <plus/>
-                    <ci>u_5</ci>
+                    <ci>u_4</ci>
                     <ci>u_Na_o</ci>
                 </apply>
             </apply>
             <apply>
                 <eq/>
-                <ci>u_Re_6_r</ci>
-                <ci>u_6</ci>
+                <ci>u_Re_4_r</ci>
+                <ci>u_5</ci>
             </apply>
         </math>
         <!-- Constitutive equations-->
@@ -3325,8 +3161,6 @@ ode(q_V, t)  = 0{pL_per_s};-->
         <variable name="v_2" public_interface="out" units="fmol_per_s"/>
         <variable name="v_3" public_interface="out" units="fmol_per_s"/>
         <variable name="v_4" public_interface="out" units="fmol_per_s"/>
-        <variable name="v_5" public_interface="out" units="fmol_per_s"/>
-        <variable name="v_6" public_interface="out" units="fmol_per_s"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
@@ -3415,72 +3249,14 @@ ode(q_V, t)  = 0{pL_per_s};-->
                     </apply>
                 </apply>
             </apply>
+            <!-- fix v_ for now-->
             <apply>
                 <eq/>
                 <ci>v_4</ci>
-                <apply>
-                    <times/>
-                    <ci>kappa_4</ci>
-                    <ci>q_ref</ci>
-                    <ci>T</ci>
-                    <apply>
-                        <minus/>
-                        <apply>
-                            <exp/>
-                            <apply>
-                                <divide/>
-                                <ci>u_Re_4_f</ci>
-                                <ci>RT</ci>
-                            </apply>
-                        </apply>
-                        <apply>
-                            <exp/>
-                            <apply>
-                                <divide/>
-                                <ci>u_Re_4_r</ci>
-                                <ci>RT</ci>
-                            </apply>
-                        </apply>
-                    </apply>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>v_5</ci>
-                <apply>
-                    <times/>
-                    <ci>kappa_5</ci>
-                    <ci>q_ref</ci>
-                    <ci>T</ci>
-                    <apply>
-                        <minus/>
-                        <apply>
-                            <exp/>
-                            <apply>
-                                <divide/>
-                                <ci>u_Re_5_f</ci>
-                                <ci>RT</ci>
-                            </apply>
-                        </apply>
-                        <apply>
-                            <exp/>
-                            <apply>
-                                <divide/>
-                                <ci>u_Re_5_r</ci>
-                                <ci>RT</ci>
-                            </apply>
-                        </apply>
-                    </apply>
-                </apply>
-            </apply>
-            <!-- fix v_6 for now-->
-            <apply>
-                <eq/>
-                <ci>v_6</ci>
                 <cn cellml:units="fmol_per_s">0</cn>
             </apply>
         </math>
-        <!-- v_6 = kappa_6*q_ref*(exp(u_Re_6_f/RT)-exp(u_Re_6_r/RT));-->
+        <!-- v_4 = kappa_4*q_ref*T*(exp(u_Re_4_f/RT)-exp(u_Re_4_r/RT));-->
         <!-- Conservation equations-->
         <variable name="I_m" public_interface="out" units="picoA"/>
         <variable name="I_m_recorded" public_interface="out" units="picoA"/>
@@ -3496,11 +3272,7 @@ ode(q_V, t)  = 0{pL_per_s};-->
                         <plus/>
                         <apply>
                             <times/>
-                            <apply>
-                                <plus/>
-                                <ci>v_1</ci>
-                                <ci>v_4</ci>
-                            </apply>
+                            <ci>v_1</ci>
                             <apply>
                                 <plus/>
                                 <ci>d_1</ci>
@@ -3518,11 +3290,7 @@ ode(q_V, t)  = 0{pL_per_s};-->
                         </apply>
                         <apply>
                             <times/>
-                            <apply>
-                                <plus/>
-                                <ci>v_5</ci>
-                                <ci>v_3</ci>
-                            </apply>
+                            <ci>_3</ci>
                             <apply>
                                 <plus/>
                                 <ci>d_5</ci>
@@ -3561,10 +3329,10 @@ ode(q_V, t)  = 0{pL_per_s};-->
                         <divide/>
                         <apply>
                             <times/>
-                            <ci>v_6</ci>
+                            <ci>v_4</ci>
                             <ci>q_1</ci>
                         </apply>
-                        <ci>q_5</ci>
+                        <ci>q_4</ci>
                     </apply>
                 </apply>
             </apply>
@@ -3581,21 +3349,17 @@ ode(q_V, t)  = 0{pL_per_s};-->
                     <minus/>
                     <apply>
                         <minus/>
-                        <apply>
-                            <plus/>
-                            <ci>v_1</ci>
-                            <ci>v_5</ci>
-                        </apply>
+                        <ci>v_1</ci>
                         <ci>v_2</ci>
                     </apply>
                     <apply>
                         <divide/>
                         <apply>
                             <times/>
-                            <ci>v_6</ci>
+                            <ci>v_4</ci>
                             <ci>q_2</ci>
                         </apply>
-                        <ci>q_5</ci>
+                        <ci>q_4</ci>
                     </apply>
                 </apply>
             </apply>
@@ -3612,21 +3376,17 @@ ode(q_V, t)  = 0{pL_per_s};-->
                     <minus/>
                     <apply>
                         <minus/>
-                        <apply>
-                            <minus/>
-                            <ci>v_2</ci>
-                            <ci>v_4</ci>
-                        </apply>
+                        <ci>v_2</ci>
                         <ci>v_3</ci>
                     </apply>
                     <apply>
                         <divide/>
                         <apply>
                             <times/>
-                            <ci>v_6</ci>
+                            <ci>v_4</ci>
                             <ci>q_3</ci>
                         </apply>
-                        <ci>q_5</ci>
+                        <ci>q_4</ci>
                     </apply>
                 </apply>
             </apply>
@@ -3641,20 +3401,7 @@ ode(q_V, t)  = 0{pL_per_s};-->
                 </apply>
                 <apply>
                     <minus/>
-                    <apply>
-                        <minus/>
-                        <ci>v_4</ci>
-                        <ci>v_5</ci>
-                    </apply>
-                    <apply>
-                        <divide/>
-                        <apply>
-                            <times/>
-                            <ci>v_6</ci>
-                            <ci>q_4</ci>
-                        </apply>
-                        <ci>q_5</ci>
-                    </apply>
+                    <ci>v_4</ci>
                 </apply>
             </apply>
             <apply>
@@ -3666,21 +3413,7 @@ ode(q_V, t)  = 0{pL_per_s};-->
                     </bvar>
                     <ci>q_5</ci>
                 </apply>
-                <apply>
-                    <minus/>
-                    <ci>v_6</ci>
-                </apply>
-            </apply>
-            <apply>
-                <eq/>
-                <apply>
-                    <diff/>
-                    <bvar>
-                        <ci>t</ci>
-                    </bvar>
-                    <ci>q_6</ci>
-                </apply>
-                <ci>v_6</ci>
+                <ci>v_4</ci>
             </apply>
         </math>
         <variable name="v_Na_i" public_interface="out" units="fmol_per_s"/>
@@ -3689,11 +3422,7 @@ ode(q_V, t)  = 0{pL_per_s};-->
             <apply>
                 <eq/>
                 <ci>v_Na_i</ci>
-                <apply>
-                    <plus/>
-                    <ci>v_3</ci>
-                    <ci>v_5</ci>
-                </apply>
+                <ci>v_3</ci>
             </apply>
             <apply>
                 <eq/>
@@ -3702,10 +3431,6 @@ ode(q_V, t)  = 0{pL_per_s};-->
                     <minus/>
                     <apply>
                         <minus/>
-                        <apply>
-                            <minus/>
-                            <ci>v_6</ci>
-                        </apply>
                         <ci>v_4</ci>
                     </apply>
                     <ci>v_1</ci>
