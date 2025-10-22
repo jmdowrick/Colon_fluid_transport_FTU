@@ -2822,7 +2822,7 @@ ode(q_V, t)  = 0{pL_per_s};-->
         <variable name="u_G_1" units="J_per_mmol"/>
         <variable name="u_G_2" public_interface="in" units="J_per_mmol"/>
         <variable name="u_G_3" units="J_per_mmol"/>
-        <variable name="u_G_4" units="J_per_mmol"/>
+        <variable name="u_G_4" public_interface="in" units="J_per_mmol"/>
         <variable name="u_G_5" public_interface="in" units="J_per_mmol"/>
         <variable name="u_G_Na" public_interface="in" units="J_per_mmol"/>
         <!-- Rate constants-->
@@ -3290,7 +3290,7 @@ ode(q_V, t)  = 0{pL_per_s};-->
                         </apply>
                         <apply>
                             <times/>
-                            <ci>_3</ci>
+                            <ci>v_3</ci>
                             <apply>
                                 <plus/>
                                 <ci>d_5</ci>
