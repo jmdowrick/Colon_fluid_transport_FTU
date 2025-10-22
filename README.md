@@ -78,10 +78,9 @@ After updating modules, parameters, or the vessel array, it will be necessary to
     ├── colon_FTU_module_config.json
     ├── colon_FTU_modules.cellml
     ├── coupled_solute_solvent_transport.cellml
-    ├── epithelial_dynamics.cellml
-    └── units_and_constants
+    └── epithelial_dynamics.cellml
 
-12 directories, 20 files
+11 directories, 20 files
 ```
 # Citation
 *Insert journal citations when this model is published.*
