@@ -1771,6 +1771,43 @@
     ]
   },
   {
+    "vessel_type":"ENaC_SS",
+    "BC_type":"nn",
+    "module_format":"cellml",
+    "module_file":"colon_FTU_modules.cellml",
+    "module_type":"ENaC_SS",
+    "entrance_ports":
+    [
+    ],
+    "exit_ports":
+    [
+    ],
+    "general_ports":
+    [
+    ],
+    "variables_and_units":
+    [
+      ["R", "J_per_K_per_mmol", "access", "global_constant"],
+      ["F", "C_per_mmol", "access", "global_constant"],
+      ["T", "kelvin", "access", "global_constant"],
+      ["zNa", "dimensionless", "access", "global_constant"],
+      ["C_ref", "mM", "access", "global_constant"],
+      ["q_ref", "fmol", "access", "global_constant"],
+      ["u_G_10", "J_per_mmol", "access", "constant"],
+      ["u_G_Na", "J_per_mmol", "access", "constant"],
+      ["kappa_2", "fmol_per_s_per_K", "access", "constant"],
+      ["q_ENaC", "fmol", "access", "constant"],
+      ["C_Na_i", "mM", "access", "constant"],
+      ["C_Na_o", "mM", "access", "constant"],
+      ["u_G_1_ref", "J_per_mmol", "no_access", "constant"],
+      ["u_G_2_ref", "J_per_mmol", "no_access", "constant"],
+      ["u_e_m", "volt", "access", "constant"],
+      ["v", "fmol_per_s", "access", "variable"],
+      ["I_m", "picoA", "access", "variable"],
+      ["I_m_recorded", "picoA", "access", "variable"]
+    ]
+  },
+  {
     "vessel_type":"AQ_api",
     "BC_type":"nn",
     "module_format":"cellml",

@@ -1,0 +1,3 @@
+vessel_name,param_name,param_type,min,max,     name_for_plotting
+ENaC,u_G_10,const,-5,20,u_G2
+ENaC,kappa_2,const,1.00E+04,1.00E+16,kappa_2

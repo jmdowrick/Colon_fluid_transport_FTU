@@ -1,0 +1,81 @@
+#_______ general inputs ________
+DEBUG: false
+
+file_prefix: ENaC_pe
+input_param_file: ENaC_pe_parameters.csv
+#user_inputs_path_override: /hpc/jdow403/projects/Colon_fluid_transport_FTU/Module_calibration/ENaC/ENaC_pe_user_inputs.yaml
+#external_modules_dir: /hpc/jdow403/projects/Colon_fluid_transport_FTU/modules
+#resources_dir: /hpc/jdow403/projects/Colon_fluid_transport_FTU/Module_calibration/ENaC/resources
+#generated_models_dir: /hpc/jdow403/projects/Colon_fluid_transport_FTU/Module_calibration/ENaC/generated_models
+#param_id_output_dir: /hpc/jdow403/projects/Colon_fluid_transport_FTU/Module_calibration/ENaC/param_id_output
+user_inputs_path_override: /Users/jdow403/Documents/_projects/Project_Colon_fluid_transport_FTU/module_calibration/ENaC_SS/ENaC_pe_user_inputs.yaml
+external_modules_dir: /Users/jdow403/Documents/_projects/Project_Colon_fluid_transport_FTU/modules
+resources_dir: /Users/jdow403/Documents/_projects/Project_Colon_fluid_transport_FTU/module_calibration/ENaC_SS/resources
+generated_models_dir: /Users/jdow403/Documents/_projects/Project_Colon_fluid_transport_FTU/module_calibration/ENaC_SS/generated_models
+param_id_output_dir: /Users/jdow403/Documents/_projects/Project_Colon_fluid_transport_FTU/module_calibration/ENaC_SS/param_id_output
+
+#________ cpp generation inputs _______
+# solver options are: RK4, forward_euler, CVODE
+solver: CVODE
+
+# model_type can be cellml_only or cpp atm
+model_type: cellml_only
+
+#__________ parameter identification inputs __________
+# param_id_method can be any of [genetic_algorithm]
+param_id_method: genetic_algorithm
+
+# pre_time is the amount of time simulated to get to steady state
+pre_time: 20
+
+# sim_time is the amount of simulation time where the outputs are compared to ground truth
+sim_time: 2
+
+# This is for cpp generation
+#cpp_generated_models_dir: /hpc/jdow403/projects/Colon_fluid_transport_FTU/Module_calibration/ENaC/generated_models
+cpp_generated_models_dir: /Users/jdow403/Documents/_projects/Project_Colon_fluid_transport_FTU/module_calibration/ENaC_SS/generated_models
+
+# Output time step (sampling) 
+dt: 0.01 # This should be smaller than all of the dt in your obs_data.json file.
+
+# These are inputs to solver_properties of the solver
+solver_info:
+  # Maximum time step for solver
+  MaximumStep: 0.0001
+  MaximumNumberOfSteps: 5000
+
+param_id_obs_path: /hpc/jdow403/projects/Colon_fluid_transport_FTU/module_calibration/ENaC_SS/resources/ENaC_pe_obs_data.json
+
+#_______ sensitivity analysis inputs __________
+do_sensitivity: false
+
+#______ genetic algorithm inputs ___________
+ga_options:
+  cost_type: MSE # This should be defined for each entry in the
+                 # obs_data.json file instead. Currently if there is no cost_type entry in the
+                 # obs_data.json entry, it will be set to this entry
+  # maximum number of calls to the forward function during one run of the param_id_method
+  num_calls_to_function: 50000
+  cost_convergence: 0.001
+
+debug_ga_options:
+  cost_type: MSE
+  num_calls_to_function: 30
+  cost_convergence: 0.001
+
+#______ mcmc inputs ___________
+do_mcmc: false
+mcmc_options:
+  num_steps: 1000
+  num_walkers: 64
+  # TODO As above for cost_type
+  cost_type: MSE
+  cost_convergence: 0.001
+
+debug_mcmc_options:
+  num_steps: 5
+  num_walkers: 40
+  cost_type: MSE
+  cost_convergence: 0.001
+
+plot_predictions: true

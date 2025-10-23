@@ -1,0 +1,203 @@
+{
+  "protocol_info":
+  {
+    "pre_times": [
+      1.0
+    ],
+    "sim_times": [
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    ],
+    "params_to_change": {
+      "ENaC/u_e_m": [
+        [-0.062898551, -0.053236715, -0.043091787, -0.03294686, -0.022801932,
+          -0.013140097, -0.002995169, 0.007149758, 0.017294686, 0.026956522,
+          0.037584541, 0.046763285]
+      ],
+      "ENaC/C_Na_o": [
+        [145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145, 145]
+      ],
+      "ENaC/C_Na_i": [
+        [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12]
+      ],
+      "global/T": [
+        [294.5, 294.5, 294.5, 294.5, 294.5, 294.5, 294.5, 294.5, 294.5, 294.5, 294.5, 294.5]
+      ],
+      "ENaC/q_ENaC": [
+        [0.00000064, 0.00000064, 0.00000064, 0.00000064, 0.00000064, 0.00000064,
+          0.00000064, 0.00000064, 0.00000064, 0.00000064, 0.00000064, 0.00000064]
+      ]
+    },
+    "experiment_colors": ["r"],
+    "experiment_labels": ["1"]
+  },
+  "data_items": [
+    {
+      "variable": "ENaC/I_m_recorded",
+      "name_for_plotting": "I_{ENaC}",
+      "data_type": "constant",
+      "operation": "steady_state_min",
+      "operands": ["ENaC/I_m_recorded"],
+      "unit": "picoA",
+      "weight": 1.0,
+      "value": -125.6653992,
+      "std": 1.0,
+      "experiment_idx": 0,
+      "subexperiment_idx": 0,
+      "plot_type": "horizontal"
+    },
+    {
+      "variable": "ENaC/I_m_recorded",
+      "name_for_plotting": "I_{ENaC}",
+      "data_type": "constant",
+      "operation": "steady_state_min",
+      "operands": ["ENaC/I_m_recorded"],
+      "unit": "picoA",
+      "weight": 1.0,
+      "value": -108.9353612,
+      "std": 1.0,
+      "experiment_idx": 0,
+      "subexperiment_idx": 1,
+      "plot_type": "horizontal"
+    },
+    {
+      "variable": "ENaC/I_m_recorded",
+      "name_for_plotting": "I_{ENaC}",
+      "data_type": "constant",
+      "operation": "steady_state_min",
+      "operands": ["ENaC/I_m_recorded"],
+      "unit": "picoA",
+      "weight": 1.0,
+      "value": -95.24714829,
+      "std": 1.0,
+      "experiment_idx": 0,
+      "subexperiment_idx": 2,
+      "plot_type": "horizontal"
+    },
+    {
+      "variable": "ENaC/I_m_recorded",
+      "name_for_plotting": "I_{ENaC}",
+      "data_type": "constant",
+      "operation": "steady_state_min",
+      "operands": ["ENaC/I_m_recorded"],
+      "unit": "picoA",
+      "weight": 1.0,
+      "value": -81.55893536,
+      "std": 1.0,
+      "experiment_idx": 0,
+      "subexperiment_idx": 3,
+      "plot_type": "horizontal"
+    },
+    {
+      "variable": "ENaC/I_m_recorded",
+      "name_for_plotting": "I_{ENaC}",
+      "data_type": "constant",
+      "operation": "steady_state_min",
+      "operands": ["ENaC/I_m_recorded"],
+      "unit": "picoA",
+      "weight": 1.0,
+      "value": -67.11026616,
+      "std": 1.0,
+      "experiment_idx": 0,
+      "subexperiment_idx": 4,
+      "plot_type": "horizontal"
+    },
+    {
+      "variable": "ENaC/I_m_recorded",
+      "name_for_plotting": "I_{ENaC}",
+      "data_type": "constant",
+      "operation": "steady_state_min",
+      "operands": ["ENaC/I_m_recorded"],
+      "unit": "picoA",
+      "weight": 1.0,
+      "value": -54.94296578,
+      "std": 1.0,
+      "experiment_idx": 0,
+      "subexperiment_idx": 5,
+      "plot_type": "horizontal"
+    },
+    {
+      "variable": "ENaC/I_m_recorded",
+      "name_for_plotting": "I_{ENaC}",
+      "data_type": "constant",
+      "operation": "steady_state_min",
+      "operands": ["ENaC/I_m_recorded"],
+      "unit": "picoA",
+      "weight": 1.0,
+      "value": -42.7756654,
+      "std": 1.0,
+      "experiment_idx": 0,
+      "subexperiment_idx": 6,
+      "plot_type": "horizontal"
+    },
+    {
+      "variable": "ENaC/I_m_recorded",
+      "name_for_plotting": "I_{ENaC}",
+      "data_type": "constant",
+      "operation": "steady_state_min",
+      "operands": ["ENaC/I_m_recorded"],
+      "unit": "picoA",
+      "weight": 1.0,
+      "value": -31.36882129,
+      "std": 1.0,
+      "experiment_idx": 0,
+      "subexperiment_idx": 7,
+      "plot_type": "horizontal"
+    },
+    {
+      "variable": "ENaC/I_m_recorded",
+      "name_for_plotting": "I_{ENaC}",
+      "data_type": "constant",
+      "operation": "steady_state_min",
+      "operands": ["ENaC/I_m_recorded"],
+      "unit": "picoA",
+      "weight": 1.0,
+      "value": -22.24334601,
+      "std": 1.0,
+      "experiment_idx": 0,
+      "subexperiment_idx": 8,
+      "plot_type": "horizontal"
+    },
+    {
+      "variable": "ENaC/I_m_recorded",
+      "name_for_plotting": "I_{ENaC}",
+      "data_type": "constant",
+      "operation": "steady_state_min",
+      "operands": ["ENaC/I_m_recorded"],
+      "unit": "picoA",
+      "weight": 1.0,
+      "value": -11.59695817,
+      "std": 1.0,
+      "experiment_idx": 0,
+      "subexperiment_idx": 9,
+      "plot_type": "horizontal"
+    },
+    {
+      "variable": "ENaC/I_m_recorded",
+      "name_for_plotting": "I_{ENaC}",
+      "data_type": "constant",
+      "operation": "steady_state_min",
+      "operands": ["ENaC/I_m_recorded"],
+      "unit": "picoA",
+      "weight": 1.0,
+      "value": -3.992395437,
+      "std": 1.0,
+      "experiment_idx": 0,
+      "subexperiment_idx": 10,
+      "plot_type": "horizontal"
+    },
+    {
+      "variable": "ENaC/I_m_recorded",
+      "name_for_plotting": "I_{ENaC}",
+      "data_type": "constant",
+      "operation": "steady_state_min",
+      "operands": ["ENaC/I_m_recorded"],
+      "unit": "picoA",
+      "weight": 1.0,
+      "value": 5.133079848,
+      "std": 1.0,
+      "experiment_idx": 0,
+      "subexperiment_idx": 12,
+      "plot_type": "horizontal"
+    }
+  ]
+}

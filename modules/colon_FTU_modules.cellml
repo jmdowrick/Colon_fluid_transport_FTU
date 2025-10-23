@@ -2796,6 +2796,213 @@ ode(q_V, t)  = 0{pL_per_s};-->
             </apply>
         </math>
     </component>
+    <component name="ENaC_SS">
+        <variable name="t" public_interface="in" units="second"/>
+        <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>
+        <variable name="T" public_interface="in" units="kelvin"/>
+        <variable name="F" public_interface="in" units="C_per_mmol"/>
+        <variable name="RT" units="J_per_mmol"/>
+        <variable name="zNa" public_interface="in" units="dimensionless"/>
+        <variable name="C_ref" public_interface="in" units="mM"/>
+        <variable name="q_ref" public_interface="in" units="fmol"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>RT</ci>
+                <apply>
+                    <times/>
+                    <ci>R</ci>
+                    <ci>T</ci>
+                </apply>
+            </apply>
+        </math>
+        <!-- Thermodynamic constants-->
+        <variable name="u_G_00" units="J_per_mmol"/>
+        <variable name="u_G_10" public_interface="in" units="J_per_mmol"/>
+        <variable name="u_G_01" units="J_per_mmol"/>
+        <variable name="u_G_Na" public_interface="in" units="J_per_mmol"/>
+        <!-- Rate constant-->
+        <variable name="kappa_2" public_interface="in" units="fmol_per_s_per_K"/>
+        <!-- Initial values-->
+        <variable name="q_ENaC" public_interface="in" units="fmol"/>
+        <variable name="C_Na_i" public_interface="in" units="mM"/>
+        <variable name="C_Na_o" public_interface="in" units="mM"/>
+        <!-- constraints-->
+        <variable name="u_G_1_ref" public_interface="in" units="J_per_mmol"/>
+        <variable name="u_G_2_ref" public_interface="in" units="J_per_mmol"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>u_G_00</ci>
+                <apply>
+                    <minus/>
+                    <ci>u_G_10</ci>
+                    <apply>
+                        <plus/>
+                        <ci>u_G_Na</ci>
+                        <ci>u_G_1_ref</ci>
+                    </apply>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_G_01</ci>
+                <apply>
+                    <minus/>
+                    <ci>u_G_2_ref</ci>
+                    <ci>u_G_10</ci>
+                </apply>
+            </apply>
+        </math>
+        <!-- electrical potential-->
+        <variable name="u_e_m" public_interface="in" units="volt"/>
+        <!-- steady state flux-->
+        <variable name="v" public_interface="out" units="fmol_per_s"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>v</ci>
+                <apply>
+                    <times/>
+                    <apply>
+                        <divide/>
+                        <apply>
+                            <times/>
+                            <ci>kappa_2</ci>
+                            <ci>T</ci>
+                            <apply>
+                                <divide/>
+                                <ci>q_ENaC</ci>
+                                <ci>q_ref</ci>
+                            </apply>
+                        </apply>
+                        <apply>
+                            <plus/>
+                            <apply>
+                                <exp/>
+                                <apply>
+                                    <divide/>
+                                    <apply>
+                                        <minus/>
+                                        <apply>
+                                            <minus/>
+                                            <ci>u_G_00</ci>
+                                        </apply>
+                                        <ci>u_G_Na</ci>
+                                    </apply>
+                                    <ci>RT</ci>
+                                </apply>
+                            </apply>
+                            <apply>
+                                <times/>
+                                <apply>
+                                    <divide/>
+                                    <ci>C_Na_o</ci>
+                                    <ci>C_ref</ci>
+                                </apply>
+                                <apply>
+                                    <exp/>
+                                    <apply>
+                                        <divide/>
+                                        <apply>
+                                            <minus/>
+                                            <ci>u_G_10</ci>
+                                        </apply>
+                                        <ci>RT</ci>
+                                    </apply>
+                                </apply>
+                            </apply>
+                            <apply>
+                                <times/>
+                                <apply>
+                                    <divide/>
+                                    <ci>C_Na_i</ci>
+                                    <ci>C_ref</ci>
+                                </apply>
+                                <apply>
+                                    <exp/>
+                                    <apply>
+                                        <divide/>
+                                        <apply>
+                                            <minus/>
+                                            <ci>u_G_01</ci>
+                                        </apply>
+                                        <ci>RT</ci>
+                                    </apply>
+                                </apply>
+                            </apply>
+                        </apply>
+                    </apply>
+                    <apply>
+                        <minus/>
+                        <apply>
+                            <times/>
+                            <apply>
+                                <divide/>
+                                <ci>C_Na_o</ci>
+                                <ci>C_ref</ci>
+                            </apply>
+                            <apply>
+                                <exp/>
+                                <apply>
+                                    <divide/>
+                                    <apply>
+                                        <times/>
+                                        <apply>
+                                            <minus/>
+                                            <ci>zNa</ci>
+                                        </apply>
+                                        <ci>F</ci>
+                                        <ci>u_e_m</ci>
+                                    </apply>
+                                    <ci>RT</ci>
+                                </apply>
+                            </apply>
+                        </apply>
+                        <apply>
+                            <divide/>
+                            <ci>C_Na_i</ci>
+                            <ci>C_ref</ci>
+                        </apply>
+                    </apply>
+                </apply>
+            </apply>
+        </math>
+        <!-- Conservation equations-->
+        <variable name="I_m" public_interface="out" units="picoA"/>
+        <variable name="I_m_recorded" public_interface="out" units="picoA"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>I_m</ci>
+                <apply>
+                    <times/>
+                    <ci>zNa</ci>
+                    <ci>F</ci>
+                    <ci>v</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>I_m_recorded</ci>
+                <apply>
+                    <minus/>
+                    <ci>I_m</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>q_ENaC</ci>
+                </apply>
+                <cn cellml:units="fmol_per_s">0</cn>
+            </apply>
+        </math>
+    </component>
     <component name="ENaC_PE">
         <variable name="t" public_interface="in" units="second"/>
         <variable name="R" public_interface="in" units="J_per_K_per_mmol"/>

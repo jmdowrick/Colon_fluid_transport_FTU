@@ -2,4 +2,9 @@
 documents
 figures
 .idea
-
+.gitignore
+/module_calibration/ENaC_SS/param_id_output
+/module_calibration/ENaC_SS/generated_models
+/module_calibration/ENaC_rel_G_activation/param_id_output
+/module_calibration/ENaC_rel_G_activation/generated_models
+/module_calibration/ENaC_rel_G_activation/generated_models
