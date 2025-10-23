@@ -67,6 +67,7 @@ After updating modules, parameters, or the vessel array, it will be necessary to
 │   ├── CA_colon_FTU.png
 │   └── CA_colon_FTU_simple.png
 ├── module_calibration
+│   ├── ENaC_SS
 │   ├── ENaC_forward_G_activation
 │   └── ENaC_rel_G_activation
 └── modules
@@ -81,7 +82,7 @@ After updating modules, parameters, or the vessel array, it will be necessary to
     ├── coupled_solute_solvent_transport.cellml
     └── epithelial_dynamics.cellml
 
-12 directories, 20 files
+13 directories, 20 files
 ```
 # Citation
 *Insert journal citations when this model is published.*
