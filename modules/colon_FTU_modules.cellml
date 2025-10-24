@@ -2848,7 +2848,7 @@ ode(q_V, t)  = 0{pL_per_s};-->
                 <eq/>
                 <ci>u_G_01</ci>
                 <apply>
-                    <minus/>
+                    <plus/>
                     <ci>u_G_2_ref</ci>
                     <ci>u_G_10</ci>
                 </apply>
