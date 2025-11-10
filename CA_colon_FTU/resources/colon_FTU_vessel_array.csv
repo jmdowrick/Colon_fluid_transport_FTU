@@ -1,18 +1,18 @@
 name,BC_type,vessel_type,inp_vessels,out_vessels
-lumen,nn,lumen,mucus,muc_transport
-muc_transport,nn,muc_transport,lumen,mucus cell
-mucus,nn,mucus,bas_membrane muc_transport,para_transport api_membrane ENaC AQ_api lumen
-cell,nn,colonocyte,ENaC AQ_api para_transport muc_transport,api_membrane bas_membrane NKE AQ_bas Kir
-int_fluid,nn,interstitial_fluid,para_transport Kir NKE AQ_bas,bas_membrane cap_transport lymph_transport
-para_transport,nn,paracellular_module,mucus,int_fluid cell
+lumen,nn,lumen,mucus,muc_tran
+muc_tran,nn,muc_transport,lumen,mucus cell
+mucus,nn,mucus,bas_membrane muc_tran,para_tran api_membrane ENaC AQ_api lumen
+cell,nn,colonocyte,ENaC AQ_api para_tran muc_tran,api_membrane bas_membrane NKE AQ_bas Kir
+int_fluid,nn,interstitial_fluid,para_tran Kir NKE AQ_bas,bas_membrane cap_tran lym_tran
+para_tran,nn,paracellular_module,mucus,int_fluid cell
 bas_membrane,nn,basolateral_membrane,cell int_fluid Kir NKE,mucus
 api_membrane,nn,apical_membrane,mucus cell ENaC,
 ENaC,nn,ENaC,mucus,api_membrane cell
 AQ_api,nn,AQ_api,mucus,cell
 AQ_bas,nn,AQ_bas,cell,int_fluid
-NKE,nn,NKE,cell ,bas_membrane int_fluid
+NKE,nn,NKE_hunter,cell ,bas_membrane int_fluid
 Kir,nn,Kir,cell,bas_membrane int_fluid
-cap_transport,nn,cap_transport,int_fluid,blood 
-blood,nn,blood,cap_transport,
-lymph,nn,lymph,lymph_transport,
-lymph_transport,nn,lymph_transport,int_fluid,lymph
+cap_tran,nn,cap_transport,int_fluid,blood
+blood,nn,blood,cap_tran,
+lymph,nn,lymph,lym_tran,
+lym_tran,nn,lymph_transport,int_fluid,lymph
