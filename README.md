@@ -50,6 +50,7 @@ After updating modules, parameters, or the vessel array, it will be necessary to
 
 ```
 ├── CA_colon_FTU
+│   ├── colon_FTU_parameters.csv
 │   ├── colon_FTU_user_inputs.yaml
 │   ├── generated_models
 │   └── resources
@@ -82,7 +83,7 @@ After updating modules, parameters, or the vessel array, it will be necessary to
     ├── coupled_solute_solvent_transport.cellml
     └── epithelial_dynamics.cellml
 
-13 directories, 20 files
+13 directories, 21 files
 ```
 # Citation
 *Insert journal citations when this model is published.*
