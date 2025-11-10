@@ -10,7 +10,7 @@ api_membrane,nn,apical_membrane,mucus cell ENaC,
 ENaC,nn,ENaC,mucus,api_membrane cell
 AQ_api,nn,AQ_api,mucus,cell
 AQ_bas,nn,AQ_bas,cell,int_fluid
-NKE,nn,NKE_hunter,cell ,bas_membrane int_fluid
+NKE,nn,NKE,cell ,bas_membrane int_fluid
 Kir,nn,Kir,cell,bas_membrane int_fluid
 cap_tran,nn,cap_transport,int_fluid,blood
 blood,nn,blood,cap_tran,
